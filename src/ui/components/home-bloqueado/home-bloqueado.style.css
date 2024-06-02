@@ -1,0 +1,31 @@
+
+.home-bloqueado {
+    width: 100%;
+    height: 87%;
+    background: linear-gradient(90deg, var(--black-transparent) 100%, var(--black) 100%),
+    url(../../../assets/img/backgrounds/CLOUDS.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-bloqueado h1 {
+    margin: 5px;
+    font-family: titleFont;
+    color: var(--white);
+    text-shadow: var(--borda-texto);
+    font-size: 42px;
+}
+
+.home-bloqueado p {
+    margin: 5px;
+    color: var(--white);
+    font-size: 24px;
+    text-shadow: var(--borda-texto);
+}
+
+.home-bloqueado img {
+    height: 10rem;
+}

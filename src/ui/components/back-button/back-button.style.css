@@ -1,0 +1,26 @@
+
+.back-button {
+    background: none;
+    border: none;
+    background-image: url(../../../assets/img/icons/SETA_VOLTAR.png);
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 3rem;
+    height: 2rem;
+    font-size: 28px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transition: all 0.3s;
+    color: transparent;
+    font-family: titleFont, sans-serif;
+    z-index: 999;
+}
+
+.back-button:hover {
+    transition: all 0.3s;
+    cursor: pointer;
+    color: var(--white);
+    text-shadow: var(--borda-texto)
+}

@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=PT+Serif&family=Playfair+Display&family=Roboto+Slab&display=swap");
+
+@font-face {
+  font-family: titleFont;
+  src: url(./assets/font/alagard.ttf);
+}
+
+@font-face {
+  font-family: textFont;
+  src: url(./assets/font/Pixel.ttf);
+}
+
+:root {
+  --borda-texto: 2px 0px var(--black), 0px 2px var(--black),
+  -2px 0px var(--black),  0px -2px var(--black), 2px 2px 10px var(--black);
+
+  --fundo-janela: #cef8ff;
+  --fundo-destaque: #dde7f2;
+  --black: #000000;
+  --grey: #494949;
+  --light-grey: #d4d4d4;
+  --white: #ffffff;
+  --red: #fe2826;
+  --red-transparent: #b90b08d8;
+  --black-transparent: #000000e5;
+  --grey-transparent: #d4d4d4b0;
+  --yellow-transparent: #fdff7698;
+  --white-transparent: #ffffffb0;
+  --cyan-transparent: #cef8ff63;
+  --blue-transparent: #1e43949c;
+  --light-blue: #82dcfd;
+  --pacific-blue: #2596be;
+  --blue-grey: #7BA1B8;
+  --blue-metal: #6487a8;
+  --blue-green: #00FF96;
+  --blue: #1e4394;
+  --dark-blue: #0f2249;
+  --light-green: #43d843;
+  --green: #00b800;
+  --dark-green: #0b410b;
+  --purple: #5d0274;
+  --cyan: #44dbfa;
+  --background: #f0f0f0;
+  --cyan-background: #E0ECF8;
+  --background-text: #00000065;
+  --tema-amarelo: #ffd900;
+  --tema-ciano: #70d6da;
+  --tema-roxo: #631974;
+  --tema-verde: #097e05;
+  --tema-inimigo: #bd0c0c;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: textFont, sans-serif;
+  cursor: url(./assets/img/cursors/AUTO.png), auto;
+}
+
+button {
+  cursor: url(./assets/img/cursors/POINTER.png), pointer;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: var(--black-transparent);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--white);
+  border-radius: 5px;
+}
+
+div .white-screen {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  animation: fade-in 4s;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes shine {
+  from {
+    filter: brightness(100%);
+  }
+  to {
+    filter: brightness(105%);
+  }
+}
+
+@keyframes topToBottom {
+  from {background-position: top;}
+  to {background-position: bottom;}
+}
+
+@keyframes leftToRight {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}
+
+@keyframes floating {
+  from {
+    transform: translateY(-5px);
+  }
+  to {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes rolar-dado-turno {
+  0% {
+    opacity: 0%;
+    transform: rotate(0deg);
+    color: transparent;
+    text-shadow: none;
+  }
+  15% {
+    opacity: 100%;
+  }
+  40% {
+    transform: rotate(1800deg);
+    color: transparent;
+    text-shadow: none;
+  }
+  50% {
+    color: var(--white);
+    text-shadow: 2px 2px var(--black);
+  }
+  95% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
