@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/guilda-do-infinito/sw.js', { scope: '/guilda-do-infinito/' })})}
