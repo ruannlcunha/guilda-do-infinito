@@ -11,11 +11,19 @@
 }
 
 :root {
+  --cursor-pointer: url(./assets/img/cursors/POINTER.png), pointer;
+  
+  --box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+  rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset,
+  rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+
   --borda-texto: 2px 0px var(--black), 0px 2px var(--black),
+  -2px 0px var(--black),  0px -2px var(--black);
+  --borda-texto-sombra: 2px 0px var(--black), 0px 2px var(--black),
   -2px 0px var(--black),  0px -2px var(--black), 2px 2px 10px var(--black);
 
-  --fundo-janela: #cef8ff;
-  --fundo-destaque: #dde7f2;
+  --fundo-janela: #ebebeb;
+  --fundo-destaque: #c5d0dd;
   --black: #000000;
   --grey: #494949;
   --light-grey: #d4d4d4;
@@ -46,8 +54,12 @@
   --tema-amarelo: #ffd900;
   --tema-ciano: #70d6da;
   --tema-roxo: #631974;
+  --tema-rosa: #b3318c;
+  --tema-preto: #0f0f0f;
+  --tema-branco: #d4d4d4;
   --tema-verde: #097e05;
-  --tema-inimigo: #bd0c0c;
+  --tema-vermelho: #bd0c0c;
+  --tema-inimigo: #5c0d0d;
 }
 
 body {
@@ -63,6 +75,10 @@ body {
 }
 
 button {
+  cursor: url(./assets/img/cursors/POINTER.png), pointer;
+}
+
+label {
   cursor: url(./assets/img/cursors/POINTER.png), pointer;
 }
 

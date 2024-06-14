@@ -12,8 +12,8 @@ export function Personagem({
   functions,
 }) {
   const porcentagemVida = calcularPorcentagem(
-    personagem.pvAtual,
-    personagem.pvTotal
+    personagem.pv.atual,
+    personagem.pv.maximo
   );
 
   const isAlvo = acaoAtiva.alvos.some(item=> item.idCombate===personagem.idCombate)

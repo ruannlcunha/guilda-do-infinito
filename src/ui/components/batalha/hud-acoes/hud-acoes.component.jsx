@@ -10,16 +10,14 @@ export function HUDAcoes({ personagem, personagens, functions }) {
     ativo: false,
     titulo: "",
     acoesAtuais: null,
-    data: null,
   });
 
-  function selectAcao(novoTitulo, novasAcoes, novaData) {
+  function selectAcao(novoTitulo, novasAcoes) {
     playClick(1)
     const novasSubsAcoes = {
       ...subAcoes,
       titulo: novoTitulo,
       acoesAtuais: novasAcoes,
-      data: novaData,
     };
 
     setSubAcoes(novasSubsAcoes);
@@ -47,7 +45,7 @@ export function HUDAcoes({ personagem, personagens, functions }) {
       <ul className="hud-acoes">
         <li onMouseEnter={()=>playHover(1)}
           onClick={() =>
-            selectAcao("Ataques", personagem.ataques, ATAQUES_DATA)
+            selectAcao("Ataques", personagem.ataques)
           }
         >
           Atacar
@@ -57,8 +55,7 @@ export function HUDAcoes({ personagem, personagens, functions }) {
           onClick={() =>
             selectAcao(
               "Habilidades",
-              personagem.habilidades,
-              HABILIDADES_DATA
+              personagem.habilidades
             )
           }
         >
@@ -69,8 +66,7 @@ export function HUDAcoes({ personagem, personagens, functions }) {
           onClick={() =>
             selectAcao(
               "Itens",
-              personagem.itens,
-              CONSUMIVEIS_DATA
+              personagem.inventario.consumiveis
             )
           }
         >

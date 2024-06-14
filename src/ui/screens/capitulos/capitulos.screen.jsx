@@ -34,7 +34,6 @@ export function CapitulosScreen() {
     function fetchData() {
         const novaData = CAMPANHAS_DATA.find(item=>item.url===`/historia/${campanha}`)
         setData(novaData)
-        setSelectedData(novaData[0])
         return novaData
     }
 

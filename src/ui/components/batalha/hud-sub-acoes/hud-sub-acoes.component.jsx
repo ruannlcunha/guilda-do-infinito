@@ -30,11 +30,11 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
         )
     }
 
-    function renderItem(subAcao, acao) {
+    function renderItem(subAcao) {
         return (
             <section>
               <h2><span>Efeito:</span> {subAcao.efeito}</h2>
-              <h2><span>Quantidade:</span> {acao.quantidade}</h2>
+              <h2><span>Quantidade:</span> {subAcao.quantidade}</h2>
             </section>
         )
     }
@@ -45,34 +45,33 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
             <div className="hud-sub-acoes">
               <header>{subAcoes.titulo}</header>
               <section>
+                {console.log(personagem)}
+                {console.log(subAcoes)}
                 {subAcoes.acoesAtuais
-                  ? subAcoes.acoesAtuais.map((acao, index) => {
-                      const subAcao = subAcoes.data.find(
-                          (item) => item.id === acao.id
-                        );
-                        const estaBloqueado = subAcao.custo ? (personagem.pmAtual < subAcao.custo) : false;
-                        return (
-                            <li
-                            key={index}
-                            onMouseEnter={()=>{playHover(2)}}
-                            className={estaBloqueado ? "acao-bloqueada" : null}
-                            onClick={
-                                !estaBloqueado
-                                ? () => {
-                                    handleEscolherAcao(
-                                        personagem, 
-                                        personagens,
-                                        subAcao,
-                                        functions
-                                    );
-                                }
+                  ? subAcoes.acoesAtuais.map((subAcao, index) => {
+                      const estaBloqueado = subAcao.custo ? (personagem.pm.atual < subAcao.custo) : false;
+                      return (
+                          <li
+                          key={index}
+                          onMouseEnter={()=>{playHover(2)}}
+                          className={estaBloqueado ? "acao-bloqueada" : null}
+                          onClick={
+                              !estaBloqueado
+                              ? () => {
+                                  handleEscolherAcao(
+                                      personagem, 
+                                      personagens,
+                                      subAcao,
+                                      functions
+                                  );
+                              }
                               : null
                             }
                             >
                           <h1>{subAcao.nome}</h1>
                           {subAcao.dadoDeDano ? renderAtaque(subAcao) :
                           subAcao.custo ? renderHabilidade(subAcao) :
-                          renderItem(subAcao, acao)}
+                          renderItem(subAcao)}
                         </li>
                       );
                     })

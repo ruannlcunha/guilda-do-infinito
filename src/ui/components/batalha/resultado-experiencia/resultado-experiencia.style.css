@@ -2,11 +2,11 @@
 .fim-de-batalha .experiencia-section {
     width: 55%;
     height: 95%;
-    border: double 5px var(--white);
+    border: double 5px var(--blue);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    box-shadow: var(--white) 0px 2px 4px 0px, var(--white) 0px 2px 16px 0px,
+    box-shadow:
     rgba(50, 50, 93, 0.25) 0px 15px 35px -12px inset, rgba(0, 0, 0, 0.3) 0px 10px 36px -10px inset,
     rgba(0, 0, 0, 0.35) 0px -30px 36px -28px inset;
 }
@@ -24,15 +24,13 @@
 
 .fim-de-batalha .experiencia-section header h1 {
     color: white;
-    text-shadow: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black),  0px -2px var(--black),
-    2px 2px 10px var(--black);
+    text-shadow: var(--borda-texto);
     font-size: 32px;
     margin: 0;
     filter: drop-shadow(2px 2px 10px var(--grey));
     margin-left: 2rem;
+    font-weight: 100;
 }
-
-
 
 .fim-de-batalha .experiencia-section .experiencia-obtida {
     width: 100%;

@@ -1,6 +1,6 @@
 import PREVIEW from "./assets/PREVIEW.png"
 import { INTRODUCAO } from "./capitulos/introducao/introducao.capitulo.data";
-import { TORNEIO } from "./capitulos/introducao copy/torneio.capitulo.data"
+import { TORNEIO } from "./capitulos/torneio/torneio.capitulo.data"
 
 export const GRANDE_PRIMAVERA =  {
     id: 1,

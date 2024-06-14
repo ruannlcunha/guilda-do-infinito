@@ -1,8 +1,13 @@
+import { useInstanciarPersonagem } from "../../";
+
 export function useInstanciarPersonagens() {
+  const { instanciarPersonagem } = useInstanciarPersonagem()
+
   function instanciarPersonagens(aliadosData, inimigosData) {
     const aliados = aliadosData.map((personagem, index) => {
+      const novoPersonagem = instanciarPersonagem(personagem)
       return {
-        ...personagem,
+        ...novoPersonagem,
         posicaoEmCampo: index + 1,
         idCombate: index + 1,
         ordemInicial: index + 1,
@@ -13,8 +18,9 @@ export function useInstanciarPersonagens() {
     });
 
     const inimigos = inimigosData.map((personagem, index) => {
+      const novoPersonagem = instanciarPersonagem(personagem)
       return {
-        ...personagem,
+        ...novoPersonagem,
         posicaoEmCampo: index + 1,
         isInimigo: true,
         isMorto: false,

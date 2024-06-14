@@ -2,11 +2,13 @@ import { createHashRouter } from "react-router-dom";
 import { AventuraScreen,
   BatalhaScreen,
   CapitulosScreen,
+  CenaScreen,
   CosmosScreen,
   HistoriaScreen,
   HomeScreen,
   LojaScreen,
   NotFoundScreen,
+  NovoJogoScreen,
   PerfilScreen,
   RootScreen,
   StartScreen,
@@ -25,6 +27,10 @@ export const router = createHashRouter([
       {
         path: `/`,
         element: <StartScreen />,
+      },
+      {
+        path: `/novo-jogo`,
+        element: <NovoJogoScreen />,
       },
       {
         path: `/home`,
@@ -61,6 +67,10 @@ export const router = createHashRouter([
       {
         path: `/perfil`,
         element: <PerfilScreen />,
+      },
+      {
+        path: `/cutscene`,
+        element: <CenaScreen />,
       },
     ],
   },

@@ -46,7 +46,7 @@
 .iniciar-batalha-screen header {
     width: 100%;
     height: 15%;
-    background-color: var(--blue-grey);
+    background-color: var(--light-grey);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     display: flex;
     align-items: center;
@@ -61,7 +61,7 @@
 .iniciar-batalha-screen footer {
     width: 100%;
     height: 10%;
-    background-color: var(--blue-grey);
+    background-color: var(--light-grey);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
@@ -69,8 +69,8 @@
 .iniciar-batalha-screen section {
     width: 100%;
     height: 80%;
-    border-top: double 0.4rem var(--grey);
-    border-bottom: double 0.4rem var(--grey);
+    border-top: double 0.4rem var(--blue);
+    border-bottom: double 0.4rem var(--blue);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -120,14 +120,15 @@
 .iniciar-batalha-screen section .iniciar-info button {
     font-size: 48px;
     font-family: titleFont, sans-serif;
-    background-color: var(--light-grey);
+    background-color: var(--white);
     background-size: cover;
-    border: double 5px var(--grey);
+    border: double 5px var(--blue);
     padding: 0.5rem 1.5rem;
     color: var(--white);
-    text-shadow: var(--borda-texto);
+    text-shadow: var(--borda-texto-sombra);
     position: relative;
     top: 10%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     transition: all 0.1s;
 }
 

@@ -80,3 +80,28 @@
     transition: all 0.1s;
     background-color: var(--light-blue);
 }
+
+.start-screen div label {
+    margin: 0.3rem 0;
+    background-color: var(--light-grey);
+    border: double 5px var(--black);
+    padding: 0.3rem 2rem;
+    font-size: 28px;
+    font-family: titleFont, sans-serif;
+    color: var(--white);
+    text-shadow: var(--borda-texto);
+    transition: all 0.1s;
+}
+
+.start-screen div label:hover {
+    transition: all 0.1s;
+    background-color: var(--light-blue);
+}
+
+
+.start-screen div input {
+    width: 0;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+}

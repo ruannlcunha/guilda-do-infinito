@@ -6,20 +6,20 @@
     background-position: left;
     background-size: contain;
     background-repeat: no-repeat;
-    padding-left: 3rem;
+    padding-left: 2.5rem;
     height: 2rem;
     font-size: 28px;
     position: absolute;
     top: 15px;
     left: 15px;
-    transition: all 0.3s;
+    transition: all 0.1s;
     color: transparent;
     font-family: titleFont, sans-serif;
     z-index: 999;
 }
 
 .back-button:hover {
-    transition: all 0.3s;
+    transition: all 0.1s;
     cursor: pointer;
     color: var(--white);
     text-shadow: var(--borda-texto)

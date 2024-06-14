@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ICONS } from "../../../../constants/images";
-import { ModalConfigSom } from "../../"
+import { ModalConfig } from "../../"
 import "./opcoes-batalha.style.css";
 import { useSound } from "../../../../hook";
 import { useNavigate } from "react-router-dom";
@@ -39,7 +39,7 @@ export function OpcoesBatalha({ animacoes, zoom, functions }) {
 
   return animacoes.iniciativaTerminou && !animacoes.escolhendoAlvo ? (
     <div className="opcoes-batalha">
-      <ModalConfigSom isOpen={configIsOpen} setIsOpen={setConfigIsOpen}/>
+      <ModalConfig isOpen={configIsOpen} setIsOpen={setConfigIsOpen}/>
 
       <button
       onMouseEnter={()=>playHover(1)} 

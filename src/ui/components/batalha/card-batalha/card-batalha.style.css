@@ -13,11 +13,11 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    background: var(--fundo-janela);
+    background: var(--light-grey);
     background-size: cover;
     border: none;
-    border-top: solid 3px var(--white);
-    border-bottom: solid 3px var(--white);
+    border-top: solid 3px var(--blue);
+    border-bottom: solid 3px var(--blue);
 }
 
 .iniciar-batalha-screen section .party-cards .card-batalha .card-info header {
@@ -26,7 +26,7 @@
     display: flex;
     align-items: center;
     background-color: var(--fundo-destaque);
-    border-bottom: double 3px var(--white);
+    border-bottom: double 3px var(--blue);
 }
 
 .iniciar-batalha-screen section .party-cards .card-batalha .card-info header h1 {
@@ -111,7 +111,7 @@
 .iniciar-batalha-screen section .party-cards .card-batalha .card-perfil {
     width: 30%;
     height: 100%;
-    border: solid 3px var(--white);
+    border: solid 3px var(--blue);
 }
 
 
@@ -119,7 +119,7 @@
     width: 0;
     height: 0;
     border: 15px solid transparent;
-    border-bottom-color: var(--white);
+    border-bottom-color: var(--dark-blue);
     position: relative;
     top: -15px;
     background: none;
@@ -133,6 +133,6 @@
     width: 0;
     height: 0;
     border: 15px solid transparent;
-    border-top-color: var(--white);
+    border-top-color: var(--dark-blue);
   }
   

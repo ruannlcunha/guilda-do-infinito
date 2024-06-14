@@ -17,6 +17,7 @@
     "axios": "^1.4.0",
     "gifuct-js": "^2.1.2",
     "howler": "^2.2.4",
+    "js-file-download": "^0.4.12",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-create-global-state": "^1.0.0",

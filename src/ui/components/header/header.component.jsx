@@ -1,5 +1,5 @@
 import "./header.style.css"
-import { HeaderOption, ModalConfigSom } from "../"
+import { HeaderOption, ModalConfig } from "../"
 import { useSound } from "../../../hook"
 import { useEffect, useState } from "react"
 import { ICONS } from "../../../constants/images"
@@ -89,7 +89,7 @@ export function Header({idSelected}) {
             </section>
             <section className="header-bottom"></section>
         </header>
-        <ModalConfigSom isOpen={configIsOpen} setIsOpen={setConfigIsOpen}/>
+        <ModalConfig isOpen={configIsOpen} setIsOpen={setConfigIsOpen}/>
         </>
     )
 }

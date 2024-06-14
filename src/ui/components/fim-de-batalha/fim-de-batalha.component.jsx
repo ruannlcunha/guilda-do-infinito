@@ -11,7 +11,7 @@ export function FimDeBatalha({ personagens, resultado, setMusica }) {
 
     const containerStyle = {
         position:"absolute", zIndex: 1000, top: 0, left: 0,
-        backgroundColor: "var(--background-text)",
+        backgroundColor: "var(--black-transparent)",
         animation: "fade-in 1.5s"
     }
 

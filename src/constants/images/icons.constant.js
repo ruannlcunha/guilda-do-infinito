@@ -30,6 +30,7 @@ import FORCA from "../../assets/img/icons/FORCA.png";
 import AGILIDADE from "../../assets/img/icons/AGILIDADE.png";
 import MAGIA from "../../assets/img/icons/MAGIA.png";
 import VIGOR from "../../assets/img/icons/VIGOR.png";
+import LOADING from "../../assets/img/icons/LOADING.gif";
 import CADEADO from "../../assets/img/icons/CADEADO.png";
 
 export const ICONS = {
@@ -66,4 +67,5 @@ export const ICONS = {
   MAGIA,
   VIGOR,
   CADEADO,
+  LOADING,
 };

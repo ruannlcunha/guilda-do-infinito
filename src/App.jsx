@@ -2,6 +2,7 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 import { ToastContainer } from "react-toastify";
 import { GlobalConfigProvider } from "./context/global-config.context";
+import { GlobalUserProvider } from "./context/global-user.context";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -11,8 +12,10 @@ function App() {
   
   return (
     <GlobalConfigProvider>
+    <GlobalUserProvider>
       <ToastContainer />
       <RouterProvider router={router} />
+    </GlobalUserProvider>
     </GlobalConfigProvider>
   );
 }

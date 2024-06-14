@@ -4,12 +4,12 @@ import pixelTexture from "../../../../assets/img/textures/BANNER_TEXTURE.png";
 
 export function StatusHUD({ personagem }) {
   const porcentagemVida = calcularPorcentagem(
-    personagem.pvAtual,
-    personagem.pvTotal
+    personagem.pv.atual,
+    personagem.pv.maximo
   );
   const porcentagemMana = calcularPorcentagem(
-    personagem.pmAtual,
-    personagem.pmTotal
+    personagem.pm.atual,
+    personagem.pm.maximo
   );
 
   return (
@@ -46,7 +46,7 @@ export function StatusHUD({ personagem }) {
       </header>
       <section style={personagem.isInimigo ? { marginLeft: "2rem" } : null}>
         <h2>
-          PV: {personagem.pvAtual}/{personagem.pvTotal}
+          PV: {personagem.pv.atual}/{personagem.pv.maximo}
         </h2>
         <div
           className="batalha-hud-barra"
@@ -56,7 +56,7 @@ export function StatusHUD({ personagem }) {
         ></div>
 
         <h2>
-          PM: {personagem.pmAtual}/{personagem.pmTotal}
+          PM: {personagem.pm.atual}/{personagem.pm.maximo}
         </h2>
         <div
           className="batalha-hud-barra"

@@ -47,7 +47,7 @@
 .experiencia-section .experiencia-personagens .card-experiencia section .barra-perfil section .triangulo {
     margin-left: -10px;
     border-top: 0.8rem solid transparent;
-    border-right: 0.8rem solid var(--blue-grey);
+    border-right: 0.8rem solid var(--fundo-janela);
     border-bottom: 0.8rem solid transparent;
 }
 
@@ -62,7 +62,7 @@
     font-weight: 200;
     color: white;
     text-shadow: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black),  0px -2px var(--black);
-    background-color: var(--blue-grey);
+    background-color: var(--fundo-janela);
 }
 
 .experiencia-section .experiencia-personagens .card-experiencia section .barra-perfil section h2 {
@@ -76,7 +76,7 @@
     font-weight: 200;
     color: var(--white);
     text-shadow: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black),  0px -2px var(--black);
-    background-color: var(--blue-grey);
+    background-color: var(--fundo-janela);
 }
 
 .experiencia-section .experiencia-personagens .card-experiencia section .barra-experiencia {

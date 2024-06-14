@@ -14,7 +14,7 @@ export function useAcoesBase() {
     setPersonagens((old) => {
       return old.map((personagem) => {
         if (personagem.idCombate === novoPersonagem.idCombate) {
-          if (novoPersonagem.pvAtual < 1) {
+          if (novoPersonagem.pv.atual < 1) {
             return _matarPersonagem(novoPersonagem);
           }
           return novoPersonagem;
@@ -39,12 +39,15 @@ export function useAcoesBase() {
   }
 
   function causarDano(alvo, dano, functions) {
-    let novaVida = Number(alvo.pvAtual - dano);
+    let novaVida = Number(alvo.pv.atual - dano);
     novaVida < 0 ? (novaVida = 0) : null;
 
     const novoAlvo = {
       ...alvo,
-      pvAtual: novaVida,
+      pv: {
+        ...alvo.pv,
+        atual: novaVida,
+      }
     };
     _alterarPersonagem(functions.setPersonagens, novoAlvo);
 
@@ -52,8 +55,8 @@ export function useAcoesBase() {
   }
 
   function consumirItem(personagem, idItem, functions) {
-    const item = [...personagem.itens].find(obj => obj.id === idItem)
-    const novosItens = [...personagem.itens].filter(obj => obj.id !== idItem)
+    const item = [...personagem.inventario.consumiveis].find(obj => obj.id === idItem)
+    const novosItens = [...personagem.inventario.consumiveis].filter(obj => obj.id !== idItem)
 
     if(item.quantidade > 1) {
       const novoItem = {...item, quantidade: item.quantidade-1}
@@ -62,7 +65,10 @@ export function useAcoesBase() {
 
     const novoPersonagem = {
       ...personagem,
-      itens: novosItens,
+      inventario: {
+        ...personagem.inventario,
+        consumiveis: novosItens
+      },
     };
     
     _alterarPersonagem(functions.setPersonagens, novoPersonagem);
@@ -70,14 +76,17 @@ export function useAcoesBase() {
   }
 
   function gastarMana(alvo, custo, functions) {
-    let novaMana = Number(alvo.pmAtual - custo);
+    let novaMana = Number(alvo.pm.atual - custo);
     if (novaMana < 0) {
       throw { message: "Personagem não tem mana suficiente." };
     }
 
     const novoAlvo = {
       ...alvo,
-      pmAtual: novaMana,
+      pm: {
+        ...alvo.pm,
+        atual: novaMana,
+      }
     };
     _alterarPersonagem(functions.setPersonagens, novoAlvo);
 
@@ -85,8 +94,8 @@ export function useAcoesBase() {
   }
 
   function restaurarVida(alvo, cura, functions) {
-    let novaVida = Number(alvo.pvAtual + cura);
-    novaVida > alvo.pvTotal ? (novaVida = alvo.pvTotal) : null;
+    let novaVida = Number(alvo.pv.atual + cura);
+    novaVida > alvo.pv.maximo ? (novaVida = alvo.pv.maximo) : null;
 
     if (alvo.isMorto) {
       throw { message: "Personagens mortos não podem ser curados." };
@@ -94,7 +103,10 @@ export function useAcoesBase() {
 
     const novoAlvo = {
       ...alvo,
-      pvAtual: novaVida,
+      pv: {
+        ...alvo.pv,
+        atual: novaVida,
+      }
     };
     _alterarPersonagem(functions.setPersonagens, novoAlvo);
 

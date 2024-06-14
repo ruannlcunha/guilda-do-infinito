@@ -1,4 +1,4 @@
-import { ATAQUES_DATA } from "../../../database/acoes"
+import { ATAQUES_DATA } from "../../../database/"
 import { getRandomInt } from "../../../utils"
 import { useFinalizarTurno } from "../"
 
@@ -7,10 +7,9 @@ export function useAutomatizarInimigo() {
 
     function automatizarInimigo(personagemAtivo, personagens, turno, functions) {
         
-        const acoes = [...personagemAtivo.acoes.ataques]
+        const acoes = [...personagemAtivo.ataques]
         const indexAcao = getRandomInt(1,acoes.length)
-        const idAcao = acoes[indexAcao-1]
-        const acaoEscolhida = ATAQUES_DATA.find(ataque=> ataque.id === idAcao)
+        const acaoEscolhida = acoes.find(ataque=> ataque.id === indexAcao)
 
         const alvos = personagens.filter(personagem=> !personagem.isInimigo)
         const indexAlvo = getRandomInt(1, alvos.length)
@@ -29,13 +28,6 @@ export function useAutomatizarInimigo() {
         setTimeout(()=>{
             finalizarTurno(personagens, turno, functions)
         }, 13100)
-        
-        
-        //2. Mostrar ação aleatória
-
-        //3. Mostrar alvo com icone apontando
-
-        //4. Realizar ação
 
     }
 

@@ -1,30 +1,79 @@
 import { MUSICS } from "../../../../../../constants/audios/musics.constant";
-import { IMAGES, MAPAS } from "../../../../../../constants/images";
-import { PERSONAGENS_DATA } from "../../../../../personagens/personagens.data";
+import { MAPAS } from "../../../../../../constants/images";
 
 export const EPISODIO_TESTE = {
     id: 1,
-    title: "Episódio 1: Teste",
-    description: `Um episódio para testes.`,
+    title: "Episódio 1: Teste Grupo Orion",
+    description: `Um episódio para testar uma batalha de grupos: Aliados vs Inimigos`,
     previewImage: MAPAS.FLORESTA,
     background: MAPAS.FLORESTA,
     url: "/historia/teste/1/1/batalha",
     content: {
         titulo: "Episódio 1:",
-        subtitulo: "Teste",
-        mapa: MAPAS.FLORESTA,
-        musica: MUSICS.BATTLE_1,
+        subtitulo: "Teste Grupo Orion",
+        mapa: MAPAS.CASTELO_SOMBRIO_TAPETE,
+        musica: null,
         aliados: [
-            PERSONAGENS_DATA[0],
-            PERSONAGENS_DATA[1],
-            PERSONAGENS_DATA[2],
-            PERSONAGENS_DATA[3],
+            {
+                personagemId: 1,
+            },
+            {
+                personagemId: 6,
+                skinAtiva: 1,
+                level: 4,
+                expAtual: 10,
+                inventario: {
+                    equipamentos: [],
+                    consumiveis: [
+                        {
+                        id: 1,
+                        quantidade: 2,
+                        }
+                    ],
+                }
+            },
+            {
+                personagemId: 8,
+                skinAtiva: 1,
+                level: 4,
+                expAtual: 10,
+                inventario: {
+                    equipamentos: [],
+                    consumiveis: [
+                        {
+                        id: 1,
+                        quantidade: 2,
+                        }
+                    ],
+                }
+            },
+            {
+                personagemId: 7,
+                skinAtiva: 1,
+                level: 4,
+                expAtual: 10,
+                inventario: {
+                    equipamentos: [],
+                    consumiveis: [
+                        {
+                        id: 1,
+                        quantidade: 2,
+                        }
+                    ],
+                }
+            },
         ],
         inimigos: [
-            PERSONAGENS_DATA[4],
-            PERSONAGENS_DATA[4],
-            PERSONAGENS_DATA[4],
-            PERSONAGENS_DATA[4],
+            {
+                personagemId: 11,
+                skinAtiva: 1,
+                level: 8,
+                expAtual: 10,
+                inventario: {
+                    equipamentos: [],
+                    consumiveis: [],
+                }
+            },
         ],
     }
 }

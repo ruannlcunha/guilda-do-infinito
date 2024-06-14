@@ -11,12 +11,12 @@ export function CardBatalha({personagem, reverse}) {
                 <section>
                     <section className="card-status">
                         <h1>
-                        PV: {personagem.pvAtual}/{personagem.pvTotal}
+                        PV: {personagem.pv.atual}/{personagem.pv.maximo}
                         </h1>
                         <div className="barra-pv"></div>
 
                         <h1>
-                        PM: {personagem.pmAtual}/{personagem.pmTotal}
+                        PM: {personagem.pm.atual}/{personagem.pm.maximo}
                         </h1>
                         <div className="barra-pm"></div>
                     </section>
