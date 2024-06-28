@@ -1,0 +1,13 @@
+{
+    "personagemId": 0,
+    "skinAtiva": 1,
+    "level": 1,
+    "experienciaAtual": 0,
+    "equipamentos": {
+        "arma": null,
+        "armadura": null,
+        "acessorio1": null,
+        "acessorio2": null
+    },
+    "inventario": []
+}

@@ -6,10 +6,13 @@ import { AventuraScreen,
   CosmosScreen,
   HistoriaScreen,
   HomeScreen,
+  JogarGacha,
   LojaScreen,
   NotFoundScreen,
   NovoJogoScreen,
+  PerfilPersonagensScreen,
   PerfilScreen,
+  PersonagemDetalhado,
   RootScreen,
   StartScreen,
   VersusScreen
@@ -61,12 +64,24 @@ export const router = createHashRouter([
         element: <CosmosScreen />,
       },
       {
+        path: `/cosmos/:idBanner/:quantidade`,
+        element: <JogarGacha />,
+      },
+      {
         path: `/loja`,
         element: <LojaScreen />,
       },
       {
         path: `/perfil`,
         element: <PerfilScreen />,
+      },
+      {
+        path: `/perfil/personagens`,
+        element: <PerfilPersonagensScreen />,
+      },
+      {
+        path: `/perfil/personagens/:personagemId`,
+        element: <PersonagemDetalhado />,
       },
       {
         path: `/cutscene`,

@@ -1,5 +1,6 @@
 import AYLA_1_SPRITE from "./assets/AYLA_1_SPRITE.png"
 import AYLA_1_PERFIL from "./assets/AYLA_1_PERFIL.png"
+import AYLA_1_SANTUARIO from "./assets/AYLA_1_SANTUARIO.png"
 import AYLA_2_SPRITE from "./assets/AYLA_2_SPRITE.png"
 import AYLA_2_PERFIL from "./assets/AYLA_2_PERFIL.png"
 import { ATAQUES_DATA } from "../../ataques"
@@ -8,6 +9,7 @@ import { HABILIDADES_DATA } from "../../habilidades"
 export const AYLA = {
   id: 2,
   nome: "Ayla",
+  titulo: "Guardiã Imortal",
   elemento: "FOGO",
   arma: "PESADA",
   comportamento: "ATACANTE",
@@ -19,12 +21,14 @@ export const AYLA = {
           nome: "Original",
           sprite: AYLA_1_SPRITE,
           perfil: AYLA_1_PERFIL,
+          santuario: AYLA_1_SANTUARIO,
       },
       {
           skinId: 2,
           nome: "Teste",
           sprite: AYLA_2_SPRITE,
           perfil: AYLA_2_PERFIL,
+          santuario: AYLA_1_SANTUARIO,
       },
   ],
   evolucoes: [

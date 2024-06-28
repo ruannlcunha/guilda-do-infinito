@@ -93,3 +93,15 @@ export const PRONOMES = {
     maiusculo_2: "E",
   },
 }
+
+export const RECOMPENSAS_TIPO = {
+  ARMA: "ARMA",
+  PERSONAGEM: "PERSONAGEM",
+}
+
+export const ARMAS_TIPO = {
+  PESADA: "Arma Pesada",
+  LEVE: "Arma Leve",
+  DISTANCIA: "Arma á Distância",
+  ARCANA: "Arma Arcana",
+}

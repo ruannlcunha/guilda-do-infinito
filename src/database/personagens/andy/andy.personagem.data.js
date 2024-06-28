@@ -1,31 +1,49 @@
-import { PERFIL, SPRITES } from "../../../constants/images";
+import ANDY_1_SPRITE from "./assets/ANDY_1_SPRITE.png"
+import ANDY_1_PERFIL from "./assets/ANDY_1_PERFIL.png"
+import ANDY_1_SANTUARIO from "./assets/ANDY_1_SANTUARIO.png"
+import { ATAQUES_DATA } from "../../ataques"
+import { HABILIDADES_DATA } from "../../habilidades"
 
 export const ANDY = {
-    id: 12,
-    nome: "Andy",
-    sprite: SPRITES.ANDY_SPRITE,
-    perfil: PERFIL.ANDY_PERFIL,
-    corTema: "tema-verde",
-    level: 10,
-    expAtual: 10,
-    expTotal: 100,
-    defesa: 14,
-    pvAtual: 10,
-    pvTotal: 10,
-    pmAtual: 15,
-    pmTotal: 15,
-    atributos: {
-      forca: 1,
-      agilidade: 4,
-      magia: 3,
-      vigor: 2,
-    },
-    ataques: [{id: 1}],
-    habilidades: [{id: 1}],
-    itens: [
+  id: 12,
+  nome: "Andy",
+  titulo: "Caçador dos Ventos",
+  elemento: "AR",
+  arma: "DISTANCIA",
+  comportamento: "ATACANTE",
+  corTema: "tema-verde",
+  estrelas: 4,
+  skins:[
       {
-        id: 1,
-        quantidade: 1,
-      }
-    ]
-  }
+          skinId: 1,
+          nome: "Original",
+          sprite: ANDY_1_SPRITE,
+          perfil: ANDY_1_PERFIL,
+          santuario: ANDY_1_SANTUARIO,
+      },
+  ],
+  evolucoes: [
+      {
+          level: 1,
+          experienciaNecessaria: 100,
+          pv: 23,
+          pm: 5,
+          atributos: {
+              forca: 4,
+              agilidade: 1,
+              magia: 2,
+              vigor: 3,
+          },
+          passivas: [
+              //PASSIVAS.RESSURGIR,
+              {id: 1, nome: "Ressurgir"}
+          ],
+          ataques: [
+              ATAQUES_DATA.SOCO,
+          ],
+          habilidades: [
+              HABILIDADES_DATA.CURA,
+          ],
+      },
+  ]
+}

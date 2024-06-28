@@ -23,5 +23,5 @@ export const PERSONAGENS_DATA = {
     // LOBO,
     // SOMBRIO,
     CANARIO,
-    // ANDY,
+    ANDY,
 }

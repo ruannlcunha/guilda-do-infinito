@@ -76,13 +76,6 @@ export function ModalConfig({isOpen, setIsOpen}) {
                     {renderOption("Volume de Efeitos Sonoros", CONTEXT_CONFIG_NAMES.SOM_EFEITOS, efeitosVolume, setEfeitosVolume)}
                     {renderOption("Volume de Músicas", CONTEXT_CONFIG_NAMES.SOM_MUSICA, musicaVolume, setMusicaVolume)}
                 </ul>
-                <h1>Jogo Salvo</h1>
-                <ul>
-                    <div>
-                        <button>Salvar Jogo</button>
-                        <button>Carregar Jogo</button>
-                    </div>
-                </ul>
                 <h1>Outros</h1>
                 <ul>
                     <button>Inserir código</button>

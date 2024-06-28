@@ -4,10 +4,9 @@ import { calcularPorcentagem } from "../../../../utils";
 export function CardExperiencia({personagem}) {
     
     const porcentagemExp = calcularPorcentagem(
-        personagem.expAtual,
-        personagem.expTotal
+        personagem.experiencia.atual,
+        personagem.experiencia.maximo
     );
-    console.log(personagem)
     document.documentElement.style.setProperty('--resultadoExp', `${porcentagemExp}%`);
 
     return (
@@ -26,7 +25,7 @@ export function CardExperiencia({personagem}) {
                 </div>
                 <div className="barra-experiencia">
                     <h1>Exp.</h1>
-                    <h1>{personagem.expAtual}<span>/{personagem.expTotal}</span></h1>
+                    <h1>{personagem.experiencia.atual}<span>/{personagem.experiencia.maximo}</span></h1>
                 </div>
             </section>
         </div>

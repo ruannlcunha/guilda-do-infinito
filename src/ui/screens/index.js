@@ -12,3 +12,6 @@ export { LojaScreen } from "./loja/loja.screen";
 export { PerfilScreen } from "./perfil/perfil.screen";
 export { BatalhaScreen } from "./batalha/batalha.screen";
 export { CenaScreen } from "./cena/cena.screen"
+export { JogarGacha } from "./jogar-gacha/jogar-gacha.screen"
+export { PerfilPersonagensScreen } from "./perfil-personagens/perfil-personagens.screen"
+export { PersonagemDetalhado } from "./personagem-detalhado/personagem-detalhado.screen"

@@ -5,6 +5,10 @@ import CLICK_2 from "../../assets/audio/sound/CLICK_2.wav"
 import BANNER from "../../assets/audio/sound/BANNER.mp3"
 import DADO from "../../assets/audio/sound/DADO.mp3"
 import DADO_RESULTADO from "../../assets/audio/sound/DADO_RESULTADO.wav"
+import GACHA_1 from "../../assets/audio/sound/GACHA_1.wav"
+import GACHA_2 from "../../assets/audio/sound/GACHA_2.wav"
+import GACHA_3 from "../../assets/audio/sound/GACHA_3.wav"
+import GACHA_4 from "../../assets/audio/sound/GACHA_4.wav"
 
 export const SOUNDS = {
     HOVER_1,
@@ -14,4 +18,8 @@ export const SOUNDS = {
     BANNER,
     DADO,
     DADO_RESULTADO,
+    GACHA_1,
+    GACHA_2,
+    GACHA_3,
+    GACHA_4,
 }

@@ -1,7 +1,7 @@
 import "./start.style.css"
 import { useState } from "react"
 import { AudioContainer, ContainerScreen, ModalConfig } from "../../components"
-import { useDownloadJSON, useMusic, useSound } from "../../../hook"
+import { useMusic, useSound } from "../../../hook"
 import { MUSICS } from "../../../constants/audios/musics.constant"
 import { ICONS } from "../../../constants/images"
 import { useNavigate } from "react-router-dom"
@@ -11,15 +11,19 @@ export function StartScreen() {
     const { playHover, playClick } = useSound()
     const { startMusic } = useMusic()
     const navigate = useNavigate()
+    const [user, setUser] = useGlobalUser()
     const [aviso, setAviso] = useState(true)
     const [configIsOpen, setConfigIsOpen] = useState(false)
-    const [user, setUser] = useGlobalUser()
-    const { downloadJson } = useDownloadJSON()
 
     function handleAviso() {
         playClick(2)
         setAviso(false)
         startMusic(false)
+    }
+
+    function handleContinuar() {
+        playClick(2)
+        navigate("/home")
     }
 
     function handleNovoJogo() {
@@ -42,8 +46,9 @@ export function StartScreen() {
         fileReader.onload = e => {
           const json = JSON.parse(e.target.result)
           setUser(json)
+          navigate("/home")
         };
-      };
+    };
 
     function renderTelaAviso() {
         return (
@@ -60,17 +65,18 @@ export function StartScreen() {
         )
     }
 
-    function handleSalvar() {
-        downloadJson(user)
-    }
-
     return (
         <ContainerScreen>
             <AudioContainer audio={MUSICS.START}/>
             {aviso? renderTelaAviso() :
             <div className="start-screen">
                 <img src={ICONS.TITULO} alt="Logo de Guilda do Infinito" />
-                <div>
+                <div style={user.nome?{bottom:"3rem"}:null}>
+                    {user.nome ?
+                    <button onMouseEnter={()=>playHover(1)} onClick={handleContinuar}>
+                        Continuar
+                    </button>
+                    :null}
                     <button onMouseEnter={()=>playHover(1)} onClick={handleNovoJogo}>
                         Novo Jogo
                     </button>
@@ -87,9 +93,6 @@ export function StartScreen() {
                     />
                     <button onMouseEnter={()=>playHover(1)} onClick={handleConfig}>
                         Configuracoes
-                    </button>
-                    <button onMouseEnter={()=>playHover(1)} onClick={handleSalvar}>
-                        Salvar Jogo
                     </button>
                 </div>
             </div>

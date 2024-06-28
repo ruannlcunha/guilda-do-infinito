@@ -1,0 +1,212 @@
+
+.personagem-detalhado {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background:
+    url(../../../assets/img/textures/CLOUDS.png),
+    linear-gradient(var(--fundo-tema) 25%, var(--white) 100%);
+    animation: leftToRight 60s alternate-reverse infinite ease-in-out;
+    color: var(--white);
+    text-shadow: var(--borda-texto-sombra);
+}
+
+.personagem-detalhado .personagem-menu {
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: self-start;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(90deg, transparent 0%, transparent 18%,
+    var(--background-text) 18%, var(--background-text) 26%, transparent 26%,
+    transparent 100%);
+}
+
+.personagem-detalhado .personagem-menu ul {
+    display: flex;
+    align-items: self-start;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 5rem;
+}
+
+.personagem-detalhado .personagem-menu ul li {
+    display: flex;
+    align-items: center;
+    font-size: 42px;
+    margin: 0.5rem 0;
+    transition: all 0.1s;
+}
+
+.personagem-detalhado .personagem-menu ul li:hover {
+    transition: all 0.1s;
+    cursor: var(--cursor-pointer);
+    font-size: 48px;
+    filter: drop-shadow(-2px 2px 10px var(--white-transparent));
+}
+
+.personagem-detalhado .personagem-info {
+    width: 30%;
+    height: 80%;
+    position: absolute;
+    right: 1.5rem;
+    display: flex;
+    align-items: self-start;
+    flex-direction: column;
+    background-color: var(--background-text);
+    padding: 0.5rem;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.personagem-detalhado .personagem-info h1 {
+    margin: 5px;
+    font-size: 48px;
+    font-weight: 100;
+}
+
+.personagem-detalhado .personagem-info h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 100;
+    color: var(--light-grey);
+    margin-top: -10px;
+    margin-left: 5px;
+}
+
+.personagem-detalhado .personagem-info h3 {
+    margin: 5px;
+    font-size: 28px;
+    font-weight: 100;
+}
+
+.personagem-detalhado .personagem-info h3 span {
+    color: var(--light-grey);
+}
+
+.personagem-detalhado .personagem-info .barra-experiencia {
+    width: 95%;
+    height: 0.3rem;
+    margin: 5px;
+    border: solid 2px var(--white);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, var(--blue-green) var(--resultadoExp), var(--light-grey) 1%);
+    background-size: cover;
+}
+
+.personagem-detalhado .personagem-info .barra-experiencia h1 {
+    font-size: 14px;
+    font-weight: 100;
+    background: none;
+    padding: 0;
+    margin: 0 10px;
+    text-shadow: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black),  0px -2px var(--black);
+    position: relative;
+    bottom: 8px;
+    color: white;
+}
+
+.personagem-detalhado .personagem-info .barra-experiencia h1 span {
+    color: var(--light-grey);
+}
+
+.personagem-detalhado .personagem-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 50%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: space-evenly;
+}
+
+.personagem-detalhado .personagem-info ul li {
+    font-size: 28px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.personagem-detalhado .personagem-info ul li img {
+    height: 1.5rem;
+    margin: 0 0.5rem;
+}
+
+.personagem-detalhado .personagem-info .equipamentos {
+    width: 95%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.personagem-detalhado .personagem-info .equipamentos div {
+    height: 5rem;
+    width: 5rem;
+    background-color: var(--background-text);
+    background-size: cover;
+    border: double 3px var(--light-grey);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personagem-detalhado .personagem-info .equipamentos div:hover {
+    cursor: var(--cursor-pointer);
+    transition: all 0.1s;
+}
+
+.personagem-detalhado .personagem-info .equipamentos div h1 {
+    transition: all 0.1s;
+    position: absolute;
+    opacity: 75%;
+}
+
+.personagem-detalhado .personagem-info .equipamentos div:hover h1 {
+    opacity: 100%;
+}
+
+.personagem-detalhado .personagem-info .equipamentos div img {
+    height: 75%;
+    opacity: 25%;
+}
+
+.personagem-detalhado img {
+    height: 95%;
+}
+
+.losangulo {
+    margin-right: 1rem;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-bottom-color: var(--white);
+    position: relative;
+    top: -7px;
+    background: none;
+  }
+  
+.losangulo:after {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 7px;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-top-color: var(--white);
+}
+  

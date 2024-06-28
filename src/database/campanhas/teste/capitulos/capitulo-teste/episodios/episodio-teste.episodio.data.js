@@ -21,7 +21,7 @@ export const EPISODIO_TESTE = {
                 personagemId: 6,
                 skinAtiva: 1,
                 level: 4,
-                expAtual: 10,
+                experienciaAtual: 10,
                 inventario: {
                     equipamentos: [],
                     consumiveis: [
@@ -36,7 +36,7 @@ export const EPISODIO_TESTE = {
                 personagemId: 8,
                 skinAtiva: 1,
                 level: 4,
-                expAtual: 10,
+                experienciaAtual: 10,
                 inventario: {
                     equipamentos: [],
                     consumiveis: [
@@ -51,7 +51,7 @@ export const EPISODIO_TESTE = {
                 personagemId: 7,
                 skinAtiva: 1,
                 level: 4,
-                expAtual: 10,
+                experienciaAtual: 10,
                 inventario: {
                     equipamentos: [],
                     consumiveis: [
@@ -68,7 +68,7 @@ export const EPISODIO_TESTE = {
                 personagemId: 11,
                 skinAtiva: 1,
                 level: 8,
-                expAtual: 10,
+                experienciaAtual: 10,
                 inventario: {
                     equipamentos: [],
                     consumiveis: [],

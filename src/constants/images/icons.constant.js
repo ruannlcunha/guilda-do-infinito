@@ -16,6 +16,7 @@ import SETA_ATIVO_INIMIGO from "../../assets/img/icons/SETA_ATIVO_INIMIGO.png";
 import SETA_DIREITA from "../../assets/img/icons/SETA_DIREITA.png";
 import SETA_VOLTAR from "../../assets/img/icons/SETA_VOLTAR.png";
 import ESCOLHER_BAIXO from "../../assets/img/icons/ESCOLHER_BAIXO.png";
+import ESCOLHER_ESQUERDA from "../../assets/img/icons/ESCOLHER_ESQUERDA.png";
 import VOLUME_ALTO from "../../assets/img/icons/VOLUME_ALTO.png";
 import VOLUME_MEDIO from "../../assets/img/icons/VOLUME_MEDIO.png";
 import VOLUME_BAIXO from "../../assets/img/icons/VOLUME_BAIXO.png";
@@ -32,6 +33,25 @@ import MAGIA from "../../assets/img/icons/MAGIA.png";
 import VIGOR from "../../assets/img/icons/VIGOR.png";
 import LOADING from "../../assets/img/icons/LOADING.gif";
 import CADEADO from "../../assets/img/icons/CADEADO.png";
+import ESTRELA from "../../assets/img/icons/ESTRELA.png";
+import BENCAO from "../../assets/img/icons/BENCAO.png";
+import BRILHO from "../../assets/img/icons/BRILHO.png";
+import BRILHO_AZUL from "../../assets/img/icons/BRILHO_AZUL.png";
+import BRILHO_ROXO from "../../assets/img/icons/BRILHO_ROXO.png";
+import BRILHO_AMARELO from "../../assets/img/icons/BRILHO_AMARELO.png";
+import ELEMENTO_FOGO from "../../assets/img/icons/ELEMENTO_FOGO.png";
+import ELEMENTO_AGUA from "../../assets/img/icons/ELEMENTO_AGUA.png";
+import ELEMENTO_ACIDO from "../../assets/img/icons/ELEMENTO_ACIDO.png";
+import ELEMENTO_ELETRICO from "../../assets/img/icons/ELEMENTO_ELETRICO.png";
+import ELEMENTO_TERRA from "../../assets/img/icons/ELEMENTO_TERRA.png";
+import ELEMENTO_GELO from "../../assets/img/icons/ELEMENTO_GELO.png";
+import ELEMENTO_AR from "../../assets/img/icons/ELEMENTO_AR.png";
+import ELEMENTO_LUZ from "../../assets/img/icons/ELEMENTO_LUZ.png";
+import ELEMENTO_TREVAS from "../../assets/img/icons/ELEMENTO_TREVAS.png";
+import INVENTARIO from "../../assets/img/icons/INVENTARIO.png";
+import PESSOAS from "../../assets/img/icons/PESSOAS.png";
+import SALVAR_JOGO from "../../assets/img/icons/SALVAR_JOGO.png";
+import CARREGAR_JOGO from "../../assets/img/icons/CARREGAR_JOGO.png";
 
 export const ICONS = {
   TITULO,
@@ -50,6 +70,7 @@ export const ICONS = {
   SETA_ATIVO,
   SETA_ATIVO_INIMIGO,
   ESCOLHER_BAIXO,
+  ESCOLHER_ESQUERDA,
   SETA_DIREITA,
   SETA_VOLTAR,
   VOLUME_ALTO,
@@ -68,4 +89,24 @@ export const ICONS = {
   VIGOR,
   CADEADO,
   LOADING,
+  ESTRELA,
+  BENCAO,
+  BRILHO,
+  BRILHO_AZUL,
+  BRILHO_ROXO,
+  BRILHO_AMARELO,
+  ELEMENTO_FOGO,
+  ELEMENTO_AGUA,
+  ELEMENTO_ACIDO,
+  ELEMENTO_ELETRICO,
+  ELEMENTO_TERRA,
+  ELEMENTO_GELO,
+  ELEMENTO_AR,
+  ELEMENTO_LUZ,
+  ELEMENTO_TREVAS,
+  INVENTARIO,
+  PESSOAS,
+  SALVAR_JOGO,
+  CARREGAR_JOGO,
 };
+  

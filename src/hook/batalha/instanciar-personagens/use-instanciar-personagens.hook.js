@@ -1,11 +1,15 @@
-import { useInstanciarPersonagem } from "../../";
+import useGlobalUser from "../../../context/global-user.context";
+import { instanciarPersonagem } from "../../../utils";
 
 export function useInstanciarPersonagens() {
-  const { instanciarPersonagem } = useInstanciarPersonagem()
+  const [user] = useGlobalUser()
 
   function instanciarPersonagens(aliadosData, inimigosData) {
+
     const aliados = aliadosData.map((personagem, index) => {
-      const novoPersonagem = instanciarPersonagem(personagem)
+      const personagemAtual = personagem.personagemId !== 1 ? personagem :
+      user.personagens.find(item => item.personagemId === 1)
+      const novoPersonagem = instanciarPersonagem(personagemAtual)
       return {
         ...novoPersonagem,
         posicaoEmCampo: index + 1,
@@ -18,7 +22,9 @@ export function useInstanciarPersonagens() {
     });
 
     const inimigos = inimigosData.map((personagem, index) => {
-      const novoPersonagem = instanciarPersonagem(personagem)
+      const personagemAtual = personagem.personagemId !== 1 ? personagem :
+      user.personagens.find(item => item.personagemId === 1)
+      const novoPersonagem = instanciarPersonagem(personagemAtual)
       return {
         ...novoPersonagem,
         posicaoEmCampo: index + 1,

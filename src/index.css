@@ -51,6 +51,9 @@
   --background: #f0f0f0;
   --cyan-background: #E0ECF8;
   --background-text: #00000065;
+
+  --card-4-estrelas: linear-gradient(0deg, rgb(137, 3, 199) 0%, rgba(67,0,103,1) 70%);
+
   --tema-amarelo: #ffd900;
   --tema-ciano: #70d6da;
   --tema-roxo: #631974;
