@@ -45,5 +45,49 @@ export const ANDY = {
               HABILIDADES_DATA.CURA,
           ],
       },
+      {
+          level: 2,
+          experienciaNecessaria: 250,
+          pv: 28,
+          pm: 8,
+          atributos: {
+              forca: 1,
+              agilidade: 4,
+              magia: 3,
+              vigor: 2,
+          },
+          passivas: [
+              //PASSIVAS.RESSURGIR,
+              {id: 1, nome: "Ressurgir"}
+          ],
+          ataques: [
+              ATAQUES_DATA.SOCO,
+          ],
+          habilidades: [
+              HABILIDADES_DATA.CURA,
+          ],
+      },
+      {
+          level: 3,
+          experienciaNecessaria: 400,
+          pv: 32,
+          pm: 12,
+          atributos: {
+              forca: 1,
+              agilidade: 4,
+              magia: 3,
+              vigor: 2,
+          },
+          passivas: [
+              //PASSIVAS.RESSURGIR,
+              {id: 1, nome: "Ressurgir"}
+          ],
+          ataques: [
+              ATAQUES_DATA.SOCO,
+          ],
+          habilidades: [
+              HABILIDADES_DATA.CURA,
+          ],
+      },
   ]
 }

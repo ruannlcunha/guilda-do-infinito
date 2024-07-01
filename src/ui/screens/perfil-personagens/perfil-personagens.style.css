@@ -74,7 +74,7 @@
 }
 
 .perfil-personagens .lista-personagens section ul .card-escolhido {
-    box-shadow: var(--white) 0px 0px 5px 2px, var(--white) 0px 0px 0px 2px;
+    box-shadow: var(--box-brilho)
 }
 
 .perfil-personagens .lista-personagens section ul .card-escolhido img {
@@ -84,7 +84,7 @@
 
 .perfil-personagens .lista-personagens section ul li:hover {
     transition: all 0.1s;
-    box-shadow: var(--white) 0px 0px 5px 2px, var(--white) 0px 0px 0px 2px;
+    box-shadow: var(--box-brilho);
     cursor: var(--cursor-pointer);
 }
 

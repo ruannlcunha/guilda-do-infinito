@@ -52,6 +52,11 @@ import INVENTARIO from "../../assets/img/icons/INVENTARIO.png";
 import PESSOAS from "../../assets/img/icons/PESSOAS.png";
 import SALVAR_JOGO from "../../assets/img/icons/SALVAR_JOGO.png";
 import CARREGAR_JOGO from "../../assets/img/icons/CARREGAR_JOGO.png";
+import PV from "../../assets/img/icons/PV.png";
+import PM from "../../assets/img/icons/PM.png";
+import CARD_3 from "../../assets/img/icons/CARD_3.png";
+import CARD_4 from "../../assets/img/icons/CARD_4.png";
+import CARD_5 from "../../assets/img/icons/CARD_5.png";
 
 export const ICONS = {
   TITULO,
@@ -108,5 +113,10 @@ export const ICONS = {
   PESSOAS,
   SALVAR_JOGO,
   CARREGAR_JOGO,
+  PM,
+  PV,
+  CARD_3,
+  CARD_4,
+  CARD_5,
 };
   

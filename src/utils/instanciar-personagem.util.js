@@ -1,15 +1,17 @@
 import { CONSUMIVEIS_DATA, PERSONAGENS_DATA } from "../database"
+import { evoluirPersonagem } from "./evoluir-personagem.util"
 
 export function instanciarPersonagem(personagem) {
     const arrayData = Object.values(PERSONAGENS_DATA)
     const data = arrayData.find(item => item.id === personagem.personagemId)
     const skin = data.skins.find(item => item.skinId === personagem.skinAtiva)
-    const evolucao = data.evolucoes.find(item => item.level === personagem.level)
+    const personagemEvoluido = evoluirPersonagem(personagem)
+    const evolucao = data.evolucoes.find(item => item.level === personagemEvoluido.level)
     
     const personagemInstanciado = {
         id: data.id,
         nome: `${data.nome? data.nome : personagem.nome}`,
-        level: personagem.level,
+        level: personagemEvoluido.level,
         elemento: data.elemento,
         sprite: skin.sprite,
         perfil: skin.perfil,
@@ -18,7 +20,7 @@ export function instanciarPersonagem(personagem) {
         santuario: skin.santuario,
         corTema: data.corTema,
         experiencia: {
-            atual: personagem.experienciaAtual,
+            atual: personagemEvoluido.experienciaAtual,
             maximo: evolucao.experienciaNecessaria,
         },
         pv: {

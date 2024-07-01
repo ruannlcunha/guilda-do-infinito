@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react"
 import { BackButton, ContainerScreen } from "../../components"
 import "./personagem-detalhado.style.css"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { calcularPorcentagem, instanciarPersonagem } from "../../../utils"
 import { ICONS } from "../../../constants/images"
 
-export function PersonagemDetalhado() {
+export function PersonagemDetalhadoScreen() {
     const { personagemId } = useParams()
     const [user] = useGlobalUser()
     const [personagem, setPersonagem] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(()=>{
         const personagem = user.personagens.find(item=>item.personagemId == personagemId)
@@ -44,6 +45,10 @@ export function PersonagemDetalhado() {
         return <div className="losangulo"></div>
     }
 
+    function handleNavigate(page) {
+        navigate(`/perfil/personagens/${personagemId}/${page}`)
+    }
+
     return (
         <ContainerScreen>
             <BackButton />
@@ -53,16 +58,33 @@ export function PersonagemDetalhado() {
 
                 <section className="personagem-menu">
                     <ul>
-                        <li>{renderLosangulo()} Evoluir</li>
-                        <li>{renderLosangulo()} Equipamento</li>
-                        <li>{renderLosangulo()} Inventário</li>
-                        <li>{renderLosangulo()} Ações</li>
-                        <li>{renderLosangulo()} Visuais</li>
+                        <li onClick={()=>handleNavigate("evoluir")}>
+                            {renderLosangulo()} Evoluir
+                        </li>
+                        <li onClick={()=>handleNavigate("equipamentos")}>
+                            {renderLosangulo()} Equipamento
+                        </li>
+                        <li onClick={()=>handleNavigate("inventario")}>
+                            {renderLosangulo()} Inventário
+                        </li>
+                        <li onClick={()=>handleNavigate("acoes")}>
+                            {renderLosangulo()} Ações
+                        </li>
+                        <li onClick={()=>handleNavigate("talentos")}>
+                            {renderLosangulo()} Talentos
+                        </li>
+                        <li onClick={()=>handleNavigate("visuais")}>
+                            {renderLosangulo()} Visuais
+                        </li>
                         {/* <li>{renderLosangulo()} Informações</li> */}
                     </ul>
                 </section>
                 <img src={personagem.sprite} alt="Sprite do personagem" />
                 <section className="personagem-info">
+                    <img src={ICONS[`ELEMENTO_${personagem.elemento}`]}
+                    alt="Ícone do elemento"
+                    className="elemento"/>
+                    
                     <h1>{personagem.nome}</h1>
                     {console.log(personagem)}
                     <h2>{personagem.titulo}</h2>
@@ -75,14 +97,14 @@ export function PersonagemDetalhado() {
                     <ul>
                         <li>
                             <div>
-                            <img src={ICONS.CRISTAL_VERMELHO} alt="Ícone de Vida"/>
+                            <img src={ICONS.PV} alt="Ícone de Vida"/>
                             Pontos de Vida:
                             </div>
                             {personagem.pv.atual}/{personagem.pv.maximo}
                         </li>
                         <li>
                             <div>
-                            <img src={ICONS.MAGIA} alt="Ícone de Mana" />
+                            <img src={ICONS.PM} alt="Ícone de Mana" />
                             Pontos de Mana:
                             </div>
                             {personagem.pm.atual}/{personagem.pm.maximo}

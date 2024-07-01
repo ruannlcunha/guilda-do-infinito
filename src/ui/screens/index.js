@@ -12,6 +12,12 @@ export { LojaScreen } from "./loja/loja.screen";
 export { PerfilScreen } from "./perfil/perfil.screen";
 export { BatalhaScreen } from "./batalha/batalha.screen";
 export { CenaScreen } from "./cena/cena.screen"
-export { JogarGacha } from "./jogar-gacha/jogar-gacha.screen"
+export { JogarGachaScreen } from "./jogar-gacha/jogar-gacha.screen"
 export { PerfilPersonagensScreen } from "./perfil-personagens/perfil-personagens.screen"
-export { PersonagemDetalhado } from "./personagem-detalhado/personagem-detalhado.screen"
+export { PersonagemDetalhadoScreen } from "./personagem-detalhado/personagem-detalhado.screen"
+export { PersonagemEvoluirScreen } from "./personagem-evoluir/personagem-evoluir.screen"
+export { PersonagemTalentosScreen } from "./personagem-talentos/personagem-talentos.screen"
+export { PersonagemInventarioScreen } from "./personagem-inventario/personagem-inventario.screen"
+export { PersonagemEquipamentosScreen } from "./personagem-equipamentos/personagem-equipamentos.screen"
+export { PersonagemAcoesScreen } from "./personagem-acoes/personagem-acoes.screen"
+export { PersonagemVisuaisScreen } from "./personagem-visuais/personagem-visuais.screen"

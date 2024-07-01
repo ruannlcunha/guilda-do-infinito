@@ -65,6 +65,13 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.personagem-detalhado .personagem-info .elemento {
+    height: 5rem;
+    position: absolute;
+    right: 1rem;
+    top: 5px;
+}
+
 .personagem-detalhado .personagem-info h1 {
     margin: 5px;
     font-size: 48px;

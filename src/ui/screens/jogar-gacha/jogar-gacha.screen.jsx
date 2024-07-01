@@ -12,7 +12,7 @@ import { MUSICS } from "../../../constants/audios/musics.constant";
 import { SOUNDS } from "../../../constants/audios/sounds.constant";
 import personagemBase from "../../../database/personagens/_base/_base-pessoal.personagem.json"
 
-export function JogarGacha() {
+export function JogarGachaScreen() {
     const [cenaId, setCenaId] = useState(1)
     const { idBanner, quantidade } = useParams()
     const navigate = useNavigate()

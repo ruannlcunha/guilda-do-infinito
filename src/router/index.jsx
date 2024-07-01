@@ -6,13 +6,19 @@ import { AventuraScreen,
   CosmosScreen,
   HistoriaScreen,
   HomeScreen,
-  JogarGacha,
+  JogarGachaScreen,
   LojaScreen,
   NotFoundScreen,
   NovoJogoScreen,
   PerfilPersonagensScreen,
   PerfilScreen,
-  PersonagemDetalhado,
+  PersonagemAcoesScreen,
+  PersonagemDetalhadoScreen,
+  PersonagemEquipamentosScreen,
+  PersonagemEvoluirScreen,
+  PersonagemInventarioScreen,
+  PersonagemTalentosScreen,
+  PersonagemVisuaisScreen,
   RootScreen,
   StartScreen,
   VersusScreen
@@ -65,7 +71,7 @@ export const router = createHashRouter([
       },
       {
         path: `/cosmos/:idBanner/:quantidade`,
-        element: <JogarGacha />,
+        element: <JogarGachaScreen />,
       },
       {
         path: `/loja`,
@@ -81,7 +87,31 @@ export const router = createHashRouter([
       },
       {
         path: `/perfil/personagens/:personagemId`,
-        element: <PersonagemDetalhado />,
+        element: <PersonagemDetalhadoScreen />,
+      },
+      {
+        path: `/perfil/personagens/:personagemId/evoluir`,
+        element: <PersonagemEvoluirScreen />,
+      },
+      {
+        path: `/perfil/personagens/:personagemId/inventario`,
+        element: <PersonagemInventarioScreen />,
+      },
+      {
+        path: `/perfil/personagens/:personagemId/acoes`,
+        element: <PersonagemAcoesScreen />,
+      },
+      {
+        path: `/perfil/personagens/:personagemId/talentos`,
+        element: <PersonagemTalentosScreen />,
+      },
+      {
+        path: `/perfil/personagens/:personagemId/visuais`,
+        element: <PersonagemVisuaisScreen />,
+      },
+      {
+        path: `/perfil/personagens/:personagemId/equipamentos`,
+        element: <PersonagemEquipamentosScreen />,
       },
       {
         path: `/cutscene`,

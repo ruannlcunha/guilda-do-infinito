@@ -1,0 +1,298 @@
+
+.personagem-evoluir {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background:
+    url(../../../assets/img/textures/CLOUDS.png),
+    linear-gradient(var(--fundo-tema) 25%, var(--white) 100%);
+    animation: leftToRight 60s alternate-reverse infinite ease-in-out;
+    color: var(--white);
+    text-shadow: var(--borda-texto-sombra);
+}
+
+.personagem-evoluir .personagem {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: solid 1.5rem var(--background-text);
+}
+
+.personagem-evoluir .personagem img {
+    width: 95%;
+}
+
+.personagem-evoluir .personagem h1 {
+    position: absolute;
+    top: 5%;
+    font-size: 48px;
+    font-weight: 100;
+}
+
+.personagem-evoluir .evoluir-section {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--white-transparent);
+    box-shadow: var(--box-interior);
+}
+
+.personagem-evoluir .evoluir-section .botao-primario {
+    margin: 0.5rem 0;
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia {
+    display: flex;
+    height: 7rem;
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia button {
+    background: none;
+    border: none;
+    border-radius: 5px;
+    width: 6rem;
+    height: 6rem;
+    margin: 0 0.2rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border: solid 2px var(--light-grey);
+    transition: all 0.1s;
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia button:hover {
+    transition: all 0.1s;
+    box-shadow: var(--box-brilho);
+    border: solid 2px var(--blue);
+    width: 6.5rem;
+    height: 6.5rem;
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia .card-escolhido {
+    box-shadow: var(--box-brilho);
+    border: solid 2px var(--blue);
+    width: 6.5rem;
+    height: 6.5rem;
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia .card-bloqueado {
+    opacity: 50%;
+    border: solid 2px var(--black);
+    box-shadow: none;
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia .card-bloqueado:hover {
+    cursor: var(--cursor-not-allowed);
+    box-shadow: none;
+    width: 6rem;
+    height: 6rem;
+    border: solid 2px var(--black);
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia .card-bloqueado:hover footer {
+    background-color: var(--white);
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia button img {
+    margin-top: 10%;
+    height: 60%;
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia button footer {
+    height: 25%;
+    width: 100%;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 3px 3px;
+    font-family: textFont, sans-serif;
+    font-size: 20px;
+    color: var(--white);
+    text-shadow: var(--borda-texto-sombra);
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia .card-escolhido footer {
+    background-color: var(--fundo-destaque);
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia button:hover footer {
+    background-color: var(--fundo-destaque);
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia button footer ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    margin-bottom: -1rem;
+    bottom: 1.5rem;
+    height: 1rem;
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia button footer ul img {
+    height: 100%;
+}
+
+.personagem-evoluir .evoluir-section .cards-experiencia button:hover footer {
+    border-radius: 3px;
+}
+
+.personagem-evoluir .evoluir-section h1 {
+    margin: 0;
+    margin-top: 1rem;
+    font-weight: 100;
+    font-size: 42px;
+    text-align: center;
+    width: 75%;
+    border-bottom: solid 2px var(--background-text);
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section {
+    width: 90%;
+    height: 40%;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section h1 {
+    border: none;
+    margin: 0;
+    text-align: left;
+}
+
+
+.personagem-evoluir .evoluir-section .experiencia-section .level {
+    display: flex;
+    align-items: center;
+    width: 75%;
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section .level img{
+    height: 2rem;
+    margin: 0 1rem;
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section .level h1 {
+    width: auto;
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section .level h1 span{
+    color: var(--light-blue);
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section .barra-experiencia {
+    width: 75%;
+    height: 1rem;
+    margin: 10px 5px;
+    border: solid 2px var(--white);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, var(--blue-green) var(--resultadoExp), var(--light-grey) 1%);
+    background-size: cover;
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section .barra-experiencia h1 {
+    font-size: 20px;
+    font-weight: 100;
+    background: none;
+    padding: 0;
+    margin: 0 10px;
+    text-shadow: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black),  0px -2px var(--black);
+    position: relative;
+    bottom: 10px;
+    color: white;
+    width: auto;
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section .barra-experiencia h1 span {
+    color: var(--light-grey);
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section ul {
+    width: 90%;
+    height: 60%;
+    margin: 1rem 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section ul li {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cyan-transparent);
+    margin: 10px;
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section ul li div span {
+    color: var(--light-blue);
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section ul li div {
+    margin-right: 5px;
+}
+
+.personagem-evoluir .evoluir-section .experiencia-section ul li img{
+    height: 1.2rem;
+    margin: 0 0.5rem;
+}
+
+.personagem-evoluir .evoluir-section .quantidade-opcao {
+    width: 75%;
+    background-color: var(--fundo-destaque);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 32px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 10px;
+}
+
+.personagem-evoluir .evoluir-section .quantidade-opcao div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 15%;
+}
+
+.personagem-evoluir .evoluir-section .quantidade-opcao div h1 {
+    margin: 0;
+    font-size: 24px;
+    border: none;
+}
+
+.personagem-evoluir .evoluir-section .quantidade-opcao div button {
+    border: solid 2px var(--grey);
+    border-radius: 100%;
+    font-family: textFont, sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personagem-evoluir .evoluir-section .quantidade-opcao div button:hover {
+    border-color: var(--blue);
+    background-color: var(--light-blue);
+}
