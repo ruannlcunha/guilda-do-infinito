@@ -11,7 +11,7 @@ export const CANARIO = {
   comportamento: "ATACANTE",
   corTema: "tema-vermelho",
   estrelas: 5,
-  skins:[
+  visuais:[
       {
           skinId: 1,
           nome: "Original",
@@ -31,7 +31,7 @@ export const CANARIO = {
               magia: 2,
               vigor: 3,
           },
-          passivas: [
+          talentos: [
               //PASSIVAS.RESSURGIR,
               {id: 1, nome: "Ressurgir"}
           ],

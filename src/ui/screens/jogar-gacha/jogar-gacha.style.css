@@ -241,12 +241,20 @@
     flex-direction: column;
 }
 
-.jogar-gacha-screen .gacha-cena-3 ul li img {
+.jogar-gacha-screen .gacha-cena-3 ul li .sprite-recompensa {
     margin-top: 1rem;
     width: 75%;
+    height: 100%;
     animation: floating 3s infinite alternate ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.jogar-gacha-screen .gacha-cena-3 ul li .sprite-recompensa img {
+    width: 100%;
+    height: auto;
+}
 
 .jogar-gacha-screen .gacha-cena-3 ul li .gacha-detalhes {
     display: flex;

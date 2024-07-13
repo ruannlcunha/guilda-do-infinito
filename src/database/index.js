@@ -1,6 +1,5 @@
 export { PERSONAGENS_DATA } from "./personagens"
 export { ATAQUES_DATA } from "./ataques"
 export { HABILIDADES_DATA } from "./habilidades"
-export { CONSUMIVEIS_DATA } from "./itens/consumiveis"
-export { EQUIPAMENTOS_DATA } from "./itens/equipamentos"
+export { ITENS_DATA } from "./itens"
 export { GACHA_DATA } from "./gacha"

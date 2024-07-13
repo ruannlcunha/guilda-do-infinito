@@ -24,7 +24,7 @@ const _BASE_ORIGINAL = {
       magia: 2,
       vigor: 3,
     },
-    passivas: [{passivaId: 1}],
+    talentos: [{talentoId: 1}],
     ataques: [{ataqueId: 1}],
     habilidades: [{habilidadeId: 1}],
     inventario: {

@@ -33,3 +33,509 @@
     font-size: 48px;
     font-weight: 100;
 }
+
+.personagem-inventario .inventario-section {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--white-transparent);
+    box-shadow: var(--box-interior);
+}
+
+.personagem-inventario .inventario-section .titulo {
+    margin: 0;
+    margin-top: 1rem;
+    font-weight: 100;
+    font-size: 42px;
+    text-align: center;
+    width: 75%;
+    border-bottom: solid 2px var(--background-text);
+}
+
+.personagem-inventario .inventario-section .lista-itens {
+    width: 75%;
+    height: 70%;
+    display: flex;
+    align-items: self-start;
+    justify-content: flex-start;
+    background-color: var(--blue-grey);
+    box-shadow: var(--light-grey) 0px 0px 5px 2px;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+.personagem-inventario .inventario-section .lista-itens h1 {
+    font-weight: 100;
+    width: 85%;
+    margin-left: 5%;
+    text-align: center;
+    font-size: 24px;
+}
+
+.personagem-inventario .inventario-section .lista-itens ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 95%;
+    margin-left: 5%;
+}
+
+.personagem-inventario .inventario-section .lista-itens ul li {
+    width: 7rem;
+    height: 7.5rem;
+    border: solid 2px var(--black);
+    background: var(--card-4-estrelas);
+    margin: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    transition: all 0.1s;
+}
+
+.personagem-inventario .inventario-section .lista-itens ul li .quantidade {
+    margin: 0;
+    width: 100%;
+    text-align: right;
+    font-size: 24px;
+    margin-bottom: -24px;
+    padding-right: 5px;
+}
+
+.personagem-inventario .inventario-section .lista-itens ul li:hover {
+    transition: all 0.1s;
+    width: 7.1rem;
+    height: 7.6rem;
+    box-shadow: var(--light-blue) 0px 0px 5px 2px, var(--light-blue) 0px 0px 0px 2px;
+    cursor: var(--cursor-pointer);
+}
+
+.personagem-inventario .inventario-section .lista-itens ul .item-escolhido {
+    transition: all 0.1s;
+    cursor: auto;
+    width: 7.1rem;
+    height: 7.6rem;
+    box-shadow: var(--box-brilho);
+}
+
+.personagem-inventario .inventario-section .lista-itens ul .item-escolhido:hover {
+    box-shadow: var(--box-brilho);
+}
+
+.personagem-inventario .inventario-section .lista-itens ul li img {
+    height: 85%;
+}
+
+.personagem-inventario .inventario-section .lista-itens ul li footer {
+    padding: 0;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 5px 5px;
+    box-shadow: none;
+    background-color: var(--light-grey);
+    transition: all 0.1s;
+}
+
+.personagem-inventario .inventario-section .lista-itens ul li footer ul {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personagem-inventario .inventario-section .lista-itens ul li:hover footer {
+    transition: all 0.1s;
+    background-color: var(--white);
+}
+
+.personagem-inventario .inventario-section .lista-itens ul .item-escolhido footer {
+    background-color: var(--white);
+}
+
+.personagem-inventario .inventario-section .lista-itens ul li .estrelas img {
+    position: relative;
+    bottom: 0.5rem;
+    height: 1rem;
+}
+
+.personagem-inventario .modal .inventario-modal {
+    width: 90%;
+    height: 90%;
+    background-color: var(--fundo-janela);
+    box-shadow: var(--box-interior);
+    border: double 5px var(--blue);
+}
+
+.personagem-inventario .modal div header {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.personagem-inventario .modal div header h1 {
+    margin: 0 2rem;
+    font-size: 48px;
+    font-weight: 100;
+    display: flex;
+    align-items: self-end;
+}
+
+.personagem-inventario .modal div header button {
+    background-color: var(--white);
+    border: none;
+    border-bottom: double 5px var(--blue);
+    border-left: double 5px var(--blue);
+    font-size: 32px;
+    font-family: textFont, sans-serif;
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0;
+    color: var(--blue);
+    transition: all 0.1s;
+}
+
+.personagem-inventario .modal div header button:hover {
+    background-color: var(--light-blue);
+    transition: all 0.1s;
+}
+
+.personagem-inventario .modal .inventario-modal section {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario {
+    width: 35%;
+    height: 90%;
+    display: flex;
+    align-items: self-start;
+    justify-content: flex-start;
+    background-color: var(--blue-grey);
+    box-shadow: var(--light-grey) 0px 0px 5px 2px;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario h1 {
+    font-weight: 100;
+    width: 85%;
+    margin-left: 10%;
+    text-align: center;
+    font-size: 24px;
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario ul li {
+    width: 6rem;
+    height: 6.5rem;
+    border: solid 2px var(--black);
+    background: var(--card-4-estrelas);
+    margin: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    transition: all 0.1s;
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario ul li:hover {
+    transition: all 0.1s;
+    width: 6.1rem;
+    height: 6.6rem;
+    box-shadow: var(--light-blue) 0px 0px 5px 2px, var(--light-blue) 0px 0px 0px 2px;
+    cursor: var(--cursor-pointer);
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario ul li .quantidade {
+    margin: 0;
+    width: 100%;
+    text-align: right;
+    font-size: 20px;
+    margin-bottom: -20px;
+    padding-right: 10px;
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario ul .item-escolhido {
+    transition: all 0.1s;
+    cursor: auto;
+    width: 6.1rem;
+    height: 6.6rem;
+    box-shadow: var(--box-brilho);
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario ul .item-escolhido:hover {
+    box-shadow: var(--box-brilho);
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario ul li img {
+    height: 85%;
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario ul li footer {
+    padding: 0;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 5px 5px;
+    box-shadow: none;
+    background-color: var(--light-grey);
+    transition: all 0.1s;
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario ul li footer ul {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario ul li:hover footer {
+    transition: all 0.1s;
+    background-color: var(--white);
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario ul .item-escolhido footer {
+    background-color: var(--white);
+}
+
+.personagem-inventario .modal .inventario-modal section .inventario ul li .estrelas img {
+    position: relative;
+    bottom: 0.5rem;
+    height: 1rem;
+}
+
+.personagem-inventario .modal .inventario-modal section .selecionar-item {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personagem-inventario .modal .inventario-modal section .selecionar-item h1 {
+    font-weight: 100;
+    font-size: 48px;
+    text-align: center;
+}
+
+.personagem-inventario .modal div section .item-detalhes {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.personagem-inventario .modal div section .item-detalhes img {
+    height: 95%;
+}
+
+.personagem-inventario .modal div section .item-detalhes .detalhes {
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    height: 65%;
+    width: 25%;
+    background-color: var(--background-text);
+    background-image: url(../../../assets/img/textures/DEGRADE_CIRCULO.png);
+    background-size: cover;
+    background-position: center;
+    border: double 4px var(--grey);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.personagem-inventario .modal div section .item-detalhes .detalhes div {
+    width: 100%;
+    display: flex;
+    align-items: self-start;
+    flex-direction: column;
+}
+
+.personagem-inventario .modal div section .item-detalhes .detalhes div h1 {
+    margin: 0.6rem 0.3rem;
+    font-weight: 100;
+    font-size: 28px;
+}
+
+.personagem-inventario .modal div section .item-detalhes .detalhes div h2 {
+    margin: 0.3rem;
+    font-weight: 100;
+    font-size: 18px;
+    text-shadow: var(--borda-texto);
+    color: var(--texto-destaque);
+}
+
+.personagem-inventario .modal div section .item-detalhes .detalhes div h2 span{
+    text-shadow: var(--borda-texto);
+    color: var(--white);
+}
+
+.personagem-inventario .modal div section .item-detalhes .detalhes div
+div .estrelas {
+    margin-left: 5px;
+}
+
+.personagem-inventario .modal div section .item-detalhes .detalhes div
+div .estrelas img {
+    height: 1rem;
+}
+
+.personagem-inventario .modal div section .item-detalhes .detalhes div
+div {
+    display: flex;
+    flex-direction: row;
+    margin: 0.3rem;
+}
+
+.personagem-inventario .modal div section .item-detalhes .detalhes div
+div h2 {
+    margin: 0;
+}
+
+.personagem-inventario .modal div section .item-detalhes .detalhes div
+div ul {
+    margin: 0;
+    padding: 0;
+}
+
+.personagem-inventario .modal .quantidade-modal {
+    width: 50%;
+    height: 50%;
+    background-color: var(--fundo-janela);
+    box-shadow: var(--box-interior);
+    border: double 5px var(--blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.personagem-inventario .modal .quantidade-modal h1 {
+    font-weight: 100;
+    font-size: 42px;
+    text-align: center;
+}
+
+.personagem-inventario .modal .quantidade-modal .quantidade-opcao {
+    width: 75%;
+    background-color: var(--fundo-destaque);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 32px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 10px;
+}
+
+.personagem-inventario .modal .quantidade-modal .quantidade-opcao div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 20%;
+}
+
+.personagem-inventario .modal .quantidade-modal .quantidade-opcao div h1 {
+    margin: 0 5px;
+    font-size: 24px;
+    border: none;
+}
+
+.personagem-inventario .modal .quantidade-modal .quantidade-opcao div button {
+    border: solid 2px var(--grey);
+    border-radius: 100%;
+    font-family: textFont, sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personagem-inventario .modal .quantidade-modal .quantidade-opcao div button:hover {
+    border-color: var(--blue);
+    background-color: var(--light-blue);
+}
+
+.personagem-inventario .modal .detalhes-item-modal {
+    width: 65%;
+    height: 85%;
+    background-color: var(--fundo-janela);
+    box-shadow: var(--box-interior);
+    border: double 5px var(--blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.personagem-inventario .modal .detalhes-item-modal header h1 {
+    width: 65%;
+    justify-content: flex-end;
+}
+
+.personagem-inventario .modal .detalhes-item-modal section {
+    height: 90%;
+    width: 100%;
+    display: flex;
+}
+
+.personagem-inventario .modal .detalhes-item-modal section section {
+    height: 100%;
+    width: 50%;
+}
+
+.personagem-inventario .modal .detalhes-item-modal section section .item-detalhes {
+    width: 100%;
+    justify-content: center;
+}
+
+.personagem-inventario .modal .detalhes-item-modal section section .item-detalhes img {
+    width: 0%;
+    height: 0%;
+}
+
+.personagem-inventario .modal .detalhes-item-modal section section .item-detalhes .estrelas img {
+    width: auto;
+    height: 1rem;
+}
+
+.personagem-inventario .modal .detalhes-item-modal section section .item-detalhes .detalhes {
+    position: static;
+    height: 85%;
+    width: 75%;
+}

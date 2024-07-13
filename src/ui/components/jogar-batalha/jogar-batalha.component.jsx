@@ -97,6 +97,7 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, perso
                 acaoAtiva={acaoAtiva}
                 zoom={zoom}
                 mapa={batalha.mapa}
+                batalhaTipo={batalha.batalhaTipo}
                 functions={functions}
               />
   

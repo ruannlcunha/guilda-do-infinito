@@ -1,0 +1,49 @@
+{
+  "id": 12,
+  "nome": "Andy",
+  "titulo": "Caçador dos Ventos",
+  "elemento": "AR",
+  "corTema": "tema-verde",
+  "raridade": 4,
+  "visuais":[
+      {
+          "skinId": 1,
+          "nome": "Original",
+          "sprite": "/guilda-do-infinito/src/database/personagens/andy/assets/ANDY_1_SPRITE.png",
+          "perfil": "/guilda-do-infinito/src/database/personagens/andy/assets/ANDY_1_PERFIL.png",
+          "santuario": "/guilda-do-infinito/src/database/personagens/andy/assets/ANDY_1_SANTUARIO.png"
+      }
+  ],
+  "evolucoes": [
+    {
+        "level": 1,
+        "experienciaNecessaria": 100,
+        "pv": 23,
+        "pm": 5,
+        "atributos": {
+            "forca": 1,
+            "agilidade": 4,
+            "magia": 3,
+            "vigor": 2
+        },
+        "talentos": [],
+        "ataques": [1],
+        "habilidades": [1]
+    },
+    {
+        "level": 2,
+        "experienciaNecessaria": 250,
+        "pv": 28,
+        "pm": 8,
+        "atributos": {
+            "forca": 1,
+            "agilidade": 4,
+            "magia": 3,
+            "vigor": 2
+        },
+        "passivas": [],
+        "ataques": [1],
+        "habilidades": [1]
+    }
+  ]
+}

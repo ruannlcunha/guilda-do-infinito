@@ -52,9 +52,9 @@ export function JogarGachaScreen() {
         if(recompensas[recompensaAtualId]) {
             const _recompensa = recompensas[recompensaAtualId]
             document.documentElement.style.setProperty('--brilho-gacha',
-                `url(${_recompensa.brilho})`);
+                `url(${ICONS[`BRILHO_${_recompensa.recompensa.raridade}`]})`);
             document.documentElement.style.setProperty('--fundo-estrelas',
-                `url(${IMAGES[`GACHA_${_recompensa.raridade}_ESTRELAS`]})`);
+                `url(${IMAGES[`GACHA_${_recompensa.recompensa.raridade}_ESTRELAS`]})`);
             setRecompensaAtivo(true)
         }
     },[recompensaAtualId, recompensas])
@@ -67,7 +67,7 @@ export function JogarGachaScreen() {
                 item=> possibilidadeAleatoria >= item.probMin && possibilidadeAleatoria <= item.probMax
             )
             const recompensasPossiveis = banner.recompensas.filter(item=>
-                item.raridade === possibilidadeEscolhida.raridade
+                item.recompensa.raridade === possibilidadeEscolhida.raridade
                 && item.tipo === possibilidadeEscolhida.tipo
             )
             const recompensaIndex = getRandomInt(0, (recompensasPossiveis.length-1))
@@ -83,7 +83,10 @@ export function JogarGachaScreen() {
 
         recompensasObtidas.map(item=> {
             if(item.tipo===RECOMPENSAS_TIPO.ARMA) {
-                novoInventario.push(item.recompensa)
+                novoInventario.push({
+                    itemId: item.recompensa.id,
+                    quantidade: 1,
+                })
             }
             if(item.tipo===RECOMPENSAS_TIPO.PERSONAGEM) {
                 if(!novosPersonagens.find(personagem=> personagem.personagemId==item.recompensa.id)) {
@@ -145,7 +148,8 @@ export function JogarGachaScreen() {
                 {
                     recompensas.map((item,i)=> {
                         return (
-                            <img src={item.brilho} alt="Brilho" className={`brilho-${i+1}`}/>
+                            <img src={ICONS[`BRILHO_${item.recompensa.raridade}`]}
+                            alt="Brilho" className={`brilho-${i+1}`}/>
                         )
                     })
                 }   
@@ -160,7 +164,7 @@ export function JogarGachaScreen() {
                     style={{backgroundImage:`url(${recompensas[recompensaAtualId].recompensa.santuario})`}}>
                         <div className="gacha-detalhes">
                             <header>
-                            <img src={ICONS.ELEMENTO_FOGO} alt="ícone" />
+                            {/* <img src={ICONS.ELEMENTO_FOGO} alt="ícone" /> */}
                             <h1>{recompensas[recompensaAtualId].recompensa.nome}</h1>
                             </header>
                             <div className="estrelas">
@@ -192,11 +196,23 @@ export function JogarGachaScreen() {
                             return (
                                 <li className="gacha-recompensa" key={i}
                                 style={{backgroundImage: `url(${item.recompensa.santuario}),
-                                url(${item.brilho})`}}>
-                                    <img src={item.recompensa.sprite} alt="" />
+                                url(${ICONS[`BRILHO_${item.recompensa.raridade}`]})`}}>
+                                    <div className="sprite-recompensa">
+                                        <img
+                                        style={item.tipo === RECOMPENSAS_TIPO.ARMA ?
+                                            {width: "65%"}
+                                        :null}
+                                        src={item.recompensa.sprite}
+                                        alt="" />
+                                    </div>
+
                                     <div className="gacha-detalhes">
                                         <header>
-                                        <img src={ICONS.ELEMENTO_FOGO} alt="ícone" />
+                                        {item.recompensa.elemento?
+                                        <img src={ICONS[`ELEMENTO_${
+                                            item.recompensa.elemento
+                                        }`]} alt="ícone" />
+                                        :null}
                                         <h1>{item.recompensa.nome}</h1>
                                         </header>
                                         <div className="estrelas">

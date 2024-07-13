@@ -58,6 +58,10 @@ export const router = createHashRouter([
         element: <BatalhaScreen />,
       },
       {
+        path: `/historia/:campanha/:idCapitulo/:idEpisodio/cena`,
+        element: <CenaScreen />,
+      },
+      {
         path: `/aventura`,
         element: <AventuraScreen />,
       },
@@ -110,7 +114,7 @@ export const router = createHashRouter([
         element: <PersonagemVisuaisScreen />,
       },
       {
-        path: `/perfil/personagens/:personagemId/equipamentos`,
+        path: `/perfil/personagens/:personagemId/equipamentos/:equipamentoTipo?`,
         element: <PersonagemEquipamentosScreen />,
       },
       {

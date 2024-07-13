@@ -11,7 +11,7 @@ export const OTAVIA = {
   comportamento: "ATACANTE",
   corTema: "tema-rosa",
   estrelas: 5,
-  skins:[
+  visuais:[
       {
           skinId: 1,
           nome: "Original",
@@ -31,7 +31,7 @@ export const OTAVIA = {
               magia: 4,
               vigor: 2,
           },
-          passivas: [
+          talentos: [
               //PASSIVAS.RESSURGIR,
               {id: 1, nome: "Ressurgir"}
           ],

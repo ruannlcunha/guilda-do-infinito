@@ -16,3 +16,18 @@
     transition: all 0.1s;
     background-color: var(--light-blue);
 }
+
+.botao-primario-desativado {
+    font-size: 36px;
+    color: var(--white);
+    text-shadow: var(--borda-texto-sombra);
+    font-weight: 100;
+    font-family: titleFont, sans-serif;
+    background-color: var(--light-grey);
+    border: double 5px var(--grey);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    transition: all 0.1s;
+    opacity: 50%;
+    cursor: var(--cursor-not-allowed);
+}

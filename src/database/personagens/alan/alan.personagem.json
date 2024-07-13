@@ -1,0 +1,48 @@
+{
+    "id": 34,
+    "nome": "Alan",
+    "titulo": "Escudeiro Real",
+    "elemento": "TERRA",
+    "corTema": "tema-azul",
+    "raridade": 4,
+    "visuais":[
+        {
+            "skinId": 1,
+            "nome": "Original",
+            "sprite": "/guilda-do-infinito/src/database/personagens/alan/assets/ALAN_1_SPRITE.png",
+            "perfil": "/guilda-do-infinito/src/database/personagens/alan/assets/ALAN_1_PERFIL.png",
+            "santuario": "/guilda-do-infinito/src/database/personagens/alan/assets/ALAN_1_SANTUARIO.png"
+        },
+        {
+            "skinId": 1,
+            "nome": "Versão do Sonho",
+            "sprite": "/guilda-do-infinito/src/database/personagens/alan/assets/ALAN_2_SPRITE.png",
+            "perfil": "/guilda-do-infinito/src/database/personagens/alan/assets/ALAN_2_PERFIL.png",
+            "santuario": "/guilda-do-infinito/src/database/personagens/alan/assets/ALAN_2_SANTUARIO.png"
+        },
+        {
+            "skinId": 3,
+            "nome": "Segredo de Khaas",
+            "sprite": "/guilda-do-infinito/src/database/personagens/alan/assets/ALAN_3_SPRITE.png",
+            "perfil": "/guilda-do-infinito/src/database/personagens/alan/assets/ALAN_3_PERFIL.png",
+            "santuario": "/guilda-do-infinito/src/database/personagens/alan/assets/ALAN_3_SANTUARIO.png"
+        }
+    ],
+    "evolucoes": [
+      {
+          "level": 1,
+          "experienciaNecessaria": 100,
+          "pv": 24,
+          "pm": 8,
+          "atributos": {
+              "forca": 3,
+              "agilidade": 2,
+              "magia": 1,
+              "vigor": 4
+          },
+          "talentos": [],
+          "ataques": [1],
+          "habilidades": []
+      }
+    ]
+}

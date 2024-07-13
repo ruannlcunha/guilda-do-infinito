@@ -33,3 +33,430 @@
     font-size: 48px;
     font-weight: 100;
 }
+
+.personagem-equipamentos .equipamento-section {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--white-transparent);
+    box-shadow: var(--box-interior);
+}
+
+.personagem-equipamentos .equipamento-section .titulo {
+    margin: 0;
+    margin-top: 1rem;
+    font-weight: 100;
+    font-size: 42px;
+    text-align: center;
+    width: 75%;
+    border-bottom: solid 2px var(--background-text);
+}
+
+.personagem-equipamentos .equipamento-section section {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento h1 {
+    font-weight: 100;
+    font-size: 32px;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento .card {
+    height: 10rem;
+    width: 10rem;
+    background-color: var(--background-text);
+    background-size: cover;
+    border: double 3px var(--light-grey);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento .card:hover {
+    transition: all 0.1s;
+    cursor: var(--cursor-pointer);
+    border-color: var(--blue);
+    background-color: var(--cyan-transparent);
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento .card h1 {
+    transition: all 0.1s;
+    position: absolute;
+    opacity: 75%;
+    font-size: 72px;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento .card:hover h1 {
+    opacity: 100%;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento .card img {
+    height: 75%;
+    opacity: 25%;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento .card .item-equipado {
+    opacity: 100%;
+    height: 85%;
+    transition: all 0.1s;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento .card:hover .item-equipado {
+    transition: all 0.1s;
+    height: 90%;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento section h1 {
+    font-weight: 100;
+    font-size: 16px;
+    margin: 5px 0;
+    text-align: center;
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento section .bonus {
+    font-weight: 100;
+    font-size: 16px;
+    margin: 5px 0;
+    padding: 2px 0;
+    text-align: center;
+    width: 85%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--fundo-destaque);
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento section .bonus div {
+    display: flex;
+    align-items: center;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento section .bonus div img {
+    height: 1rem;
+    margin: 0 5px;
+    opacity: 100%;
+}
+
+.personagem-equipamentos .equipamento-section .botao-primario {
+    position: absolute;
+    bottom: 2.5rem;
+}
+
+.personagem-equipamentos .equipamento-section .botao-primario-desativado {
+    position: absolute;
+    bottom: 2.5rem;
+}
+
+.personagem-equipamentos .modal .equipamento-modal {
+    width: 90%;
+    height: 90%;
+    background-color: var(--fundo-janela);
+    box-shadow: var(--box-interior);
+    border: double 5px var(--blue);
+}
+
+.personagem-equipamentos .modal .equipamento-modal header {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.personagem-equipamentos .modal .equipamento-modal header h1 {
+    margin: 0 2rem;
+    font-size: 48px;
+    font-weight: 100;
+    display: flex;
+    align-items: self-end;
+}
+
+.personagem-equipamentos .modal .equipamento-modal header button {
+    background-color: var(--white);
+    border: none;
+    border-bottom: double 5px var(--blue);
+    border-left: double 5px var(--blue);
+    font-size: 32px;
+    font-family: textFont, sans-serif;
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0;
+    color: var(--blue);
+    transition: all 0.1s;
+}
+
+.personagem-equipamentos .modal .equipamento-modal header button:hover {
+    background-color: var(--light-blue);
+    transition: all 0.1s;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos {
+    width: 37%;
+    height: 90%;
+    display: flex;
+    align-items: self-start;
+    justify-content: flex-start;
+    background-color: var(--blue-grey);
+    box-shadow: var(--light-grey) 0px 0px 5px 2px;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos h1 {
+    font-weight: 100;
+    width: 85%;
+    margin-left: 10%;
+    text-align: center;
+    font-size: 24px;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 95%;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos ul li {
+    width: 5rem;
+    height: 5.5rem;
+    border: solid 2px var(--black);
+    background: var(--card-4-estrelas);
+    margin: 0.5rem;
+    display: flex;
+    align-items: self-end;
+    flex-direction: column;
+    border-radius: 5px;
+    transition: all 0.1s;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos ul li:hover {
+    transition: all 0.1s;
+    width: 5.1rem;
+    height: 5.6rem;
+    box-shadow: var(--light-blue) 0px 0px 5px 2px, var(--light-blue) 0px 0px 0px 2px;
+    cursor: var(--cursor-pointer);
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos ul li .personagem-equipado {
+    height: 35%;
+    position: relative;
+    top: 35%;
+    margin-top: -38%;
+    filter: drop-shadow(1px 1px 3px var(--white));
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos ul .item-escolhido {
+    transition: all 0.1s;
+    cursor: auto;
+    width: 5.1rem;
+    height: 5.6rem;
+    box-shadow: var(--box-brilho);
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos ul .item-escolhido:hover {
+    box-shadow: var(--box-brilho);
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos ul li img {
+    height: 85%;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos ul li footer {
+    padding: 0;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 5px 5px;
+    box-shadow: none;
+    background-color: var(--light-grey);
+    transition: all 0.1s;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos ul li footer ul {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos ul li:hover footer {
+    transition: all 0.1s;
+    background-color: var(--white);
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos ul .item-escolhido footer {
+    background-color: var(--white);
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .lista-equipamentos ul li .estrelas img {
+    position: relative;
+    bottom: 0.5rem;
+    height: 1rem;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .selecionar-item {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .selecionar-item h1 {
+    font-weight: 100;
+    font-size: 48px;
+    text-align: center;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes img {
+    height: 95%;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes {
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    height: 65%;
+    width: 25%;
+    background-color: var(--background-text);
+    background-image: url(../../../assets/img/textures/DEGRADE_CIRCULO.png);
+    background-size: cover;
+    background-position: center;
+    border: double 4px var(--grey);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes div {
+    width: 100%;
+    display: flex;
+    align-items: self-start;
+    flex-direction: column;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes div h1 {
+    margin: 0.6rem 0.3rem;
+    font-weight: 100;
+    font-size: 28px;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes div h2 {
+    margin: 0.3rem;
+    font-weight: 100;
+    font-size: 18px;
+    text-shadow: var(--borda-texto);
+    color: var(--texto-destaque);
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes div h2 span{
+    text-shadow: var(--borda-texto);
+    color: var(--white);
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes div
+div .estrelas {
+    margin-left: 5px;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes div
+div .estrelas img {
+    height: 1rem;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes div
+div {
+    display: flex;
+    flex-direction: row;
+    margin: 0.3rem;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes div
+div h2 {
+    margin: 0;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes div
+div ul {
+    margin: 0;
+    padding: 0;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes div
+.bonus-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 0.5rem;
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes div
+.bonus-list ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    text-shadow: var(--borda-texto);
+}
+
+.personagem-equipamentos .modal .equipamento-modal section .equipamento-detalhes .detalhes div
+.bonus-list ul li img {
+    height: 1rem;
+    margin-right: 0.5rem;
+    filter: drop-shadow(-1px 1px 5px var(--grey));
+}

@@ -23,8 +23,16 @@
   -2px 0px var(--black),  0px -2px var(--black);
   --borda-texto-sombra: 2px 0px var(--black), 0px 2px var(--black),
   -2px 0px var(--black),  0px -2px var(--black), 2px 2px 10px var(--black);
+  --borda-texto-3-estrelas: 2px 0px var(--black), 0px 2px var(--black),
+  -2px 0px var(--black),  0px -2px var(--black), 2px 2px 15px var(--blue);
+  --borda-texto-4-estrelas: 2px 0px var(--black), 0px 2px var(--black),
+  -2px 0px var(--black),  0px -2px var(--black), 2px 2px 15px var(--purple);
+  --borda-texto-5-estrelas: 2px 0px var(--black), 0px 2px var(--black),
+  -2px 0px var(--black),  0px -2px var(--black), 2px 2px 15px var(--tema-amarelo);
 
   --fundo-janela: #ebebeb;
+  --fundo-destaque: #c5d0dd;
+  --texto-destaque: #a7c5e9;
   --fundo-destaque: #c5d0dd;
   --black: #000000;
   --grey: #494949;
@@ -59,12 +67,16 @@
   --card-5-estrelas: linear-gradient(0deg, rgb(255, 207, 49) 10%, rgb(207, 159, 0) 70%);
 
   --tema-amarelo: #ffd900;
+  --tema-azul: #292477;
   --tema-ciano: #70d6da;
   --tema-roxo: #631974;
   --tema-rosa: #b3318c;
   --tema-preto: #0f0f0f;
+  --tema-cinza: #6e6e6e;
   --tema-branco: #d4d4d4;
+  --tema-turquesa: #057e4c;
   --tema-verde: #097e05;
+  --tema-laranja: #da6d14;
   --tema-vermelho: #bd0c0c;
   --tema-inimigo: #5c0d0d;
 }

@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { calcularPorcentagem, instanciarPersonagem } from "../../../utils"
 import { ICONS } from "../../../constants/images"
+import { ITENS_DATA } from "../../../database"
 
 export function PersonagemDetalhadoScreen() {
     const { personagemId } = useParams()
@@ -49,6 +50,25 @@ export function PersonagemDetalhadoScreen() {
         navigate(`/perfil/personagens/${personagemId}/${page}`)
     }
 
+    function renderCardEquipamento(itemId, iconDefault, tipo) {
+        const itemData = ITENS_DATA.find(item=>item.id===itemId)
+
+        return (
+            <div onClick={()=>handleNavigate(`equipamentos/${tipo}`)}>
+                {itemId?
+                    <img
+                    className="item-equipado"
+                    src={itemData.sprite}
+                    alt={`Ícone de `} />
+                :
+                <>
+                <img src={iconDefault} alt="Ícone do item" />
+                <h1>+</h1>
+                </>}
+            </div>
+        )
+    }
+
     return (
         <ContainerScreen>
             <BackButton />
@@ -61,7 +81,7 @@ export function PersonagemDetalhadoScreen() {
                         <li onClick={()=>handleNavigate("evoluir")}>
                             {renderLosangulo()} Evoluir
                         </li>
-                        <li onClick={()=>handleNavigate("equipamentos")}>
+                        <li onClick={()=>handleNavigate("equipamentos/")}>
                             {renderLosangulo()} Equipamento
                         </li>
                         <li onClick={()=>handleNavigate("inventario")}>
@@ -70,9 +90,9 @@ export function PersonagemDetalhadoScreen() {
                         <li onClick={()=>handleNavigate("acoes")}>
                             {renderLosangulo()} Ações
                         </li>
-                        <li onClick={()=>handleNavigate("talentos")}>
+                        {/* <li onClick={()=>handleNavigate("talentos")}>
                             {renderLosangulo()} Talentos
-                        </li>
+                        </li> */}
                         <li onClick={()=>handleNavigate("visuais")}>
                             {renderLosangulo()} Visuais
                         </li>
@@ -111,6 +131,13 @@ export function PersonagemDetalhadoScreen() {
                         </li>
                         <li>
                             <div>
+                            <img src={ICONS.DEFESA} alt="Ícone de Defesa" />
+                            Defesa:
+                            </div>
+                            {personagem.defesa}
+                        </li>
+                        <li>
+                            <div>
                             <img src={ICONS.FORCA} alt="Ícone de Força" />
                             Força:
                             </div>
@@ -140,42 +167,10 @@ export function PersonagemDetalhadoScreen() {
                     </ul>
                     <h3>Equipamentos:</h3>
                     <section className="equipamentos">
-                        <div>
-                            {personagem.equipamentos.arma ?
-                                <img src={ICONS.AGILIDADE} alt={`Ícone de `} />
-                            :
-                            <>
-                            <img src={ICONS.CROSS_SWORD} alt="Ícone de arma" />
-                            <h1>+</h1>
-                            </>}
-                        </div>
-                        <div>
-                            {personagem.equipamentos.armadura ?
-                                <img src={ICONS.AGILIDADE} alt={`Ícone de `} />
-                            :
-                            <>
-                            <img src={ICONS.CROSS_SWORD} alt="Ícone de armadura" />
-                            <h1>+</h1>
-                            </>}
-                        </div>
-                        <div>
-                            {personagem.equipamentos.acessorio1 ?
-                                <img src={ICONS.AGILIDADE} alt={`Ícone de `} />
-                            :
-                            <>
-                            <img src={ICONS.CROSS_SWORD} alt="Ícone de acessório" />
-                            <h1>+</h1>
-                            </>}
-                        </div>
-                        <div>
-                            {personagem.equipamentos.acessorio2 ?
-                                <img src={ICONS.AGILIDADE} alt={`Ícone de `} />
-                            :
-                            <>
-                            <img src={ICONS.CROSS_SWORD} alt="Ícone de acessório" />
-                            <h1>+</h1>
-                            </>}
-                        </div>
+                        {renderCardEquipamento(personagem.equipamentos.arma, ICONS.ARMA, "ARMA")}
+                        {renderCardEquipamento(personagem.equipamentos.armadura, ICONS.ARMADURA, "ARMADURA")}
+                        {renderCardEquipamento(personagem.equipamentos.acessorio1, ICONS.ANEL, "ACESSORIO_1")}
+                        {renderCardEquipamento(personagem.equipamentos.acessorio2, ICONS.ANEL, "ACESSORIO_2")}
                     </section>
                 </section>
 

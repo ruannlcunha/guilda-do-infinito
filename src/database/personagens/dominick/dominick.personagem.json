@@ -1,0 +1,49 @@
+{
+  "id": 3,
+  "nome": "Dominick",
+  "titulo": "Rainha dos Piratas",
+  "elemento": "ELETRICO",
+  "corTema": "tema-roxo",
+  "raridade": 5,
+  "visuais":[
+      {
+          "skinId": 1,
+          "nome": "Original",
+          "sprite": "/guilda-do-infinito/src/database/personagens/dominick/assets/DOMINICK_1_SPRITE.png",
+          "perfil": "/guilda-do-infinito/src/database/personagens/dominick/assets/DOMINICK_1_PERFIL.png",
+          "santuario": "/guilda-do-infinito/src/database/personagens/dominick/assets/DOMINICK_1_SANTUARIO.png"
+      }
+  ],
+  "evolucoes": [
+    {
+        "level": 1,
+        "experienciaNecessaria": 100,
+        "pv": 28,
+        "pm": 3,
+        "atributos": {
+            "forca": 4,
+            "agilidade": 1,
+            "magia": 2,
+            "vigor": 3
+        },
+        "talentos": [],
+        "ataques": [1],
+        "habilidades": []
+    },
+    {
+        "level": 2,
+        "experienciaNecessaria": 250,
+        "pv": 36,
+        "pm": 6,
+        "atributos": {
+            "forca": 4,
+            "agilidade": 1,
+            "magia": 2,
+            "vigor": 3
+        },
+        "talentos": [],
+        "ataques": [1],
+        "habilidades": []
+    }
+  ]
+}

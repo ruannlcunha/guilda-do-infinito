@@ -1,0 +1,34 @@
+{
+    "id": 24,
+    "nome": "Kai",
+    "titulo": "Gatuna Forasteira",
+    "elemento": "ACIDO",
+    "corTema": "tema-rosa",
+    "raridade": 5,
+    "visuais":[
+        {
+            "skinId": 1,
+            "nome": "Original",
+            "sprite": "/guilda-do-infinito/src/database/personagens/kai/assets/KAI_1_SPRITE.png",
+            "perfil": "/guilda-do-infinito/src/database/personagens/kai/assets/KAI_1_PERFIL.png",
+            "santuario": "/guilda-do-infinito/src/database/personagens/kai/assets/KAI_1_SANTUARIO.png"
+        }
+    ],
+    "evolucoes": [
+      {
+          "level": 1,
+          "experienciaNecessaria": 100,
+          "pv": 24,
+          "pm": 5,
+          "atributos": {
+              "forca": 3,
+              "agilidade": 4,
+              "magia": 1,
+              "vigor": 2
+          },
+          "talentos": [],
+          "ataques": [1],
+          "habilidades": []
+      }
+    ]
+}

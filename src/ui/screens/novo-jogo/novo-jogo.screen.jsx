@@ -91,7 +91,8 @@ export function NovoJogoScreen() {
                     nome: formData.nome,
                     titulo: `Aventureir${PRONOMES[formData.pronomes.tipo].minusculo_2}`,
                     personagemId: 1,
-                    skinAtiva: formData.visualId,
+                    visualAtivo: formData.visualId,
+                    visuais: [1,2,3],
                 }
             ]
         })
@@ -140,7 +141,7 @@ export function NovoJogoScreen() {
         <ContainerScreen>
             <div className="novo-jogo-screen">
 
-            <Cena dialogosArray={DIALOGOS} dialogo={dialogo} setDialogo={setDialogo}/>
+            <Cena cenas={DIALOGOS} dialogo={dialogo} setDialogo={setDialogo}/>
 
             <Modal isOpen={visualModal} setIsOpen={()=>{}}>
                 <div className="visual-modal">

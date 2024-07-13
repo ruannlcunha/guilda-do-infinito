@@ -36,9 +36,9 @@ import CADEADO from "../../assets/img/icons/CADEADO.png";
 import ESTRELA from "../../assets/img/icons/ESTRELA.png";
 import BENCAO from "../../assets/img/icons/BENCAO.png";
 import BRILHO from "../../assets/img/icons/BRILHO.png";
-import BRILHO_AZUL from "../../assets/img/icons/BRILHO_AZUL.png";
-import BRILHO_ROXO from "../../assets/img/icons/BRILHO_ROXO.png";
-import BRILHO_AMARELO from "../../assets/img/icons/BRILHO_AMARELO.png";
+import BRILHO_3 from "../../assets/img/icons/BRILHO_3.png";
+import BRILHO_4 from "../../assets/img/icons/BRILHO_4.png";
+import BRILHO_5 from "../../assets/img/icons/BRILHO_5.png";
 import ELEMENTO_FOGO from "../../assets/img/icons/ELEMENTO_FOGO.png";
 import ELEMENTO_AGUA from "../../assets/img/icons/ELEMENTO_AGUA.png";
 import ELEMENTO_ACIDO from "../../assets/img/icons/ELEMENTO_ACIDO.png";
@@ -57,6 +57,10 @@ import PM from "../../assets/img/icons/PM.png";
 import CARD_3 from "../../assets/img/icons/CARD_3.png";
 import CARD_4 from "../../assets/img/icons/CARD_4.png";
 import CARD_5 from "../../assets/img/icons/CARD_5.png";
+import ARMA from "../../assets/img/icons/ARMA.png";
+import ARMADURA from "../../assets/img/icons/ARMADURA.png";
+import ANEL from "../../assets/img/icons/ANEL.png";
+import DEFESA from "../../assets/img/icons/SHIELD.png";
 
 export const ICONS = {
   TITULO,
@@ -97,9 +101,9 @@ export const ICONS = {
   ESTRELA,
   BENCAO,
   BRILHO,
-  BRILHO_AZUL,
-  BRILHO_ROXO,
-  BRILHO_AMARELO,
+  BRILHO_3,
+  BRILHO_4,
+  BRILHO_5,
   ELEMENTO_FOGO,
   ELEMENTO_AGUA,
   ELEMENTO_ACIDO,
@@ -118,5 +122,9 @@ export const ICONS = {
   CARD_3,
   CARD_4,
   CARD_5,
+  ARMA,
+  ARMADURA,
+  ANEL,
+  DEFESA,
 };
   

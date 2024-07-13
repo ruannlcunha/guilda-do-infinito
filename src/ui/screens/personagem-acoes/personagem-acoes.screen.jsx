@@ -31,7 +31,11 @@ export function PersonagemAcoesScreen() {
                     <img src={personagem.sprite} alt="Sprite do personagem" />
                 </>
                 :null}
-                 </section>
+                </section>
+
+                <section className="acoes-section">
+                    <h1 className="titulo">Ações</h1>
+                </section>
             </div>
 
         </ContainerScreen>

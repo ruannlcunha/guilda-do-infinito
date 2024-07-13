@@ -1,6 +1,7 @@
 {
     "personagemId": 0,
-    "skinAtiva": 1,
+    "visualAtivo": 1,
+    "visuais": [1],
     "level": 1,
     "experienciaAtual": 0,
     "equipamentos": {

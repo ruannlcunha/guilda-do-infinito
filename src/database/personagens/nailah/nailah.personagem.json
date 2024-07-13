@@ -1,0 +1,41 @@
+{
+    "id": 20,
+    "nome": "Nailah",
+    "titulo": "Gênia Sem Lembranças",
+    "elemento": "ELETRICO",
+    "corTema": "tema-roxo",
+    "raridade": 5,
+    "visuais":[
+        {
+            "skinId": 1,
+            "nome": "Original",
+            "sprite": "/guilda-do-infinito/src/database/personagens/nailah/assets/NAILAH_1_SPRITE.png",
+            "perfil": "/guilda-do-infinito/src/database/personagens/nailah/assets/NAILAH_1_PERFIL.png",
+            "santuario": "/guilda-do-infinito/src/database/personagens/nailah/assets/NAILAH_1_SANTUARIO.png"
+        },
+        {
+            "skinId": 2,
+            "nome": "Forma Verdadeira",
+            "sprite": "/guilda-do-infinito/src/database/personagens/nailah/assets/NAILAH_2_SPRITE.png",
+            "perfil": "/guilda-do-infinito/src/database/personagens/nailah/assets/NAILAH_2_PERFIL.png",
+            "santuario": "/guilda-do-infinito/src/database/personagens/nailah/assets/NAILAH_2_SANTUARIO.png"
+        }
+    ],
+    "evolucoes": [
+      {
+          "level": 1,
+          "experienciaNecessaria": 100,
+          "pv": 24,
+          "pm": 8,
+          "atributos": {
+              "forca": 1,
+              "agilidade": 3,
+              "magia": 4,
+              "vigor": 2
+          },
+          "talentos": [],
+          "ataques": [1],
+          "habilidades": [1]
+      }
+    ]
+}

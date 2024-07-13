@@ -1,7 +1,9 @@
-import { GRANDE_PRIMAVERA } from "./grande-primavera/grande-primavera.campanha.data"
-import { A_PEDRA_DE_WARUI } from "./a-pedra-de-warui/a-pedra-de-warui.campanha.data"
-import { TESTE } from "./teste/teste.campanha.data"
+import { GUARDIAS_COSMICAS } from "./guardias-cosmicas/guardias-cosmicas.campanha"
+import { GUILDA_ORION } from "./guilda-orion/guilda-orion.campanha"
+import { SEGREDO_KHAAS } from "./segredo-khaas/segredo-khaas.campanha"
 
 export const CAMPANHAS_DATA = [
-    TESTE,
+    GUILDA_ORION,
+    SEGREDO_KHAAS,
+    GUARDIAS_COSMICAS,
 ]

@@ -7,7 +7,7 @@ const _BASE_ORIGINAL = {
     comportamento: "ATACANTE",
     corTema: "tema-amarelo",
     estrelas: 5,
-    skins:[
+    visuais:[
         {
             skinId: 1,
             sprite: SPRITES.AYLA,
@@ -26,7 +26,7 @@ const _BASE_ORIGINAL = {
                 magia: 2,
                 vigor: 3,
             },
-            passivas: [
+            talentos: [
                 PASSIVAS.RESSURGIR,
             ],
             ataques: [

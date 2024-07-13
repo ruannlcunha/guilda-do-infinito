@@ -10,6 +10,11 @@ export function CosmosScreen() {
     const [gachaAtual, setGachaAtual] = useState(GACHA_DATA[0])
     const [user] = useGlobalUser()
     const navigate = useNavigate()
+
+    function handleEscolherGacha(gachaId) {
+        const _gacha = GACHA_DATA.find(item=>item.id === gachaId)
+        setGachaAtual(_gacha)
+    }
     
     function renderJogarButton(quantidade) {
         return (
@@ -26,7 +31,9 @@ export function CosmosScreen() {
     function renderBannerOpcao(gacha) {
         return (
             <li>
-                <div className={gacha.id===gachaAtual.id ? "opcao-escolhida" : "opcao"}
+                <div 
+                onClick={()=>handleEscolherGacha(gacha.id)}
+                className={gacha.id===gachaAtual.id ? "opcao-escolhida" : "opcao"}
                 style={{backgroundImage: `url(${gacha.preview})`}}>
                     <img src={ICONS.ESCOLHER_ESQUERDA} alt="Mão apontando para esquerda." />
                 </div>

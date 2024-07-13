@@ -1,22 +1,25 @@
-import { CONSUMIVEIS_DATA, PERSONAGENS_DATA } from "../database"
+import { ATAQUES_DATA, HABILIDADES_DATA, ITENS_DATA, PERSONAGENS_DATA } from "../database"
 import { evoluirPersonagem } from "./evoluir-personagem.util"
 
 export function instanciarPersonagem(personagem) {
-    const arrayData = Object.values(PERSONAGENS_DATA)
-    const data = arrayData.find(item => item.id === personagem.personagemId)
-    const skin = data.skins.find(item => item.skinId === personagem.skinAtiva)
+    const data = PERSONAGENS_DATA.find(item => item.id === personagem.personagemId)
+    const skin = data.visuais.find(item => item.skinId === personagem.visualAtivo)
     const personagemEvoluido = evoluirPersonagem(personagem)
     const evolucao = data.evolucoes.find(item => item.level === personagemEvoluido.level)
+    const novosAtaques = ATAQUES_DATA.filter(item => evolucao.ataques.find(id=>id === item.id))
+    const novasHabilidades = HABILIDADES_DATA.filter(item => evolucao.habilidades.find(id=>id === item.id))
+    const novosTalentos = null
     
     const personagemInstanciado = {
         id: data.id,
         nome: `${data.nome? data.nome : personagem.nome}`,
         level: personagemEvoluido.level,
         elemento: data.elemento,
+        visualId: personagem.visualAtivo,
         sprite: skin.sprite,
         perfil: skin.perfil,
         titulo: `${data.titulo? data.titulo : personagem.titulo}`,
-        raridade: data.estrelas,
+        raridade: data.raridade,
         santuario: skin.santuario,
         corTema: data.corTema,
         experiencia: {
@@ -34,8 +37,9 @@ export function instanciarPersonagem(personagem) {
         defesa: (10 + evolucao.atributos.agilidade),
         atributos: evolucao.atributos,
         passivas: evolucao.passivas,
-        ataques: evolucao.ataques,
-        habilidades: evolucao.habilidades,
+        ataques: novosAtaques,
+        habilidades: novasHabilidades,
+        talentos: novosTalentos,
         equipamentos: personagem.equipamentos,
         inventario: {
             espaco: {
@@ -44,10 +48,9 @@ export function instanciarPersonagem(personagem) {
             },
             itens: personagem.inventario
             .map(item =>{
-                const novoConsumivel = 
-                Object.values(CONSUMIVEIS_DATA).find(consumivel => consumivel.id === item.id)
+                const itemData = ITENS_DATA.find(data=> data.id==item.itemId)
                 return { 
-                    ...novoConsumivel,
+                    ...itemData,
                     quantidade: item.quantidade
                 }
             }),

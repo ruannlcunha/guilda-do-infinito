@@ -7,18 +7,18 @@ import { OpcoesCena } from "../opcoes-cena/opcoes-cena.component"
 import "./cena.style.css"
 import { AudioContainer } from "../audio-container/audio-container.component"
 
-export function Cena({dialogosArray, dialogo, setDialogo}) {
+export function Cena({cenas, dialogo, setDialogo}) {
     const [dialogoAtivo, setDialogoAtivo] = useState(true)
     const [audioAtual, setAudioAtual] = useState(null)
     const { startMusic } = useMusic()
     const { playClick } = useSound()
-
+    
     useEffect(()=>{
-        if(dialogosArray[dialogo].onEnter) {
-            dialogosArray[dialogo].onEnter()
+        if(cenas[dialogo].onEnter) {
+            cenas[dialogo].onEnter()
         }
-        if(dialogosArray[dialogo].musica) {
-            setAudioAtual(dialogosArray[dialogo].musica)
+        if(cenas[dialogo].musica) {
+            setAudioAtual(cenas[dialogo].musica)
         }
     },[dialogo])
 
@@ -28,18 +28,18 @@ export function Cena({dialogosArray, dialogo, setDialogo}) {
 
     function handleProximo() {
         playClick(1)
-        if((dialogo+1)<dialogosArray.length) {
+        if((dialogo+1)<cenas.length) {
             setDialogo(dialogo+1)
         }
-        if((dialogo+1)===dialogosArray.length && dialogosArray[dialogo].onClick) {
-            dialogosArray[dialogo].onClick() 
+        if((dialogo+1)===cenas.length && cenas[dialogo].onClick) {
+            cenas[dialogo].onClick() 
         }
     }
 
     function handlePular() {
         playClick(2)
         let pulou = false
-        dialogosArray.map((item, index)=>{
+        cenas.map((item, index)=>{
             if(index>dialogo && !pulou && (item.onClick || item.onEnter)) {
                 setDialogo(index)
                 pulou = true
@@ -55,26 +55,26 @@ export function Cena({dialogosArray, dialogo, setDialogo}) {
                 Pular cena
                 <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
             </button>
-            <div className="cena-screen" style={{backgroundImage: `url(${dialogosArray[dialogo].fundo})`}}>
-                {dialogosArray[dialogo].tipo === CENAS_TIPO.DIALOGO && dialogoAtivo? 
+            <div className="cena-screen" style={{backgroundImage: `url(${cenas[dialogo].fundo})`}}>
+                {cenas[dialogo].tipo === CENAS_TIPO.DIALOGO && dialogoAtivo? 
                 <section className="cena-dialogo">
                     <div>
-                        {dialogosArray[dialogo].perfil?
-                        <Imagem src={dialogosArray[dialogo].perfil} alt={`Foto de ${dialogosArray[dialogo].nome}`}/>
+                        {cenas[dialogo].perfil?
+                        <Imagem src={cenas[dialogo].perfil} alt={`Foto de ${cenas[dialogo].nome}`}/>
                         :null}
-                        {dialogosArray[dialogo].nome?
-                        <h1 style={dialogosArray[dialogo].perfil?{right: "35%"}:{right: "-5%"}}>
-                        {dialogosArray[dialogo].nome}
+                        {cenas[dialogo].nome?
+                        <h1 style={cenas[dialogo].perfil?{right: "35%"}:{right: "-5%"}}>
+                        {cenas[dialogo].nome}
                         </h1>
                         :null}
                     </div>
-                    <p onClick={handleProximo} > {dialogosArray[dialogo].texto}
+                    <p onClick={handleProximo} > {cenas[dialogo].texto}
                     <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
                     </p>
                 </section>
                 :null}
 
-                {dialogosArray[dialogo].tipo === CENAS_TIPO.IMAGEM && dialogoAtivo?
+                {cenas[dialogo].tipo === CENAS_TIPO.IMAGEM && dialogoAtivo?
                 <button onClick={handleProximo} className="continuar-button">
                     Continuar
                     <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />

@@ -5,11 +5,40 @@ import { useNavigate } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { downloadJson } from "../../../utils"
 import { useSound } from "../../../hook"
+import { useEffect } from "react"
+import { PERSONAGENS_DATA } from "../../../database"
+import basePersonagem from "../../../database/personagens/_base/_base-pessoal.personagem.json"
 
 export function PerfilScreen() {
     const navigate = useNavigate()
     const { playClick } = useSound()
     const [user, setUser] = useGlobalUser()
+
+    useEffect(()=>{
+        // cheat()
+    })
+
+    function cheat() {
+        const novosPersonagens = []
+        for(let i=0;i<PERSONAGENS_DATA.length;i++) {
+            const _visuais = [...PERSONAGENS_DATA[i].visuais.map(visual=>{
+                return visual.id
+            })]
+            const _personagem = {
+                ...basePersonagem,
+                nome: i===0?"Aventureiro":null,
+                personagemId: PERSONAGENS_DATA[i].id,
+                visuais: _visuais,
+            }
+            novosPersonagens.push(_personagem)
+        }
+
+        const _user = {
+            ...user,
+            personagens: novosPersonagens
+        }
+        setUser(_user)
+    }
 
     function handleSalvarJogo() {
         playClick(2)

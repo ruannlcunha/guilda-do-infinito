@@ -17,6 +17,10 @@ export function PerfilPersonagensScreen() {
         const personagensInstanciados = _personagens.map(item=> {
             return instanciarPersonagem(item)
         })
+        .sort(function (a, b) {
+            return a.id-b.id || b.raridade-a.raridade;;
+        });
+
         setPersonagens(personagensInstanciados)
     },[])
 
@@ -48,9 +52,13 @@ export function PerfilPersonagensScreen() {
             <li
             onClick={()=>{handleEscolher(personagem)}}
             className={personagemEscolhido.id===personagem.id?"card-escolhido":null}
-            style={{background: `url(${personagem.perfil}), var(--card-4-estrelas)`,
+            style={{background: `url(${personagem.perfil}), var(--card-${personagem.raridade}-estrelas)`,
             backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
-                <header><img src={ICONS[`ELEMENTO_${personagem.elemento}`]} alt="Ícone do Elemento"/></header>
+                <header>
+                    {personagem.elemento?
+                        <img src={ICONS[`ELEMENTO_${personagem.elemento}`]} alt="Ícone do Elemento"/>
+                    :null}
+                </header>
                 <footer>{personagem.nome}</footer>
             </li>
         )

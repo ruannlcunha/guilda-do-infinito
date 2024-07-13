@@ -139,14 +139,19 @@
 }
 
 .personagem-detalhado .personagem-info ul li {
-    font-size: 28px;
+    font-size: 24px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.personagem-detalhado .personagem-info ul li img {
+.personagem-detalhado .personagem-info ul li div {
+    display: flex;
+    align-items: center;
+}
+
+.personagem-detalhado .personagem-info ul li div img {
     height: 1.5rem;
     margin: 0 0.5rem;
 }
@@ -189,6 +194,17 @@
 .personagem-detalhado .personagem-info .equipamentos div img {
     height: 75%;
     opacity: 25%;
+}
+
+.personagem-detalhado .personagem-info .equipamentos div .item-equipado {
+    opacity: 100%;
+    height: 85%;
+    transition: all 0.1s;
+}
+
+.personagem-detalhado .personagem-info .equipamentos div:hover .item-equipado {
+    transition: all 0.1s;
+    height: 90%;
 }
 
 .personagem-detalhado img {

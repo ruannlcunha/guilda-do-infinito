@@ -28,7 +28,7 @@
   font-weight: 300;
   text-shadow: 2px 3px var(--black);
   color: var(--white);
-  font-family: titleFont, sans-serif;
+  font-family: textFont, sans-serif;
   display: flex;
   align-items: center;
   justify-content: flex-start;

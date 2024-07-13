@@ -9,6 +9,7 @@ export function CampoDeBatalha({
   animacoes,
   acaoAtiva,
   mapa,
+  batalhaTipo,
   functions,
 }) {
 
@@ -45,6 +46,7 @@ export function CampoDeBatalha({
       }}
     >
       <section>
+        {batalhaTipo!="GIGANTE" ?
         <div className="inimigos">
           <section>
             {inimigosOrdenados.length>=4 ? renderPersonagem(inimigosOrdenados[3]):null}
@@ -57,6 +59,13 @@ export function CampoDeBatalha({
             {renderPersonagem(inimigosOrdenados[0])}
           </section>
         </div>
+        :
+        <div className="inimigos">
+          <section className="inimigo-gigante">
+            {renderPersonagem(inimigosOrdenados[0])}
+          </section>
+        </div>
+        }
 
         <div className="personagens">
           <section>{renderPersonagem(aliadosOrdenados[0])}</section>

@@ -1,6 +1,5 @@
 import "./hud-acoes.style.css";
 import { useState } from "react";
-import { ATAQUES_DATA, HABILIDADES_DATA, CONSUMIVEIS_DATA } from "../../../../database";
 import { useSound } from "../../../../hook";
 import { HUDSubAcoes } from "../hud-sub-acoes/hud-sub-acoes.component";
 

@@ -20,17 +20,21 @@ import FLORESTA_SOMBRIA from "../../assets/img/mapas/FLORESTA_SOMBRIA.png"
 import MAR from "../../assets/img/mapas/MAR.png"
 import MONTANHAS from "../../assets/img/mapas/MONTANHAS.png"
 import MONTANHAS_GELADAS from "../../assets/img/mapas/MONTANHAS_GELADAS.png"
+import MURO_DESERTO from "../../assets/img/mapas/MURO_DESERTO.png"
+import MURO_DESERTO_NOITE from "../../assets/img/mapas/MURO_DESERTO_NOITE.png"
 import MURO_SOMBRIO from "../../assets/img/mapas/MURO_SOMBRIO.png"
 import PLANICES from "../../assets/img/mapas/PLANICES.png"
 import PLANICES_GELADAS from "../../assets/img/mapas/PLANICES_GELADAS.png"
 import PONTE_MADEIRA from "../../assets/img/mapas/PONTE_MADEIRA.png"
 import PONTE_OBSCURA from "../../assets/img/mapas/PONTE_OBSCURA.png"
 import PONTE_PEDRA from "../../assets/img/mapas/PONTE_PEDRA.png"
+import PONTE_GELADA from "../../assets/img/mapas/PONTE_GELADA.png"
 import PRAIA from "../../assets/img/mapas/PRAIA.png"
 import PRAIA_OBSCURA from "../../assets/img/mapas/PRAIA_OBSCURA.png"
 import RIO from "../../assets/img/mapas/RIO.png"
 import RUINAS from "../../assets/img/mapas/RUINAS.png"
 import RUINAS_CIRCULO from "../../assets/img/mapas/RUINAS_CIRCULO.png"
+import COSMOS from "../../assets/img/mapas/COSMOS.png"
 
 export const MAPAS = {
     ARENA,
@@ -55,15 +59,19 @@ export const MAPAS = {
     MAR,
     MONTANHAS,
     MONTANHAS_GELADAS,
+    MURO_DESERTO,
+    MURO_DESERTO_NOITE,
     MURO_SOMBRIO,
     PLANICES,
     PLANICES_GELADAS,
     PONTE_MADEIRA,
     PONTE_OBSCURA,
     PONTE_PEDRA,
+    PONTE_GELADA,
     PRAIA,
     PRAIA_OBSCURA,
     RIO,
     RUINAS,
     RUINAS_CIRCULO,
+    COSMOS,
 }

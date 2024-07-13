@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--grey);
-    background-image: url(../../../assets/img/backgrounds/UNIVERSO_BACKGROUND.jpg);
+    background-image: url(../../../assets/img/backgrounds/UNIVERSO_VAZIO.png);
     background-size: 105%;
     background-position: center;
     animation: leftToRight 10s infinite alternate-reverse ease-in-out;

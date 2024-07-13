@@ -11,7 +11,7 @@ export const MINUS = {
   comportamento: "ATACANTE",
   corTema: "tema-branco",
   estrelas: 5,
-  skins:[
+  visuais:[
       {
           skinId: 1,
           nome: "Original",
@@ -31,7 +31,7 @@ export const MINUS = {
               magia: 1,
               vigor: 4,
           },
-          passivas: [
+          talentos: [
               //PASSIVAS.RESSURGIR,
               {id: 1, nome: "Ressurgir"}
           ],
