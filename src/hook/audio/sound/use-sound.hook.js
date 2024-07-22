@@ -42,6 +42,12 @@ export function useSound() {
         audio.play()
     }
 
-    return { playSound, playHover, playClick, playBanner, playDado, playDadoResultado}
+    function playCancel() {
+        const audio = new Audio(SOUNDS.CANCEL)
+        audio.volume = volumeEfeitos
+        audio.play()
+    }
+
+    return { playSound, playHover, playClick, playBanner, playDado, playDadoResultado, playCancel}
 
 }

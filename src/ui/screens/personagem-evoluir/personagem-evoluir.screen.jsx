@@ -1,23 +1,24 @@
 import "./personagem-evoluir.style.css"
 import { BackButton, BotaoPrimario, ContainerScreen } from "../../components"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { useEffect, useState } from "react"
 import { calcularPorcentagem, instanciarPersonagem } from "../../../utils"
 import { ICONS } from "../../../constants/images"
 import { ITENS_DATA } from "../../../database/itens/outros"
+import { useSound } from "../../../hook"
 
 export function PersonagemEvoluirScreen() {
     const { personagemId } = useParams()
     const CARDS_ID = {EXP_PEQUENO: 1,EXP_MEDIO: 2,EXP_GRANDE: 3,}
     const [user, setUser] = useGlobalUser()
+    const { playClick, playHover } = useSound()
     const [personagem, setPersonagem] = useState(null)
     const [personagemEvoluido, setPersonagemEvoluido] = useState(null)
     const [quantidadeCard, setQuantidadeCard] = useState(0)
     const [cardsDisponiveis, setCardsDisponiveis] = useState({pequeno: null, medio: null, grande: null})
     const [cardEscolhido, setCardEscolhido] = useState(
         {id: null, raridade: null, quantidadeExp: null, quant: 0})
-    const navigate = useNavigate()
 
     useEffect(()=>{
         const _personagem = user.personagens.find(item=>item.personagemId == personagemId)
@@ -39,7 +40,7 @@ export function PersonagemEvoluirScreen() {
             medio:  _cardsMedios ? _cardsMedios.quantidade : 0,
             grande:  _cardsGrandes ? _cardsGrandes.quantidade : 0
         })
-    },[])
+    },[user])
 
     useEffect(()=>{
         if(personagem) {
@@ -49,7 +50,7 @@ export function PersonagemEvoluirScreen() {
             );
             document.documentElement.style.setProperty('--resultadoExp', `${porcentagemExp}%`);
         }
-    },[personagem, personagemEvoluido])
+    },[user, personagem, personagemEvoluido])
 
     useEffect(()=>{
         if(personagem) {
@@ -62,10 +63,11 @@ export function PersonagemEvoluirScreen() {
             const _personagemEvoluido = instanciarPersonagem(novoPersonagem)
             setPersonagemEvoluido(_personagemEvoluido)
         }
-    },[quantidadeCard, cardEscolhido])
+    },[user, quantidadeCard, cardEscolhido])
 
 
     function handleAumentarCard() {
+        playClick(1)
         if(cardEscolhido.raridade !== null && quantidadeCard<cardEscolhido.quant) {
             const _quantidadeCard = quantidadeCard+1
             setQuantidadeCard(_quantidadeCard)
@@ -73,6 +75,7 @@ export function PersonagemEvoluirScreen() {
     }
 
     function handleDiminuirCard() {
+        playClick(1)
         if(cardEscolhido.raridade !== null) {
             if(quantidadeCard>0) {
                 const _quantidadeCard = quantidadeCard-1
@@ -82,6 +85,7 @@ export function PersonagemEvoluirScreen() {
     }
 
     function handleEscolherCard(card) {
+        playClick(1)
         if(quantidadeCard>card.quant) {
             setQuantidadeCard(card.quant)
         }
@@ -89,6 +93,7 @@ export function PersonagemEvoluirScreen() {
     }
 
     function handleEvoluir() {
+        playClick(2)
         const _personagem = user.personagens.find(item=>item.personagemId == personagemId)
         const novoPersonagem ={
             ..._personagem,
@@ -111,7 +116,7 @@ export function PersonagemEvoluirScreen() {
             inventario: novoInventario
         }
         setUser(novoUser)
-        navigate(0)
+        setQuantidadeCard(0)
     }
 
     function renderEstrelas(quantidade) {
@@ -132,6 +137,7 @@ export function PersonagemEvoluirScreen() {
     function renderCard(id, raridade, experiencia, quantidade, icon) {
         return (
             <button
+            onMouseEnter={()=>playHover(1)}
             className={
                 cardEscolhido.raridade===raridade ? "card-escolhido" :
                 quantidade<1 ? "card-bloqueado"
@@ -141,7 +147,10 @@ export function PersonagemEvoluirScreen() {
             :null}
             style={{background:`var(--card-${raridade}-estrelas)`}}>
                 <img src={icon} alt="Sprite do card de experiência" />
-                <footer>{renderEstrelas(raridade)} x{quantidade}</footer>
+                <footer>{renderEstrelas(raridade)} x{
+                    cardEscolhido.raridade===raridade ? quantidade-quantidadeCard
+                    :quantidade}
+                </footer>
             </button>
         )
     }
@@ -183,7 +192,7 @@ export function PersonagemEvoluirScreen() {
                             </div>
                             <div>
                                 {personagem.pv.atual}
-                                {personagemEvoluido.level>personagem.level ?
+                                {personagemEvoluido.pv.atual>personagem.pv.atual ?
                                 <>
                                 <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
                                 <span>
@@ -200,7 +209,7 @@ export function PersonagemEvoluirScreen() {
                             </div>
                             <div>
                                 {personagem.atributos.forca}
-                                {personagemEvoluido.level>personagem.level ?
+                                {personagemEvoluido.atributos.forca>personagem.atributos.forca ?
                                 <>
                                 <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
                                 <span>
@@ -217,7 +226,7 @@ export function PersonagemEvoluirScreen() {
                             </div>
                             <div>
                                 {personagem.atributos.agilidade}
-                                {personagemEvoluido.level>personagem.level ?
+                                {personagemEvoluido.atributos.agilidade>personagem.atributos.agilidade ?
                                 <>
                                 <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
                                 <span>
@@ -234,7 +243,7 @@ export function PersonagemEvoluirScreen() {
                             </div>
                             <div>
                                 {personagem.pm.atual}
-                                {personagemEvoluido.level>personagem.level ?
+                                {personagemEvoluido.pm.atual>personagem.pm.atual ?
                                 <>
                                 <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
                                 <span>
@@ -251,7 +260,7 @@ export function PersonagemEvoluirScreen() {
                             </div>
                             <div>
                                 {personagem.atributos.magia}
-                                {personagemEvoluido.level>personagem.level ?
+                                {personagemEvoluido.atributos.magia>personagem.atributos.magia ?
                                 <>
                                 <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
                                 <span>
@@ -268,7 +277,7 @@ export function PersonagemEvoluirScreen() {
                             </div>
                             <div>
                                 {personagem.atributos.vigor}
-                                {personagemEvoluido.level>personagem.level ?
+                                {personagem.atributos.vigor>personagemEvoluido.atributos.vigor ?
                                 <>
                                 <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
                                 <span>

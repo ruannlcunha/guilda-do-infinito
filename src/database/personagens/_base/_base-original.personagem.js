@@ -1,5 +1,6 @@
+import { PERFIL, SPRITES } from "../../../constants/images";
 
-const _BASE_ORIGINAL = {
+export const _BASE_ORIGINAL = {
     id: 1,
     nome: "Base",
     elemento: "FOGO",
@@ -9,11 +10,16 @@ const _BASE_ORIGINAL = {
     estrelas: 5,
     visuais:[
         {
-            skinId: 1,
+            visualId: 1,
             sprite: SPRITES.AYLA,
             perfil: PERFIL.AYLA,
         },
     ],
+    status: {
+        pvBase: 0,
+        pmBase: 0,
+        pvBonus: 0,
+    },
     evolucoes: [
         {
             level: 1,
@@ -26,15 +32,9 @@ const _BASE_ORIGINAL = {
                 magia: 2,
                 vigor: 3,
             },
-            talentos: [
-                PASSIVAS.RESSURGIR,
-            ],
-            ataques: [
-                ATAQUES.SOCO,
-            ],
-            habilidades: [
-                HABILIDADES.CURA,
-            ],
+            talentos: [],
+            ataques: [1],
+            habilidades: [1],
         }
     ]
 }

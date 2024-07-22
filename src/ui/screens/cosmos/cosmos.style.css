@@ -167,7 +167,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    font-size: 18px;
+    font-size: 1.2rem;
     color: var(--white);
     text-shadow: var(--borda-texto);
 }
@@ -190,14 +190,14 @@
     height: 85%;
     display: flex;
     align-items: center;
-    font-size: 28px;
+    font-size: 1.75rem;
     justify-content: space-between;
     padding: 0.5rem 1rem;
     margin: 0 5px;
 }
 
 .cosmos-screen .cosmos-section .banner-detalhes div button span {
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-left: 0.7rem;
 }
 
@@ -205,7 +205,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-right: 2rem;
 }
 

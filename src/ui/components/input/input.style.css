@@ -7,14 +7,14 @@
 
 .input-container label {
   width: 90%;
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 500;
   margin: 5px 0;
 }
 
 .input-container input {
   width: 85%;
-  font-size: 24px;
+  font-size: 1.5rem;
   border-radius: 5px;
   border: none;
   padding: 5px;

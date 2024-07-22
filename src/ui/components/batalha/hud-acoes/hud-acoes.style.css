@@ -14,7 +14,7 @@
 .batalha-screen .batalha-hud .hud-acoes li {
   width: 95%;
   height: 17%;
-  font-size: 28px;
+  font-size: 1.75rem;
   display: flex;
   align-items: center;
   margin: 2px;
@@ -29,7 +29,7 @@
 .batalha-screen .batalha-hud .hud-acoes li:hover {
   transition: 0.1s;
   cursor: url(../../../../assets/img/cursors/POINTER.png), pointer;
-  font-size: 28px;
+  font-size: 1.75rem;
   width: 100%;
   background-color: var(--cyan-transparent);
 }

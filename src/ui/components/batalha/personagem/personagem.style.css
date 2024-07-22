@@ -61,7 +61,7 @@
   height: 50%;
   width: 100%;
   text-align: center;
-  font-size: 18px;
+  font-size: 1.2rem;
   margin: 0;
   font-weight: 300;
   text-shadow: var(--borda-texto);
@@ -71,7 +71,7 @@
   height: 50%;
   width: 100%;
   text-align: center;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 300;
   margin: -2px 0;
   text-shadow: var(--borda-texto);

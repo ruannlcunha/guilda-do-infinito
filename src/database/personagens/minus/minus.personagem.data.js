@@ -13,7 +13,7 @@ export const MINUS = {
   estrelas: 5,
   visuais:[
       {
-          skinId: 1,
+          visualId: 1,
           nome: "Original",
           sprite: MINUS_1_SPRITE,
           perfil: MINUS_1_PERFIL,

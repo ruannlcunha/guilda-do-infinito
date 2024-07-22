@@ -48,6 +48,7 @@ import ELEMENTO_GELO from "../../assets/img/icons/ELEMENTO_GELO.png";
 import ELEMENTO_AR from "../../assets/img/icons/ELEMENTO_AR.png";
 import ELEMENTO_LUZ from "../../assets/img/icons/ELEMENTO_LUZ.png";
 import ELEMENTO_TREVAS from "../../assets/img/icons/ELEMENTO_TREVAS.png";
+import ELEMENTO_NULO from "../../assets/img/icons/ELEMENTO_NULO.png";
 import INVENTARIO from "../../assets/img/icons/INVENTARIO.png";
 import PESSOAS from "../../assets/img/icons/PESSOAS.png";
 import SALVAR_JOGO from "../../assets/img/icons/SALVAR_JOGO.png";
@@ -113,6 +114,7 @@ export const ICONS = {
   ELEMENTO_AR,
   ELEMENTO_LUZ,
   ELEMENTO_TREVAS,
+  ELEMENTO_NULO,
   INVENTARIO,
   PESSOAS,
   SALVAR_JOGO,

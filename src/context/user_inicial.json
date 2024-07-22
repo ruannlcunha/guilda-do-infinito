@@ -4,8 +4,13 @@
     "visualId": null,
     "moedas": 0,
     "bencaos": 0,
-    "progresso": {
-        "historia": []
+    "modos": {
+        "historia": [],
+        "versus": {
+            "aliados": [],
+            "inimigos": [],
+            "mapa": null
+        }
     },
     "personagens": [],
     "inventario": []

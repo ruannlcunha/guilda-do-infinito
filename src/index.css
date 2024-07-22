@@ -11,6 +11,7 @@
 }
 
 :root {
+  --cursor-auto: url(./assets/img/cursors/AUTO.png), auto;
   --cursor-pointer: url(./assets/img/cursors/POINTER.png), pointer;
   --cursor-not-allowed: url(./assets/img/cursors/NOT_ALLOWED.png), not-allowed;
   
@@ -78,7 +79,6 @@
   --tema-verde: #097e05;
   --tema-laranja: #da6d14;
   --tema-vermelho: #bd0c0c;
-  --tema-inimigo: #5c0d0d;
 }
 
 body {
@@ -99,6 +99,10 @@ button {
 
 label {
   cursor: url(./assets/img/cursors/POINTER.png), pointer;
+}
+
+h1 {
+  font-weight: 100;
 }
 
 ::-webkit-scrollbar {

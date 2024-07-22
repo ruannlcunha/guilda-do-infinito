@@ -30,7 +30,7 @@
 .personagem-evoluir .personagem h1 {
     position: absolute;
     top: 5%;
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 100;
 }
 
@@ -118,7 +118,7 @@
     justify-content: center;
     border-radius: 0 0 3px 3px;
     font-family: textFont, sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--white);
     text-shadow: var(--borda-texto-sombra);
 }
@@ -153,7 +153,7 @@
     margin: 0;
     margin-top: 1rem;
     font-weight: 100;
-    font-size: 42px;
+    font-size: 2.7rem;
     text-align: center;
     width: 75%;
     border-bottom: solid 2px var(--background-text);
@@ -208,7 +208,7 @@
 }
 
 .personagem-evoluir .evoluir-section .experiencia-section .barra-experiencia h1 {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 100;
     background: none;
     padding: 0;
@@ -236,7 +236,7 @@
 }
 
 .personagem-evoluir .evoluir-section .experiencia-section ul li {
-    font-size: 24px;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -263,7 +263,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 32px;
+    font-size: 2rem;
     padding: 0.5rem 1rem;
     margin-bottom: 10px;
 }
@@ -277,7 +277,7 @@
 
 .personagem-evoluir .evoluir-section .quantidade-opcao div h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 1.5rem;
     border: none;
 }
 
@@ -285,7 +285,7 @@
     border: solid 2px var(--grey);
     border-radius: 100%;
     font-family: textFont, sans-serif;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 800;
     display: flex;
     align-items: center;

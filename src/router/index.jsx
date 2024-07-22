@@ -21,6 +21,9 @@ import { AventuraScreen,
   PersonagemVisuaisScreen,
   RootScreen,
   StartScreen,
+  VersusBatalhaScreen,
+  VersusMapaScreen,
+  VersusPersonagensScreen,
   VersusScreen
 } from "../ui/screens";
 
@@ -68,6 +71,18 @@ export const router = createHashRouter([
       {
         path: `/versus`,
         element: <VersusScreen />,
+      },
+      {
+        path: `/versus/personagens`,
+        element: <VersusPersonagensScreen />,
+      },
+      {
+        path: `/versus/mapas`,
+        element: <VersusMapaScreen />,
+      },
+      {
+        path: `/versus/batalha`,
+        element: <VersusBatalhaScreen />,
       },
       {
         path: `/cosmos`,

@@ -5,11 +5,13 @@ import "./perfil-personagens.style.css"
 import useGlobalUser from "../../../context/global-user.context"
 import { instanciarPersonagem } from "../../../utils"
 import { useNavigate } from "react-router-dom"
+import { useSound } from "../../../hook"
 
 export function PerfilPersonagensScreen() {
     const [personagemEscolhido, setPersonagemEscolhido] = useState({id: 0})
     const [personagens, setPersonagens] = useState([])
     const [user] = useGlobalUser()
+    const {playHover, playClick} = useSound()
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -39,6 +41,7 @@ export function PerfilPersonagensScreen() {
     },[personagemEscolhido])
 
     function handleEscolher(personagem) {
+        playClick(1)
         if(personagem.id!==personagemEscolhido.id) {
             setPersonagemEscolhido(personagem)
         }
@@ -47,9 +50,15 @@ export function PerfilPersonagensScreen() {
         }
     }
 
+    function handleVisualizar() {
+        playClick(2)
+        navigate(`/perfil/personagens/${personagemEscolhido.id}`)
+    }
+
     function renderCardPersonagem(personagem) {
         return (
             <li
+            onMouseEnter={()=>playHover(1)}
             onClick={()=>{handleEscolher(personagem)}}
             className={personagemEscolhido.id===personagem.id?"card-escolhido":null}
             style={{background: `url(${personagem.perfil}), var(--card-${personagem.raridade}-estrelas)`,
@@ -90,7 +99,7 @@ export function PerfilPersonagensScreen() {
                     <img src={personagemEscolhido.sprite} alt="Sprite do personagem" />
                     <h1>{personagemEscolhido.nome}</h1>
                     <BotaoPrimario
-                    onClick={()=>{navigate(`/perfil/personagens/${personagemEscolhido.id}`)}}>
+                    onClick={handleVisualizar}>
                         Visualizar
                     </BotaoPrimario>
                 </section>

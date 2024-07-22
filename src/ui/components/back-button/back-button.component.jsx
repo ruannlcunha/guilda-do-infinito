@@ -15,7 +15,7 @@ export function BackButton({navigateTo}) {
         <button
         className={"back-button"}
         onClick={handleClick}
-        onMouseEnter={playHover}
+        onMouseEnter={()=>playHover(1)}
         >
         Voltar
         </button>

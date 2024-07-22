@@ -13,7 +13,7 @@ export const MAYA = {
   estrelas: 5,
   visuais:[
       {
-          skinId: 1,
+          visualId: 1,
           nome: "Original",
           sprite: MAYA_1_SPRITE,
           perfil: MAYA_1_PERFIL,

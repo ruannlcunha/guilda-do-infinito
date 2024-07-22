@@ -13,7 +13,7 @@ export const OTAVIA = {
   estrelas: 5,
   visuais:[
       {
-          skinId: 1,
+          visualId: 1,
           nome: "Original",
           sprite: OTAVIA_1_SPRITE,
           perfil: OTAVIA_1_PERFIL,

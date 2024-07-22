@@ -17,7 +17,7 @@
 
 .voltar-button h1 {
     margin: 0 0.5rem;
-    font-size: 32px;
+    font-size: 2rem;
     color: var(--white);
     font-weight: 100;
     text-shadow: var(--borda-texto);
@@ -31,7 +31,10 @@
 .iniciar-batalha-screen {
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, var(--cyan-transparent) 100%, var(--cyan-transparent) 100%),
+    background:
+    linear-gradient(90deg, var(--cyan-transparent) 100%, var(--cyan-transparent) 100%),
+    linear-gradient(90deg, var(--red-transparent) 0%, var(--red-transparent) 20%, rgba(255,255,255,0) 40%,
+    rgba(255,255,255,0) 60%, var(--blue-transparent) 80%, var(--blue-transparent) 100%),
     var(--iniciar-batalha-fundo);
     background-size: 105%;
     background-repeat: no-repeat;
@@ -51,7 +54,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 42px;
+    font-size: 2.7rem;
     color: var(--white);
     text-shadow: var(--borda-texto);
     font-weight: 400;
@@ -96,7 +99,7 @@
 .iniciar-batalha-screen section .iniciar-info div h1 {
     margin: 0;
     margin-top: 2rem;
-    font-size: 48px;
+    font-size: 3rem;
     color: var(--white);
     text-shadow: var(--borda-texto);
     font-weight: 400;
@@ -118,7 +121,7 @@
 }
 
 .iniciar-batalha-screen section .iniciar-info button {
-    font-size: 48px;
+    font-size: 3rem;
     font-family: titleFont, sans-serif;
     background-color: var(--white);
     background-size: cover;

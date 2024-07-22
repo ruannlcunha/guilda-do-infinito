@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import { instanciarPersonagem } from "../../../utils"
 import { ICONS } from "../../../constants/images"
 import { PERSONAGENS_DATA } from "../../../database"
+import { useSound } from "../../../hook"
 
 export function PersonagemVisuaisScreen() {
     const { personagemId } = useParams()
@@ -13,6 +14,7 @@ export function PersonagemVisuaisScreen() {
     const [personagem, setPersonagem] = useState(null)
     const [visualIndex, setVisualIndex] = useState(0)
     const [visuais, setVisuais] = useState([])
+    const { playClick, playHover } = useSound()
 
     useEffect(()=>{
         const _personagem = user.personagens.find(item=>item.personagemId == personagemId)
@@ -23,34 +25,37 @@ export function PersonagemVisuaisScreen() {
         );
         const personagemData = PERSONAGENS_DATA.find(personagem=>personagem.id==personagemId)
         
-        setVisuais(personagemData.visuais.map(skin=>{
-            if(_personagem.visuais.some(visuailAdquirido => visuailAdquirido==skin.skinId)) {
-                return {...skin, bloqueado: false}
+        setVisuais(personagemData.visuais.map(visual=>{
+            if(_personagem.visuais.some(visuailAdquirido => visuailAdquirido==visual.visualId)) {
+                return {...visual, bloqueado: false}
             }else {
-                return {...skin, bloqueado: true}
+                return {...visual, bloqueado: true}
             }
         }))
-        personagemData.visuais.map((skin, i)=> {
-            if(skin.skinId==_personagem.visualAtivo) {
+        personagemData.visuais.map((visual, i)=> {
+            if(visual.visualId==_personagem.visualAtivo) {
                 setVisualIndex(i)
             }
         })
     },[user])
 
     function handleProximo() {
+        playClick(1)
         setVisualIndex(old=>old+1)
     }
 
     function handleAnterior() {
+        playClick(1)
         setVisualIndex(old=>old-1)
     }
 
     function handleEquiparVisual() {
+        playClick(2)
         const _personagem = user.personagens.find(item=>item.personagemId==personagemId)
 
         const novoPersonagem = {
             ..._personagem,
-            visualAtivo: visuais[visualIndex].skinId
+            visualAtivo: visuais[visualIndex].visualId
         }
 
         const novosPersonagens = [
@@ -91,7 +96,7 @@ export function PersonagemVisuaisScreen() {
 
                 <div className="setas">
                 {visualIndex>0?
-                    <button onClick={handleAnterior}>
+                    <button onMouseEnter={()=>playHover(1)} onClick={handleAnterior}>
                         <img src={ICONS.SETA_DIREITA}
                         style={{transform:"scaleX(-1)"}} alt="Seta para esquerda" />
                     </button>
@@ -99,7 +104,7 @@ export function PersonagemVisuaisScreen() {
                     <button className="seta-vazia"></button>
                 }
                 {visualIndex<(visuais.length-1)?
-                    <button onClick={handleProximo}>
+                    <button onMouseEnter={()=>playHover(1)} onClick={handleProximo}>
                         <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
                     </button>
                 :
@@ -142,7 +147,7 @@ export function PersonagemVisuaisScreen() {
                     <BotaoPrimario
                     onClick={handleEquiparVisual}
                     ativo={
-                        personagem.visualId!==visuais[visualIndex].skinId
+                        personagem.visualId!==visuais[visualIndex].visualId
                         && !visuais[visualIndex].bloqueado
                         }>
                         Equipar

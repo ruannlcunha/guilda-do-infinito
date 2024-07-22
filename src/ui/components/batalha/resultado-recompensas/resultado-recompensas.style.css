@@ -27,7 +27,7 @@
 .fim-de-batalha .recompensas-section header h1 {
     color: white;
     text-shadow: var(--borda-texto);
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 100;
     margin: 0;
     filter: drop-shadow(2px 2px 10px var(--grey));
@@ -44,7 +44,7 @@
 
 .fim-de-batalha .recompensas-section button {
     font-family: titleFont, sans-serif;
-    font-size: 32px;
+    font-size: 2rem;
     padding: 10px;
     margin: 5px;
     background-color: var(--light-grey);
@@ -92,7 +92,7 @@
 }
 
 .fim-de-batalha .recompensas-section section .recompensa div h2 {
-    font-size: 1.2rem;
+    font-size: 1.2rem;;
     color: var(--white);
     text-shadow: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black),  0px -2px var(--black);
     font-weight: 100;

@@ -51,7 +51,7 @@
     font-family: titleFont, sans-serif;
     color: var(--white);
     text-shadow: var(--borda-texto);
-    font-size: 72px;
+    font-size: 4.5rem;
     animation: inimigo-text 5s ease-in-out;
 }
   
@@ -78,8 +78,8 @@
 }
   
   @keyframes inimigo-text {
-    from {font-size: 56px;}
-    to {font-size: 72px;}
+    from {font-size: 3.5rem;}
+    to {font-size: 4.5rem;}
 }
   
   @keyframes inimigo-icon {

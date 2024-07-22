@@ -5,7 +5,7 @@ div .home-section .menu-options ul .menu-option {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 28px;
+    font-size: 1.75rem;
     color: var(--white);
     text-shadow: var(--borda-texto);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,

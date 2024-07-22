@@ -13,7 +13,7 @@ export const SOL = {
   estrelas: 5,
   visuais:[
       {
-          skinId: 1,
+          visualId: 1,
           nome: "Original",
           sprite: SOL_1_SPRITE,
           perfil: SOL_1_PERFIL,

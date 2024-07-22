@@ -24,7 +24,7 @@
   
 .batalha-screen .banner-rolagem h2 {
   margin: 0;
-  font-size: 42px;
+  font-size: 2.7rem;
   text-shadow: var(--borda-texto);
 }
   
@@ -106,7 +106,7 @@
     transform: rotate(1080deg);
     color: var(--white);
     text-shadow: var(--borda-texto);
-    font-size: 48px;
+    font-size: 3rem;
     transition: all 0.3s;
     opacity: 100%;
     display: flex;

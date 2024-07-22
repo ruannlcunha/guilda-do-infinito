@@ -17,18 +17,6 @@ export const CONTEXT_CONFIG_NAMES = {
   TEMA: "tema",
 };
 
-export const CATEGORIAS_DE_DANO = {
-  CORPO_A_CORPO: "Corpo-a-corpo",
-  DISTANCIA: "Distância",
-  MAGICO: "Mágico",
-};
-
-export const TIPOS_DE_DANO = {
-  IMPACTO: "Impacto",
-  PERFURANTE: "Perfurante",
-  CORTE: "Corte",
-};
-
 export const BANNER_DURACAO = {
   TEXTO: 5000,
   ATAQUE: 8000,
@@ -42,12 +30,6 @@ export const BANNER_TIPOS = {
   ROLAGEM: "Rolagem",
   INIMIGO: "Ação Inimigo",
 
-}
-
-export const ALVOS = {
-  ALIADOS: "ALIADOS",
-  INIMIGOS: "INIMIGOS",
-  PESSOAL: "PESSOAL",
 }
 
 export const CENAS_TIPO = {

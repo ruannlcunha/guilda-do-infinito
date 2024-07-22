@@ -1,8 +1,9 @@
 import { EFFECTS } from "../../../constants/images";
-import { BANNER_DURACAO, CATEGORIAS_DE_DANO, TIPOS_DE_DANO } from "../../../constants";
+import { BANNER_DURACAO } from "../../../constants";
 import { ACOES_AUDIO } from "../../../constants/audios/acoes.constant";
 import { useAcoesBase } from "../../../hook/batalha/acoes/_base/use-acoes-base.hook";
 import { useRolarDado } from "../../../hook/batalha/rolar-dado/use-rolar-dado.hook";
+import { ALVOS, CATEGORIAS_DE_DANO, TIPOS_DE_DANO } from "../../../constants/acoes/acoes.constant";
 
 const { rolarDado } = useRolarDado();
 const { iniciarEfeito, causarDano, finalizarAcao, atacar } = useAcoesBase();
@@ -10,12 +11,12 @@ const { iniciarEfeito, causarDano, finalizarAcao, atacar } = useAcoesBase();
 export const SOCO = {
     id: 1,
     nome: "Soco",
-    dadoDeDano: "1d3",
+    dadoDeDano: "1d4",
+    tipoDano: TIPOS_DE_DANO.FISICO,
     categoria: CATEGORIAS_DE_DANO.CORPO_A_CORPO,
-    tipo: TIPOS_DE_DANO.IMPACTO,
     custo: 0,
     evento: socoEvento,
-    alvos: "INIMIGOS",
+    alvos: ALVOS.INIMIGOS,
 }
 
 function socoEvento(personagem, alvo, functions) {

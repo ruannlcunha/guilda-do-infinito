@@ -7,11 +7,13 @@ import { instanciarPersonagem } from "../../../utils"
 import { ITENS_DATA } from "../../../database"
 import { ITENS_CATEGORIA } from "../../../constants/itens/itens.constant"
 import { ICONS } from "../../../constants/images"
+import { useSound } from "../../../hook"
 
 export function PersonagemInventarioScreen() {
     const EVENTO = {ADICIONAR:"ADICIONAR", REMOVER: "REMOVER"}
     const { personagemId } = useParams()
     const [user, setUser] = useGlobalUser()
+    const { playClick, playHover } = useSound()
     const [personagem, setPersonagem] = useState(null)
     const [itemEscolhido, setItemEscolhido] = useState({index: null})
     const [quantidadeItem, setQuantidadeItem] = useState(1)
@@ -61,6 +63,7 @@ export function PersonagemInventarioScreen() {
     },[user, novoUser])
 
     function handleAumentarQuantidade() {
+        playClick(1)
         if(itemEscolhido.index !== null && quantidadeItem<itemEscolhido.quantidade) {
             const _quantidadeItem = quantidadeItem+1
             setQuantidadeItem(_quantidadeItem)
@@ -68,6 +71,7 @@ export function PersonagemInventarioScreen() {
     }
 
     function handleDiminuirQuantidade() {
+        playClick(1)
         if(itemEscolhido.index !== null) {
             if(quantidadeItem>0) {
                 const _quantidadeItem = quantidadeItem-1
@@ -77,6 +81,7 @@ export function PersonagemInventarioScreen() {
     }
     
     function handleEscolherItem(item) {
+        playClick(1)
         if(item.index===itemEscolhido.index) {
             setItemEscolhido({index: null})
         }
@@ -86,20 +91,29 @@ export function PersonagemInventarioScreen() {
     }
 
     function handleVisualizarItem(item) {
+        playClick(1)
         setItemEscolhido(item)
         setDetalhesModal(true)
     }
 
+    function handleFecharModal() {
+        playClick(1)
+        setDetalhesModal(false)
+    }
+
     function handleAbrirInventario() {
+        playClick(1)
         setListaModal(true)
     }
     
     function handleAdicionarQuantidadeModal() {
+        playClick(2)
         setQuantidadeEvento({texto: "adicionar", evento: EVENTO.ADICIONAR})
         setQuantidadeModal(true)
     }
     
     function handleRemoverQuantidadeModal() {
+        playClick(2)
         setQuantidadeEvento({texto: "remover", evento: EVENTO.REMOVER})
         setQuantidadeModal(true)
     }
@@ -219,6 +233,7 @@ export function PersonagemInventarioScreen() {
     }
 
     function handleQuantidadeEvento() {
+        playClick(2)
         if(quantidadeEvento.evento===EVENTO.ADICIONAR) {
             adicionarItem()
         } else if(quantidadeEvento.evento===EVENTO.REMOVER){
@@ -229,6 +244,7 @@ export function PersonagemInventarioScreen() {
     function renderCardItem(item) {
         return (
             <li
+            onMouseEnter={()=>playHover(1)}
             onClick={()=>handleVisualizarItem(item)}
             style={{background: `var(--card-${item.raridade}-estrelas)`}}
             className={itemEscolhido.index===item.index?"item-escolhido":null}>
@@ -244,6 +260,7 @@ export function PersonagemInventarioScreen() {
     function renderCardInventario(item) {
         return (
             <li
+            onMouseEnter={()=>playHover(1)}
             onClick={()=>handleEscolherItem(item)}
             style={{background: `var(--card-${item.raridade}-estrelas)`}}
             className={itemEscolhido.index===item.index?"item-escolhido":null}>
@@ -340,7 +357,7 @@ export function PersonagemInventarioScreen() {
                     <div className="detalhes-item-modal">
                         <header>
                             <h1>Detalhes do Item</h1>
-                            <button onClick={()=>{setDetalhesModal(false)}}>X</button>
+                            <button onClick={handleFecharModal}>X</button>
                         </header>
                         <section>
                             <section>

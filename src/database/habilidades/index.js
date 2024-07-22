@@ -1,5 +1,5 @@
-import { CURA } from "./cura/cura.habilidade.data";
+import { CURAR } from "./curar/curar.habilidade.data";
 
 export const HABILIDADES_DATA = [
-    CURA,
+    CURAR,
 ]

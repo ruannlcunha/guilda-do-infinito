@@ -161,7 +161,10 @@ export function JogarGachaScreen() {
         return recompensaAtivo?(
                 <div className="gacha-cena-2">
                     <div className="gacha-fundo"
-                    style={{backgroundImage:`url(${recompensas[recompensaAtualId].recompensa.santuario})`}}>
+                    style={{backgroundImage:`url(${
+                        recompensas[recompensaAtualId].recompensa.santuario?
+                        recompensas[recompensaAtualId].recompensa.santuario
+                        :IMAGES[`SANTUARIO_${recompensas[recompensaAtualId].recompensa.raridade}_ESTRELAS`]})`}}>
                         <div className="gacha-detalhes">
                             <header>
                             {/* <img src={ICONS.ELEMENTO_FOGO} alt="ícone" /> */}
@@ -195,7 +198,9 @@ export function JogarGachaScreen() {
                         recompensas.map((item,i)=>{
                             return (
                                 <li className="gacha-recompensa" key={i}
-                                style={{backgroundImage: `url(${item.recompensa.santuario}),
+                                style={{backgroundImage: `url(${item.recompensa.santuario?
+                                    item.recompensa.santuario
+                                    :IMAGES[`SANTUARIO_${recompensas[recompensaAtualId].recompensa.raridade}_ESTRELAS`]}),
                                 url(${ICONS[`BRILHO_${item.recompensa.raridade}`]})`}}>
                                     <div className="sprite-recompensa">
                                         <img

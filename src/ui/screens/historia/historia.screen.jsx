@@ -24,8 +24,8 @@ export function HistoriaScreen() {
         <ContainerScreen>
             <div className="historia-screen">
                 <Header idSelected={1}/>
-                {/* <HomeBloqueado /> */}
-                <div className="historia-list-screen">
+                 <HomeBloqueado /> 
+                {/*<div className="historia-list-screen">
                 <div className="historia-titulo">
                     <img src={ICONS.HISTORIA} alt={`Livro aberto`} />
                     <h1>Campanhas</h1>
@@ -70,7 +70,7 @@ export function HistoriaScreen() {
 
                     </section>
                 </section>
-            </div>
+            </div>*/}
             </div>
         </ContainerScreen>
     )

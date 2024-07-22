@@ -7,10 +7,12 @@ import { instanciarPersonagem } from "../../../utils"
 import { ICONS } from "../../../constants/images"
 import { EQUIPAMENTO_TIPO, ITENS_CATEGORIA } from "../../../constants/itens/itens.constant"
 import { ITENS_DATA } from "../../../database"
+import { useSound } from "../../../hook"
 
 export function PersonagemEquipamentosScreen() {
     const { personagemId, equipamentoTipo } = useParams()
     const [user, setUser] = useGlobalUser()
+    const { playClick, playHover } = useSound()
     const [novoUser, setNovoUser] = useState(null)
     const [personagem, setPersonagem] = useState(null)
     const [equipamentos, setEquipamentos] = useState([])
@@ -90,6 +92,7 @@ export function PersonagemEquipamentosScreen() {
     },[user, novoUser, modalIsOpen])
     
     function handleEscolherItem(item) {
+        playClick(1)
         if(item.index===itemEscolhido.index) {
             setItemEscolhido({index: null})
         }
@@ -99,6 +102,7 @@ export function PersonagemEquipamentosScreen() {
     }
 
     function handleEquipar() {
+        playClick(2)
         const _personagem = novoUser.personagens.find(item=>item.personagemId==personagemId)
         const itemAtualEquipado = _personagem.equipamentos[filtroItem.atributo]
 
@@ -145,6 +149,7 @@ export function PersonagemEquipamentosScreen() {
     }
 
     function handleDesequipar() {
+        playClick(2)
         const _personagem = novoUser.personagens.find(item=>item.personagemId==personagemId)
         const itemAtualEquipado = _personagem.equipamentos[filtroItem.atributo]
 
@@ -173,21 +178,30 @@ export function PersonagemEquipamentosScreen() {
 
     function handleSalvarEquipamento() {
         setUser(novoUser)
+        playClick(2)
     }
 
     function handleAbrirModal(filtro) {
+        playClick(1)
         setModalIsOpen(true)
         setFiltroItem(filtro)
     }
 
+    function handleFecharModal() {
+        playClick(1)
+        setModalIsOpen(false)
+    }
+
     function renderCardEquipamento(filtro) {
         const itemData = ITENS_DATA.find(item=>item.id==personagem.equipamentos[filtro.atributo])
-        console.log(itemData)
 
         return (
             <div className="card-equipamento">
                 <h1>{filtro.titulo}</h1>
-                <div className="card" onClick={()=>handleAbrirModal(filtro)}>
+                <div
+                onMouseEnter={()=>playHover(1)}
+                className="card"
+                onClick={()=>handleAbrirModal(filtro)}>
                     {itemData ?
                         <img
                         className="item-equipado"
@@ -240,6 +254,7 @@ export function PersonagemEquipamentosScreen() {
 
         return (
             <li
+            onMouseEnter={()=>playHover(1)}
             onClick={()=>handleEscolherItem(item)}
             style={{background: `var(--card-${item.raridade}-estrelas)`}}
             className={itemEscolhido.index===item.index?"item-escolhido":null}>
@@ -342,7 +357,7 @@ export function PersonagemEquipamentosScreen() {
                     <div className="equipamento-modal">
                         <header>
                             <h1>{`${filtroItem.titulo}s`}</h1>
-                            <button onClick={()=>{setModalIsOpen(false)}}>X</button>
+                            <button onClick={handleFecharModal}>X</button>
                         </header>
                         <section>
                             <section className="lista-equipamentos">

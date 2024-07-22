@@ -15,14 +15,14 @@ export function PerfilScreen() {
     const [user, setUser] = useGlobalUser()
 
     useEffect(()=>{
-        // cheat()
+        //cheat()
     })
 
     function cheat() {
         const novosPersonagens = []
         for(let i=0;i<PERSONAGENS_DATA.length;i++) {
             const _visuais = [...PERSONAGENS_DATA[i].visuais.map(visual=>{
-                return visual.id
+                return visual.visualId
             })]
             const _personagem = {
                 ...basePersonagem,

@@ -14,7 +14,7 @@
 .start-aviso p {
     background-color: var(--white);
     padding: 2rem 1rem;
-    font-size: 32px;
+    font-size: 2rem;
     width: 40%;
     border: double 5px;
     text-align: center;
@@ -29,7 +29,7 @@
     background-color: var(--light-grey);
     border: double 5px var(--black);
     padding: 0.3rem 2rem;
-    font-size: 42px;
+    font-size: 2.7rem;
     font-family: titleFont, sans-serif;
     transition: all 0.1s;
 }
@@ -69,7 +69,7 @@
     background-color: var(--light-grey);
     border: double 5px var(--black);
     padding: 0.3rem 2rem;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-family: titleFont, sans-serif;
     color: var(--white);
     text-shadow: var(--borda-texto);
@@ -86,7 +86,7 @@
     background-color: var(--light-grey);
     border: double 5px var(--black);
     padding: 0.3rem 2rem;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-family: titleFont, sans-serif;
     color: var(--white);
     text-shadow: var(--borda-texto);

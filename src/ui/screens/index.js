@@ -7,6 +7,9 @@ export { HistoriaScreen } from "./historia/historia.screen";
 export { CapitulosScreen } from "./capitulos/capitulos.screen";
 export { AventuraScreen } from "./aventura/aventura.screen";
 export { VersusScreen } from "./versus/versus.screen";
+export { VersusPersonagensScreen } from "./versus-personagens/versus-personagens.screen";
+export { VersusMapaScreen } from "./versus-mapas/versus-mapas.screen"
+export { VersusBatalhaScreen } from "./versus-batalha/versus-batalha.screen"
 export { CosmosScreen } from "./cosmos/cosmos.screen";
 export { LojaScreen } from "./loja/loja.screen";
 export { PerfilScreen } from "./perfil/perfil.screen";

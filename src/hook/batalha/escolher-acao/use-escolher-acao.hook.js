@@ -1,4 +1,4 @@
-import { ALVOS } from "../../../constants";
+import { ALVOS } from "../../../constants/acoes/acoes.constant";
 
 export function useEscolherAcao() {
   function escolherAcao(personagem, personagens, acao, functions) {

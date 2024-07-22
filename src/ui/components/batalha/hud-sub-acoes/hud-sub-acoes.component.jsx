@@ -15,7 +15,7 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
         return (
             <section>
               <h2><span>Dano:</span> {subAcao.dadoDeDano}</h2>
-              <h2><span>Tipo:</span> {subAcao.tipo}</h2>
+              <h2><span>Tipo:</span> {subAcao.categoria}</h2>
               <h2><span>Custo:</span> {subAcao.custo}PM</h2>
             </section>
         )

@@ -13,7 +13,7 @@ export const CANARIO = {
   estrelas: 5,
   visuais:[
       {
-          skinId: 1,
+          visualId: 1,
           nome: "Original",
           sprite: CANARIO_1_SPRITE,
           perfil: CANARIO_1_PERFIL,

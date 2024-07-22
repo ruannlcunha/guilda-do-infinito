@@ -3,12 +3,25 @@ import { evoluirPersonagem } from "./evoluir-personagem.util"
 
 export function instanciarPersonagem(personagem) {
     const data = PERSONAGENS_DATA.find(item => item.id === personagem.personagemId)
-    const skin = data.visuais.find(item => item.skinId === personagem.visualAtivo)
+    const visual = data.visuais.find(item => item.visualId === personagem.visualAtivo)
     const personagemEvoluido = evoluirPersonagem(personagem)
     const evolucao = data.evolucoes.find(item => item.level === personagemEvoluido.level)
     const novosAtaques = ATAQUES_DATA.filter(item => evolucao.ataques.find(id=>id === item.id))
     const novasHabilidades = HABILIDADES_DATA.filter(item => evolucao.habilidades.find(id=>id === item.id))
     const novosTalentos = null
+    const defesa = (10 + evolucao.atributos.agilidade + _findBonus(personagemEvoluido, "defesa"))
+    const atributos = {
+        forca: evolucao.atributos.forca+_findBonus(personagemEvoluido, "forca"),
+        agilidade: evolucao.atributos.agilidade+_findBonus(personagemEvoluido, "agilidade"),
+        magia: evolucao.atributos.magia+_findBonus(personagemEvoluido, "magia"),
+        vigor: evolucao.atributos.vigor+_findBonus(personagemEvoluido, "vigor"),
+    }
+    const status = {
+        pv: data.status.pvBase
+        +(data.status.pvBonus*personagemEvoluido.level)
+        +(evolucao.atributos.vigor*personagemEvoluido.level),
+        pm: data.status.pmBase*personagemEvoluido.level
+    }
     
     const personagemInstanciado = {
         id: data.id,
@@ -16,26 +29,27 @@ export function instanciarPersonagem(personagem) {
         level: personagemEvoluido.level,
         elemento: data.elemento,
         visualId: personagem.visualAtivo,
-        sprite: skin.sprite,
-        perfil: skin.perfil,
+        visualNome: visual.nome,
+        sprite: visual.sprite,
+        perfil: visual.perfil,
         titulo: `${data.titulo? data.titulo : personagem.titulo}`,
         raridade: data.raridade,
-        santuario: skin.santuario,
+        santuario: visual.santuario,
         corTema: data.corTema,
         experiencia: {
             atual: personagemEvoluido.experienciaAtual,
             maximo: evolucao.experienciaNecessaria,
         },
         pv: {
-            atual: evolucao.pv,
-            maximo: evolucao.pv,
+            atual: status.pv,
+            maximo: status.pv,
         },
         pm: {
-            atual: evolucao.pm,
-            maximo: evolucao.pm,
+            atual: status.pm,
+            maximo: status.pm,
         },
-        defesa: (10 + evolucao.atributos.agilidade),
-        atributos: evolucao.atributos,
+        defesa: defesa,
+        atributos: atributos,
         passivas: evolucao.passivas,
         ataques: novosAtaques,
         habilidades: novasHabilidades,
@@ -58,4 +72,23 @@ export function instanciarPersonagem(personagem) {
     }
 
     return personagemInstanciado
+}
+
+function _findBonus(personagem, atributo) {
+    let bonus = null
+    Object.values(personagem.equipamentos).map(equipamentoId=> {
+        const _equipamento = ITENS_DATA.find(item=>item.id==equipamentoId)
+        if(_equipamento) {
+            const _bonus = _equipamento.bonus
+            const bonusEncontrado = _bonus.find(__bonus=> __bonus.atributo == atributo)
+            if(bonusEncontrado) {
+                bonus = bonusEncontrado
+            }
+        }
+        return
+    })
+    if(bonus) {
+        return bonus.valor
+    }
+    return 0
 }

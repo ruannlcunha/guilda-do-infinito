@@ -6,10 +6,12 @@ import useGlobalUser from "../../../context/global-user.context"
 import { calcularPorcentagem, instanciarPersonagem } from "../../../utils"
 import { ICONS } from "../../../constants/images"
 import { ITENS_DATA } from "../../../database"
+import { useSound } from "../../../hook"
 
 export function PersonagemDetalhadoScreen() {
     const { personagemId } = useParams()
     const [user] = useGlobalUser()
+    const {playHover, playClick} = useSound()
     const [personagem, setPersonagem] = useState(null)
     const navigate = useNavigate()
 
@@ -47,12 +49,22 @@ export function PersonagemDetalhadoScreen() {
     }
 
     function handleNavigate(page) {
+        playClick(1)
         navigate(`/perfil/personagens/${personagemId}/${page}`)
+    }
+
+    function renderOpcoes(texto, url) {
+        return ( 
+            <li
+            onMouseEnter={()=>playHover(1)}
+            onClick={()=>handleNavigate(url)}>
+                {renderLosangulo()} {texto}
+            </li>
+        )
     }
 
     function renderCardEquipamento(itemId, iconDefault, tipo) {
         const itemData = ITENS_DATA.find(item=>item.id===itemId)
-
         return (
             <div onClick={()=>handleNavigate(`equipamentos/${tipo}`)}>
                 {itemId?
@@ -78,25 +90,11 @@ export function PersonagemDetalhadoScreen() {
 
                 <section className="personagem-menu">
                     <ul>
-                        <li onClick={()=>handleNavigate("evoluir")}>
-                            {renderLosangulo()} Evoluir
-                        </li>
-                        <li onClick={()=>handleNavigate("equipamentos/")}>
-                            {renderLosangulo()} Equipamento
-                        </li>
-                        <li onClick={()=>handleNavigate("inventario")}>
-                            {renderLosangulo()} Inventário
-                        </li>
-                        <li onClick={()=>handleNavigate("acoes")}>
-                            {renderLosangulo()} Ações
-                        </li>
-                        {/* <li onClick={()=>handleNavigate("talentos")}>
-                            {renderLosangulo()} Talentos
-                        </li> */}
-                        <li onClick={()=>handleNavigate("visuais")}>
-                            {renderLosangulo()} Visuais
-                        </li>
-                        {/* <li>{renderLosangulo()} Informações</li> */}
+                        {renderOpcoes("Evoluir", "evoluir")}
+                        {renderOpcoes("Equipamento", "equipamentos/")}
+                        {renderOpcoes("Inventário", "inventario")}
+                        {renderOpcoes("Ações", "acoes")}
+                        {renderOpcoes("Visuais", "visuais")}
                     </ul>
                 </section>
                 <img src={personagem.sprite} alt="Sprite do personagem" />
