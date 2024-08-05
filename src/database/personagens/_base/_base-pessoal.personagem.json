@@ -10,5 +10,6 @@
         "acessorio1": null,
         "acessorio2": null
     },
+    "equipamentoProntoId": null,
     "inventario": []
 }

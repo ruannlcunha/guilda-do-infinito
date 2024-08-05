@@ -1,0 +1,73 @@
+
+.fim-batalha-versus {
+    width: 40%;
+    height: 50%;
+    border: double 5px var(--blue);
+    background-color: var(--fundo-janela);
+    box-shadow: var(--box-interior);
+    animation: fim-batalha-versus 10s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fim-batalha-versus .botao-primario {
+    margin: 5px;
+    font-size: 2rem;
+    width: 75%;
+}
+
+.resultado-batalha {
+    position: absolute;
+    left: auto;
+    top: 3%;
+    font-size: 64px;
+    font-family: titleFont, sans-serif;
+    font-weight: 100;
+    color: var(--white);
+    text-shadow: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black),  0px -2px var(--black),
+    2px 2px 10px var(--black);
+    z-index: 1001;
+    margin: 0;
+    filter: drop-shadow(-2px 2px 10px var(--black));
+    animation: resultado 5s ease-in-out;
+}
+
+.fim-batalha-versus section {
+    background-color: var(--fundo-janela);
+}
+
+@keyframes resultado {
+    0% {
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0px;
+        }
+    15% {
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 100px;
+        }
+    35% {
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 100px;
+        }
+    50% {
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 64px;
+        }
+    100% {
+        top: 3%;
+        transform: translateY(0%);
+        }
+}
+
+@keyframes fim-batalha-versus {
+    0% {opacity: 0%;}
+    50% {opacity: 0%;}
+    60% {opacity: 100%;}
+    100% {opacity: 100%;}
+}

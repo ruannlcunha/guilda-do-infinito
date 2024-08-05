@@ -21,11 +21,5 @@ export const ESPADA_ADAMANTE = {
             atributo: "forca",
             valor: 2,
         },
-        {
-            nome: "Agilidade",
-            icon: ICONS.AGILIDADE,
-            atributo: "agilidade",
-            valor: 1,
-        },
     ]
 }

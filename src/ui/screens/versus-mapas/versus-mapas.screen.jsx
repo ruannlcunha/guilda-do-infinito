@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { MAPAS_DATA } from "../../../database";
 import { ICONS, IMAGES, MAPAS } from "../../../constants/images";
 import useGlobalUser from "../../../context/global-user.context";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSound } from "../../../hook";
 
 export function VersusMapaScreen() {
@@ -14,6 +14,7 @@ export function VersusMapaScreen() {
     const [mapas, setMapas] = useState([])
     const [user, setUser] = useGlobalUser()
     const {playClick, playHover} = useSound()
+    const { jogadores } = useParams()
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -77,7 +78,7 @@ export function VersusMapaScreen() {
                 }
             }
         })
-        navigate("/versus/batalha")
+        navigate(`/versus/${jogadores}/batalha`)
     }
 
     function renderCardMapa(mapa) {

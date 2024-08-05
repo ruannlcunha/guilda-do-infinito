@@ -3,7 +3,7 @@ export function useFinalizarTurno() {
 
   function _encerrarCombate(texto, functions) {
     functions.setAnimacoes((old) => {
-      return { ...old, hudAtivo: false };
+      return { ...old, hudAtivo: false, batalhaTerminou: true, };
     });
     setTimeout(()=>{
       functions.handleFinalizarBatalha(texto)

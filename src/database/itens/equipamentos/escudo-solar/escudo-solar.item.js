@@ -18,7 +18,13 @@ export const ESCUDO_SOLAR = {
             nome: "Defesa",
             icon: ICONS.DEFESA,
             atributo: "defesa",
-            valor: 5,
+            valor: 3,
+        },
+        {
+            nome: "Vigor",
+            icon: ICONS.VIGOR,
+            atributo: "vigor",
+            valor: 1,
         },
     ]
 }

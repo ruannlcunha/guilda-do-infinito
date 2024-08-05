@@ -1,10 +1,13 @@
 import { getGifDuration } from "../../../../utils";
 import { usePularTurno } from "../../";
 import { useRolarDado } from "../../rolar-dado/use-rolar-dado.hook";
+import { BANNER_DURACAO } from "../../../../constants";
+import { useToast } from "../../../";
 
 export function useAcoesBase() {
   const { pularTurno } = usePularTurno();
   const { rolarDado } = useRolarDado();
+  const {toastError} = useToast()
 
   function _matarPersonagem(alvo) {
     return { ...alvo, isMorto: true };
@@ -55,8 +58,8 @@ export function useAcoesBase() {
   }
 
   function consumirItem(personagem, idItem, functions) {
-    const item = [...personagem.inventario.consumiveis].find(obj => obj.id === idItem)
-    const novosItens = [...personagem.inventario.consumiveis].filter(obj => obj.id !== idItem)
+    const item = [...personagem.inventario.itens].find(obj => obj.id === idItem)
+    const novosItens = [...personagem.inventario.itens].filter(obj => obj.id !== idItem)
 
     if(item.quantidade > 1) {
       const novoItem = {...item, quantidade: item.quantidade-1}
@@ -67,7 +70,7 @@ export function useAcoesBase() {
       ...personagem,
       inventario: {
         ...personagem.inventario,
-        consumiveis: novosItens
+        itens: novosItens
       },
     };
     
@@ -135,11 +138,48 @@ export function useAcoesBase() {
   }
 
   function informarErro(error, functions) {
-    console.log(`TOAST: ${error.message} `);
+    toastError(error.message)
     functions.setAcaoAtiva({ personagem: null, evento: null, alvos: [] });
     functions.setAnimacoes((old) => {
       return { ...old, escolhendoAlvo: false, hudAtivo: true };
     });
+  }
+  
+  function realizarEtapasAtaque(primeiraEtapa, segundaEtapa, etapaErro, resultadoAtaque, functions) {
+    
+    function _primeiraEtapa() {
+      primeiraEtapa()
+      const segundoTimeout = setTimeout(()=>{
+        segundaEtapa()
+      }, BANNER_DURACAO.ROLAGEM+100)
+      functions.setBanners(old => { return {...old, evento: 
+        ()=>{
+          clearTimeout(segundoTimeout)
+          segundaEtapa()
+        }}})
+    }
+
+    if(resultadoAtaque) {
+      const primeiroTimeout = setTimeout(() => {
+        _primeiraEtapa()
+        
+      }, (BANNER_DURACAO.ATAQUE)+100);
+      
+      functions.setBanners(old => { return {...old, evento: 
+        ()=>{
+          clearTimeout(primeiroTimeout)
+          _primeiraEtapa()
+        }}})
+    } else {
+      const primeiroTimeout = setTimeout(() => {
+        etapaErro()
+      }, (BANNER_DURACAO.ATAQUE)+100);
+      functions.setBanners(old => { return {...old, evento: 
+        ()=>{
+          clearTimeout(primeiroTimeout)
+          etapaErro()
+        }}})
+    }
   }
 
   return {
@@ -151,5 +191,6 @@ export function useAcoesBase() {
     informarErro,
     consumirItem,
     atacar,
+    realizarEtapasAtaque,
   };
 }

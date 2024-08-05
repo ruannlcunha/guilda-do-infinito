@@ -28,10 +28,19 @@ function cura(personagem, alvo, functions) {
       const {dados, total} = rolarDado(2, 8, modificadores);
       const alvoRestaurado = restaurarVida(novoAlvo, total, functions);
       functions.ativarBannerRolagem([...dados], modificadores, total, personagem.corTema)
-      setTimeout(()=>{
+      function _etapas() {
         const duracao = iniciarEfeito(alvoRestaurado, functions, EFFECTS.CURA_EFFECT, ACOES_AUDIO.CURA);
         finalizarAcao(functions, alvoRestaurado, duracao);
+      }
+      const timeout = setTimeout(()=>{
+        _etapas()
       }, BANNER_DURACAO.ROLAGEM)
+
+      functions.setBanners(old => { return {...old, evento: 
+        ()=>{
+          clearTimeout(timeout)
+          _etapas()
+        }}})
     } catch (error) {
       informarErro(error, functions)
     }

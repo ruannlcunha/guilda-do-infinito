@@ -18,7 +18,7 @@ export const ARMADURA_FERRO = {
             nome: "Defesa",
             icon: ICONS.DEFESA,
             atributo: "defesa",
-            valor: 1,
+            valor: 3,
         },
     ]
 }

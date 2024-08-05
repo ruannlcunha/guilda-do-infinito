@@ -104,7 +104,6 @@ export function PersonagemDetalhadoScreen() {
                     className="elemento"/>
                     
                     <h1>{personagem.nome}</h1>
-                    {console.log(personagem)}
                     <h2>{personagem.titulo}</h2>
                     <div>{renderEstrelas(personagem)}</div>
                     <h3>Level {personagem.level}<span>/20</span></h3>

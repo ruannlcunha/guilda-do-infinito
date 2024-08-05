@@ -77,10 +77,17 @@
   opacity: 0%;
 }
 
-.batalha-screen .turnos section .turnos-ativo {
+.batalha-screen .turnos section .turnos-ativo-aliado {
   height: 3rem;
   width: 3rem;
   border: solid 3px var(--cyan);
+  animation: turno-alerta 0.8s alternate infinite ease-in-out;
+}
+
+.batalha-screen .turnos section .turnos-ativo-inimigo {
+  height: 3rem;
+  width: 3rem;
+  border: solid 3px var(--red);
   animation: turno-alerta 0.8s alternate infinite ease-in-out;
 }
 

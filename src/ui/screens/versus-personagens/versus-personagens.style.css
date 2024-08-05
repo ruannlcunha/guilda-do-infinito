@@ -372,27 +372,34 @@
 }
 
 .versus-personagens .personagem-modal section .personagem-info .equipamentos header div {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .versus-personagens .personagem-modal section .personagem-info .equipamentos header button {
     border: none;
     border-radius: 0;
     background: none;
-    opacity: 75%;
     transition: none;
+    margin: 0 0.5rem;
 }
 
 .versus-personagens .personagem-modal section .personagem-info .equipamentos header button:hover {
-    transition: none;
+    cursor: var(--cursor-auto);
     background: none;
-    opacity: 100%;
+    transition: none;
 }
 
 .versus-personagens .personagem-modal section .personagem-info .equipamentos header img {
+    opacity: 75%;
     height: 1.5rem;
     margin: 0 1rem;
 }
+
+.versus-personagens .personagem-modal section .personagem-info .equipamentos header img:hover {
+    opacity: 100%;
+    cursor: var(--cursor-pointer);
+}
+
 
 .versus-personagens .personagem-modal section .personagem-info .equipamentos section{
     display: flex;
@@ -407,6 +414,10 @@
     height: 3rem;
     border: solid 2px var(--black);
     background-color: var(--grey);
+}
+
+.versus-personagens .personagem-modal section .personagem-info .equipamentos section div img {
+    height: 100%;
 }
 
 .versus-personagens .personagem-modal section .personagem-visual {

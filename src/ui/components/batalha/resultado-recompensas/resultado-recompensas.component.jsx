@@ -20,14 +20,14 @@ export function ResultadoRecompensas() {
         <section>
             <div className="recompensa">
                 <div>
-                    <img src={ICONS.CRISTAL_VERDE} alt="Imagem do item" />
+                    <img src={ICONS.CRISTAL_AZUL} alt="Imagem do item" />
                     <h2>Nome do Item</h2>
                 </div>
                 <h3>x{1}</h3>
             </div>
             <div className="recompensa">
                 <div>
-                    <img src={ICONS.CRISTAL_VERDE} alt="Imagem do item" />
+                    <img src={ICONS.CRISTAL_AZUL} alt="Imagem do item" />
                     <h2>Nome do Item</h2>
                 </div>
                 <h3>x{1}</h3>

@@ -2,7 +2,9 @@ import "./status-hud.style.css";
 import { calcularPorcentagem } from "../../../../utils";
 import pixelTexture from "../../../../assets/img/textures/BANNER_TEXTURE.png";
 
-export function StatusHUD({ personagem }) {
+export function StatusHUD({ personagem, jogadores }) {
+  const styleInvertido = personagem.isInimigo && jogadores==1
+                      ||jogadores==0
   const porcentagemVida = calcularPorcentagem(
     personagem.pv.atual,
     personagem.pv.maximo
@@ -16,10 +18,10 @@ export function StatusHUD({ personagem }) {
     <section
       className="hud-status"
       style={{
-        alignItems: `${personagem.isInimigo ? "self-start" : ""}`,
-        borderRadius: `${personagem.isInimigo ? "5px 0px 0px 0px" : ""}`,
-        background: `url(${pixelTexture}) ${personagem.isInimigo ? "left" : "right"},
-        linear-gradient(${personagem.isInimigo ? "to left" : "to right"}, 
+        alignItems: `${styleInvertido ? "self-start" : ""}`,
+        borderRadius: `${styleInvertido ? "5px 0px 0px 0px" : ""}`,
+        background: `url(${pixelTexture}) ${styleInvertido ? "left" : "right"},
+        linear-gradient(${styleInvertido ? "to left" : "to right"}, 
         var(--${personagem.corTema}) 0%, var(--${personagem.corTema}) 90%, transparent 99%, transparent 100%)`
       }}
     >
@@ -27,24 +29,24 @@ export function StatusHUD({ personagem }) {
         src={personagem.perfil}
         alt=""
         style={{
-          animation: `${personagem.isInimigo ?"hud-perfil-inimigo 1s alternate infinite ease-in-out": ""}`,
-          right: `${personagem.isInimigo ? 0 : ""}`,
-          left: `${!personagem.isInimigo ? 0 : ""}`,
+          animation: `${styleInvertido ?"hud-perfil-inimigo 1s alternate infinite ease-in-out": ""}`,
+          right: `${styleInvertido ? 0 : ""}`,
+          left: `${!styleInvertido ? 0 : ""}`,
         }}
       />
 
       <header
         style={
-          personagem.isInimigo
+          styleInvertido
             ? { borderRadius: "0px 0px 0px 5px", flexDirection: "row" }
             : null
         }
       >
-        <h1 style={personagem.isInimigo ? { marginLeft: "2rem" } : null}>
+        <h1 style={styleInvertido ? { marginLeft: "2rem" } : null}>
           {personagem.nome}
         </h1>
       </header>
-      <section style={personagem.isInimigo ? { marginLeft: "2rem" } : null}>
+      <section style={styleInvertido ? { marginLeft: "2rem" } : null}>
         <h2>
           PV: {personagem.pv.atual}/{personagem.pv.maximo}
         </h2>

@@ -24,7 +24,7 @@ import VOLUME_MUTADO from "../../assets/img/icons/VOLUME_MUTADO.png";
 import CONFIG from "../../assets/img/icons/CONFIG.png";
 import CHANGE_PORTRAIT from "../../assets/img/icons/CHANGE_PORTRAIT.png";
 import CRISTAL_VERMELHO from "../../assets/img/icons/CRISTAL_VERMELHO.png";
-import CRISTAL_VERDE from "../../assets/img/icons/CRISTAL_VERDE.png";
+import CRISTAL_AZUL from "../../assets/img/icons/CRISTAL_AZUL.png";
 import QUADRADO_VAZIO from "../../assets/img/icons/QUADRADO_VAZIO.png";
 import CROSS_SWORD from "../../assets/img/icons/CROSS_SWORD.png";
 import FORCA from "../../assets/img/icons/FORCA.png";
@@ -62,6 +62,11 @@ import ARMA from "../../assets/img/icons/ARMA.png";
 import ARMADURA from "../../assets/img/icons/ARMADURA.png";
 import ANEL from "../../assets/img/icons/ANEL.png";
 import DEFESA from "../../assets/img/icons/SHIELD.png";
+import DUPLA from "../../assets/img/icons/DUPLA.png";
+import ROBO from "../../assets/img/icons/ROBO.png";
+import SUCESSO from "../../assets/img/icons/SUCESSO.png";
+import ERRO from "../../assets/img/icons/ERRO.png";
+import AVISO from "../../assets/img/icons/AVISO.png";
 
 export const ICONS = {
   TITULO,
@@ -90,7 +95,7 @@ export const ICONS = {
   CONFIG,
   CHANGE_PORTRAIT,
   CRISTAL_VERMELHO,
-  CRISTAL_VERDE,
+  CRISTAL_AZUL,
   QUADRADO_VAZIO,
   CROSS_SWORD,
   FORCA,
@@ -128,5 +133,10 @@ export const ICONS = {
   ARMADURA,
   ANEL,
   DEFESA,
+  DUPLA,
+  ROBO,
+  SUCESSO,
+  ERRO,
+  AVISO,
 };
   

@@ -1,9 +1,7 @@
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { ICONS_TOAST } from "./icons.toast";
 
 export function useToast() {
-  const navigate = useNavigate();
-  const [, setUser] = useGlobalUser();
 
   function toastSuccess(message) {
     toast.success(message, {
@@ -15,14 +13,13 @@ export function useToast() {
       draggable: true,
       progress: undefined,
       theme: "light",
+      icon: ICONS_TOAST.SUCESSO,
     });
   }
 
-  function toastWarning(error) {
-    let errorMessage = error;
-    if (error.response) errorMessage = error.response.data.message;
+  function toastWarning(message) {
 
-    toast.warn(errorMessage, {
+    toast.warn(message, {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -31,39 +28,23 @@ export function useToast() {
       draggable: true,
       progress: undefined,
       theme: "light",
+      icon: ICONS_TOAST.AVISO,
     });
   }
 
-  function toastError(error) {
-    if (error.response.data) {
-      toast.error(error.response.data.message, {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      playWrong();
+  function toastError(message) {
 
-      return;
-    } else {
-      toast.error("Ocorreu um erro.", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      setUser(null);
-      playWrong();
-      navigate("/login");
-    }
+    toast.error(message, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      icon: ICONS_TOAST.ERRO,
+    });
   }
 
   return { toastSuccess, toastWarning, toastError };

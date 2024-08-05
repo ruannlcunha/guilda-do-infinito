@@ -1,7 +1,7 @@
 import { TEXTURES } from "../../../../../constants/images"
 import "./banner-ataque.style.css"
 
-export function BannerAtaque({banners, testeRealizado}) {
+export function BannerAtaque({banners, testeRealizado, renderPularBanner}) {
 
   const bannerStyle = {
     background: `url(${TEXTURES.BANNER}),

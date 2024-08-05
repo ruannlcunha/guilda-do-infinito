@@ -73,15 +73,15 @@ export const router = createHashRouter([
         element: <VersusScreen />,
       },
       {
-        path: `/versus/personagens`,
+        path: `/versus/:jogadores/personagens`,
         element: <VersusPersonagensScreen />,
       },
       {
-        path: `/versus/mapas`,
+        path: `/versus/:jogadores/mapas`,
         element: <VersusMapaScreen />,
       },
       {
-        path: `/versus/batalha`,
+        path: `/versus/:jogadores/batalha`,
         element: <VersusBatalhaScreen />,
       },
       {

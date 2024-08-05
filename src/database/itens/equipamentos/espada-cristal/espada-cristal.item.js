@@ -10,7 +10,7 @@ export const ESPADA_CRISTAL = {
     descricao: "Uma arma",
     sprite: ESPADA_CRISTAL_SPRITE,
     raridade: 4,
-    tipo: ARMAS_TIPO.LEVE,
+    tipo: ARMAS_TIPO.PESADA,
     santuario: BASE_SANTUARIO,
     categoria: ITENS_CATEGORIA.EQUIPAMENTO,
     equipamentoTipo: "ARMA",
@@ -19,7 +19,7 @@ export const ESPADA_CRISTAL = {
             nome: "Força",
             icon: ICONS.FORCA,
             atributo: "forca",
-            valor: 1,
+            valor: 2,
         },
     ]
 }

@@ -5,4 +5,4 @@ export { useInstanciarPersonagens } from "./instanciar-personagens/use-instancia
 export { usePularTurno } from "./pular-turno/use-pular-turno.hook";
 export { useFinalizarTurno } from "./finalizar-turno/use-finalizar-turno.hook";
 export { useZoomCampo } from "./zoom-campo/use-zoom-campo.hook";
-export { useAutomatizarInimigo } from "./automatizar-inimigo/use-automatizar-inimigo.hook"
+export { useAutomatizarPersonagem } from "./automatizar-personagem/use-automatizar-personagem.hook"

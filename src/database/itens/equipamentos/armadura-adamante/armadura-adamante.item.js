@@ -18,7 +18,7 @@ export const ARMADURA_ADAMANTE = {
             nome: "Defesa",
             icon: ICONS.DEFESA,
             atributo: "defesa",
-            valor: 3,
+            valor: 4,
         },
     ]
 }

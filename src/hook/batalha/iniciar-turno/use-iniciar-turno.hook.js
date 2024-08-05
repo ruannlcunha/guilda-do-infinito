@@ -1,12 +1,14 @@
-import { useAutomatizarInimigo, usePularTurno } from "../"
+import { useAutomatizarPersonagem, usePularTurno } from "../"
 
 export function useIniciarTurno() {
     const { pularTurno } = usePularTurno()
-    const { automatizarInimigo } = useAutomatizarInimigo()
+    const { automatizarPersonagem } = useAutomatizarPersonagem()
 
-    function iniciarTurno(personagemAtivo, personagens, turno, functions) {
-        if(personagemAtivo.isInimigo && !personagemAtivo.isMorto) {
-            automatizarInimigo(personagemAtivo, personagens, turno, functions)
+    function iniciarTurno(personagemAtivo, personagens, jogadores, functions) {
+        if(personagemAtivo.isInimigo && !personagemAtivo.isMorto && jogadores<2
+            ||!personagemAtivo.isMorto && jogadores<1
+        ) {
+            automatizarPersonagem(personagemAtivo, personagens, functions)
         }
         personagemAtivo.isMorto ? pularTurno(functions.setTurno) : null
     }

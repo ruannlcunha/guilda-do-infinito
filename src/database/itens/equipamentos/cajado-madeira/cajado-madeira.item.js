@@ -16,9 +16,9 @@ export const CAJADO_MADEIRA = {
     equipamentoTipo: "ARMA",
     bonus: [
         {
-            nome: "Força",
-            icon: ICONS.FORCA,
-            atributo: "forca",
+            nome: "Magia",
+            icon: ICONS.MAGIA,
+            atributo: "magia",
             valor: 1,
         },
     ]

@@ -6,14 +6,13 @@ import { GlobalUserProvider } from "./context/global-user.context";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
   
   return (
     <GlobalConfigProvider>
     <GlobalUserProvider>
-      <ToastContainer />
+      <ToastContainer className={"toaster"}/>
       <RouterProvider router={router} />
     </GlobalUserProvider>
     </GlobalConfigProvider>

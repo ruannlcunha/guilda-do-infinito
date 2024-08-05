@@ -7,17 +7,20 @@ import { useSound } from "../../../../hook/audio/sound/use-sound.hook";
 export function Banners({ banners, setBanners }) {
   const [testeRealizado, setTesteRealizado] = useState(false);
   const { playDadoResultado, playClick } = useSound()
+  const [timeoutId, setTimeoutId] = useState(null)
 
   useEffect(() => {
     if(banners.ativo && banners.tipo === BANNER_TIPOS.ATAQUE) {
-      setTimeout(() => {
+      const _timeout = setTimeout(() => {
         playDadoResultado()
         setTesteRealizado(true);
       }, (BANNER_DURACAO.ATAQUE)/2);
+      setTimeoutId(_timeout)
     } else {
+      clearTimeout(timeoutId)
       setTesteRealizado(false);
     }
-  }, [banners.ativo]);
+  }, [banners]);
   
   function handlePular() {
     setBanners(old => { return {...old, ativo: false} })
@@ -36,11 +39,11 @@ export function Banners({ banners, setBanners }) {
     : null}
 
     {banners.tipo===BANNER_TIPOS.ATAQUE ?
-    <BannerAtaque banners={banners} testeRealizado={testeRealizado}/>
+    <BannerAtaque banners={banners} testeRealizado={testeRealizado} renderPularBanner={renderPularBanner}/>
     : null}
 
     {banners.tipo===BANNER_TIPOS.ROLAGEM ? 
-    <BannerRolagem banners={banners} />
+    <BannerRolagem banners={banners}  renderPularBanner={renderPularBanner}/>
     : null}
     
     {banners.tipo===BANNER_TIPOS.INIMIGO ? 

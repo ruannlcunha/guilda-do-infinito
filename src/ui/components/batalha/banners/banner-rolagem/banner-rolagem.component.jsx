@@ -1,7 +1,7 @@
 import { TEXTURES } from "../../../../../constants/images"
 import "./banner-rolagem.style.css"
 
-export function BannerRolagem({banners}) {
+export function BannerRolagem({banners, renderPularBanner}) {
 
   const bannerStyle = {
     background: `url(${TEXTURES.BANNER}),

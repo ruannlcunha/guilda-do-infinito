@@ -24,13 +24,7 @@ export const ARMADURA_DIVINA = {
             nome: "Vigor",
             icon: ICONS.VIGOR,
             atributo: "vigor",
-            valor: 3,
-        },
-        {
-            nome: "Magia",
-            icon: ICONS.MAGIA,
-            atributo: "magia",
-            valor: 2,
+            valor: 1,
         },
     ]
 }

@@ -5,7 +5,7 @@
     position: absolute;
     top: 50%;
     left: 0;
-    z-index: 999;
+    z-index: 1000;
     transition: all 1s;
     display: flex;
     align-items: center;
@@ -80,7 +80,7 @@
 }
   
 .batalha-screen .banner-rolagem div .Magia {
-  background-image: url(../../../../../assets/img/icons/VALOR_AGILIDADE.png);
+  background-image: url(../../../../../assets/img/icons/VALOR_MAGIA.png);
 }
   
 .batalha-screen .banner-rolagem div .Vigor {

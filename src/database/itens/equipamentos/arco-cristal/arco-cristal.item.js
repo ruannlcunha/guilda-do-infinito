@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const ARCO_CRISTAL = {
     id: 17,
     nome: "Arco de Cristal",
-    descricao: "Uma arma",
+    descricao: "Um arco",
     sprite: ARCO_CRISTAL_SPRITE,
     raridade: 4,
     tipo: ARMAS_TIPO.LEVE,
@@ -16,10 +16,10 @@ export const ARCO_CRISTAL = {
     equipamentoTipo: "ARMA",
     bonus: [
         {
-            nome: "Força",
-            icon: ICONS.FORCA,
-            atributo: "forca",
-            valor: 1,
+            nome: "Agilidade",
+            icon: ICONS.AGILIDADE,
+            atributo: "agilidade",
+            valor: 2,
         },
     ]
 }

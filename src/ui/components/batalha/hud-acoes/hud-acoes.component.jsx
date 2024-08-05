@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useSound } from "../../../../hook";
 import { HUDSubAcoes } from "../hud-sub-acoes/hud-sub-acoes.component";
 
-export function HUDAcoes({ personagem, personagens, functions }) {
+export function HUDAcoes({ personagem, personagens, jogadores, functions }) {
   const { playHover, playClick } = useSound()
   const [subAcoes, setSubAcoes] = useState({
     ativo: false,
@@ -39,7 +39,7 @@ export function HUDAcoes({ personagem, personagens, functions }) {
     });
   }
 
-  return !personagem.isInimigo ? (
+  return jogadores==2 || jogadores==1&&!personagem.isInimigo ? (
     <>
       <ul className="hud-acoes">
         <li onMouseEnter={()=>playHover(1)}
@@ -65,7 +65,7 @@ export function HUDAcoes({ personagem, personagens, functions }) {
           onClick={() =>
             selectAcao(
               "Itens",
-              personagem.inventario.consumiveis
+              personagem.inventario.itens
             )
           }
         >

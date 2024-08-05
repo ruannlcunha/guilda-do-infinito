@@ -31,6 +31,7 @@ export function Turnos({ personagens, idAtivo, animacoes }) {
     );
 
     const perfilStyle = {
+      backgroundColor: novoPersonagem.isInimigo?"var(--dark-red)":"var(--blue)",
       backgroundImage: `url(${novoPersonagem.perfil})`,
       filter: `${novoPersonagem.isMorto ? "grayscale(100%)" : null}`,
     };
@@ -38,7 +39,8 @@ export function Turnos({ personagens, idAtivo, animacoes }) {
       <div
         key={index}
         style={perfilStyle}
-        className={ativo ? "turnos-ativo" : null}
+        className={ativo&&novoPersonagem.isInimigo ? "turnos-ativo-inimigo"
+          : ativo ? "turnos-ativo-aliado":null}
       >
         {renderDado(novoPersonagem.resultadoIniciativa)}
       </div>

@@ -3,12 +3,12 @@ import { HUDAcoes, StatusHUD } from "../../";
 import "./batalha-hud.style.css";
 import { useIniciarTurno } from "../../../../hook/batalha/iniciar-turno/use-iniciar-turno.hook";
 
-export function BatalhaHUD({ personagens, personagemAtivo, turno, animacoes, functions }) {
+export function BatalhaHUD({ personagens, personagemAtivo, turno, animacoes, batalha, functions }) {
   const { iniciarTurno } = useIniciarTurno();
 
   useEffect(() => {
-    personagemAtivo && animacoes.iniciativaTerminou
-    ? iniciarTurno(personagemAtivo, personagens, turno, functions) : null;
+    personagemAtivo && animacoes.iniciativaTerminou && !animacoes.batalhaTerminou
+    ? iniciarTurno(personagemAtivo, personagens, batalha.jogadores, functions) : null;
 
     if(animacoes.hudAtivo) {
       functions.setAnimacoes((old) => {return { ...old, hudAtivo: false };});
@@ -32,15 +32,24 @@ export function BatalhaHUD({ personagens, personagemAtivo, turno, animacoes, fun
         <div
           className="batalha-hud"
           style={
-            personagemAtivo.isInimigo
+            personagemAtivo.isInimigo && batalha.jogadores<2
+            || batalha.jogadores<1
               ? {
                   flexDirection: "row-reverse",
                 }
               : null
           }
         >
-          <StatusHUD personagem={personagemAtivo} />
-          <HUDAcoes personagem={personagemAtivo}  personagens={personagens} functions={functions} />
+          <StatusHUD
+          personagem={personagemAtivo} 
+          jogadores={batalha.jogadores}
+          />
+          <HUDAcoes
+          personagem={personagemAtivo}
+          personagens={personagens}
+          jogadores={batalha.jogadores}
+          functions={functions}
+          />
         </div>
       );
     }

@@ -6,6 +6,8 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
     const { playClick, playHover } = useSound()
     const { escolherAcao } = useEscolherAcao();
 
+    console.log(subAcoes)
+
     function handleEscolherAcao(personagem, personagens, acao, functions) {
         playClick(2)
         escolherAcao(personagem, personagens, acao, functions)
@@ -45,8 +47,6 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
             <div className="hud-sub-acoes">
               <header>{subAcoes.titulo}</header>
               <section>
-                {console.log(personagem)}
-                {console.log(subAcoes)}
                 {subAcoes.acoesAtuais
                   ? subAcoes.acoesAtuais.map((subAcao, index) => {
                       const estaBloqueado = subAcao.custo ? (personagem.pm.atual < subAcao.custo) : false;

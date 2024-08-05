@@ -15,7 +15,7 @@ export function IniciarBatalhaScreen({batalha, aliados, inimigos, iniciarFunctio
     useEffect(()=>{
         document.documentElement.style.setProperty('--iniciar-batalha-fundo', `url(${batalha.mapa})`);
     },[batalha])
-
+    
     return (
         <ContainerScreen>
             <BackButton />

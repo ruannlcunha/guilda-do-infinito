@@ -49,8 +49,8 @@ export function Personagem({
         src={
           estaEscolhido ? ICONS.ESCOLHER_BAIXO :
           isAlvo && personagem.isInimigo ? ICONS.CRISTAL_VERMELHO :
-          isAlvo && !personagem.isInimigo ? ICONS.CRISTAL_VERDE :
-          estaAtivo && personagem.isInimigo ? ICONS.SETA_ATIVO_INIMIGO :
+          isAlvo && !personagem.isInimigo ? ICONS.CRISTAL_AZUL :
+          estaAtivo && personagem.isInimigo && !animacoes.escolhendoAlvo ? ICONS.SETA_ATIVO_INIMIGO :
           estaAtivo && !animacoes.escolhendoAlvo ? ICONS.SETA_ATIVO : ICONS.QUADRADO_VAZIO
           }
         alt="Seta apontada para baixo"

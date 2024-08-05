@@ -90,8 +90,8 @@ export const AYLA = {
             vigor: 3
         },
         talentos: [],
-        ataques: [1],
-        habilidades: [1]
+        ataques: [27],
+        habilidades: []
     },
     {
         level: 2,
@@ -103,8 +103,8 @@ export const AYLA = {
             vigor: 3
         },
         talentos: [],
-        ataques: [1],
-        habilidades: [1]
+        ataques: [],
+        habilidades: []
     }
-    ]
+    ],
 }

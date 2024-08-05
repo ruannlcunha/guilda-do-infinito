@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IniciarBatalhaScreen, JogarBatalha, FimDeBatalha, AudioContainer } from "../../components";
+import { IniciarBatalhaScreen, JogarBatalha, FimDeBatalha, AudioContainer, FimBatalhaVersus } from "../../components";
 import "./versus-batalha.style.css";
 import { useInstanciarPersonagens } from "../../../hook/batalha";
 import { useMusic } from "../../../hook";
@@ -27,10 +27,11 @@ export function VersusBatalhaScreen() {
     const _aliados = user.modos.versus.aliados
     const _inimigos = user.modos.versus.inimigos
     const _batalha = {
-      titulo: "Batalha Versus",
+      titulo: "Batalha Versus:",
       subtitulo: user.modos.versus.mapa.nome,
       mapa: user.modos.versus.mapa.img,
       musica: user.modos.versus.mapa.musica,
+      jogadores: user.modos.versus.jogadores,
     }
     setBatalha(_batalha)
     setPersonagensInstanciados(instanciarPersonagens(_aliados, _inimigos));
@@ -66,9 +67,7 @@ export function VersusBatalhaScreen() {
     />
     : null}
     {telas.fimBatalha ?
-    <FimDeBatalha
-    batalha={batalha}
-    personagens={personagensInstanciados}
+    <FimBatalhaVersus
     resultado={resultado}
     setMusica={setMusica}
     />

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BotaoPrimario, Cena, ContainerScreen, Modal } from "../../components";
 import { novoJogoCenas } from "./novo-jogo-cenas"
 import "./novo-jogo.style.css"
-import { useForm, useSound } from "../../../hook";
+import { useForm, useSound, useToast } from "../../../hook";
 import VISUAL_1_SPRITE from "./assets/VISUAL_1_SPRITE.png"
 import VISUAL_2_SPRITE from "./assets/VISUAL_2_SPRITE.png"
 import VISUAL_3_SPRITE from "./assets/VISUAL_3_SPRITE.png"
@@ -17,6 +17,7 @@ export function NovoJogoScreen() {
     const [pronomesModal, setPronomesModal] = useState(false)
     const [nomeModal, setNomeModal] = useState(false)
     const [dialogo, setDialogo] = useState(0)
+    const {toastWarning} = useToast()
     const {formData, setFormData, handleChange} = useForm({nome: "", pronomes: PRONOMES.NULO, visualId: null})
     const { playHover, playClick } = useSound()
     const AVENTUREIRO_SPRITE = { VISUAL_1_SPRITE, VISUAL_2_SPRITE, VISUAL_3_SPRITE }
@@ -33,7 +34,7 @@ export function NovoJogoScreen() {
             })
         }
         else {
-            console.log("Pronomes não pode ser vazio.")
+            toastWarning("Visual não pode ser vazio.")
         }
     }
 
@@ -44,7 +45,7 @@ export function NovoJogoScreen() {
             setDialogo(dialogo+1)
         }
         else {
-            console.log("Pronomes não pode ser vazio.")
+            toastWarning("Visual não pode ser vazio.")
         }
     }
     
@@ -63,7 +64,7 @@ export function NovoJogoScreen() {
             setDialogo(dialogo+1)
         }
         else {
-            console.log("Pronomes não pode ser vazio.")
+            toastWarning("Pronomes não pode ser vazio.")
         }
     }
     
@@ -75,7 +76,7 @@ export function NovoJogoScreen() {
             setDialogo(dialogo+1)
         }
         else {
-            console.log("Nome não pode ser vazio.")
+            toastWarning("Nome não pode ser vazio.")
         }
     }
 

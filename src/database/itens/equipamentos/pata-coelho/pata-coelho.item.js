@@ -15,10 +15,10 @@ export const PATA_COELHO = {
     equipamentoTipo: "ACESSORIO",
     bonus: [
         {
-            nome: "Defesa",
-            icon: ICONS.DEFESA,
-            atributo: "defesa",
-            valor: 2,
+            nome: "Agilidade",
+            icon: ICONS.AGILIDADE,
+            atributo: "agilidade",
+            valor: 1,
         },
     ]
 }

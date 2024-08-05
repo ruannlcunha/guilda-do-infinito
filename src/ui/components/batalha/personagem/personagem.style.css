@@ -44,8 +44,9 @@
   width: 17%;
   margin-bottom: -17%;
   position: relative;
-  top: 0;
+  top: -17%;
   animation: icone-ativo 1s infinite alternate-reverse ease-in-out;
+  z-index: 999;
 }
 
 .batalha-screen .campo-de-batalha section div section div section {
@@ -155,20 +156,20 @@
 
 @keyframes bright-aliado {
   from {
-    filter: drop-shadow(-2px 2px 3px var(--light-green))
-      drop-shadow(2px 2px 3px var(--light-green)) brightness(100%);
+    filter: drop-shadow(-2px 2px 3px var(--light-blue))
+      drop-shadow(2px 2px 3px var(--light-blue)) brightness(100%);
   }
   to {
-    filter: drop-shadow(-2px 2px 5px var(--light-green))
-      drop-shadow(2px 2px 5px var(--light-green)) brightness(110%);
+    filter: drop-shadow(-2px 2px 5px var(--light-blue))
+      drop-shadow(2px 2px 5px var(--light-blue)) brightness(110%);
   }
 }
 
 @keyframes icone-ativo {
   from {
-    top: 0;
+    top: -17%;
   }
   to {
-    top: 10px;
+    top: -12%;
   }
 }

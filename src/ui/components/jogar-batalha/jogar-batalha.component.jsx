@@ -6,7 +6,6 @@ import {
     BatalhaHUD,
     OpcoesBatalha,
     Banners,
-    AudioContainer,
   } from "../../components";
   import {
     useFinalizarTurno,
@@ -15,7 +14,6 @@ import {
   } from "../../../hook/batalha/";
   import { useEffect, useState } from "react";
   import { useBanners, useSound } from "../../../hook";
-  import { MUSICS } from "../../../constants/audios/musics.constant";
   
 export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, personagensInstanciados }) {
     const { banners, setBanners,
@@ -39,6 +37,7 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, perso
       hudAtivo: false,
       iniciativaTerminou: false,
       escolhendoAlvo: false,
+      batalhaTerminou: false,
     });
   
     useEffect(() => {
@@ -106,6 +105,7 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, perso
                 personagemAtivo={personagemAtivo}
                 animacoes={animacoes}
                 turno={turno}
+                batalha={batalha}
                 functions={functions}
               />
             </>

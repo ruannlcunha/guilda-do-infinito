@@ -40,6 +40,7 @@
   --light-grey: #d4d4d4;
   --white: #ffffff;
   --red: #fe2826;
+  --dark-red: #61110f;
   --red-transparent: #b90b08d8;
   --black-transparent: #000000e5;
   --grey-transparent: #d4d4d4b0;
@@ -116,11 +117,13 @@ h1 {
   border-radius: 5px;
 }
 
-div .white-screen {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  animation: fade-in 4s;
+.toaster div{
+  font-family: textFont, sans-serif ;
+  color: var(--black);
+}
+
+.toaster div img {
+  height: 1.5rem;
 }
 
 @keyframes fade-out {

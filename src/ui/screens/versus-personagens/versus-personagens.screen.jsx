@@ -2,11 +2,11 @@ import "./versus-personagens.style.css"
 import { BackButton, BotaoPrimario, ContainerScreen, Modal } from "../../components"
 import { ICONS, IMAGES, PERFIL, SPRITES } from "../../../constants/images"
 import { instanciarPersonagem } from "../../../utils"
-import { PERSONAGENS_DATA } from "../../../database"
+import { ITENS_DATA, PERSONAGENS_DATA } from "../../../database"
 import basePersonagem from "../../../database/personagens/_base/_base-pessoal.personagem.json"
 import { useEffect, useState } from "react"
 import useGlobalUser from "../../../context/global-user.context"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useSound } from "../../../hook"
 
 export function VersusPersonagensScreen() {
@@ -15,6 +15,7 @@ export function VersusPersonagensScreen() {
     const [personagens, setPersonagens] = useState([])
     const [user, setUser] = useGlobalUser()
     const navigate = useNavigate()
+    const { jogadores } = useParams()
     const {playHover, playClick, playCancel} = useSound()
     const [personagemModal, setPersonagemModal] = useState(false)
     const [equipeAtual, setEquipeAtual] = useState(EQUIPES.ALIADOS)
@@ -33,6 +34,7 @@ export function VersusPersonagensScreen() {
                     personagemId: _personagem.id,
                     nome: _personagem.id===1?aventureiro.nome:null,
                     titulo: _personagem.id===1?aventureiro.titulo:null,
+                    equipamentoProntoId: 1,
                 }
                 const personagemInstanciado = instanciarPersonagem(_basePersonagem)
                 _personagens.push(personagemInstanciado)
@@ -44,6 +46,10 @@ export function VersusPersonagensScreen() {
     useEffect(()=>{
         setPaginaTotal()
     },[])
+
+    function findPersonagemData() {
+        return PERSONAGENS_DATA.find(personagem=>personagem.id===personagemEscolhido.id)
+    }
 
     function setPaginaTotal() {
         let _pagina = {min: 0, max:19, pag: 1}
@@ -97,6 +103,7 @@ export function VersusPersonagensScreen() {
             visualAtivo: personagemEscolhido.visualId,
             nome: personagemEscolhido.id===1?personagemEscolhido.nome:null,
             titulo: personagemEscolhido.id===1?personagemEscolhido.titulo:null,
+            equipamentoProntoId: personagemEscolhido.equipamentoProntoId,
         }
         const novoPersonagem = instanciarPersonagem(_basePersonagem)
         setPersonagemEscolhido(novoPersonagem)
@@ -111,6 +118,7 @@ export function VersusPersonagensScreen() {
             visualAtivo: personagemEscolhido.visualId,
             nome: personagemEscolhido.id===1?personagemEscolhido.nome:null,
             titulo: personagemEscolhido.id===1?personagemEscolhido.titulo:null,
+            equipamentoProntoId: personagemEscolhido.equipamentoProntoId,
         }
         const novoPersonagem = instanciarPersonagem(_basePersonagem)
         setPersonagemEscolhido(novoPersonagem)
@@ -125,6 +133,7 @@ export function VersusPersonagensScreen() {
             visualAtivo: personagemEscolhido.visualId-1,
             nome: personagemEscolhido.id===1?personagemEscolhido.nome:null,
             titulo: personagemEscolhido.id===1?personagemEscolhido.titulo:null,
+            equipamentoProntoId: personagemEscolhido.equipamentoProntoId,
         }
         const novoPersonagem = instanciarPersonagem(_basePersonagem)
         setPersonagemEscolhido(novoPersonagem)
@@ -139,6 +148,37 @@ export function VersusPersonagensScreen() {
             visualAtivo: personagemEscolhido.visualId+1,
             nome: personagemEscolhido.id===1?personagemEscolhido.nome:null,
             titulo: personagemEscolhido.id===1?personagemEscolhido.titulo:null,
+            equipamentoProntoId: personagemEscolhido.equipamentoProntoId,
+        }
+        const novoPersonagem = instanciarPersonagem(_basePersonagem)
+        setPersonagemEscolhido(novoPersonagem)
+    }
+
+    function handleVoltarEquipamento() {
+        playClick(1)
+        const _basePersonagem = {
+            ...basePersonagem,
+            personagemId: personagemEscolhido.id,
+            level: personagemEscolhido.level,
+            visualAtivo: personagemEscolhido.visualId,
+            nome: personagemEscolhido.id===1?personagemEscolhido.nome:null,
+            titulo: personagemEscolhido.id===1?personagemEscolhido.titulo:null,
+            equipamentoProntoId: personagemEscolhido.equipamentoProntoId-1,
+        }
+        const novoPersonagem = instanciarPersonagem(_basePersonagem)
+        setPersonagemEscolhido(novoPersonagem)
+    }
+
+    function handleProximoEquipamento() {
+        playClick(1)
+        const _basePersonagem = {
+            ...basePersonagem,
+            personagemId: personagemEscolhido.id,
+            level: personagemEscolhido.level,
+            visualAtivo: personagemEscolhido.visualId,
+            nome: personagemEscolhido.id===1?personagemEscolhido.nome:null,
+            titulo: personagemEscolhido.id===1?personagemEscolhido.titulo:null,
+            equipamentoProntoId: personagemEscolhido.equipamentoProntoId+1,
         }
         const novoPersonagem = instanciarPersonagem(_basePersonagem)
         setPersonagemEscolhido(novoPersonagem)
@@ -196,6 +236,7 @@ export function VersusPersonagensScreen() {
                 visualAtivo: aliado.visualId,
                 nome: aliado.id===1?aliado.nome:null,
                 titulo: aliado.id===1?aliado.titulo:null,
+                equipamentoProntoId: aliado.equipamentoProntoId,
             }
         })
         const _inimigos = inimigos.map(inimigo=>{
@@ -206,6 +247,7 @@ export function VersusPersonagensScreen() {
                 visualAtivo: inimigo.visualId,
                 nome: inimigo.id===1?inimigo.nome:null,
                 titulo: inimigo.id===1?inimigo.titulo:null,
+                equipamentoProntoId: inimigo.equipamentoProntoId,
             }
         })
         setUser({
@@ -213,13 +255,15 @@ export function VersusPersonagensScreen() {
             modos: {
                 ...user.modos,
                 versus: {
+                    ...user.modos.versus,
                     aliados: _aliados,
                     inimigos: _inimigos,
                     mapa: null,
+                    jogadores: jogadores,
                 }
             }
         })
-        navigate("/versus/mapas")
+        navigate(`/versus/${jogadores}/mapas`)
     }
 
     function renderCardPersonagem(personagem) {
@@ -294,16 +338,34 @@ export function VersusPersonagensScreen() {
         )
     }
 
+    function renderEquipamento(tipo, icon) {
+        const item = ITENS_DATA.find(item=>
+            item.id===personagemEscolhido.equipamentos[tipo])
+        return (
+            <div>
+                {
+                item? <img src={item.sprite} alt="" />
+                : <img src={icon} alt="" style={{opacity:"15%"}}/>
+                }
+            </div>
+        )
+    }
+
+    function renderTitulo() {
+        return equipeAtual===EQUIPES.ALIADOS&&jogadores>1?"Escolha a equipe do Jogador 1"
+                :equipeAtual===EQUIPES.ALIADOS?"Escolha sua Equipe"
+                :equipeAtual===EQUIPES.INIMIGOS&&jogadores>1?"Escolha a equipe do Jogador 2"
+                :equipeAtual===EQUIPES.INIMIGOS?"Escolha seus inimigos"
+                :"Confirmar Personagens"
+        
+    }
+
     return (
         <ContainerScreen>
             <BackButton />
             <div className="versus-personagens">
                 <header className="titulo">
-                    <h1>{
-                    equipeAtual===EQUIPES.ALIADOS?"Escolha sua equipe"
-                    :equipeAtual===EQUIPES.INIMIGOS?"Escolha seus inimigos"
-                    :"Confirmar Personagens"
-                    }</h1>
+                    <h1>{renderTitulo()}</h1>
                 </header>
 
                 <section className="personagem-display">
@@ -416,7 +478,7 @@ export function VersusPersonagensScreen() {
                                             onClick={handleDiminuirLevel}>-</button>
                                         :   <button className="botao-vazio"></button>}
                                         <h2>Lvl.{personagemEscolhido.level}</h2>
-                                        {PERSONAGENS_DATA.find(personagem=>personagem.id===personagemEscolhido.id)
+                                        {findPersonagemData()
                                         .evolucoes.length>personagemEscolhido.level?
                                             <button 
                                             onMouseEnter={()=>playHover(1)}
@@ -441,24 +503,32 @@ export function VersusPersonagensScreen() {
                                     Equipamentos:
                                     <div>
                                         <button
+                                        onClick={personagemEscolhido.equipamentoProntoId>1?
+                                            handleVoltarEquipamento:null}
                                         onMouseEnter={()=>playHover(2)}>
-                                        {false?
+                                            {personagemEscolhido.equipamentoProntoId>1?
                                             <img src={ICONS.SETA_DIREITA} alt=""
                                             style={{transform:"scaleX(-1)"}}/>
-                                        :null}
+                                            :null}
                                         </button>
-                                        3 Estrelas
+                                        {personagemEscolhido.equipamentos.nome}
                                         <button
+                                        onClick={personagemEscolhido.equipamentoProntoId!==
+                                            findPersonagemData().equipamentosProntos.length?
+                                            handleProximoEquipamento:null}
                                         onMouseEnter={()=>playHover(2)}>
+                                            {personagemEscolhido.equipamentoProntoId!==
+                                            findPersonagemData().equipamentosProntos.length?
                                             <img src={ICONS.SETA_DIREITA} alt="" />
+                                            :null}
                                         </button>
                                     </div>
                                     </header>
                                     <section>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
+                                        {renderEquipamento("arma", ICONS.ARMA)}
+                                        {renderEquipamento("armadura", ICONS.ARMADURA)}
+                                        {renderEquipamento("acessorio1", ICONS.ANEL)}
+                                        {renderEquipamento("acessorio2", ICONS.ANEL)}
                                     </section>
                                 </div>
                             </section>
@@ -481,7 +551,7 @@ export function VersusPersonagensScreen() {
                                 <button
                                 onMouseEnter={()=>playHover(2)}
                                 onClick={handleProximoVisual}>
-                                {PERSONAGENS_DATA.find(personagem=>personagem.id===personagemEscolhido.id)
+                                {findPersonagemData()
                                 .visuais.length>personagemEscolhido.visualId?
                                     <img
                                     src={ICONS.SETA_DIREITA} className="setas"

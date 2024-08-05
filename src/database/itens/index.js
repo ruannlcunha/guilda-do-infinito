@@ -3,7 +3,7 @@ import { EXP_MEDIO } from "./outros/exp-medio/exp-medio.item";
 import { EXP_GRANDE } from "./outros/exp-grande/exp-grande.item";
 import { ESPADA_FERRO } from "./equipamentos/espada-ferro/espada-ferro.item";
 import { ESPADA_ADAMANTE } from "./equipamentos/espada-adamante/espada-adamante.item";
-import { MATADORA_DRAGOES } from "./equipamentos/matadora-dragoes/matadora-dragoes.item";
+import { DEVORADORA_ALMAS } from "./equipamentos/devoradora-almas/devoradora-almas.item";
 import { ARMADURA_FERRO } from "./equipamentos/armadura-ferro/armadura-ferro.item"
 import { ARMADURA_DIVINA } from "./equipamentos/armadura-divina/armadura-divina.item"
 import { ANEL_VIGOR } from "./equipamentos/anel-vigor/anel-vigor.item"
@@ -45,6 +45,18 @@ import { RUNA_FOGO } from "./consumiveis/runa-fogo/runa-fogo.item";
 import { TREVO_SORTE } from "./consumiveis/trevo-sorte/trevo-sorte.item";
 import { VENENO } from "./consumiveis/veneno/veneno.item";
 import { VENENO_MAIOR } from "./consumiveis/veneno-maior/veneno-maior.item";
+import { ESCUDO_FERRO } from "./equipamentos/escudo-ferro/escudo-ferro.item";
+import { CAJADO_CRISTAL } from "./equipamentos/cajado-cristal/cajado-cristal.item";
+import { CAJADO_SOMBRIO } from "./equipamentos/cajado-sombrio/cajado-sombrio.item";
+import { CAJADO_ANCIAO } from "./equipamentos/cajado-anciao/cajado-anciao.item";
+import { MANTO_VELHO } from "./equipamentos/manto-velho/manto-velho.item";
+import { MANTO_ELFICO } from "./equipamentos/manto-elfico/manto-elfico.item";
+import { MANTO_LUXUOSO } from "./equipamentos/manto-luxuoso/manto-luxuoso.item";
+import { COLAR_AMETISTA } from "./equipamentos/colar-ametista/colar-ametista.item";
+import { COLAR_CELESTIAL } from "./equipamentos/colar-celestial/colar-celestial.item";
+import { COLAR_DEMONIACO } from "./equipamentos/colar-demoniaco/colar-demoniaco.item";
+import { BOTAS_ELFICAS } from "./equipamentos/botas-elficas/botas-elficas.item";
+import { ANJO_CAIDO } from "./equipamentos/anjo-caido/anjo-caido.item";
 
 export const ITENS_DATA = [
     EXP_PEQUENO,
@@ -52,7 +64,7 @@ export const ITENS_DATA = [
     EXP_GRANDE,
     ESPADA_FERRO,
     ESPADA_ADAMANTE,
-    MATADORA_DRAGOES,
+    DEVORADORA_ALMAS,
     ARMADURA_FERRO,
     ARMADURA_DIVINA,
     ANEL_VIGOR,
@@ -94,4 +106,16 @@ export const ITENS_DATA = [
     TREVO_SORTE,
     VENENO,
     VENENO_MAIOR,
+    ESCUDO_FERRO,
+    CAJADO_CRISTAL,
+    CAJADO_SOMBRIO,
+    CAJADO_ANCIAO,
+    MANTO_VELHO,
+    MANTO_ELFICO,
+    MANTO_LUXUOSO,
+    COLAR_AMETISTA,
+    COLAR_CELESTIAL,
+    COLAR_DEMONIACO,
+    BOTAS_ELFICAS,
+    ANJO_CAIDO,
 ]
