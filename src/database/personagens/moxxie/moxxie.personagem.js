@@ -20,27 +20,77 @@ export const MOXXIE = {
             santuario: null,
         }
 
-        ],
-        status: {
-            pvBase: 0,
-            pmBase: 0,
-            pvBonus: 0
-        },
-        evolucoes: [
+    ],
+    status: {
+        pvBase: 16,
+        pmBase: 4,
+        pvBonus: 4
+    },
+    evolucoes: [
         {
             level: 1,
-            experienciaNecessaria: 100,
-            pv: 24,
-            pm: 8,
+            experienciaNecessaria: 1250,
             atributos: {
-                forca: 1,
-                agilidade: 3,
-                magia: 4,
-                vigor: 2
+                forca: 4,
+                agilidade: 2,
+                magia: 5,
+                vigor: 3
             },
             talentos: [],
-            ataques: [1],
+            ataques: [14,6,],
             habilidades: [1]
-        }
+        },
+        {
+            level: 2,
+            experienciaNecessaria: 3750,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 5,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14,6,],
+            habilidades: [1]
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 7500,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 5,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14,6,12,9],
+            habilidades: [1]
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 37500,
+            atributos: {
+                forca: 4,
+                agilidade: 3,
+                magia: 5,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14,6,12,9],
+            habilidades: [1]
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 18750,
+            atributos: {
+                forca: 4,
+                agilidade: 3,
+                magia: 5,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14,6,12,9,30,47],
+            habilidades: [1]
+        },
     ]
 }

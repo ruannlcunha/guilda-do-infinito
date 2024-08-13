@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const PATA_COELHO = {
     id: 37,
     nome: "Pata de Coelho",
-    descricao: "Um acessório",
+    descricao: "Um acessório que traz sorte e agilidade ao usuário.",
     sprite: PATA_COELHO_SPRITE,
     raridade: 4,
     santuario: BASE_SANTUARIO,

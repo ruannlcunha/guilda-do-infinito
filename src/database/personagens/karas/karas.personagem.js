@@ -20,27 +20,77 @@ export const KARAS = {
             santuario: null,
         }
 
-        ],
-        status: {
-            pvBase: 0,
-            pmBase: 0,
-            pvBonus: 0
-        },
-        evolucoes: [
+    ],
+    status: {
+        pvBase: 16,
+        pmBase: 4,
+        pvBonus: 5
+    },
+    evolucoes: [
         {
             level: 1,
-            experienciaNecessaria: 100,
-            pv: 24,
-            pm: 8,
+            experienciaNecessaria: 1250,
             atributos: {
-                forca: 1,
-                agilidade: 3,
-                magia: 4,
-                vigor: 2
+                forca: 3,
+                agilidade: 2,
+                magia: 5,
+                vigor: 4
             },
             talentos: [],
-            ataques: [1],
+            ataques: [14],
             habilidades: [1]
-        }
+        },
+        {
+            level: 2,
+            experienciaNecessaria: 3750,
+            atributos: {
+                forca: 3,
+                agilidade: 2,
+                magia: 5,
+                vigor: 4
+            },
+            talentos: [],
+            ataques: [14],
+            habilidades: [1]
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 7500,
+            atributos: {
+                forca: 3,
+                agilidade: 2,
+                magia: 5,
+                vigor: 4
+            },
+            talentos: [],
+            ataques: [14,12,7],
+            habilidades: [1]
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 37500,
+            atributos: {
+                forca: 3,
+                agilidade: 2,
+                magia: 6,
+                vigor: 4
+            },
+            talentos: [],
+            ataques: [14,12,7],
+            habilidades: [1]
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 18750,
+            atributos: {
+                forca: 4,
+                agilidade: 3,
+                magia: 7,
+                vigor: 5
+            },
+            talentos: [],
+            ataques: [14,12,7,28],
+            habilidades: [1]
+        },
     ]
 }

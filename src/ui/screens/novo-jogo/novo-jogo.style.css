@@ -19,7 +19,7 @@
 }
 
 .novo-jogo-screen .modal .visual-modal h1 {
-    font-size: 36px;
+    font-size: 2rem;
     color: var(--white);
     text-shadow: var(--borda-texto-sombra);
     font-weight: 100;
@@ -99,7 +99,7 @@
 }
 
 .novo-jogo-screen .modal .pronomes-modal h1 {
-    font-size: 36px;
+    font-size: 2rem;
     color: var(--white);
     text-shadow: var(--borda-texto-sombra);
     font-weight: 100;
@@ -169,7 +169,7 @@
 }
 
 .novo-jogo-screen .modal .nome-modal h1 {
-    font-size: 36px;
+    font-size: 2rem;
     color: var(--white);
     text-shadow: var(--borda-texto-sombra);
     font-weight: 100;
@@ -197,7 +197,7 @@
 .novo-jogo-screen .modal .nome-modal form input {
     width: 80%;
     font-family: textFont, sans-serif;
-    font-size: 36px;
+    font-size: 2rem;
     text-shadow: var(--borda-texto);
     color: var(--white);
     font-weight: 100;
@@ -215,7 +215,6 @@
     font-weight: 100;
 }
 
-
 .novo-jogo-screen .modal .confirmar-modal {
     width: 50%;
     height: 75%;
@@ -230,7 +229,7 @@
 }
 
 .novo-jogo-screen .modal .confirmar-modal h1 {
-    font-size: 36px;
+    font-size: 2rem;
     color: var(--white);
     text-shadow: var(--borda-texto-sombra);
     font-weight: 100;
@@ -299,4 +298,30 @@
 
 .novo-jogo-screen .modal .confirmar-modal button {
     margin: 0 1rem;
+}
+
+@media screen and (max-height: 479px) {
+
+    .novo-jogo-screen .modal .visual-modal {
+        width: 55%;
+        height: 90%;
+    }
+    .novo-jogo-screen .modal .pronomes-modal {
+        width: 65%;
+        height: 65%;
+    }
+
+    .novo-jogo-screen .modal .nome-modal {
+        width: 60%;
+        height: 70%;
+    }
+
+    .novo-jogo-screen .modal .confirmar-modal {
+        width: 70%;
+        height: 85%;
+    }
+
+    .novo-jogo-screen .modal .confirmar-modal button {
+        margin: 1rem;
+    }
 }

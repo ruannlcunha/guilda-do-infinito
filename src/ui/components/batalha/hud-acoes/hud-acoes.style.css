@@ -33,3 +33,22 @@
   width: 100%;
   background-color: var(--cyan-transparent);
 }
+
+
+@media screen and (max-height: 479px) {
+  
+  .batalha-screen .batalha-hud .hud-acoes {
+    height: 100%;
+  }
+
+  .batalha-screen .batalha-hud .hud-acoes li {
+    font-size: 1.5rem;
+    border: double 3px var(--white);
+  }
+
+  .batalha-screen .batalha-hud .hud-acoes li:hover {
+    font-size: 1.5rem;
+  }
+  
+  
+}

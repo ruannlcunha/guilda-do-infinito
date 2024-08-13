@@ -49,29 +49,68 @@ export const AVENTUREIRO = {
     evolucoes: [
         {
             level: 1,
-            experienciaNecessaria: 100,
+            experienciaNecessaria: 1250,
             atributos: {
-                forca: 2,
-                agilidade: 2,
+                forca: 5,
+                agilidade: 3,
                 magia: 2,
-                vigor: 2
+                vigor: 4
             },
             talentos: [],
-            ataques: [1],
-            habilidades: [1]
+            ataques: [1,14],
+            habilidades: [12]
         },
         {
             level: 2,
-            experienciaNecessaria: 250,
+            experienciaNecessaria: 3000,
             atributos: {
-                forca: 2,
-                agilidade: 2,
+                forca: 5,
+                agilidade: 3,
                 magia: 2,
-                vigor: 2
+                vigor: 4
             },
             talentos: [],
-            ataques: [1],
-            habilidades: [1]
-        }
+            ataques: [1,14],
+            habilidades: [12]
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 6000,
+            atributos: {
+                forca: 5,
+                agilidade: 3,
+                magia: 2,
+                vigor: 4
+            },
+            talentos: [],
+            ataques: [1,14,12],
+            habilidades: [12,13]
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 30000,
+            atributos: {
+                forca: 6,
+                agilidade: 3,
+                magia: 2,
+                vigor: 4
+            },
+            talentos: [],
+            ataques: [1,14,12],
+            habilidades: [12,13]
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 15000,
+            atributos: {
+                forca: 7,
+                agilidade: 4,
+                magia: 3,
+                vigor: 5
+            },
+            talentos: [],
+            ataques: [1,14,12,34],
+            habilidades: [12,13]
+        },
     ]
 }

@@ -10,7 +10,7 @@ const { iniciarEfeito, restaurarVida, finalizarAcao, gastarMana, informarErro } 
 
 export const CURAR = {
     id: 1,
-    nome: "Curar",
+    nome: "Curar Ferimentos",
     custo: 1,
     efeito: "Cura 2d8+1 de PV de um aliado.",
     evento: cura,

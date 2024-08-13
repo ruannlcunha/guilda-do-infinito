@@ -25,10 +25,9 @@ function raizesCortantesEvento(personagem, alvo, functions) {
       return { ...old, escolhendoAlvo: false };
     });
 
-    const personagemNovo = gastarMana(personagem, 1, functions);
     const modificadorPadrao = {valor: 2, atributo: "Modificador"}
     const modificadorMagia = {valor: personagem.atributos.magia, atributo: "Magia"}
-    const resultadoAtaque = atacar(personagemNovo, alvo, modificadorMagia, functions)
+    const resultadoAtaque = atacar(personagem, alvo, modificadorMagia, functions)
     const modificadores = [modificadorPadrao, modificadorMagia]
     const {dados, total} = rolarDado(3, 4, modificadores)
     

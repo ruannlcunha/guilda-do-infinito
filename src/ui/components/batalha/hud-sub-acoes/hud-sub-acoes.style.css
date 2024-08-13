@@ -11,7 +11,7 @@
   border: double 5px var(--blue-metal);
   margin-bottom: 0.5rem;
   animation: fade-in 0.1s;
-  }
+}
   
 .batalha-screen .batalha-hud .hud-sub-acoes header {
   width: 100%;
@@ -24,14 +24,14 @@
   text-shadow: var(--borda-texto);
   border-bottom: solid 2px var(--blue-metal);
   background-color: var(--blue-grey);
-  }
+}
   
 .batalha-screen .batalha-hud .hud-sub-acoes section {
   height: 85%;
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  }
+}
   
 .batalha-screen .batalha-hud .hud-sub-acoes section li {
   width: 100%;
@@ -45,23 +45,23 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  }
+}
   
 .batalha-screen .batalha-hud .hud-sub-acoes section li:hover {
   transition: 0.1s;
   cursor: url(../../../../assets/img/cursors/POINTER.png), pointer;
   background-color: var(--cyan-transparent);
-  }
+}
   
 .batalha-screen .batalha-hud .hud-sub-acoes section .acao-bloqueada {
   background-color: var(--black);
   color: var(--grey-transparent);
-  }
+}
   
 .batalha-screen .batalha-hud .hud-sub-acoes section .acao-bloqueada:hover {
   cursor: url(../../../../assets/img/cursors/NOT_ALLOWED.png), not-allowed;
   background-color: var(--black);
-  }
+}
   
 .batalha-screen .batalha-hud .hud-sub-acoes section li h1 {
   width: 100%;
@@ -70,7 +70,7 @@
   display: flex;
   align-items: center;
   font-weight: 100;
-  }
+}
   
 .batalha-screen .batalha-hud .hud-sub-acoes section li section {
   width: 100%;
@@ -80,7 +80,7 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  }
+}
   
 .batalha-screen .batalha-hud .hud-sub-acoes section li section h2 {
   width: auto;
@@ -91,4 +91,32 @@
 
 .batalha-screen .batalha-hud .hud-sub-acoes section li section h2 span {
   color: var(--light-grey);
+}
+
+
+@media screen and (max-height: 479px) {
+  
+  .batalha-screen .batalha-hud .hud-sub-acoes header {
+    font-size: 1.25rem;
+  }
+  
+  .batalha-screen .batalha-hud .hud-sub-acoes section li h1 {
+    font-size: 1rem;
+  }
+  .batalha-screen .batalha-hud .hud-sub-acoes {
+    height: 150%;
+  }
+  
+  .batalha-screen .batalha-hud .hud-sub-acoes header {
+    height: 10%;
+  }
+  
+  .batalha-screen .batalha-hud .hud-sub-acoes section {
+    height: 90%;
+  }
+  
+  .batalha-screen .batalha-hud .hud-sub-acoes section li {
+    min-height: 25%;
+  }
+
 }

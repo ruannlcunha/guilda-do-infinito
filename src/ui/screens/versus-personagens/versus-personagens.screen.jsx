@@ -1,5 +1,5 @@
 import "./versus-personagens.style.css"
-import { BackButton, BotaoPrimario, ContainerScreen, Modal } from "../../components"
+import { BackButton, BotaoPrimario, ContainerScreen, Modal, ModalItem } from "../../components"
 import { ICONS, IMAGES, PERFIL, SPRITES } from "../../../constants/images"
 import { instanciarPersonagem } from "../../../utils"
 import { ITENS_DATA, PERSONAGENS_DATA } from "../../../database"
@@ -18,6 +18,8 @@ export function VersusPersonagensScreen() {
     const { jogadores } = useParams()
     const {playHover, playClick, playCancel} = useSound()
     const [personagemModal, setPersonagemModal] = useState(false)
+    const [itemModal, setItemModal] = useState(false)
+    const [itemEscolhido, setItemEscolhido] = useState({index: null})
     const [equipeAtual, setEquipeAtual] = useState(EQUIPES.ALIADOS)
     const [aliados, setAliados] = useState([])
     const [inimigos, setInimigos] = useState([])
@@ -125,33 +127,37 @@ export function VersusPersonagensScreen() {
     }
 
     function handleVoltarVisual() {
-        playClick(1)
-        const _basePersonagem = {
-            ...basePersonagem,
-            personagemId: personagemEscolhido.id,
-            level: personagemEscolhido.level,
-            visualAtivo: personagemEscolhido.visualId-1,
-            nome: personagemEscolhido.id===1?personagemEscolhido.nome:null,
-            titulo: personagemEscolhido.id===1?personagemEscolhido.titulo:null,
-            equipamentoProntoId: personagemEscolhido.equipamentoProntoId,
+        if(personagemEscolhido.visualId>1) {
+            playClick(1)
+            const _basePersonagem = {
+                ...basePersonagem,
+                personagemId: personagemEscolhido.id,
+                level: personagemEscolhido.level,
+                visualAtivo: personagemEscolhido.visualId-1,
+                nome: personagemEscolhido.id===1?personagemEscolhido.nome:null,
+                titulo: personagemEscolhido.id===1?personagemEscolhido.titulo:null,
+                equipamentoProntoId: personagemEscolhido.equipamentoProntoId,
+            }
+            const novoPersonagem = instanciarPersonagem(_basePersonagem)
+            setPersonagemEscolhido(novoPersonagem)
         }
-        const novoPersonagem = instanciarPersonagem(_basePersonagem)
-        setPersonagemEscolhido(novoPersonagem)
     }
 
     function handleProximoVisual() {
-        playClick(1)
-        const _basePersonagem = {
-            ...basePersonagem,
-            personagemId: personagemEscolhido.id,
-            level: personagemEscolhido.level,
-            visualAtivo: personagemEscolhido.visualId+1,
-            nome: personagemEscolhido.id===1?personagemEscolhido.nome:null,
-            titulo: personagemEscolhido.id===1?personagemEscolhido.titulo:null,
-            equipamentoProntoId: personagemEscolhido.equipamentoProntoId,
+        if(findPersonagemData().visuais.length>personagemEscolhido.visualId) {
+            playClick(1)
+            const _basePersonagem = {
+                ...basePersonagem,
+                personagemId: personagemEscolhido.id,
+                level: personagemEscolhido.level,
+                visualAtivo: personagemEscolhido.visualId+1,
+                nome: personagemEscolhido.id===1?personagemEscolhido.nome:null,
+                titulo: personagemEscolhido.id===1?personagemEscolhido.titulo:null,
+                equipamentoProntoId: personagemEscolhido.equipamentoProntoId,
+            }
+            const novoPersonagem = instanciarPersonagem(_basePersonagem)
+            setPersonagemEscolhido(novoPersonagem)
         }
-        const novoPersonagem = instanciarPersonagem(_basePersonagem)
-        setPersonagemEscolhido(novoPersonagem)
     }
 
     function handleVoltarEquipamento() {
@@ -266,6 +272,11 @@ export function VersusPersonagensScreen() {
         navigate(`/versus/${jogadores}/mapas`)
     }
 
+    function handleDetalharItem(item) {
+        setItemEscolhido(item)
+        setItemModal(true)
+    }
+
     function renderCardPersonagem(personagem) {
         return (
             <li
@@ -342,7 +353,8 @@ export function VersusPersonagensScreen() {
         const item = ITENS_DATA.find(item=>
             item.id===personagemEscolhido.equipamentos[tipo])
         return (
-            <div>
+            <div
+            onClick={item?()=>handleDetalharItem(item) :null}>
                 {
                 item? <img src={item.sprite} alt="" />
                 : <img src={icon} alt="" style={{opacity:"15%"}}/>
@@ -535,7 +547,7 @@ export function VersusPersonagensScreen() {
 
                             <section className="personagem-visual">
                                 <button
-                                onMouseEnter={()=>playHover(2)}
+                                onMouseEnter={personagemEscolhido.visualId>1?()=>playHover(2):null}
                                 onClick={personagemEscolhido.visualId>1?handleVoltarVisual:null}>
                                     {personagemEscolhido.visualId>1?
                                         <img
@@ -549,7 +561,10 @@ export function VersusPersonagensScreen() {
                                     <img src={personagemEscolhido.sprite} alt="" />
                                 </div>
                                 <button
-                                onMouseEnter={()=>playHover(2)}
+                                onMouseEnter={
+                                    findPersonagemData()
+                                    .visuais.length>personagemEscolhido.visualId?()=>playHover(2)
+                                :null}
                                 onClick={handleProximoVisual}>
                                 {findPersonagemData()
                                 .visuais.length>personagemEscolhido.visualId?
@@ -572,6 +587,12 @@ export function VersusPersonagensScreen() {
                     </div>
                 </Modal>
                 :null}
+                
+                <ModalItem
+                detalhesModal={itemModal}
+                setDetalhesModal={setItemModal}
+                itemEscolhido={itemEscolhido}
+                />
             </div>
         </ContainerScreen>
     )

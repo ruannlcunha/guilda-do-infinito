@@ -22,25 +22,75 @@ export const APHELIOS = {
 
         ],
         status: {
-            pvBase: 0,
-            pmBase: 0,
-            pvBonus: 0
+            pvBase: 12,
+            pmBase: 6,
+            pvBonus: 2
         },
         evolucoes: [
-        {
-            level: 1,
-            experienciaNecessaria: 100,
-            pv: 25,
-            pm: 10,
-            atributos: {
-                forca: 1,
-                agilidade: 2,
-                magia: 4,
-                vigor: 3
+            {
+                level: 1,
+                experienciaNecessaria: 1250,
+                atributos: {
+                    forca: 2,
+                    agilidade: 4,
+                    magia: 5,
+                    vigor: 3
+                },
+                talentos: [],
+                ataques: [1,21],
+                habilidades: []
             },
-            talentos: [],
-            ataques: [1],
-            habilidades: [1]
-        }
+            {
+                level: 2,
+                experienciaNecessaria: 3750,
+                atributos: {
+                    forca: 2,
+                    agilidade: 4,
+                    magia: 5,
+                    vigor: 3
+                },
+                talentos: [],
+                ataques: [1,21],
+                habilidades: []
+            },
+            {
+                level: 3,
+                experienciaNecessaria: 7500,
+                atributos: {
+                    forca: 2,
+                    agilidade: 4,
+                    magia: 5,
+                    vigor: 3
+                },
+                talentos: [],
+                ataques: [1,16,21,22],
+                habilidades: []
+            },
+            {
+                level: 4,
+                experienciaNecessaria: 37500,
+                atributos: {
+                    forca: 2,
+                    agilidade: 4,
+                    magia: 6,
+                    vigor: 3
+                },
+                talentos: [],
+                ataques: [1,16,21,22],
+                habilidades: []
+            },
+            {
+                level: 5,
+                experienciaNecessaria: 18750,
+                atributos: {
+                    forca: 3,
+                    agilidade: 5,
+                    magia: 7,
+                    vigor: 4
+                },
+                talentos: [],
+                ataques: [1,16,21,22,52],
+                habilidades: []
+            },
     ]
 }

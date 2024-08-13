@@ -142,3 +142,14 @@ div .modal .config ul button:hover {
     transition: all 0.1s;
     background-color: var(--light-blue);
 }
+
+
+@media screen and (max-height: 479px) {
+    div .modal .config ul {
+        padding: 0;
+    }
+    div .modal .config ul li {
+        width: 100%;
+        font-size: 1.40rem;
+    }
+}

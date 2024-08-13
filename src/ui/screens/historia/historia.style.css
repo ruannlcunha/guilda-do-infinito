@@ -36,7 +36,7 @@
     color: var(--white);
     text-shadow: var(--borda-texto);
     font-weight: 300;
-    font-size: 36px;
+    font-size: 2rem;
     display: flex;
     flex-direction: row;
     margin: 10px;

@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const ESCUDO_SOLAR = {
     id: 36,
     nome: "Escudo Solar",
-    descricao: "Um escudo",
+    descricao: `Um lendário escudo usado pelo herói escolhido do Deus do Sol.`,
     sprite: ESCUDO_SOLAR_SPRITE,
     raridade: 5,
     santuario: BASE_SANTUARIO,

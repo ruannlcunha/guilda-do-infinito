@@ -205,3 +205,13 @@
     opacity: 0%;
     }
 }
+
+
+@media screen and (max-height: 479px) {
+  .batalha-screen .banner-ataque div div {
+    width: 7rem;
+    height: 7rem;
+    font-size: 2rem;
+  }
+  
+}

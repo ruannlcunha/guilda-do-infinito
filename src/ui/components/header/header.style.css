@@ -62,3 +62,9 @@ div .header .header-bottom {
     border-top: 2px solid #7CB7FE;
     filter: drop-shadow(0px -1px 5px #7CB7FE);
 }
+
+@media screen and (max-height: 479px) {
+    div .header {
+        height: 15%;
+    }
+}

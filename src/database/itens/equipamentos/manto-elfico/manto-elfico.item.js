@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const MANTO_ELFICO = {
     id: 51,
     nome: "Manto Élfico",
-    descricao: "Uma armadura",
+    descricao: "Um manto leve usado pelos elfos.",
     sprite: MANTO_ELFICO_SPRITE,
     raridade: 4,
     tipo: "Armadura Leve",

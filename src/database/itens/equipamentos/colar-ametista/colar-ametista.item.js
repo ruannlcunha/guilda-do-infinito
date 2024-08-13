@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const COLAR_AMETISTA = {
     id: 53,
     nome: "Colar de Ametista",
-    descricao: "Um acessório",
+    descricao: "Um colar com uma pedra de ametista.",
     sprite: COLAR_AMETISTA_SPRITE,
     raridade: 4,
     santuario: BASE_SANTUARIO,

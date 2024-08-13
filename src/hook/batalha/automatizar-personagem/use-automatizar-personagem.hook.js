@@ -6,7 +6,7 @@ export function useAutomatizarPersonagem() {
         
         const acoes = [...personagemAtivo.ataques]
         const indexAcao = getRandomInt(1,acoes.length)
-        const acaoEscolhida = acoes.find(ataque=> ataque.id === indexAcao)
+        const acaoEscolhida = acoes.find((ataque,i)=> (i+1) === indexAcao)
 
         const alvos = personagens.filter(personagem=>
             !personagem.isInimigo&&personagemAtivo.isInimigo

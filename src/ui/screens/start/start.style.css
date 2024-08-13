@@ -105,3 +105,25 @@
     margin: 0;
     opacity: 0;
 }
+
+@media screen and (max-height: 479px) {
+    .start-aviso p{
+        font-size: 1.75rem;
+        margin: 5px;
+    }
+
+    .start-screen {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .start-screen img {
+        position: static;
+        height: 60%;
+        margin-bottom: 5%;
+    }
+    .start-screen div {
+        position: static;
+    }
+}

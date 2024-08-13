@@ -30,7 +30,7 @@
 }
 
 .versus-mapas .titulo h1 {
-    font-size: 36px;
+    font-size: 2rem;
     margin: 0.8rem 0;
 }
 
@@ -156,4 +156,28 @@
     margin: 0 1rem;
     font-weight: 100;
     font-size: 2rem;
+}
+
+
+
+@media screen and (max-height: 479px) {
+
+    .versus-mapas .menu-opcoes button {
+        font-size: 1.5rem;
+        margin: 0 0.5rem;
+    }
+
+    .versus-mapas .mapas-list section ul li {
+        margin: 0;
+        height: 7vw;
+        width: 7vw;
+    }
+
+    .versus-mapas .mapas-list header div h1 {
+        font-size: 1.5rem;
+    }
+
+    .versus-mapas .menu-opcoes .paginacao {
+        font-size: 1.5rem;
+    }
 }

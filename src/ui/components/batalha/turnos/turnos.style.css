@@ -147,3 +147,25 @@
     opacity: 0%;
   }
 }
+
+
+@media screen and (max-height: 479px) {
+  .batalha-screen .turnos header {
+    margin: 1.25rem 10px;
+  }
+
+  .batalha-screen .turnos section .turnos-ativo-aliado {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .batalha-screen .turnos section .turnos-ativo-inimigo {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .batalha-screen .turnos section div {
+    height: 2rem;
+    width: 2rem;
+  }
+}

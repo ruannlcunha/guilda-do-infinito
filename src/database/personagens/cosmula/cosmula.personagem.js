@@ -21,25 +21,75 @@ export const COSMULA = {
         }
     ],
     status: {
-        pvBase: 0,
-        pmBase: 0,
-        pvBonus: 0
+        pvBase: 12,
+        pmBase: 6,
+        pvBonus: 2
     },
     evolucoes: [
-      {
-          level: 1,
-          experienciaNecessaria: 100,
-          pv: 24,
-          pm: 8,
-          atributos: {
-              forca: 1,
-              agilidade: 3,
-              magia: 4,
-              vigor: 2
-          },
-          talentos: [],
-          ataques: [1],
-          habilidades: [1]
-      }
+        {
+            level: 1,
+            experienciaNecessaria: 1000,
+            atributos: {
+                forca: 1,
+                agilidade: 4,
+                magia: 4,
+                vigor: 2
+            },
+            talentos: [],
+            ataques: [1,10,21],
+            habilidades: []
+        },
+        {
+            level: 2,
+            experienciaNecessaria: 3000,
+            atributos: {
+                forca: 1,
+                agilidade: 4,
+                magia: 4,
+                vigor: 2
+            },
+            talentos: [],
+            ataques: [1,10,21],
+            habilidades: []
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 6000,
+            atributos: {
+                forca: 1,
+                agilidade: 4,
+                magia: 4,
+                vigor: 2
+            },
+            talentos: [],
+            ataques: [1,10,21,5,12],
+            habilidades: [1]
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 30000,
+            atributos: {
+                forca: 1,
+                agilidade: 4,
+                magia: 5,
+                vigor: 2
+            },
+            talentos: [],
+            ataques: [1,10,21,5,12],
+            habilidades: [1]
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 15000,
+            atributos: {
+                forca: 2,
+                agilidade: 5,
+                magia: 6,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [1,10,21,5,12,51],
+            habilidades: [1]
+        },
     ]
 }

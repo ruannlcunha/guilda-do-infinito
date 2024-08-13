@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const ESPADA_CRISTAL = {
     id: 21,
     nome: "Espada de Cristal",
-    descricao: "Uma arma",
+    descricao: "Uma espada com lâmina feita de um cristal resistente.",
     sprite: ESPADA_CRISTAL_SPRITE,
     raridade: 4,
     tipo: ARMAS_TIPO.PESADA,

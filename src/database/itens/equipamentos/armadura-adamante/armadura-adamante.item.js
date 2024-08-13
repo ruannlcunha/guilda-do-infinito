@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const ARMADURA_ADAMANTE = {
     id: 30,
     nome: "Armadura de Adamante",
-    descricao: "Uma armadura",
+    descricao: "Uma armadura de adamante, um material extremamente resistente a danos físicos.",
     sprite: ARMADURA_ADAMANTE_SPRITE,
     raridade: 4,
     tipo: "Armadura Pesada",

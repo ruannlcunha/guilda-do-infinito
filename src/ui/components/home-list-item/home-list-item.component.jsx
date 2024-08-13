@@ -34,6 +34,7 @@ export function HomeListItem({item, selectedData, setSelectedData, onClick}) {
 
     return (<>
             <li
+            className="list-item"
             onMouseEnter={()=>{handleHover(item)}}
             onClick={()=>handleClick(item)}
             style={selectStyle()}

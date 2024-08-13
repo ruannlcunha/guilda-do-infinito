@@ -71,3 +71,13 @@
     60% {opacity: 100%;}
     100% {opacity: 100%;}
 }
+
+
+
+@media screen and (max-height: 479px) {
+    .fim-batalha-versus {
+        width: 55%;
+        height: 60%;
+    }
+  
+}

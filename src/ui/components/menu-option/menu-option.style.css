@@ -36,3 +36,12 @@ div .home-section .menu-options ul .menu-option:hover img {
     filter: drop-shadow(-1px 1px 5px var(--blue));
     transition: all 0.1s;
 }
+
+
+@media screen and (max-height: 479px) {
+    
+    div .home-section .menu-options ul .menu-option {
+        font-size: 1.5rem;
+    }
+  
+}

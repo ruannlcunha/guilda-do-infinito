@@ -1,6 +1,6 @@
 
 
-div section section section ul li {
+div section section section ul .list-item {
     width: 98%;
     height: 5rem;
     background-color: var(--light-grey);
@@ -15,13 +15,13 @@ div section section section ul li {
     align-items: center;
 }
 
-div section section section ul li img {
+div section section section ul .list-item img {
     height: 2rem;
     margin: 0 1rem;
     opacity: 60%;
 }
 
-div section section section ul li:hover {
+div section section section ul .list-item:hover {
     background-color: var(--light-blue);
     cursor: pointer;
     transition: all 0.1s;
@@ -30,7 +30,7 @@ div section section section ul li:hover {
     padding: 2px;
 }
 
-div section section section ul li .preview-image {
+div section section section ul .list-item .preview-image {
     width: 25%;
     height: 90%;
     margin: 0 5px;
@@ -39,14 +39,14 @@ div section section section ul li .preview-image {
     border-radius: 10px;
 }
 
-div section section section ul li section {
+div section section section ul .list-item section {
     height: 100%;
     width: 75%;
     display: flex;
     flex-direction: column;
 }
 
-div section section section ul li section h1 {
+div section section section ul .list-item section h1 {
     margin: 0;
     margin-bottom: 5px;
     padding: 5px 0;
@@ -59,7 +59,7 @@ div section section section ul li section h1 {
 }
 
 
-div section section section ul li section p {
+div section section section ul .list-item section p {
     height: 50%;
     width: 95%;
     margin: 0;

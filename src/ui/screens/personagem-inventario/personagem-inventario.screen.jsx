@@ -1,5 +1,5 @@
 import "./personagem-inventario.style.css"
-import { BackButton, BotaoPrimario, ContainerScreen, Modal } from "../../components"
+import { BackButton, BotaoPrimario, ContainerScreen, Modal, ModalItem } from "../../components"
 import { useParams } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { useEffect, useState } from "react"
@@ -94,11 +94,6 @@ export function PersonagemInventarioScreen() {
         playClick(1)
         setItemEscolhido(item)
         setDetalhesModal(true)
-    }
-
-    function handleFecharModal() {
-        playClick(1)
-        setDetalhesModal(false)
     }
 
     function handleAbrirInventario() {
@@ -352,24 +347,13 @@ export function PersonagemInventarioScreen() {
                             </section>
                     <BotaoPrimario onClick={handleAbrirInventario}>Adicionar item</BotaoPrimario>
                 </section>
-                <Modal isOpen={detalhesModal} setIsOpen={setDetalhesModal}>
-                    {itemEscolhido.id ?
-                    <div className="detalhes-item-modal">
-                        <header>
-                            <h1>Detalhes do Item</h1>
-                            <button onClick={handleFecharModal}>X</button>
-                        </header>
-                        <section>
-                            <section>
-                                {renderItemDetalhes("Remover", handleRemoverQuantidadeModal)}
-                            </section>
-                            <section>
-                                <img src={itemEscolhido.sprite} alt="" />
-                            </section>
-                        </section>
-                    </div>
-                    :null}
-                </Modal>
+
+                <ModalItem
+                detalhesModal={detalhesModal}
+                setDetalhesModal={setDetalhesModal}
+                itemEscolhido={itemEscolhido}
+                botao={{texto: "Remover", evento: handleRemoverQuantidadeModal}}
+                />
 
                 <Modal isOpen={listaModal} setIsOpen={setListaModal}>
                     <div className="inventario-modal">

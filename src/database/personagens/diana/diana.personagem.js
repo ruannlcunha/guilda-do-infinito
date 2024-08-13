@@ -21,25 +21,75 @@ export const DIANA = {
         }
     ],
     status: {
-        pvBase: 0,
-        pmBase: 0,
-        pvBonus: 0
+        pvBase: 20,
+        pmBase: 3,
+        pvBonus: 5
     },
     evolucoes: [
-      {
-          level: 1,
-          experienciaNecessaria: 100,
-          pv: 24,
-          pm: 8,
-          atributos: {
-              forca: 4,
-              agilidade: 3,
-              magia: 1,
-              vigor: 2
-          },
-          talentos: [],
-          ataques: [1],
-          habilidades: []
-      }
-    ]
+        {
+            level: 1,
+            experienciaNecessaria: 1000,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 1,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14],
+            habilidades: [13]
+        },
+        {
+            level: 2,
+            experienciaNecessaria: 3000,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 1,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14],
+            habilidades: [13]
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 6000,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 1,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14,16],
+            habilidades: [13]
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 30000,
+            atributos: {
+                forca: 5,
+                agilidade: 2,
+                magia: 1,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14,16],
+            habilidades: [13]
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 15000,
+            atributos: {
+                forca: 6,
+                agilidade: 3,
+                magia: 2,
+                vigor: 4
+            },
+            talentos: [],
+            ataques: [14,16,27],
+            habilidades: [13]
+        },
+    ],
 }

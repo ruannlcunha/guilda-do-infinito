@@ -36,7 +36,7 @@
 }
   
 .batalha-screen .banner-rolagem div h2 {
-    font-size: 36px;
+    font-size: 2rem;
     font-weight: 100;
     text-shadow: var(--borda-texto);
     margin: 0;
@@ -185,4 +185,14 @@
     color: var(--white);
     text-shadow: var(--borda-texto);
   }
+}
+
+
+@media screen and (max-height: 479px) {
+  .batalha-screen .banner-rolagem div div {
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.75rem;
+  }
+  
 }

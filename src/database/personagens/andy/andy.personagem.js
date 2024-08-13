@@ -20,42 +20,77 @@ export const ANDY = {
             santuario: null,
         }
 
-        ],
-        status: {
-            pvBase: 0,
-            pmBase: 0,
-            pvBonus: 0
-        },
-        evolucoes: [
+    ],
+    status: {
+        pvBase: 16,
+        pmBase: 4,
+        pvBonus: 4
+    },
+    evolucoes: [
         {
             level: 1,
-            experienciaNecessaria: 100,
-            pv: 23,
-            pm: 5,
+            experienciaNecessaria: 1000,
             atributos: {
-                forca: 1,
-                agilidade: 4,
+                forca: 2,
+                agilidade: 3,
                 magia: 3,
-                vigor: 2
+                vigor: 1
             },
             talentos: [],
-            ataques: [1],
-            habilidades: [1]
+            ataques: [17,18],
+            habilidades: []
         },
         {
             level: 2,
-            experienciaNecessaria: 250,
-            pv: 28,
-            pm: 8,
+            experienciaNecessaria: 3000,
             atributos: {
-                forca: 1,
+                forca: 2,
+                agilidade: 3,
+                magia: 3,
+                vigor: 1
+            },
+            talentos: [],
+            ataques: [17,18],
+            habilidades: []
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 6000,
+            atributos: {
+                forca: 2,
+                agilidade: 3,
+                magia: 3,
+                vigor: 1
+            },
+            talentos: [],
+            ataques: [17,18,10],
+            habilidades: []
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 30000,
+            atributos: {
+                forca: 2,
                 agilidade: 4,
                 magia: 3,
+                vigor: 1
+            },
+            talentos: [],
+            ataques: [17,18,10],
+            habilidades: []
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 15000,
+            atributos: {
+                forca: 3,
+                agilidade: 5,
+                magia: 4,
                 vigor: 2
             },
-            passivas: [],
-            ataques: [1],
-            habilidades: [1]
-        }
+            talentos: [],
+            ataques: [17,18,10,71],
+            habilidades: []
+        },
     ]
 }

@@ -29,27 +29,77 @@ export const ANDRIUS = {
             santuario: null,
         }
 
-        ],
-        status: {
-            pvBase: 0,
-            pmBase: 0,
-            pvBonus: 0
-        },
-        evolucoes: [
+    ],
+    status: {
+        pvBase: 20,
+        pmBase: 3,
+        pvBonus: 5,
+    },
+    evolucoes: [
         {
             level: 1,
-            experienciaNecessaria: 100,
-            pv: 30,
-            pm: 10,
+            experienciaNecessaria: 1250,
             atributos: {
                 forca: 4,
                 agilidade: 2,
-                magia: 3,
+                magia: 5,
                 vigor: 3
             },
             talentos: [],
-            ataques: [1],
-            habilidades: [1]
-        }
-    ]
+            ataques: [14,15],
+            habilidades: [12]
+        },
+        {
+            level: 2,
+            experienciaNecessaria: 3750,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 5,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14,15],
+            habilidades: [12]
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 7500,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 5,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14,15,5,21],
+            habilidades: [12, 1]
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 37500,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 5,
+                vigor: 4
+            },
+            talentos: [],
+            ataques: [14,15,5,21],
+            habilidades: [12, 1]
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 18750,
+            atributos: {
+                forca: 5,
+                agilidade: 3,
+                magia: 6,
+                vigor: 5
+            },
+            talentos: [],
+            ataques: [14,15,5,21,33],
+            habilidades: [12, 1]
+        },
+    ],
 }

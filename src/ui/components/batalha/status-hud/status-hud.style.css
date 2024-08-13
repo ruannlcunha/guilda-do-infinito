@@ -24,7 +24,7 @@
   width: 50%;
   height: 100%;
   margin: 0;
-  font-size: 36px;
+  font-size: 2rem;
   font-weight: 300;
   text-shadow: 2px 3px var(--black);
   color: var(--white);
@@ -81,5 +81,21 @@
   }
   to {
     transform: translate(0px, 0);
+  }
+}
+
+
+
+@media screen and (max-height: 479px) {
+  .batalha-screen .batalha-hud .hud-status header h1 {
+    font-size: 1.75rem;
+  }
+
+  .batalha-screen .batalha-hud .hud-status section h2 {
+    font-size: 1.25rem;
+  }
+  .batalha-screen .batalha-hud .hud-status section .batalha-hud-barra {
+    height: 5px;
+    border: solid 2px var(--white);
   }
 }

@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const ANEL_VIGOR = {
     id: 9,
     nome: "Anel de Vigor",
-    descricao: "Um simples anel feito de bronze com um efeito revigorante.",
+    descricao: "Um anel feito de bronze com um efeito revigorante.",
     sprite: ANEL_VIGOR_SPRITE,
     raridade: 3,
     santuario: BASE_SANTUARIO,

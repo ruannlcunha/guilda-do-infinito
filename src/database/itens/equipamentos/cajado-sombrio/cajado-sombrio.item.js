@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const CAJADO_SOMBRIO = {
     id: 48,
     nome: "Cajado Sombrio",
-    descricao: "Uma arma",
+    descricao: "Um poderoso cajado com um núcleo de energia sombria.",
     sprite: CAJADO_SOMBRIO_SPRITE,
     raridade: 5,
     tipo: ARMAS_TIPO.LEVE,

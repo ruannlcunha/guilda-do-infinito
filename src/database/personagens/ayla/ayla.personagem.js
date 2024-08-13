@@ -80,31 +80,70 @@ export const AYLA = {
         pvBonus: 5,
     },
     evolucoes: [
-    {
-        level: 1,
-        experienciaNecessaria: 100,
-        atributos: {
-            forca: 4,
-            agilidade: 2,
-            magia: 5,
-            vigor: 3
+        {
+            level: 1,
+            experienciaNecessaria: 1250,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 5,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14],
+            habilidades: [12]
         },
-        talentos: [],
-        ataques: [27],
-        habilidades: []
-    },
-    {
-        level: 2,
-        experienciaNecessaria: 250,
-        atributos: {
-            forca: 4,
-            agilidade: 2,
-            magia: 5,
-            vigor: 3
+        {
+            level: 2,
+            experienciaNecessaria: 3750,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 5,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14],
+            habilidades: [12]
         },
-        talentos: [],
-        ataques: [],
-        habilidades: []
-    }
+        {
+            level: 3,
+            experienciaNecessaria: 7500,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 5,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14,15],
+            habilidades: [12, 1]
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 37500,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 5,
+                vigor: 4
+            },
+            talentos: [],
+            ataques: [14,15],
+            habilidades: [12, 1]
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 18750,
+            atributos: {
+                forca: 5,
+                agilidade: 3,
+                magia: 6,
+                vigor: 5
+            },
+            talentos: [],
+            ataques: [2],
+            habilidades: [12, 1]
+        },
     ],
 }

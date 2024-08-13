@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const MANTO_LUXUOSO = {
     id: 52,
     nome: "Manto Luxuoso",
-    descricao: "Uma armadura",
+    descricao: "Um manto feito com materiais de grande qualidade que auxilia na conjuração.",
     sprite: MANTO_LUXUOSO_SPRITE,
     raridade: 5,
     tipo: "Armadura Leve",

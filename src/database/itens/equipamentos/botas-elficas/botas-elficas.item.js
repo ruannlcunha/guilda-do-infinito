@@ -6,7 +6,8 @@ import { ICONS } from "../../../../constants/images"
 export const BOTAS_ELFICAS = {
     id: 56,
     nome: "Botas Élficas",
-    descricao: "Um acessório",
+    descricao: `Um par de botas usadas pelo povo élfico
+                para aumentar sua agilidade e furtividade.`,
     sprite: BOTAS_ELFICAS_SPRITE,
     raridade: 5,
     santuario: BASE_SANTUARIO,

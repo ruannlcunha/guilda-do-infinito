@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const COLAR_CELESTIAL = {
     id: 54,
     nome: "Colar Celestial",
-    descricao: "Um acessório",
+    descricao: "Um colar com um núcleo raro de energia celestial.",
     sprite: COLAR_CELESTIAL_SPRITE,
     raridade: 5,
     santuario: BASE_SANTUARIO,

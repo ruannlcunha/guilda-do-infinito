@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const CAJADO_CRISTAL = {
     id: 47,
     nome: "Cajado de Cristal",
-    descricao: "Uma arma",
+    descricao: "Um cajado cristalino que facilita a concentração de mana.",
     sprite: CAJADO_CRISTAL_SPRITE,
     raridade: 4,
     tipo: ARMAS_TIPO.LEVE,

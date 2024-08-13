@@ -21,25 +21,75 @@ export const KIENDRA = {
             }
         ],
     status: {
-        pvBase: 0,
-        pmBase: 0,
-        pvBonus: 0
+        pvBase: 14,
+        pmBase: 4,
+        pvBonus: 3
         },
     evolucoes: [
         {
-        level: 1,
-        experienciaNecessaria: 100,
-        pv: 24,
-        pm: 5,
-        atributos: {
-            forca: 2,
-            agilidade: 3,
-            magia: 4,
-            vigor: 1
+            level: 1,
+            experienciaNecessaria: 1000,
+            atributos: {
+                forca: 2,
+                agilidade: 3,
+                magia: 4,
+                vigor: 1
             },
-        talentos: [],
-        ataques: [1],
-        habilidades: [1]
-        }
-        ]
+            talentos: [],
+            ataques: [14],
+            habilidades: []
+        },
+        {
+            level: 2,
+            experienciaNecessaria: 3000,
+            atributos: {
+                forca: 2,
+                agilidade: 3,
+                magia: 4,
+                vigor: 1
+            },
+            talentos: [],
+            ataques: [14],
+            habilidades: []
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 6000,
+            atributos: {
+                forca: 2,
+                agilidade: 3,
+                magia: 4,
+                vigor: 1
+            },
+            talentos: [],
+            ataques: [14,2],
+            habilidades: []
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 30000,
+            atributos: {
+                forca: 2,
+                agilidade: 3,
+                magia: 5,
+                vigor: 1
+            },
+            talentos: [],
+            ataques: [14,2],
+            habilidades: []
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 15000,
+            atributos: {
+                forca: 3,
+                agilidade: 4,
+                magia: 6,
+                vigor: 2
+            },
+            talentos: [],
+            ataques: [14,2,27],
+            habilidades: []
+        },
+    ],
 }

@@ -39,25 +39,75 @@ export const ALAN = {
         }
     ],
     status: {
-        pvBase: 0,
-        pmBase: 0,
-        pvBonus: 0
+        pvBase: 20,
+        pmBase: 5,
+        pvBonus: 3
     },
     evolucoes: [
-      {
-          level: 1,
-          experienciaNecessaria: 100,
-          pv: 24,
-          pm: 8,
-          atributos: {
-              forca: 3,
-              agilidade: 2,
-              magia: 1,
-              vigor: 4
-          },
-          talentos: [],
-          ataques: [1],
-          habilidades: []
-      }
-    ]
+        {
+            level: 1,
+            experienciaNecessaria: 1000,
+            atributos: {
+                forca: 3,
+                agilidade: 1,
+                magia: 2,
+                vigor: 4
+            },
+            talentos: [],
+            ataques: [13],
+            habilidades: []
+        },
+        {
+            level: 2,
+            experienciaNecessaria: 3000,
+            atributos: {
+                forca: 3,
+                agilidade: 1,
+                magia: 2,
+                vigor: 4
+            },
+            talentos: [],
+            ataques: [13],
+            habilidades: []
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 6000,
+            atributos: {
+                forca: 3,
+                agilidade: 1,
+                magia: 2,
+                vigor: 4
+            },
+            talentos: [],
+            ataques: [13],
+            habilidades: []
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 30000,
+            atributos: {
+                forca: 3,
+                agilidade: 1,
+                magia: 2,
+                vigor: 5
+            },
+            talentos: [],
+            ataques: [13],
+            habilidades: []
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 15000,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 3,
+                vigor: 6
+            },
+            talentos: [],
+            ataques: [13,30],
+            habilidades: []
+        },
+    ],
 }

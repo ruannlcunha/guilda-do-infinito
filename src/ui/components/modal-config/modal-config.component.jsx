@@ -78,7 +78,6 @@ export function ModalConfig({isOpen, setIsOpen}) {
                 </ul>
                 <h1>Outros</h1>
                 <ul>
-                    <button>Inserir código</button>
                     <button onClick={()=>navigate("/")}>Sair do Jogo</button>
                 </ul>
             </div>

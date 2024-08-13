@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const CAJADO_MADEIRA = {
     id: 20,
     nome: "Cajado de Madeira",
-    descricao: "Uma arma",
+    descricao: "Um simples cajado de madeira.",
     sprite: CAJADO_MADEIRA_SPRITE,
     raridade: 3,
     tipo: ARMAS_TIPO.LEVE,

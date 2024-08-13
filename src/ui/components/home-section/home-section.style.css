@@ -44,3 +44,16 @@ div .home-section .menu-options ul {
     margin-left: 10%;
     margin-top: 1rem;
 }
+
+@media screen and (max-height: 479px) {
+
+    div .home-section .menu-options {
+        width: 50%;
+        margin-top: 1rem;
+    }
+
+    div .home-section {
+        height: 85%;
+    }
+  
+}

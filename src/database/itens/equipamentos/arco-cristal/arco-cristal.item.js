@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const ARCO_CRISTAL = {
     id: 17,
     nome: "Arco de Cristal",
-    descricao: "Um arco",
+    descricao: "Um arco cristalino com poderosas flechas perfurantes.",
     sprite: ARCO_CRISTAL_SPRITE,
     raridade: 4,
     tipo: ARMAS_TIPO.LEVE,

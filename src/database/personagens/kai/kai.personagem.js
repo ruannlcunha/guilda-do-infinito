@@ -21,25 +21,75 @@ export const KAI = {
         }
     ],
     status: {
-        pvBase: 0,
-        pmBase: 0,
-        pvBonus: 0
+        pvBase: 14,
+        pmBase: 4,
+        pvBonus: 3
     },
     evolucoes: [
-      {
-          level: 1,
-          experienciaNecessaria: 100,
-          pv: 24,
-          pm: 5,
-          atributos: {
-              forca: 3,
-              agilidade: 4,
-              magia: 1,
-              vigor: 2
-          },
-          talentos: [],
-          ataques: [1],
-          habilidades: []
-      }
-    ]
+        {
+            level: 1,
+            experienciaNecessaria: 1250,
+            atributos: {
+                forca: 5,
+                agilidade: 4,
+                magia: 3,
+                vigor: 2
+            },
+            talentos: [],
+            ataques: [14],
+            habilidades: []
+        },
+        {
+            level: 2,
+            experienciaNecessaria: 3750,
+            atributos: {
+                forca: 5,
+                agilidade: 4,
+                magia: 3,
+                vigor: 2
+            },
+            talentos: [],
+            ataques: [14],
+            habilidades: []
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 7500,
+            atributos: {
+                forca: 5,
+                agilidade: 4,
+                magia: 3,
+                vigor: 2
+            },
+            talentos: [],
+            ataques: [14,13],
+            habilidades: []
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 37500,
+            atributos: {
+                forca: 6,
+                agilidade: 4,
+                magia: 3,
+                vigor: 2
+            },
+            talentos: [],
+            ataques: [14,13],
+            habilidades: []
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 18750,
+            atributos: {
+                forca: 6,
+                agilidade: 4,
+                magia: 3,
+                vigor: 2
+            },
+            talentos: [],
+            ataques: [14,13,29,49],
+            habilidades: []
+        },
+    ],
 }

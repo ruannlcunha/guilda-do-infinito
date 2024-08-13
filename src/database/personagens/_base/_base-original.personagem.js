@@ -3,6 +3,7 @@ import { PERFIL, SPRITES } from "../../../constants/images";
 export const _BASE_ORIGINAL = {
     id: 1,
     nome: "Base",
+    titulo: "Título",
     elemento: "FOGO",
     arma: "PESADA",
     comportamento: "ATACANTE",

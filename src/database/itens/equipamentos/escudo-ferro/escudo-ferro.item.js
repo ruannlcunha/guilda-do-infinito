@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const ESCUDO_FERRO = {
     id: 46,
     nome: "Escudo de Ferro",
-    descricao: "Um escudo",
+    descricao: "Um escudo de ferro reforçado.",
     sprite: ESCUDO_FERRO_SPRITE,
     raridade: 4,
     santuario: BASE_SANTUARIO,
