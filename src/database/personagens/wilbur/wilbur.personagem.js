@@ -11,7 +11,7 @@ import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.c
 
 export const WILBUR = {
     ..._BASE_ORIGINAL,
-    id: 34,
+    id: 55,
     nome: "Wilbur",
     titulo: "Cavaleiro Heróico",
     elemento: ELEMENTOS.TERRA,

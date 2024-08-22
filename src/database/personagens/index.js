@@ -29,7 +29,7 @@ import { KIENDRA } from "./kiendra/kiendra.personagem.js"
 import { AURORA } from "./aurora/aurora.personagem.js"
 import { OPHELLIA } from "./ophellia/ophellia.personagem.js"
 import { SELENE } from "./selene/selene.personagem.js"
-import { MALESCULA } from "./malescula/malescula.personagem.js"
+import { NEMESIS } from "./nemesis/nemesis.personagem.js"
 import { DIANA } from "./diana/diana.personagem.js"
 import { COSMULA } from "./cosmula/cosmula.personagem.js"
 import { ALAN } from "./alan/alan.personagem.js"
@@ -42,6 +42,7 @@ import { LUCIUS } from "./lucius/lucius.personagem.js"
 import { HERES } from "./heres/heres.personagem.data.js"
 import { FUUJI } from "./fuuji/fuuji.personagem.js"
 import { WILBUR } from "./wilbur/wilbur.personagem.js"
+import { KIRION } from "./kirion/kirion.personagem.js"
 
 export const PERSONAGENS_DATA = [
     AVENTUREIRO,
@@ -52,26 +53,26 @@ export const PERSONAGENS_DATA = [
     MOXXIE,
     NERO,
     KARAS,
-    ANDRIUS,
+    DIANA,
+    ALAN,
+    COSMULA,
     EREENA,
-    SOTIS,
+    ANDRIUS,
     AKINN,
     NAILAH,
+    JJC,
     SETH,
     GENEVIEVE,
     KAI,
     CALEB,
-    JJC,
+    SOTIS,
     SAZANNA,
     KIENDRA,
     AURORA,
     OPHELLIA,
     SELENE,
     SILKY,
-    MALESCULA,
-    DIANA,
-    COSMULA,
-    ALAN,
+    NEMESIS,
     SOL,
     MAYA,
     OTAVIA,
@@ -81,8 +82,9 @@ export const PERSONAGENS_DATA = [
     SAXA,
     LICHT,
     LUCIUS,
-    HERES,
-    FUUJI,
     WILBUR,
+    KIRION,
+    FUUJI,
+    HERES,
     CANARIO,
 ]

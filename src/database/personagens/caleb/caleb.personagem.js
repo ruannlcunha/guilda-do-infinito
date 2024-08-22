@@ -8,8 +8,8 @@ export const CALEB = {
     id: 21,
     nome: "Caleb",
     titulo: "Pequeno Inventor",
-    elemento: ELEMENTOS.NULO,
-    corTema: COR_TEMA.LARANJA,
+    elemento: ELEMENTOS.LUZ,
+    corTema: COR_TEMA.VERMELHO,
     raridade: 5,
     visuais:[
         {

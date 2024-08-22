@@ -8,7 +8,7 @@ export const SILKY = {
     id: 32,
     nome: "Silky",
     titulo: "Guardiã Roxa",
-    elemento: ELEMENTOS.AR,
+    elemento: ELEMENTOS.ELETRICO,
     corTema: COR_TEMA.ROXO,
     raridade: 4,
     visuais:[

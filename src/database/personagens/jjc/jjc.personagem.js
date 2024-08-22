@@ -23,7 +23,7 @@ export const JJC = {
         },
         {
             visualId: 2,
-            nome: "Original",
+            nome: "Forma Verdadeira",
             sprite: JJC_2_SPRITE,
             perfil: JJC_2_PERFIL,
             santuario: null,

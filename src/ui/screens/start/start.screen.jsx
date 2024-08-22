@@ -1,11 +1,12 @@
 import "./start.style.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { AudioContainer, ContainerScreen, ModalConfig } from "../../components"
 import { useMusic, useSound } from "../../../hook"
 import { MUSICS } from "../../../constants/audios/musics.constant"
 import { ICONS } from "../../../constants/images"
 import { useNavigate } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
+import { patchLogs } from "../../../utils/patch-logs.util"
 
 export function StartScreen() {
     const { playHover, playClick } = useSound()
@@ -14,6 +15,9 @@ export function StartScreen() {
     const [user, setUser] = useGlobalUser()
     const [aviso, setAviso] = useState(true)
     const [configIsOpen, setConfigIsOpen] = useState(false)
+    
+    useEffect(()=>{
+    },[])
 
     function handleAviso() {
         playClick(2)

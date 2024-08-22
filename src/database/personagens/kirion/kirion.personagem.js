@@ -1,96 +1,95 @@
-import KARAS_1_SPRITE from "./assets/KARAS_1_SPRITE.png"
-import KARAS_1_PERFIL from "./assets/KARAS_1_PERFIL.png"
+import KIRION_1_SPRITE from "./assets/KIRION_1_SPRITE.png"
+import KIRION_1_PERFIL from "./assets/KIRION_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { ELEMENTOS, COR_TEMA } from "../../../constants/personagens/personagem.constant"
+import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 
-export const KARAS = {
+export const KIRION = {
     ..._BASE_ORIGINAL,
-    id: 15,
-    nome: "Karas",
-    titulo: "Príncipe das Marés",
-    elemento: ELEMENTOS.AGUA,
+    id: 58,
+    nome: "Kirion",
+    titulo: "Mago Sábio",
+    elemento: ELEMENTOS.AR,
     corTema: COR_TEMA.AZUL,
     raridade: 5,
     visuais:[
         {
             visualId: 1,
             nome: "Original",
-            sprite: KARAS_1_SPRITE,
-            perfil: KARAS_1_PERFIL,
+            sprite: KIRION_1_SPRITE,
+            perfil: KIRION_1_PERFIL,
             santuario: null,
-        }
-
+        },
     ],
     status: {
-        pvBase: 16,
-        pmBase: 4,
-        pvBonus: 5
+        pvBase: 12,
+        pmBase: 6,
+        pvBonus: 2
     },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
             atributos: {
-                forca: 3,
-                agilidade: 2,
+                forca: 2,
+                agilidade: 4,
                 magia: 5,
-                vigor: 4
+                vigor: 3
             },
             talentos: [],
-            ataques: [14],
-            habilidades: [1]
+            ataques: [1,12],
+            habilidades: []
         },
         {
             level: 2,
             experienciaNecessaria: 3750,
             atributos: {
-                forca: 3,
-                agilidade: 2,
+                forca: 2,
+                agilidade: 4,
                 magia: 5,
-                vigor: 4
+                vigor: 3
             },
             talentos: [],
-            ataques: [14],
-            habilidades: [1]
+            ataques: [1,12],
+            habilidades: []
         },
         {
             level: 3,
             experienciaNecessaria: 7500,
             atributos: {
-                forca: 3,
-                agilidade: 2,
+                forca: 2,
+                agilidade: 4,
                 magia: 5,
-                vigor: 4
+                vigor: 3
             },
             talentos: [],
-            ataques: [14,12,7],
-            habilidades: [1]
+            ataques: [1,12],
+            habilidades: []
         },
         {
             level: 4,
             experienciaNecessaria: 37500,
             atributos: {
-                forca: 3,
-                agilidade: 2,
+                forca: 2,
+                agilidade: 4,
                 magia: 6,
-                vigor: 4
+                vigor: 3
             },
             talentos: [],
-            ataques: [14,12,7],
-            habilidades: [1]
+            ataques: [1,12],
+            habilidades: []
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
             atributos: {
-                forca: 4,
-                agilidade: 3,
+                forca: 3,
+                agilidade: 5,
                 magia: 7,
-                vigor: 5
+                vigor: 4
             },
             talentos: [],
-            ataques: [14,12,7,28],
-            habilidades: [1]
+            ataques: [1,21,55,61],
+            habilidades: []
         },
     ]
 }

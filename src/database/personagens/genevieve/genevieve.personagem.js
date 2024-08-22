@@ -11,7 +11,7 @@ export const GENEVIEVE = {
     ..._BASE_ORIGINAL,
     id: 23,
     nome: "Genevieve",
-    titulo: "Curandeira Aprendiz",
+    titulo: "A Curandeira",
     elemento: ELEMENTOS.ACIDO,
     corTema: COR_TEMA.TURQUESA,
     raridade: 5,
