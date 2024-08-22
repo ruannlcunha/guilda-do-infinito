@@ -9,7 +9,7 @@ export const SETH = {
     nome: "Seth",
     titulo: "Dançarino das Chamas",
     elemento: ELEMENTOS.FOGO,
-    corTema: COR_TEMA.VERMELHO,
+    corTema: COR_TEMA.AMARELO,
     raridade: 5,
     visuais:[
         {

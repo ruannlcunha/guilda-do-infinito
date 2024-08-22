@@ -91,7 +91,6 @@ export function useAcoesBase() {
         atual: novaMana,
       }
     };
-    _alterarPersonagem(functions.setPersonagens, novoAlvo);
 
     return novoAlvo;
   }

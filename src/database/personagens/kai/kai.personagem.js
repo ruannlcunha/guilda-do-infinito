@@ -62,7 +62,7 @@ export const KAI = {
                 vigor: 2
             },
             talentos: [],
-            ataques: [14,13],
+            ataques: [14,16],
             habilidades: []
         },
         {
@@ -75,7 +75,7 @@ export const KAI = {
                 vigor: 2
             },
             talentos: [],
-            ataques: [14,13],
+            ataques: [14,16],
             habilidades: []
         },
         {
@@ -88,7 +88,7 @@ export const KAI = {
                 vigor: 2
             },
             talentos: [],
-            ataques: [14,13,29,49],
+            ataques: [14,16,29,49],
             habilidades: []
         },
     ],

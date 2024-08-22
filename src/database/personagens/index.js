@@ -2,13 +2,13 @@ import { AVENTUREIRO } from "./aventureiro/aventureiro.personagem.js"
 import { AYLA } from "./ayla/ayla.personagem.js"
 import { DOMINICK } from "./dominick/dominick.personagem.js"
 import { APHELIOS } from "./aphelios/aphelios.personagem.js"
-import { SOL } from "./sol/sol.personagem.data"
-import { MINUS } from "./minus/minus.personagem.data"
-import { OTAVIA } from "./otavia/otavia.personagem.data"
-import { MAYA } from "./maya/maya.personagem.data"
+import { SOL } from "./sol/sol.personagem"
+import { MINUS } from "./minus/minus.personagem"
+import { OTAVIA } from "./otavia/otavia.personagem"
+import { MAYA } from "./maya/maya.personagem"
 import { LOBO } from "./lobo/lobo.personagem.js"
-import { SOMBRIO } from "./sombrio/sombrio.personagem.data"
-import { CANARIO } from "./canario/canario.personagem.data"
+import { SOMBRIO } from "./sombrio/sombrio.personagem"
+import { CANARIO } from "./canario/canario.personagem.js"
 import { ANDY } from "./andy/andy.personagem.js"
 import { MOXXIE } from "./moxxie/moxxie.personagem.js"
 import { KARAS } from "./karas/karas.personagem.js"
@@ -33,6 +33,15 @@ import { MALESCULA } from "./malescula/malescula.personagem.js"
 import { DIANA } from "./diana/diana.personagem.js"
 import { COSMULA } from "./cosmula/cosmula.personagem.js"
 import { ALAN } from "./alan/alan.personagem.js"
+import { SILKY } from "./silky/silky.personagem.js"
+import { OPHELIA } from "./ophelia/ophelia.personagem.js"
+import { MORGAN } from "./morgan/morgan.personagem.js"
+import { SAXA } from "./saxa/saxa.personagem.js"
+import { LICHT } from "./licht/licht.personagem.js"
+import { LUCIUS } from "./lucius/lucius.personagem.js"
+import { HERES } from "./heres/heres.personagem.data.js"
+import { FUUJI } from "./fuuji/fuuji.personagem.js"
+import { WILBUR } from "./wilbur/wilbur.personagem.js"
 
 export const PERSONAGENS_DATA = [
     AVENTUREIRO,
@@ -58,10 +67,22 @@ export const PERSONAGENS_DATA = [
     AURORA,
     OPHELLIA,
     SELENE,
+    SILKY,
     MALESCULA,
     DIANA,
     COSMULA,
     ALAN,
-    LOBO,
-    DEMONIO_AREIAS,
+    SOL,
+    MAYA,
+    OTAVIA,
+    MINUS,
+    OPHELIA,
+    MORGAN,
+    SAXA,
+    LICHT,
+    LUCIUS,
+    HERES,
+    FUUJI,
+    WILBUR,
+    CANARIO,
 ]

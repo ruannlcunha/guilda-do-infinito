@@ -17,7 +17,7 @@ export function BatalhaHUD({ personagens, personagemAtivo, turno, animacoes, bat
       },100)
     }
     
-  }, [personagemAtivo, animacoes.iniciativaTerminou]);
+  }, [personagemAtivo.idCombate, animacoes.iniciativaTerminou]);
 
   function handleCancelarAcao() {
     functions.setAcaoAtiva({ personagem: null, evento: null, alvos: [] });

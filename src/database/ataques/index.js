@@ -56,6 +56,7 @@ import { TIRO_PRECISO_AR } from "./tiro-preciso-ar/tiro-preciso-ar.ataque";
 import { TIRO_PRECISO_GELO } from "./tiro-preciso-gelo/tiro-preciso-gelo.ataque";
 import { TIRO_PRECISO_LUZ } from "./tiro-preciso-luz/tiro-preciso-luz.ataque";
 import { TIRO_PRECISO_TREVAS } from "./tiro-preciso-trevas/tiro-preciso-trevas.ataque";
+import { CHIFRADA } from "./chifrada/chifrada.ataque.data";
 
 export const ATAQUES_DATA = [
     SOCO,
@@ -116,4 +117,5 @@ export const ATAQUES_DATA = [
     TIRO_PRECISO_GELO,
     TIRO_PRECISO_LUZ,
     TIRO_PRECISO_TREVAS,
+    CHIFRADA,
 ]

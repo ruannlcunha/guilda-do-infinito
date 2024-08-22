@@ -54,7 +54,7 @@ export const ALAN = {
                 vigor: 4
             },
             talentos: [],
-            ataques: [13],
+            ataques: [14],
             habilidades: []
         },
         {
@@ -67,7 +67,7 @@ export const ALAN = {
                 vigor: 4
             },
             talentos: [],
-            ataques: [13],
+            ataques: [14],
             habilidades: []
         },
         {
@@ -80,7 +80,7 @@ export const ALAN = {
                 vigor: 4
             },
             talentos: [],
-            ataques: [13],
+            ataques: [14],
             habilidades: []
         },
         {
@@ -93,7 +93,7 @@ export const ALAN = {
                 vigor: 5
             },
             talentos: [],
-            ataques: [13],
+            ataques: [14],
             habilidades: []
         },
         {
@@ -106,7 +106,7 @@ export const ALAN = {
                 vigor: 6
             },
             talentos: [],
-            ataques: [13,30],
+            ataques: [14,30],
             habilidades: []
         },
     ],

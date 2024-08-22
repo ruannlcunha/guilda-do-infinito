@@ -1,20 +1,20 @@
 {
     "theme_color": "#2596be",
     "background_color": "#ffffff",
-    "scope": "/guilda-do-infinito/",
-    "start_url": "/guilda-do-infinito/",
-    "name": "Guilda do Infinito",
+    "id": "https://ruannlcunha.github.io/guilda-do-infinito/",
+    "start_url": "https://ruannlcunha.github.io/guilda-do-infinito/",
+    "name": "Orion: Guilda do Infinito",
     "short_name": "Guilda do Infinito",
     "prefer_related_applications": false,
     "icons": [
         {
-        "src": "icon144.png",
+        "src": "https://ruannlcunha.github.io/guilda-do-infinito/icon144.png",
         "sizes": "144x144",
         "type": "image/png",
         "purpose": "any maskable"
         },
         {
-        "src": "icon512.png",
+        "src": "https://ruannlcunha.github.io/guilda-do-infinito/icon512.png",
         "sizes": "512x512",
         "type": "image/png",
         "purpose": "any maskable"

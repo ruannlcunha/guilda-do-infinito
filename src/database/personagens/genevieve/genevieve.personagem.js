@@ -1,5 +1,9 @@
 import GENEVIEVE_1_SPRITE from "./assets/GENEVIEVE_1_SPRITE.png"
 import GENEVIEVE_1_PERFIL from "./assets/GENEVIEVE_1_PERFIL.png"
+import GENEVIEVE_2_SPRITE from "./assets/GENEVIEVE_2_SPRITE.png"
+import GENEVIEVE_2_PERFIL from "./assets/GENEVIEVE_2_PERFIL.png"
+import GENEVIEVE_3_SPRITE from "./assets/GENEVIEVE_3_SPRITE.png"
+import GENEVIEVE_3_PERFIL from "./assets/GENEVIEVE_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 
@@ -18,7 +22,21 @@ export const GENEVIEVE = {
             sprite: GENEVIEVE_1_SPRITE,
             perfil: GENEVIEVE_1_PERFIL,
             santuario: null,
-        }
+        },
+        {
+            visualId: 2,
+            nome: "Traje das Flores",
+            sprite: GENEVIEVE_2_SPRITE,
+            perfil: GENEVIEVE_2_PERFIL,
+            santuario: null,
+        },
+        {
+            visualId: 3,
+            nome: "Traje Nobre",
+            sprite: GENEVIEVE_3_SPRITE,
+            perfil: GENEVIEVE_3_PERFIL,
+            santuario: null,
+        },
     ],
     status: {
         pvBase: 16,

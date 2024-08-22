@@ -1,12 +1,12 @@
-import MALESCULA_1_SPRITE from "./assets/MALESCULA_1_SPRITE.png"
-import MALESCULA_1_PERFIL from "./assets/MALESCULA_1_PERFIL.png"
+import NEMESIS_1_SPRITE from "./assets/NEMESIS_1_SPRITE.png"
+import NEMESIS_1_PERFIL from "./assets/NEMESIS_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 
-export const MALESCULA = {
+export const NEMESIS = {
     ..._BASE_ORIGINAL,
     id: 33,
-    nome: "???",
+    nome: "Nêmesis",
     titulo: "Destruidora de Mundos",
     elemento: ELEMENTOS.TREVAS,
     corTema: COR_TEMA.ROXO,
@@ -15,8 +15,8 @@ export const MALESCULA = {
         {
             visualId: 1,
             nome: "Original",
-            sprite: MALESCULA_1_SPRITE,
-            perfil: MALESCULA_1_PERFIL,
+            sprite: NEMESIS_1_SPRITE,
+            perfil: NEMESIS_1_PERFIL,
             santuario: null,
         }
     ],

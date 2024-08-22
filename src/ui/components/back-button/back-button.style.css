@@ -24,3 +24,12 @@
     color: var(--white);
     text-shadow: var(--borda-texto)
 }
+
+@media screen and (max-height: 479px) {
+
+    .back-button {
+        height: 1.5rem;
+        font-size: 1.25rem;
+    }
+  
+}

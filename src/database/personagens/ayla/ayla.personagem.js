@@ -12,6 +12,8 @@ import AYLA_6_SPRITE from "./assets/AYLA_6_SPRITE.png"
 import AYLA_6_PERFIL from "./assets/AYLA_6_PERFIL.png"
 import AYLA_7_SPRITE from "./assets/AYLA_7_SPRITE.png"
 import AYLA_7_PERFIL from "./assets/AYLA_7_PERFIL.png"
+import AYLA_8_SPRITE from "./assets/AYLA_8_SPRITE.gif"
+import AYLA_8_PERFIL from "./assets/AYLA_8_PERFIL.gif"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { ELEMENTOS, COR_TEMA } from "../../../constants/personagens/personagem.constant"
 
@@ -40,7 +42,7 @@ export const AYLA = {
         },
         {
             visualId: 3,
-            nome: "Armadura Divina",
+            nome: "Armadura Cintilante",
             sprite: AYLA_3_SPRITE,
             perfil: AYLA_3_PERFIL,
             santuario: null,
@@ -67,12 +69,19 @@ export const AYLA = {
             santuario: null,
         },
         {
+            visualId: 8,
+            nome: "Armadura Celestial",
+            sprite: AYLA_8_SPRITE,
+            perfil: AYLA_8_PERFIL,
+            santuario: null,
+        },
+        {
             visualId: 7,
             nome: "Versão Alpha",
             sprite: AYLA_7_SPRITE,
             perfil: AYLA_7_PERFIL,
             santuario: null,
-        }
+        },
     ],
     status: {
         pvBase: 20,
@@ -82,7 +91,7 @@ export const AYLA = {
     evolucoes: [
         {
             level: 1,
-            experienciaNecessaria: 1250,
+            experienciaNecessaria: 0,
             atributos: {
                 forca: 4,
                 agilidade: 2,
@@ -95,7 +104,7 @@ export const AYLA = {
         },
         {
             level: 2,
-            experienciaNecessaria: 3750,
+            experienciaNecessaria: 1250,
             atributos: {
                 forca: 4,
                 agilidade: 2,
@@ -108,7 +117,7 @@ export const AYLA = {
         },
         {
             level: 3,
-            experienciaNecessaria: 7500,
+            experienciaNecessaria: 3750,
             atributos: {
                 forca: 4,
                 agilidade: 2,
@@ -121,7 +130,7 @@ export const AYLA = {
         },
         {
             level: 4,
-            experienciaNecessaria: 37500,
+            experienciaNecessaria: 7500,
             atributos: {
                 forca: 4,
                 agilidade: 2,
@@ -142,7 +151,7 @@ export const AYLA = {
                 vigor: 5
             },
             talentos: [],
-            ataques: [2],
+            ataques: [14, 15, 27],
             habilidades: [12, 1]
         },
     ],

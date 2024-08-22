@@ -23,7 +23,7 @@ export function StartScreen() {
 
     function handleContinuar() {
         playClick(2)
-        navigate("/home")
+        navigate("/versus")
     }
 
     function handleNovoJogo() {
@@ -46,7 +46,7 @@ export function StartScreen() {
         fileReader.onload = e => {
           const json = JSON.parse(e.target.result)
           setUser(json)
-          navigate("/home")
+          navigate("/versus")
         };
     };
 

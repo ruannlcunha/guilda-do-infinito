@@ -7,7 +7,7 @@ export const MOXXIE = {
     ..._BASE_ORIGINAL,
     id: 13,
     nome: "Moxxie",
-    titulo: "Druída Celestial",
+    titulo: "Anjo das Florestas",
     elemento: ELEMENTOS.TERRA,
     corTema: COR_TEMA.VERDE,
     raridade: 5,

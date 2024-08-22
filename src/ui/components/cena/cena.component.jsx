@@ -40,7 +40,7 @@ export function Cena({cenas, dialogo, setDialogo}) {
         playClick(2)
         let pulou = false
         cenas.map((item, index)=>{
-            if(index>dialogo && !pulou && (item.onClick || item.onEnter)) {
+            if(index>dialogo && !pulou && (item.onClick || item.onEnter || item.musica)) {
                 setDialogo(index)
                 pulou = true
             }

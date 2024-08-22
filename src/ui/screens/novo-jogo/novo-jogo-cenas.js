@@ -154,7 +154,7 @@ export function novoJogoCenas(visualId, pronomes, nome,
             tipo: CENAS_TIPO.IMAGEM,
             fundo: TITULO_BACKGROUND,
             musica: MUSICS.START,
-            onClick: ()=>{navigate("/home")},
+            onClick: ()=>{navigate("/versus")},
         },
     ]
 }

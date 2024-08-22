@@ -41,7 +41,11 @@ div .home-section .menu-options ul .menu-option:hover img {
 @media screen and (max-height: 479px) {
     
     div .home-section .menu-options ul .menu-option {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        height: 2.5rem;
+    }
+    div .home-section .menu-options ul .menu-option:hover {
+        height: 3rem;
     }
   
 }

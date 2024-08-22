@@ -74,6 +74,10 @@ div .home-section .carregar-option:hover img {
 @media screen and (max-height: 479px) {
 
     div .home-section .carregar-option {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        height: 2.5rem;
+    }
+    div .home-section .carregar-option:hover {
+        height: 3rem;
     }
 }
