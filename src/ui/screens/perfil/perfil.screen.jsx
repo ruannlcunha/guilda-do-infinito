@@ -94,11 +94,6 @@ export function PerfilScreen() {
                     onChange={handleChange}
                     accept=".json"
                     />
-                    <MenuOption
-                    navigateTo ={"/"}
-                    icon={ICONS.ESCAPE}
-                    text={"Sair"}
-                    />
                 </HomeSection>
 
                 <section className="perfil-section">

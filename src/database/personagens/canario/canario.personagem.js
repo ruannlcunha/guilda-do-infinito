@@ -85,7 +85,7 @@ export const CANARIO = {
         },
         {
             level: 4,
-            experienciaNecessaria: 37500,
+            experienciaNecessaria: 12500,
             atributos: {
                 forca: 4,
                 agilidade: 4,

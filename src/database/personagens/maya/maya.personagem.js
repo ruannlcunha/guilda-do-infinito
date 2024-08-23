@@ -85,7 +85,7 @@ export const MAYA = {
         },
         {
             level: 4,
-            experienciaNecessaria: 37500,
+            experienciaNecessaria: 12500,
             atributos: {
                 forca: 5,
                 agilidade: 5,

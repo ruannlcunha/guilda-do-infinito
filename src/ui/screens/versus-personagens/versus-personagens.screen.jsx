@@ -273,6 +273,7 @@ export function VersusPersonagensScreen() {
     }
 
     function handleDetalharItem(item) {
+        playClick(1)
         setItemEscolhido(item)
         setItemModal(true)
     }

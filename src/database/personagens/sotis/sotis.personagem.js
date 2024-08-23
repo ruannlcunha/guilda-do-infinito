@@ -76,7 +76,7 @@ export const SOTIS = {
       },
       {
           level: 4,
-          experienciaNecessaria: 37500,
+          experienciaNecessaria: 12500,
           atributos: {
               forca: 3,
               agilidade: 6,

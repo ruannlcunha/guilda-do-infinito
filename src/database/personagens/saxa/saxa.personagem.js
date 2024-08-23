@@ -76,7 +76,7 @@ export const SAXA = {
         },
         {
             level: 4,
-            experienciaNecessaria: 37500,
+            experienciaNecessaria: 12500,
             atributos: {
                 forca: 2,
                 agilidade: 4,

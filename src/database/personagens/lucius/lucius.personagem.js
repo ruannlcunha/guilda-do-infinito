@@ -67,7 +67,7 @@ export const LUCIUS = {
         },
         {
             level: 4,
-            experienciaNecessaria: 37500,
+            experienciaNecessaria: 12500,
             atributos: {
                 forca: 6,
                 agilidade: 3,

@@ -91,19 +91,6 @@ export const AYLA = {
     evolucoes: [
         {
             level: 1,
-            experienciaNecessaria: 0,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 5,
-                vigor: 3
-            },
-            talentos: [],
-            ataques: [14],
-            habilidades: [12]
-        },
-        {
-            level: 2,
             experienciaNecessaria: 1250,
             atributos: {
                 forca: 4,
@@ -116,8 +103,21 @@ export const AYLA = {
             habilidades: [12]
         },
         {
-            level: 3,
+            level: 2,
             experienciaNecessaria: 3750,
+            atributos: {
+                forca: 4,
+                agilidade: 2,
+                magia: 5,
+                vigor: 3
+            },
+            talentos: [],
+            ataques: [14],
+            habilidades: [12]
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 7500,
             atributos: {
                 forca: 4,
                 agilidade: 2,
@@ -130,7 +130,7 @@ export const AYLA = {
         },
         {
             level: 4,
-            experienciaNecessaria: 7500,
+            experienciaNecessaria: 12500,
             atributos: {
                 forca: 4,
                 agilidade: 2,
