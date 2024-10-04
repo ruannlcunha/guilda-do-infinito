@@ -23,7 +23,7 @@ export function FimBatalhaVersus({ resultado, setMusica }) {
 
     return (
         <ContainerScreen style={containerStyle}>
-        <h1 className="resultado-batalha">{resultado}</h1>
+        <h1 className="resultado-batalha" translate="no">{resultado}</h1>
         <div className="fim-batalha-versus">
             <BotaoPrimario onClick={()=>{navigate(0)}}>
                 Reiniciar Batalha

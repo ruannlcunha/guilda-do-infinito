@@ -1,7 +1,9 @@
 import { ATAQUES_DATA, HABILIDADES_DATA, ITENS_DATA, PERSONAGENS_DATA } from "../database"
 import { evoluirPersonagem } from "./evoluir-personagem.util"
+import basePessoal from "../database/personagens/_base/_base-pessoal.personagem.json"
 
-export function instanciarPersonagem(personagem) {
+export function instanciarPersonagem(_personagem) {
+    const personagem = {...basePessoal, ..._personagem};
     const data = PERSONAGENS_DATA.find(item => item.id === personagem.personagemId)
     const visual = data.visuais.find(item => item.visualId === personagem.visualAtivo)
     const personagemEvoluido = evoluirPersonagem(personagem)
@@ -13,18 +15,15 @@ export function instanciarPersonagem(personagem) {
         data.equipamentosProntos.find(equipamento=>equipamento.id===personagem.equipamentoProntoId)
         : personagem.equipamentos
     const _inventario = personagem.equipamentoProntoId? _equipamentos.consumiveis : personagem.inventario
-    const defesa = (10 + evolucao.atributos.agilidade + _findBonus(_equipamentos, "defesa"))
-    const atributos = {
-        forca: evolucao.atributos.forca+_findBonus(_equipamentos, "forca"),
-        agilidade: evolucao.atributos.agilidade+_findBonus(_equipamentos, "agilidade"),
-        magia: evolucao.atributos.magia+_findBonus(_equipamentos, "magia"),
-        vigor: evolucao.atributos.vigor+_findBonus(_equipamentos, "vigor"),
-    }
+    const atributos = _getAtributos(data, evolucao, _equipamentos)
+    const defesa = (10 + atributos.agilidade + _findBonusEquipamento(_equipamentos, "defesa"))
     const status = {
-        pv: data.status.pvBase
-        +(data.status.pvBonus*personagemEvoluido.level)
-        +(evolucao.atributos.vigor*personagemEvoluido.level),
-        pm: data.status.pmBase*personagemEvoluido.level
+        pv: (data.status.pvBase
+        +(data.status.pvBonus*(personagemEvoluido.level-1))
+        +(atributos.vigor*(personagemEvoluido.level-1)))
+        *personagem.multiplicadores.pv,
+        pm: (data.status.pmBase*personagemEvoluido.level)
+        *personagem.multiplicadores.pm,
     }
     
     const personagemInstanciado = {
@@ -63,7 +62,7 @@ export function instanciarPersonagem(personagem) {
         inventario: {
             espaco: {
                 atual: personagem.inventario.length,
-                maximo: (evolucao.atributos.forca*5),
+                maximo: (atributos.forca*5),
             },
             itens: _inventario.map(item =>{
                 const itemData = ITENS_DATA.find(data=> data.id==item.itemId)
@@ -72,14 +71,28 @@ export function instanciarPersonagem(personagem) {
                     quantidade: item.quantidade
                 }
             }),
-        }
+        },
+        multiplicadores: personagem.multiplicadores,
+        isExtra: personagem.isExtra,
     }
-    console.log(personagemInstanciado)
 
     return personagemInstanciado
 }
 
-function _findBonus(equipamentos, atributo) {
+export function instanciarBasePessoal(personagemInstanciado) {
+    return {
+        personagemId: personagemInstanciado.id,
+        visualAtivo: personagemInstanciado.visualId,
+        level: personagemInstanciado.level,
+        experienciaAtual: personagemInstanciado.experiencia.atual,
+        equipamentos: personagemInstanciado.equipamentos,
+        equipamentoProntoId: personagemInstanciado.equipamentoProntoId,
+        inventario: personagemInstanciado.inventario.itens,
+        multiplicadores: personagemInstanciado.multiplicadores
+    }
+}
+
+function _findBonusEquipamento(equipamentos, atributo) {
     const _equipamentos = {
         arma: equipamentos.arma,
         armadura: equipamentos.armadura,
@@ -102,4 +115,41 @@ function _findBonus(equipamentos, atributo) {
         return bonus.valor
     }
     return 0
+}
+
+function _getAtributos(personagem, evolucao, equipamentos) {
+    const oldAtributos = personagem.atributosBase
+    const levelBonus = _getAtributosBonusLevel(evolucao.level)
+
+    const _forca = oldAtributos.forca + levelBonus + evolucao.bonusAtributos.forca
+    const _agilidade = oldAtributos.agilidade + levelBonus + evolucao.bonusAtributos.agilidade
+    const _magia = oldAtributos.magia + levelBonus + evolucao.bonusAtributos.magia
+    const _vigor = oldAtributos.vigor + levelBonus + evolucao.bonusAtributos.vigor
+
+    const _atributos = {
+        forca: _forca + _findBonusEquipamento(equipamentos, "forca"),
+        agilidade: _agilidade + _findBonusEquipamento(equipamentos, "agilidade"),
+        magia: _magia + _findBonusEquipamento(equipamentos, "magia"),
+        vigor: _vigor + _findBonusEquipamento(equipamentos, "vigor"),
+    }
+
+    return _atributos
+}
+
+function _getAtributosBonusLevel(level) {
+    if(level>=17) {
+        return 4
+    }
+    else if(level>=14) {
+        return 3
+    }
+    else if(level>=9) {
+        return 2
+    }
+    else if(level>=5) {
+        return 1
+    }
+    else if(level<5) {
+        return 0
+    }
 }

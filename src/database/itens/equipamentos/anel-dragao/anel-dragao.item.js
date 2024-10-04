@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const ANEL_DRAGAO = {
     id: 32,
     nome: "Anel de Dragão",
-    descricao: "Um acessório",
+    descricao: "Um anel feito com escamas de um poderoso dragão.",
     sprite: ANEL_DRAGAO_SPRITE,
     raridade: 5,
     santuario: BASE_SANTUARIO,

@@ -1,15 +1,23 @@
 import { ICONS } from "../../../constants/images"
 import { useSound } from "../../../hook"
-import { BackButton, CardBatalha, ContainerScreen } from ".."
+import { BackButton, CardBatalha, ContainerScreen, ModalPersonagemLista } from ".."
 import "./iniciar-batalha.style.css"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
-export function IniciarBatalhaScreen({batalha, aliados, inimigos, iniciarFunction}) {
+export function IniciarBatalhaScreen({batalha, aliados, inimigos, functions, modo}) {
     const { playHover, playClick } = useSound()
+    const [trocarModal, setTrocarModal] = useState(false)
+    const [personagemTrocado, setPersonagemTrocado] = useState({id:0})
+    const [aliadosExtras, setAliadosExtras] = useState([...batalha.aliadosExtras])
 
     function handleIniciar() {
         playClick(2)
-        iniciarFunction()
+        functions.handleIniciar()
+    }
+
+    function handleTrocarModal(personagem) {
+        setPersonagemTrocado(personagem)
+        setTrocarModal(true)
     }
 
     useEffect(()=>{
@@ -19,9 +27,20 @@ export function IniciarBatalhaScreen({batalha, aliados, inimigos, iniciarFunctio
     return (
         <ContainerScreen>
             <BackButton />
+            <ModalPersonagemLista
+            modalIsOpen={trocarModal}
+            setModalIsOpen={setTrocarModal}
+            aliadosExtras={aliadosExtras}
+            personagemTrocado={personagemTrocado}
+            aliados={aliados}
+            functions={{
+                setPersonagensInstanciados: functions.setPersonagensInstanciados,
+                setAliadosExtras
+            }}
+            />
 
             <div className="iniciar-batalha-screen">
-                <header>COMBATE</header>
+                <header>BATALHA</header>
                 <section className="iniciar-batalha-section">
                     <section className="party-cards">
                         {inimigos.map((inimigo,i)=>{
@@ -42,7 +61,12 @@ export function IniciarBatalhaScreen({batalha, aliados, inimigos, iniciarFunctio
 
                     <section className="party-cards">
                     {aliados.map((aliado, i)=>{
-                            return <CardBatalha key={i} personagem={aliado}/>
+                            return <CardBatalha
+                            key={i}
+                            modo={modo}
+                            personagem={aliado}
+                            handleTrocarModal={handleTrocarModal}
+                            />
                         })}
                     </section>
                 </section>

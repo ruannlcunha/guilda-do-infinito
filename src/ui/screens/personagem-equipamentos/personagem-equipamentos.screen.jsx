@@ -1,5 +1,5 @@
 import "./personagem-equipamentos.style.css"
-import { BackButton, BotaoPrimario, ContainerScreen, Modal } from "../../components"
+import { BackButton, BotaoPrimario, ContainerScreen, Modal, ModalItemLista } from "../../components"
 import { useParams } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { useEffect, useState } from "react"
@@ -8,6 +8,7 @@ import { ICONS } from "../../../constants/images"
 import { EQUIPAMENTO_TIPO, ITENS_CATEGORIA } from "../../../constants/itens/itens.constant"
 import { ITENS_DATA } from "../../../database"
 import { useSound } from "../../../hook"
+import { cheatTodosItens, cheatTodosPersonagens } from "../../../utils/cheats-testes.util"
 
 export function PersonagemEquipamentosScreen() {
     const { personagemId, equipamentoTipo } = useParams()
@@ -21,7 +22,9 @@ export function PersonagemEquipamentosScreen() {
     const [itemEscolhido, setItemEscolhido] = useState({index: null})
 
     useEffect(()=>{
-        const _user = user
+        const userTodosPersonagens = cheatTodosPersonagens(user)
+        const userTodosItens = cheatTodosItens(userTodosPersonagens)
+        const _user = userTodosItens
         setNovoUser(_user)
         if(equipamentoTipo) {
             handleAbrirModal(EQUIPAMENTO_TIPO[equipamentoTipo])
@@ -272,58 +275,6 @@ export function PersonagemEquipamentosScreen() {
         )
     }
 
-    function renderEquipamentosDetalhes() {
-        return (
-            <>
-            {itemEscolhido.index || itemEscolhido.id?
-            <section className="equipamento-detalhes">
-            <>
-                <div className="detalhes">
-                    <div>
-                        <h1 style={
-                            {textShadow: `var(--borda-texto-${itemEscolhido.raridade}-estrelas)`}
-                        }
-                        >{itemEscolhido.nome}</h1>
-                        <h2>Descrição: <span>{itemEscolhido.descricao}</span></h2>
-                        {itemEscolhido.tipo?<h2>Tipo: <span>{itemEscolhido.tipo}</span></h2>:null}
-                        <div>
-                            <h2>Raridade:</h2>
-                            {renderEstrelas(itemEscolhido.raridade)}
-                        </div>
-                        <div className="bonus-list">
-                            <h2>Bônus:</h2>
-                            <ul>
-                                {itemEscolhido.bonus?
-                                itemEscolhido.bonus.map(bonus=>{
-                                    return <li>
-                                        <img src={bonus.icon} alt="Ícone do atributo bônus" />
-                                        +{bonus.valor} de {bonus.nome}
-                                    </li>
-                                })
-                                :null}
-                            </ul>
-                        </div>
-                    </div>
-                    {itemEscolhido.personagemEquipadoId==personagemId ?
-                        <BotaoPrimario
-                        style={{borderColor: "var(--grey)"}}
-                        onClick={handleDesequipar}>Desequipar</BotaoPrimario>
-                        :
-                        <BotaoPrimario onClick={handleEquipar}>Equipar</BotaoPrimario>
-                    }
-                </div>
-                <img src={itemEscolhido.sprite} alt="Sprite do item"/>      
-            </>
-            </section>
-            :
-            <section className="selecionar-item">
-                <h1>Selecione um item no inventário.</h1>
-            </section>
-            }
-            </>
-        )
-    }
-
     return (
         <ContainerScreen>
             <BackButton />
@@ -352,34 +303,17 @@ export function PersonagemEquipamentosScreen() {
                         Salvar
                     </BotaoPrimario>
                 </section>
-
-                <Modal isOpen={modalIsOpen} setIsOpen={setModalIsOpen}>
-                    <div className="equipamento-modal">
-                        <header>
-                            <h1>{`${filtroItem.titulo}s`}</h1>
-                            <button onClick={handleFecharModal}>X</button>
-                        </header>
-                        <section>
-                            <section className="lista-equipamentos">
-                                <ul>
-                                    {equipamentos
-                                    .filter(item=>item.equipamentoTipo===filtroItem.tipo)
-                                    .length>0 ?
-
-                                        equipamentos
-                                        .filter(item=>item.equipamentoTipo===filtroItem.tipo)
-                                        .map(item=>{
-                                            return renderCardItem(item)
-                                        })
-                                    :
-                                    <h1>Você não possui equipamentos deste tipo.</h1>
-                                    }
-                                </ul>
-                            </section>
-                            {renderEquipamentosDetalhes()}
-                        </section>
-                    </div>
-                </Modal>
+                
+                <ModalItemLista
+                modalIsOpen={modalIsOpen}
+                setModalIsOpen={setModalIsOpen}
+                categoria={ITENS_CATEGORIA.EQUIPAMENTO}
+                itens={equipamentos}
+                filtroItem={filtroItem}
+                itemEscolhido={itemEscolhido}
+                titulo={`${filtroItem.titulo}s`}
+                functions={{handleDesequipar, handleEquipar, renderCardItem}}
+                />
                 </>
                 :null}
             </div>

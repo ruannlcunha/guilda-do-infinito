@@ -25,71 +25,52 @@ export const FUUJI = {
         pmBase: 5,
         pvBonus: 3
     },
+    atributosBase: {
+        forca: 5,
+        agilidade: 3,
+        magia: 2,
+        vigor: 4
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 5,
-                agilidade: 3,
-                magia: 2,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [16,17],
-            habilidades: []
+            habilidades: [13]
         },
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 5,
-                agilidade: 3,
-                magia: 2,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [16,17],
-            habilidades: []
+            habilidades: [13]
         },
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 5,
-                agilidade: 3,
-                magia: 2,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [16,17,14,18],
-            habilidades: []
+            habilidades: [13]
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 6,
-                agilidade: 3,
-                magia: 2,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [16,17,14,18],
-            habilidades: []
+            habilidades: [13]
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 7,
-                agilidade: 4,
-                magia: 3,
-                vigor: 5
-            },
+            bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [16,17,14,18,27,67],
-            habilidades: []
+            habilidades: [13]
         },
     ],
 }

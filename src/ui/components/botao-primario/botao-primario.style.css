@@ -31,3 +31,13 @@
     opacity: 50%;
     cursor: var(--cursor-not-allowed);
 }
+
+
+@media screen and (max-height: 479px) {
+    .botao-primario {
+        font-size: 1.25rem;
+    }
+    .botao-primario-desativado {
+        font-size: 1.25rem;
+    }
+}

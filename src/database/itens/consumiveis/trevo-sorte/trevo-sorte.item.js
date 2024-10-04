@@ -9,9 +9,9 @@ const { rolarDado } = useRolarDado();
 const { iniciarEfeito, restaurarVida, finalizarAcao, consumirItem, informarErro } = useAcoesBase();
 
 export const TREVO_SORTE = {
-    id: 44,
+    id: 43,
     nome: "Trevo da Sorte",
-    descricao: "Um item",
+    descricao: "Um pequeno trevo de 4 folhas que carrega muita sorte.",
     efeito: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",

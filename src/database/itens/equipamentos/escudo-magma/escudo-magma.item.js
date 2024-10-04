@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const ESCUDO_MAGMA = {
     id: 35,
     nome: "Escudo de Magma",
-    descricao: "Um escudo",
+    descricao: "Um escudo forjado no magma resistente ao fogo.",
     sprite: ESCUDO_MAGMA_SPRITE,
     raridade: 4,
     santuario: BASE_SANTUARIO,

@@ -37,7 +37,7 @@
 }
 
 .versus-personagens .personagem-display {
-    height: 50%;
+    height: 40%;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -46,7 +46,9 @@
 }
 
 .versus-personagens .personagem-display img {
-    height: 75%;
+    height: 100%;
+    position: relative;
+    top: 25%;
 }
 
 .versus-personagens .personagem-display .versus-icon {
@@ -58,6 +60,7 @@
     height: 40%;
     width: 15%;
     position: absolute;
+    top: 10%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -73,6 +76,7 @@
 
 .versus-personagens .personagem-display section div img {
     height: 100%;
+    position: static;
 }
 
 .versus-personagens .personagem-display .aliados-escolhidos {
@@ -90,19 +94,20 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    bottom: 6%;
+    bottom: 0%;
 }
 
-.versus-personagens .personagens-list header {
-    height: 15%;
+.versus-personagens .personagens-nomes {
+    height: 10%;
     width: 75%;
     display: flex;
-    align-items: center;
+    align-items: self-end;
     justify-content: space-between;
+    position: relative;
 }
 
-.versus-personagens .personagens-list header div {
-    height: 100%;
+.versus-personagens .personagens-nomes div {
+    height: 75%;
     padding: 0 1rem;
     background-color: var(--black-transparent);
     display: flex;
@@ -112,18 +117,18 @@
     border-radius: 5px 5px 0 0;
 }
 
-.versus-personagens .personagens-list header div img {
-    height: 85%;
+.versus-personagens .personagens-nomes div img {
+    height: 2rem;
     margin-right: 0.3rem;
 }
 
-.versus-personagens .personagens-list header div h1 {
+.versus-personagens .personagens-nomes div h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.25rem;
 }
 
 .versus-personagens .personagens-list section {
-    height: 85%;
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -157,7 +162,7 @@
     padding-left: 10px;
     margin: 0;
     display: flex;
-    align-items: self-start;
+    align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
     border-left: double 5px var(--blue);
@@ -201,8 +206,6 @@
 .versus-personagens .menu-opcoes {
     width: 100%;
     height: 15%;
-    position: absolute;
-    bottom: 0;
     display: flex;
     align-items: self-start;
     justify-content: center;
@@ -373,7 +376,6 @@
 
 .versus-personagens .personagem-modal section .personagem-info .equipamentos header div {
     font-size: 1.25rem;
-    white-space: nowrap;
 }
 
 .versus-personagens .personagem-modal section .personagem-info .equipamentos header button {
@@ -549,6 +551,20 @@
     .versus-personagens .personagem-modal section .personagem-visual div h1 {
         font-size: 1.5rem;
         white-space: nowrap;
+    }
+    .versus-personagens .personagem-display img {
+        height: 85%;
+    }
+    .versus-personagens .personagens-nomes div h1 {
+        font-size: 1.75rem;
+    }
+    .versus-personagens .personagem-display section {
+        height: 35%;
+        top: 15%;
+    }
+    .versus-personagens .personagem-display section div {
+        height: 4.5vw;
+        width: 4.5vw;
     }
   
 }

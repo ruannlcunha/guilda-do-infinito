@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const COLAR_DEMONIACO = {
     id: 55,
     nome: "Colar Demoníaco",
-    descricao: "Um acessório",
+    descricao: "Um colar com um núcleo de energia amaldiçoada.",
     sprite: COLAR_DEMONIACO_SPRITE,
     raridade: 5,
     santuario: BASE_SANTUARIO,

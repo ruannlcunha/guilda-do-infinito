@@ -43,16 +43,17 @@ export const ALAN = {
         pmBase: 5,
         pvBonus: 3
     },
+    atributosBase: {
+        forca: 3,
+        agilidade: 1,
+        magia: 2,
+        vigor: 4
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1000,
-            atributos: {
-                forca: 3,
-                agilidade: 1,
-                magia: 2,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
@@ -60,12 +61,7 @@ export const ALAN = {
         {
             level: 2,
             experienciaNecessaria: 3000,
-            atributos: {
-                forca: 3,
-                agilidade: 1,
-                magia: 2,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
@@ -73,25 +69,15 @@ export const ALAN = {
         {
             level: 3,
             experienciaNecessaria: 6000,
-            atributos: {
-                forca: 3,
-                agilidade: 1,
-                magia: 2,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
         },
         {
             level: 4,
-            experienciaNecessaria: 30000,
-            atributos: {
-                forca: 3,
-                agilidade: 1,
-                magia: 2,
-                vigor: 5
-            },
+            experienciaNecessaria: 10000,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
             ataques: [14],
             habilidades: []
@@ -99,12 +85,7 @@ export const ALAN = {
         {
             level: 5,
             experienciaNecessaria: 15000,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 3,
-                vigor: 6
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
             ataques: [14,30],
             habilidades: []

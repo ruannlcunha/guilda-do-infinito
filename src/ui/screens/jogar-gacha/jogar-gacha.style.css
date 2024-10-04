@@ -61,8 +61,8 @@
 }
 
 .jogar-gacha-screen .gacha-cena-1 img {
-    width: auto;
     height: 5rem;
+    width: auto;
     position: absolute;
     animation: cena-1-brilhos 5s ease-in-out;
     opacity: 0%;
@@ -76,7 +76,7 @@
 }
 
 .jogar-gacha-screen .gacha-cena-1 .brilho-1 {
-    top: 0%;
+    top: 1%;
 }
 
 .jogar-gacha-screen .gacha-cena-1 .brilho-2 {
@@ -297,6 +297,7 @@
     text-shadow: var(--borda-texto);
     margin: 0;
     font-size: 1.2rem;
+    text-align: center;
 }
     
 .jogar-gacha-screen .gacha-cena-3 ul li .gacha-detalhes .estrelas {
@@ -391,4 +392,47 @@
 @keyframes brilho-fundo {
     from {background-size: 100%;}
     to {background-size: 105%;}
+}
+
+
+
+@media screen and (max-height: 479px) {
+
+    .jogar-gacha-screen .gacha-cena-1 img {
+        height: 3.5rem;
+    }
+    .jogar-gacha-screen .gacha-cena-1 .bencao {
+        height: 50%;
+    }
+    .jogar-gacha-screen .gacha-cena-3 h1 {
+        font-size: 2rem;
+        top: 4%;
+    }
+    .jogar-gacha-screen .gacha-cena-3 ul {
+        margin-bottom: 2rem;
+    }
+    .jogar-gacha-screen .gacha-cena-3 ul li {
+        width: 15%;
+        height: 35%;
+    }
+    .jogar-gacha-screen .gacha-cena-3 ul li .sprite-recompensa {
+        margin: 0;
+    }
+    .jogar-gacha-screen .gacha-cena-3 ul li .gacha-detalhes {
+        bottom: 0;
+    }
+    .jogar-gacha-screen .gacha-cena-3 ul li .gacha-detalhes header h1 {
+        font-size: 1rem;
+    }
+    .jogar-gacha-screen .gacha-cena-3 ul li .gacha-detalhes header img {
+        width: 1rem;
+        margin-right: -1rem;
+        right: 1rem;
+    }
+    .jogar-gacha-screen .gacha-cena-3 ul li .gacha-detalhes h2 {
+        font-size: 0.75rem;
+    }
+    .jogar-gacha-screen .continuar-button {
+        font-size: 2rem;
+    }
 }

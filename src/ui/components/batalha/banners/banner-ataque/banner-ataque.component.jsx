@@ -15,7 +15,12 @@ export function BannerAtaque({banners, testeRealizado, renderPularBanner}) {
     return (
         <div className="banner-ataque" style={bannerStyle}>
           {testeRealizado ? (
-            <h1>{banners.ataque.resultadoTotal >= banners.defesa ? "Sucesso" : "Falha"}</h1>
+            <h1>{
+              banners.ataque.resultadoDado === 20 ? "Crítico" :
+              banners.ataque.resultadoDado === 1 ? "Falha Crítica" :
+              banners.ataque.resultadoTotal >= banners.defesa ? "Sucesso" :
+              "Falha"
+              }</h1>
           ) : (
             <>
               <div>

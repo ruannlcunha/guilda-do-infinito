@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const ESCUDO_MADEIRA = {
     id: 34,
     nome: "Escudo de Madeira",
-    descricao: "Um escudo",
+    descricao: "Um simples escudo de madeira.",
     sprite: ESCUDO_MADEIRA_SPRITE,
     raridade: 3,
     santuario: BASE_SANTUARIO,

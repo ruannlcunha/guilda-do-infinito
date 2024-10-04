@@ -43,16 +43,17 @@ export const GENEVIEVE = {
         pmBase: 4,
         pvBonus: 4
     },
+    atributosBase: {
+        forca: 4,
+        agilidade: 2,
+        magia: 5,
+        vigor: 3
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 2,
-                agilidade: 4,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [16],
             habilidades: [1]
@@ -60,12 +61,7 @@ export const GENEVIEVE = {
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 2,
-                agilidade: 4,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [16],
             habilidades: [1]
@@ -73,12 +69,7 @@ export const GENEVIEVE = {
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 2,
-                agilidade: 4,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [16,6],
             habilidades: [1]
@@ -86,12 +77,7 @@ export const GENEVIEVE = {
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 2,
-                agilidade: 5,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [16,6],
             habilidades: [1]
@@ -99,12 +85,7 @@ export const GENEVIEVE = {
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 3,
-                agilidade: 6,
-                magia: 6,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [16,6,49],
             habilidades: [1]

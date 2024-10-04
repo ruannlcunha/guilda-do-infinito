@@ -34,16 +34,17 @@ export const NAILAH = {
         pmBase: 4,
         pvBonus: 5
     },
+    atributosBase: {
+        forca: 3,
+        agilidade: 2,
+        magia: 5,
+        vigor: 4
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 2,
-                agilidade: 4,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [17],
             habilidades: [1]
@@ -51,12 +52,7 @@ export const NAILAH = {
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 2,
-                agilidade: 4,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [17],
             habilidades: [1]
@@ -64,12 +60,7 @@ export const NAILAH = {
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 2,
-                agilidade: 4,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [17,22,12],
             habilidades: [1]
@@ -77,12 +68,7 @@ export const NAILAH = {
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 2,
-                agilidade: 4,
-                magia: 6,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [17,22,12],
             habilidades: [1]
@@ -90,12 +76,7 @@ export const NAILAH = {
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 3,
-                agilidade: 5,
-                magia: 7,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [17,22,12,56],
             habilidades: [1]

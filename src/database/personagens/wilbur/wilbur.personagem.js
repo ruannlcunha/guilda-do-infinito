@@ -52,68 +52,49 @@ export const WILBUR = {
         pmBase: 5,
         pvBonus: 3
     },
+    atributosBase: {
+        forca: 4,
+        agilidade: 2,
+        magia: 3,
+        vigor: 5
+    },
     evolucoes: [
         {
             level: 1,
-            experienciaNecessaria: 1000,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 3,
-                vigor: 5
-            },
+            experienciaNecessaria: 1250,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
         },
         {
             level: 2,
-            experienciaNecessaria: 3000,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 3,
-                vigor: 5
-            },
+            experienciaNecessaria: 3750,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
         },
         {
             level: 3,
-            experienciaNecessaria: 6000,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 3,
-                vigor: 5
-            },
+            experienciaNecessaria: 7500,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
         },
         {
             level: 4,
-            experienciaNecessaria: 30000,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 3,
-                vigor: 6
-            },
+            experienciaNecessaria: 12500,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
             ataques: [14],
             habilidades: []
         },
         {
             level: 5,
-            experienciaNecessaria: 15000,
-            atributos: {
-                forca: 5,
-                agilidade: 3,
-                magia: 4,
-                vigor: 7
-            },
+            experienciaNecessaria: 18750,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
             ataques: [14,30],
             habilidades: []

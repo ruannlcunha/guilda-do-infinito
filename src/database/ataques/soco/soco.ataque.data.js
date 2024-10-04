@@ -36,7 +36,7 @@ function socoEvento(personagem, alvo, functions) {
       },
       ()=>{
         const novoAlvo = causarDano(alvo, total, functions);
-        const duracao = iniciarEfeito(novoAlvo, functions, EFFECTS.SOCO_EFFECT, ACOES_AUDIO.SOCO);
+        const duracao = iniciarEfeito(novoAlvo, functions, EFFECTS.SOCO, ACOES_AUDIO.SOCO);
         finalizarAcao(functions, novoAlvo, duracao);
       },
       ()=>{

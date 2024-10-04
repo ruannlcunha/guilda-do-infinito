@@ -34,16 +34,17 @@ export const SAZANNA = {
         pmBase: 6,
         pvBonus: 2
     },
+    atributosBase: {
+        forca: 1,
+        agilidade: 3,
+        magia: 4,
+        vigor: 2
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1000,
-            atributos: {
-                forca: 1,
-                agilidade: 4,
-                magia: 4,
-                vigor: 2
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,2],
             habilidades: []
@@ -51,12 +52,7 @@ export const SAZANNA = {
         {
             level: 2,
             experienciaNecessaria: 3000,
-            atributos: {
-                forca: 1,
-                agilidade: 4,
-                magia: 4,
-                vigor: 2
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,2],
             habilidades: []
@@ -64,25 +60,15 @@ export const SAZANNA = {
         {
             level: 3,
             experienciaNecessaria: 6000,
-            atributos: {
-                forca: 1,
-                agilidade: 4,
-                magia: 4,
-                vigor: 2
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,16,2,5],
             habilidades: []
         },
         {
             level: 4,
-            experienciaNecessaria: 30000,
-            atributos: {
-                forca: 1,
-                agilidade: 4,
-                magia: 5,
-                vigor: 2
-            },
+            experienciaNecessaria: 10000,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [1,16,2,5],
             habilidades: []
@@ -90,12 +76,7 @@ export const SAZANNA = {
         {
             level: 5,
             experienciaNecessaria: 15000,
-            atributos: {
-                forca: 2,
-                agilidade: 5,
-                magia: 6,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [1,16,2,5,47,53],
             habilidades: []

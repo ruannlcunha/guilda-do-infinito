@@ -7,9 +7,9 @@ export const NEMESIS = {
     ..._BASE_ORIGINAL,
     id: 33,
     nome: "Nêmesis",
-    titulo: "Destruidora de Mundos",
+    titulo: "Estrela Caída",
     elemento: ELEMENTOS.TREVAS,
-    corTema: COR_TEMA.ROXO,
+    corTema: COR_TEMA.ROXO_ESCURO,
     raridade: 5,
     visuais:[
         {
@@ -29,12 +29,7 @@ export const NEMESIS = {
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 2,
-                agilidade: 4,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,5],
             habilidades: []
@@ -42,12 +37,7 @@ export const NEMESIS = {
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 2,
-                agilidade: 4,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,5],
             habilidades: []
@@ -55,12 +45,7 @@ export const NEMESIS = {
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 2,
-                agilidade: 4,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,5],
             habilidades: [1]
@@ -68,12 +53,7 @@ export const NEMESIS = {
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 2,
-                agilidade: 4,
-                magia: 6,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [1,5],
             habilidades: [1]
@@ -81,12 +61,7 @@ export const NEMESIS = {
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 3,
-                agilidade: 5,
-                magia: 7,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [1,5,33,53],
             habilidades: [1]

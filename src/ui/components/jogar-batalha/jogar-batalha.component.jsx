@@ -25,7 +25,7 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, perso
       evento: null,
       alvos: [],
     });
-    const [turno, setTurno] = useState({ atual: 0, maximo: 0 });
+    const [turnos, setTurnos] = useState({ atual: 0, maximo: 0, ordemIniciativa: []});
     const { iniciarBatalha } = useIniciarBatalha(banners);
     const { finalizarTurno } = useFinalizarTurno();
     const { playSound } = useSound()
@@ -47,7 +47,7 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, perso
         setAcaoAtiva,
         setAnimacoes,
         setPersonagens,
-        setTurno,
+        setTurnos,
         setBanners,
         ativarBannerTexto,
         ativarBannerInimigo,
@@ -58,15 +58,32 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, perso
         handleFinalizarBatalha,
       }
       setFunctions(todasFuncoes)
-      setTurno({ atual: 0, maximo: personagensInstanciados.length });
+      const ordemIniciativa = instanciarOrdemIniciativa(personagensInstanciados);
       setPersonagens(personagensInstanciados);
-      iniciarBatalha(personagensInstanciados, todasFuncoes,
-    );
+      iniciarBatalha(personagensInstanciados, ordemIniciativa, todasFuncoes);
     }, []);
   
     useEffect(() => {
-      functions ? finalizarTurno(personagens, turno, functions) : null
-    }, [turno, personagens, functions]);
+      functions ? finalizarTurno(personagens, turnos, functions) : null
+    }, [turnos, personagens, functions]);
+
+    function instanciarOrdemIniciativa(personagensInstanciados) {
+      let _personagens = [...personagensInstanciados]
+      for(let i=0;i<personagensInstanciados.length;i++) {
+        let _turnos = (personagensInstanciados[i].multiplicadores.turnos)-1
+        while(_turnos>0) {
+          _personagens.push(personagensInstanciados[i])
+          _turnos = _turnos-1
+        }
+      }
+
+      const ordemInicial = _personagens
+      .sort(function (a, b) {return a.idCombate - b.idCombate;})
+      .map((personagem,i)=> {return {idCombate: personagem.idCombate, ordemIniciativa: i, index: i}})
+      
+      setTurnos({ atual: 0, maximo: _personagens.length, ordemIniciativa: ordemInicial });
+      return ordemInicial
+    }
   
     return functions ? (
       <ContainerScreen>
@@ -84,8 +101,10 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, perso
             <>
               <Turnos
                 animacoes={animacoes}
+                ordemIniciativa={turnos.ordemIniciativa}
                 idAtivo={personagemAtivo.idCombate}
                 personagens={personagens}
+                turnos={turnos}
               />
   
               <CampoDeBatalha
@@ -95,8 +114,7 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, perso
                 animacoes={animacoes}
                 acaoAtiva={acaoAtiva}
                 zoom={zoom}
-                mapa={batalha.mapa}
-                batalhaTipo={batalha.batalhaTipo}
+                batalha={batalha}
                 functions={functions}
               />
   
@@ -104,7 +122,6 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, perso
                 personagens={personagens}
                 personagemAtivo={personagemAtivo}
                 animacoes={animacoes}
-                turno={turno}
                 batalha={batalha}
                 functions={functions}
               />

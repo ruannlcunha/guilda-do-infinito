@@ -1,5 +1,9 @@
 import DIANA_1_SPRITE from "./assets/DIANA_1_SPRITE.png"
 import DIANA_1_PERFIL from "./assets/DIANA_1_PERFIL.png"
+import DIANA_2_SPRITE from "./assets/DIANA_2_SPRITE.png"
+import DIANA_2_PERFIL from "./assets/DIANA_2_PERFIL.png"
+import DIANA_3_SPRITE from "./assets/DIANA_3_SPRITE.png"
+import DIANA_3_PERFIL from "./assets/DIANA_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 
@@ -18,23 +22,38 @@ export const DIANA = {
             sprite: DIANA_1_SPRITE,
             perfil: DIANA_1_PERFIL,
             santuario: null,
-        }
+        },
+        {
+            visualId: 2,
+            nome: "Loba Pálida",
+            sprite: DIANA_2_SPRITE,
+            perfil: DIANA_2_PERFIL,
+            santuario: null,
+        },
+        {
+            visualId: 3,
+            nome: "Grande Primavera",
+            sprite: DIANA_3_SPRITE,
+            perfil: DIANA_3_PERFIL,
+            santuario: null,
+        },
     ],
     status: {
         pvBase: 20,
         pmBase: 3,
         pvBonus: 5
     },
+    atributosBase: {
+        forca: 4,
+        agilidade: 2,
+        magia: 1,
+        vigor: 3
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1000,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 1,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: [13]
@@ -42,12 +61,7 @@ export const DIANA = {
         {
             level: 2,
             experienciaNecessaria: 3000,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 1,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: [13]
@@ -55,25 +69,15 @@ export const DIANA = {
         {
             level: 3,
             experienciaNecessaria: 6000,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 1,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,16],
             habilidades: [13]
         },
         {
             level: 4,
-            experienciaNecessaria: 30000,
-            atributos: {
-                forca: 5,
-                agilidade: 2,
-                magia: 1,
-                vigor: 3
-            },
+            experienciaNecessaria: 10000,
+            bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,16],
             habilidades: [13]
@@ -81,12 +85,7 @@ export const DIANA = {
         {
             level: 5,
             experienciaNecessaria: 15000,
-            atributos: {
-                forca: 6,
-                agilidade: 3,
-                magia: 2,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,16,27],
             habilidades: [13]

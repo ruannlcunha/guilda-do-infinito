@@ -1,4 +1,5 @@
-import { ATAQUES_DATA, MAPAS_DATA, PERSONAGENS_DATA } from "../database"
+import { ITENS_CATEGORIA } from "../constants/itens/itens.constant"
+import { ATAQUES_DATA, ITENS_DATA, MAPAS_DATA, PERSONAGENS_DATA } from "../database"
 
 export function patchLogs() {
     let visuais = 0
@@ -33,6 +34,8 @@ export function patchLogs() {
         Mapas: ${MAPAS_DATA.length}\n
         Ataques: ${ataques.length}\n
         Habilidades: ${habilidades.length}\n
+        Equipamentos: ${ITENS_DATA.filter(item=>item.categoria===ITENS_CATEGORIA.EQUIPAMENTO).length}\n
+        Consumíveis: ${ITENS_DATA.filter(item=>item.categoria===ITENS_CATEGORIA.CONSUMIVEL).length}\n
         `)
 
 }

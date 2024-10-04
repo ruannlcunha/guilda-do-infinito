@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const CAJADO_ANCIAO = {
     id: 49,
     nome: "Cajado Ancião",
-    descricao: "Uma arma",
+    descricao: "Um cajado feito da madeira de uma Árvore Anciã, uma árvore considerada divina.",
     sprite: CAJADO_ANCIAO_SPRITE,
     raridade: 5,
     tipo: ARMAS_TIPO.LEVE,

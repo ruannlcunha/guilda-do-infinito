@@ -33,7 +33,7 @@ function pocaoCuraMaior(personagem, alvo, functions) {
       const alvoRestaurado = restaurarVida(novoAlvo, total, functions);
       functions.ativarBannerRolagem([...dados], modificadores, total, personagem.corTema)
       function _etapas() {
-        const duracao = iniciarEfeito(alvoRestaurado, functions, EFFECTS.CURA_EFFECT, ACOES_AUDIO.CURA);
+        const duracao = iniciarEfeito(alvoRestaurado, functions, EFFECTS.CURA_1, ACOES_AUDIO.CURA);
         finalizarAcao(functions, alvoRestaurado, duracao);
       }
       const timeout = setTimeout(()=>{

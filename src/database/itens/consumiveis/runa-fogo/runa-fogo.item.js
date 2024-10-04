@@ -9,9 +9,9 @@ const { rolarDado } = useRolarDado();
 const { iniciarEfeito, restaurarVida, finalizarAcao, consumirItem, informarErro } = useAcoesBase();
 
 export const RUNA_FOGO = {
-    id: 43,
+    id: 42,
     nome: "Runa de Fogo",
-    descricao: "Um item",
+    descricao: "Uma pedra contendo uma runa mágica do elemento Fogo.",
     efeito: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",

@@ -1,5 +1,5 @@
 import "./personagem-inventario.style.css"
-import { BackButton, BotaoPrimario, ContainerScreen, Modal, ModalItem } from "../../components"
+import { BackButton, BotaoPrimario, ContainerScreen, Modal, ModalItem, ModalItemLista } from "../../components"
 import { useParams } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { useEffect, useState } from "react"
@@ -8,6 +8,7 @@ import { ITENS_DATA } from "../../../database"
 import { ITENS_CATEGORIA } from "../../../constants/itens/itens.constant"
 import { ICONS } from "../../../constants/images"
 import { useSound } from "../../../hook"
+import { cheatTodosItens, cheatTodosPersonagens } from "../../../utils/cheats-testes.util"
 
 export function PersonagemInventarioScreen() {
     const EVENTO = {ADICIONAR:"ADICIONAR", REMOVER: "REMOVER"}
@@ -25,7 +26,9 @@ export function PersonagemInventarioScreen() {
     const [listaModal, setListaModal] = useState(false)
 
     useEffect(()=>{
-        const _user = user
+        const userTodosPersonagens = cheatTodosPersonagens(user)
+        const userTodosItens = cheatTodosItens(userTodosPersonagens)
+        const _user = userTodosItens
         setNovoUser(_user)
     },[])
 
@@ -242,7 +245,7 @@ export function PersonagemInventarioScreen() {
             onMouseEnter={()=>playHover(1)}
             onClick={()=>handleVisualizarItem(item)}
             style={{background: `var(--card-${item.raridade}-estrelas)`}}
-            className={itemEscolhido.index===item.index?"item-escolhido":null}>
+            >
                 <h1 className="quantidade">x{item.quantidade}</h1>
                 <img src={item.sprite} alt="" />
                 <footer>
@@ -354,30 +357,18 @@ export function PersonagemInventarioScreen() {
                 itemEscolhido={itemEscolhido}
                 botao={{texto: "Remover", evento: handleRemoverQuantidadeModal}}
                 />
-
-                <Modal isOpen={listaModal} setIsOpen={setListaModal}>
-                    <div className="inventario-modal">
-                        <header>
-                            <h1>Inventário Geral</h1>
-                            <button onClick={()=>{setListaModal(false)}}>X</button>
-                        </header>
-                        <section>
-                            <section className="inventario">
-                                <ul>
-                                    {inventario ?
-                                        inventario
-                                        .map(item=>{
-                                            return renderCardInventario(item)
-                                        })
-                                    :
-                                    <h1>Você não possui itens no inventário.</h1>
-                                    }
-                                </ul>
-                            </section>
-                            {renderItemDetalhes("Adicionar", handleAdicionarQuantidadeModal)}
-                        </section>
-                    </div>
-                </Modal>
+                
+                <ModalItemLista
+                modalIsOpen={listaModal}
+                setModalIsOpen={setListaModal}
+                categoria={ITENS_CATEGORIA.CONSUMIVEL}
+                itens={inventario}
+                itemEscolhido={itemEscolhido}
+                titulo={"Inventário Geral"}
+                botao={<BotaoPrimario onClick={handleAdicionarQuantidadeModal}>Adicionar</BotaoPrimario>}
+                functions={{renderCardInventario}}
+                />
+                
                 <Modal isOpen={quantidadeModal} setIsOpen={setQuantidadeModal}>
                     <div className="quantidade-modal">
                         <h1>Quantos você gostaria de {quantidadeEvento.texto}?</h1>

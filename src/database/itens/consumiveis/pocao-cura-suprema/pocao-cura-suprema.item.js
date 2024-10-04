@@ -27,7 +27,7 @@ function pocaoCuraSuprema(personagem, alvo, functions) {
       const personagemNovo = consumirItem(personagem, POCAO_CURA_SUPREMA.id, functions)
       const novoAlvo = personagem.idCombate===alvo.idCombate ? personagemNovo : alvo
       const alvoRestaurado = restaurarVida(novoAlvo, novoAlvo.pv.maximo, functions);
-      const duracao = iniciarEfeito(alvoRestaurado, functions, EFFECTS.CURA_EFFECT, ACOES_AUDIO.CURA);
+      const duracao = iniciarEfeito(alvoRestaurado, functions, EFFECTS.CURA_1, ACOES_AUDIO.CURA);
       finalizarAcao(functions, alvoRestaurado, duracao);
     } catch (error) {
       informarErro(error, functions)

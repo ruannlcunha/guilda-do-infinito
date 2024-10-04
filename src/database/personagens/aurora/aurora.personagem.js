@@ -34,16 +34,17 @@ export const AURORA = {
         pmBase: 3,
         pvBonus: 5
     },
+    atributosBase: {
+        forca: 5,
+        agilidade: 2,
+        magia: 4,
+        vigor: 3
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 5,
-                agilidade: 2,
-                magia: 4,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: [13]
@@ -51,12 +52,7 @@ export const AURORA = {
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 5,
-                agilidade: 2,
-                magia: 4,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: [13]
@@ -64,12 +60,7 @@ export const AURORA = {
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 5,
-                agilidade: 2,
-                magia: 4,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,12],
             habilidades: [13,12]
@@ -77,12 +68,7 @@ export const AURORA = {
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 5,
-                agilidade: 2,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [14,12],
             habilidades: [13,12]
@@ -90,12 +76,7 @@ export const AURORA = {
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 6,
-                agilidade: 3,
-                magia: 6,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [14,12,34],
             habilidades: [13,12]

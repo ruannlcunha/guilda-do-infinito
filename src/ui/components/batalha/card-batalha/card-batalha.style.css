@@ -8,6 +8,26 @@
     align-items: center;
 }
 
+.iniciar-batalha-screen section .party-cards .card-batalha .trocar-icon {
+    padding: 0;
+    background: none;
+    border: none;
+    margin-right: -4vw;
+    position: relative;
+    right: 3.5vw;
+}
+
+.iniciar-batalha-screen section .party-cards .card-batalha .trocar-icon img {
+    height: 4vw;
+    width: 4vw;
+    transition: all 0.1s;
+}
+
+.iniciar-batalha-screen section .party-cards .card-batalha .trocar-icon:hover img {
+    transition: all 0.1s;
+    filter: drop-shadow(-2px 2px 15px var(--background-text));
+}
+
 .iniciar-batalha-screen section .party-cards .card-batalha .card-info {
     width: 70%;
     height: 100%;
@@ -112,6 +132,10 @@
     width: 30%;
     height: 100%;
     border: solid 3px var(--blue);
+}
+
+.iniciar-batalha-screen section .party-cards .card-batalha .card-perfil img {
+    height: 100%;
 }
 
 

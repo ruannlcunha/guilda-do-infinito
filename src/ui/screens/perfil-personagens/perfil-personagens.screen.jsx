@@ -6,25 +6,33 @@ import useGlobalUser from "../../../context/global-user.context"
 import { instanciarPersonagem } from "../../../utils"
 import { useNavigate } from "react-router-dom"
 import { useSound } from "../../../hook"
+import { cheatTodosPersonagens } from "../../../utils/cheats-testes.util"
 
 export function PerfilPersonagensScreen() {
     const [personagemEscolhido, setPersonagemEscolhido] = useState({id: 0})
     const [personagens, setPersonagens] = useState([])
-    const [user] = useGlobalUser()
+    const [_user] = useGlobalUser()
+    const [user,setUser] = useState(null)
     const {playHover, playClick} = useSound()
     const navigate = useNavigate()
 
     useEffect(()=>{
-        const _personagens = [...user.personagens]
-        const personagensInstanciados = _personagens.map(item=> {
-            return instanciarPersonagem(item)
-        })
-        .sort(function (a, b) {
-            return a.id-b.id || b.raridade-a.raridade;;
-        });
-
-        setPersonagens(personagensInstanciados)
+        setUser(cheatTodosPersonagens(_user))
     },[])
+
+    useEffect(()=>{
+        if(user) {
+            const _personagens = [...user.personagens]
+            const personagensInstanciados = _personagens.map(item=> {
+                return instanciarPersonagem(item)
+            })
+            .sort(function (a, b) {
+                return b.raridade-a.raridade;;
+            });
+            setPersonagens(personagensInstanciados)
+        }
+
+    },[user])
 
     useEffect(()=>{
         if(personagemEscolhido.id !== 0) {
@@ -71,7 +79,6 @@ export function PerfilPersonagensScreen() {
                 <footer>{personagem.nome}</footer>
             </li>
         )
-
     }
 
     return (

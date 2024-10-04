@@ -31,7 +31,7 @@ export function HUDAcoes({ personagem, personagens, jogadores, functions }) {
   }
 
   function handlePularTurno() {
-    functions.setTurno((old) => {
+    functions.setTurnos((old) => {
       if (old.atual >= old.maximo - 1) {
         return { ...old, atual: 0 };
       }

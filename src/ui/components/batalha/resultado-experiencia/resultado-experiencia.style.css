@@ -81,3 +81,9 @@
     border-top: double 3px var(--white);
     border-bottom: double 3px var(--white);
 }
+
+.fim-de-batalha .experiencia-section .experiencia-personagens h1 {
+    color: var(--white);
+    text-shadow: var(--borda-texto-sombra);
+    font-size: 2rem;
+}

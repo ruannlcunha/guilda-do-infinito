@@ -101,6 +101,7 @@
 
 .capitulos-list-screen section .capitulos-list-left section ul .sair-capitulo:hover {
     background-color: var(--black-transparent);
+    cursor: var(--cursor-pointer);
 }
 
 .capitulos-list-screen section .capitulos-list-left section ul .sair-capitulo h1 {

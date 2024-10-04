@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const MANOPLA_TERRA = {
     id: 27,
     nome: "Manopla da Terra",
-    descricao: "Uma arma",
+    descricao: "Um manopla encantada com o elemento Terra.",
     sprite: MANOPLA_TERRA_SPRITE,
     raridade: 4,
     tipo: ARMAS_TIPO.LEVE,

@@ -1,0 +1,331 @@
+
+
+div .modal .modal-item-lista {
+    width: 90%;
+    height: 90%;
+    background-color: var(--fundo-janela);
+    box-shadow: var(--box-interior);
+    border: double 5px var(--blue);
+}
+
+div .modal .modal-item-lista header {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+div .modal .modal-item-lista header h1 {
+    margin: 0 2rem;
+    font-size: 3rem;
+    font-weight: 100;
+    display: flex;
+    align-items: self-end;
+}
+
+div .modal .modal-item-lista header button {
+    background-color: var(--white);
+    border: none;
+    border-bottom: double 5px var(--blue);
+    border-left: double 5px var(--blue);
+    font-size: 2rem;
+    font-family: textFont, sans-serif;
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0;
+    color: var(--blue);
+    transition: all 0.1s;
+}
+
+div .modal .modal-item-lista header button:hover {
+    background-color: var(--light-blue);
+    transition: all 0.1s;
+}
+
+div .modal .modal-item-lista section {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div .modal .modal-item-lista section .lista-itens {
+    width: 37%;
+    height: 90%;
+    display: flex;
+    align-items: self-start;
+    justify-content: flex-start;
+    background-color: var(--blue-grey);
+    box-shadow: var(--light-grey) 0px 0px 5px 2px;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+div .modal .modal-item-lista section .lista-itens h1 {
+    font-weight: 100;
+    width: 85%;
+    margin-left: 10%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+div .modal .modal-item-lista section .lista-itens ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 95%;
+}
+
+div .modal .modal-item-lista section .lista-itens ul li {
+    width: 5rem;
+    height: 5.5rem;
+    border: solid 2px var(--black);
+    background: var(--card-4-estrelas);
+    margin: 0.5rem;
+    display: flex;
+    align-items: self-end;
+    flex-direction: column;
+    border-radius: 5px;
+    transition: all 0.1s;
+}
+
+div .modal .modal-item-lista section .lista-itens ul li:hover {
+    transition: all 0.1s;
+    width: 5.1rem;
+    height: 5.6rem;
+    box-shadow: var(--light-blue) 0px 0px 5px 2px, var(--light-blue) 0px 0px 0px 2px;
+    cursor: var(--cursor-pointer);
+}
+
+div .modal .modal-item-lista section .lista-itens ul li .quantidade {
+    margin: 0;
+    width: 100%;
+    text-align: right;
+    margin-bottom: -24px;
+    padding-right: 5px;
+    position: relative;
+}
+
+div .modal .modal-item-lista section .lista-itens ul li .personagem-equipado {
+    height: 35%;
+    position: relative;
+    top: 35%;
+    margin-top: -38%;
+    filter: drop-shadow(1px 1px 3px var(--white));
+}
+
+div .modal .modal-item-lista section .lista-itens ul .item-escolhido {
+    transition: all 0.1s;
+    cursor: auto;
+    width: 5.1rem;
+    height: 5.6rem;
+    box-shadow: var(--box-brilho);
+}
+
+div .modal .modal-item-lista section .lista-itens ul .item-escolhido:hover {
+    box-shadow: var(--box-brilho);
+}
+
+div .modal .modal-item-lista section .lista-itens ul li img {
+    height: 85%;
+}
+
+div .modal .modal-item-lista section .lista-itens ul li footer {
+    padding: 0;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 5px 5px;
+    box-shadow: none;
+    background-color: var(--light-grey);
+    transition: all 0.1s;
+}
+
+div .modal .modal-item-lista section .lista-itens ul li footer ul {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div .modal .modal-item-lista section .lista-itens ul li:hover footer {
+    transition: all 0.1s;
+    background-color: var(--white);
+}
+
+div .modal .modal-item-lista section .lista-itens ul .item-escolhido footer {
+    background-color: var(--white);
+}
+
+div .modal .modal-item-lista section .lista-itens ul li .estrelas img {
+    position: relative;
+    bottom: 0.5rem;
+    height: 1rem;
+}
+
+div .modal .modal-item-lista section .selecionar-item {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div .modal .modal-item-lista section .selecionar-item h1 {
+    font-weight: 100;
+    font-size: 3rem;
+    text-align: center;
+}
+
+div .modal .modal-item-lista section .item-detalhes {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+div .modal .modal-item-lista section .item-detalhes img {
+    height: 95%;
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes {
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    height: 65%;
+    width: 25%;
+    background-color: var(--background-text);
+    background-image: url(../../../assets/img/textures/DEGRADE_CIRCULO.png);
+    background-size: cover;
+    background-position: center;
+    border: double 4px var(--grey);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes div {
+    width: 100%;
+    display: flex;
+    align-items: self-start;
+    flex-direction: column;
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes div h1 {
+    margin: 0.6rem 0.3rem;
+    font-weight: 100;
+    font-size: 1.75rem;
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes div h2 {
+    margin: 0.3rem;
+    font-weight: 100;
+    font-size: 1.2rem;
+    text-shadow: var(--borda-texto);
+    color: var(--texto-destaque);
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes div h2 span{
+    text-shadow: var(--borda-texto);
+    color: var(--white);
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes div
+div .estrelas {
+    margin-left: 5px;
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes div
+div .estrelas img {
+    height: 1rem;
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes div
+div {
+    display: flex;
+    flex-direction: row;
+    margin: 0.3rem;
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes div
+div h2 {
+    margin: 0;
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes div
+div ul {
+    margin: 0;
+    padding: 0;
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes div
+.bonus-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 0.5rem;
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes div
+.bonus-list ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    text-shadow: var(--borda-texto);
+}
+
+div .modal .modal-item-lista section .item-detalhes .detalhes div
+.bonus-list ul li img {
+    height: 1rem;
+    margin-right: 0.5rem;
+    filter: drop-shadow(-1px 1px 5px var(--grey));
+}
+
+
+
+@media screen and (max-height: 479px) {
+
+    div .modal .modal-item-lista section .lista-itens {
+        width: 40%;
+    }
+    div .modal .modal-item-lista section .lista-itens ul .item-escolhido {
+        width: 5rem;
+        height: 5.5rem;
+    }
+    div .modal .modal-item-lista section .selecionar-item {
+        width: 55%;
+    }
+    div .modal .modal-item-lista section .selecionar-item h1 {
+        font-size: 2rem;
+    }
+    div .modal .modal-item-lista section .item-detalhes .detalhes {
+        left: 45%;
+        top: 10%;
+        height: 75%;
+    }
+    div .modal .modal-item-lista section .item-detalhes .detalhes div h1 {
+        font-size: 1.5rem;
+    }
+    div .modal .modal-item-lista section .item-detalhes .detalhes div h2 {
+        font-size: 1rem;
+    }
+    div .modal .modal-item-lista section .item-detalhes {
+        width: 55%;
+    }
+    div .modal .modal-item-lista header h1 {
+        font-size: 2rem;
+    }
+}

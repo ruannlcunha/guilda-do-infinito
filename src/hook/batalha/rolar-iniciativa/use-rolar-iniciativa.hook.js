@@ -5,24 +5,25 @@ export function useRolarIniciativa() {
   const { rolarDado } = useRolarDado();
   const { playDado } = useSound()
 
-  function rolarIniciativa(personagens) {
+  function rolarIniciativa(personagens, ordemIniciativa) {
     playDado()
-    const personagensNovos = [];
+    const ordemNova = [];
 
-    personagens.map((personagem) => {
+    ordemIniciativa.map(ordem=> {
+      const personagem = personagens.find(personagem=>personagem.idCombate===ordem.idCombate)
       const modificadorAgilidade = {valor: personagem.atributos.agilidade, atributo: "Agilidade"}
       const {total} = rolarDado(1, 20, [modificadorAgilidade]);
-      personagensNovos.push({
+      ordemNova.push({
         resultadoIniciativa: total,
-        ...personagem,
+        ...ordem,
       });
-    });
+    })
 
-    const personagensOrdenados = personagensNovos.sort(function (a, b) {
-      return b.resultadoIniciativa - a.resultadoIniciativa;
-    });
+    const ordenado = ordemNova
+    .sort(function (a, b) {return b.resultadoIniciativa - a.resultadoIniciativa;})
+    .map((ordem,i)=>{return {...ordem, ordemIniciativa: i}})
 
-    return personagensOrdenados;
+    return ordenado
   }
 
   return { rolarIniciativa };

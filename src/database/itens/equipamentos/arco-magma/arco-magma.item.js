@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const ARCO_MAGMA = {
     id: 19,
     nome: "Arco de Magma",
-    descricao: "Uma arma",
+    descricao: "Um arco forjado no magma com flechas que queimam os alvos.",
     sprite: ARCO_MAGMA_SPRITE,
     raridade: 4,
     tipo: ARMAS_TIPO.LEVE,

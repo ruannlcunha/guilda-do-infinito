@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const ANEL_COBRA_OURO = {
     id: 31,
     nome: "Anel de Cobra Dourado",
-    descricao: "Um acessório",
+    descricao: "Uma pequena cobra dourada que se enrola em seu dedo como um anel.",
     sprite: ANEL_COBRA_OURO_SPRITE,
     raridade: 5,
     santuario: BASE_SANTUARIO,

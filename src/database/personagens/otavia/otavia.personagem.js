@@ -8,6 +8,8 @@ import OTAVIA_4_SPRITE from "./assets/OTAVIA_4_SPRITE.png"
 import OTAVIA_4_PERFIL from "./assets/OTAVIA_4_PERFIL.png"
 import OTAVIA_5_SPRITE from "./assets/OTAVIA_5_SPRITE.png"
 import OTAVIA_5_PERFIL from "./assets/OTAVIA_5_PERFIL.png"
+import OTAVIA_6_SPRITE from "./assets/OTAVIA_6_SPRITE.png"
+import OTAVIA_6_PERFIL from "./assets/OTAVIA_6_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 
@@ -55,22 +57,30 @@ export const OTAVIA = {
             perfil: OTAVIA_5_PERFIL,
             santuario: null,
         },
+        {
+            visualId: 6,
+            nome: "Armadura de Kally",
+            sprite: OTAVIA_6_SPRITE,
+            perfil: OTAVIA_6_PERFIL,
+            santuario: null,
+        },
     ],
     status: {
         pvBase: 16,
         pmBase: 5,
         pvBonus: 4
     },
+    atributosBase: {
+        forca: 3,
+        agilidade: 2,
+        magia: 5,
+        vigor: 4
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 3,
-                agilidade: 2,
-                magia: 5,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1],
             habilidades: [1]
@@ -78,12 +88,7 @@ export const OTAVIA = {
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 3,
-                agilidade: 2,
-                magia: 5,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1],
             habilidades: [1]
@@ -91,12 +96,7 @@ export const OTAVIA = {
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 3,
-                agilidade: 2,
-                magia: 5,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,14],
             habilidades: [1]
@@ -104,12 +104,7 @@ export const OTAVIA = {
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 3,
-                agilidade: 2,
-                magia: 6,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [1,14],
             habilidades: [1]
@@ -117,12 +112,7 @@ export const OTAVIA = {
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 4,
-                agilidade: 3,
-                magia: 7,
-                vigor: 5
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [1,14,51],
             habilidades: [1]

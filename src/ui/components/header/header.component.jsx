@@ -35,13 +35,14 @@ export function Header({idSelected}) {
                 />
 
                 <ul>
-                {/*<HeaderOption
+                <HeaderOption
                 key={1}
                 navigateTo={"/historia"} 
                 isSelected={idSelected===1?true:false}
                 symbol={ICONS.HISTORIA}
                 text={"História"}
                 />
+                {/*
                 <HeaderOption
                 key={2}
                 navigateTo={"/aventura"} 
@@ -56,7 +57,6 @@ export function Header({idSelected}) {
                 symbol={ICONS.VERSUS}
                 text={"Versus"}
                 />
-                {/*
                 <HeaderOption
                 key={4}
                 navigateTo={"/cosmos"} 
@@ -64,6 +64,7 @@ export function Header({idSelected}) {
                 symbol={ICONS.COSMOS}
                 text={"Cosmos"}
                 />
+                {/*
                 <HeaderOption
                 key={5}
                 navigateTo={"/loja"} 

@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const ESPADA_MAGMA = {
     id: 23,
     nome: "Espada de Magma",
-    descricao: "Uma arma",
+    descricao: "Uma espada forjada no magma com uma lâmina que queima os inimigos.",
     sprite: ESPADA_MAGMA_SPRITE,
     raridade: 4,
     tipo: ARMAS_TIPO.PESADA,

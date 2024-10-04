@@ -19,8 +19,8 @@ export function FimDeBatalha({ personagens, resultado, setMusica }) {
         <ContainerScreen style={containerStyle}>
         <h1 className="resultado-batalha">{resultado}</h1>
         <div className="fim-de-batalha">
-            <ResultadoExperiencia personagens={personagens} experienciaMaxi={100}/>
-            <ResultadoRecompensas />
+            <ResultadoExperiencia personagens={personagens} experienciaMaximo={0}/>
+            <ResultadoRecompensas recompensas={[]}/>
         </div>
         </ContainerScreen>
     )

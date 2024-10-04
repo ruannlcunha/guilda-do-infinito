@@ -3,6 +3,7 @@
     width: 100%;
     height: 100%;
     background-size: 105%;
+    background-color: var(--black);
     display: flex;
     align-items: self-end;
     justify-content: space-between;
@@ -67,10 +68,10 @@
 .cena-screen .cena-dialogo p img {
     height: 1.5rem;
     width: 1.5rem;
-    margin: 0 10px;
+    margin: 0;
     position: relative;
     top: 5px;
-    animation: seta-continuar 1s infinite alternate-reverse ease-in-out;
+    animation: seta-continuar-1 1s infinite alternate-reverse ease-in-out;
 }
 
 .cena-screen .continuar-button {
@@ -124,6 +125,11 @@
 @keyframes seta-continuar {
     from { margin: 0; }
     to {margin: 0 10px;}
+}
+
+@keyframes seta-continuar-1 {
+    from { left: 0; }
+    to {left: 10px;}
 }
 
 

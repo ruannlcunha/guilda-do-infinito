@@ -287,7 +287,8 @@ export function VersusPersonagensScreen() {
             style={{
                 background: `radial-gradient(circle, var(--black) 10%, var(--${personagem.corTema}) 100%)`,
                 backgroundSize: "cover",
-                backgroundPosition: "center"
+                backgroundPosition: "center",
+                margin: personagens.length<=10? "8px 2px" : "2px"
                 }}>
                     <img src={personagem.perfil} alt="" />
             </li>
@@ -404,12 +405,12 @@ export function VersusPersonagensScreen() {
                     </section>
                     {renderEscolhidoPerfil(true)}
                 </section>
+                <div className="personagens-nomes">
+                        {renderEscolhidoNome(false)}
+                        {renderEscolhidoNome(true)}
+                </div>
 
                 <section className="personagens-list">
-                    <header>
-                            {renderEscolhidoNome(false)}
-                            {renderEscolhidoNome(true)}
-                    </header>
                     <section>
                         <button
                         onMouseEnter={()=>playHover(2)}
@@ -422,7 +423,9 @@ export function VersusPersonagensScreen() {
                                 alt="" style={{transform:"scaleX(-1)"}}/>
                             :null}
                         </button>
-                        <ul>
+                        <ul
+                        style={personagens.length<=10?{alignItems: "self-start"}:null}
+                        >
                             {equipeAtual!==EQUIPES.CONCLUIDO?
                                 personagens.map(personagem=>{
                                     return renderCardPersonagem(personagem)

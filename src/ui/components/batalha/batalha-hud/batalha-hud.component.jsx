@@ -3,7 +3,7 @@ import { HUDAcoes, StatusHUD } from "../../";
 import "./batalha-hud.style.css";
 import { useIniciarTurno } from "../../../../hook/batalha/iniciar-turno/use-iniciar-turno.hook";
 
-export function BatalhaHUD({ personagens, personagemAtivo, turno, animacoes, batalha, functions }) {
+export function BatalhaHUD({ personagens, personagemAtivo, animacoes, batalha, functions }) {
   const { iniciarTurno } = useIniciarTurno();
 
   useEffect(() => {

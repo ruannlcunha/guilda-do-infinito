@@ -43,68 +43,49 @@ export const CANARIO = {
         pmBase: 4,
         pvBonus: 3
     },
+    atributosBase: {
+        forca: 4,
+        agilidade: 3,
+        magia: 2,
+        vigor: 1
+    },
     evolucoes: [
         {
             level: 1,
-            experienciaNecessaria: 1250,
-            atributos: {
-                forca: 4,
-                agilidade: 3,
-                magia: 2,
-                vigor: 1
-            },
+            experienciaNecessaria: 1000,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
         },
         {
             level: 2,
-            experienciaNecessaria: 3750,
-            atributos: {
-                forca: 4,
-                agilidade: 3,
-                magia: 2,
-                vigor: 1
-            },
+            experienciaNecessaria: 3000,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
         },
         {
             level: 3,
-            experienciaNecessaria: 7500,
-            atributos: {
-                forca: 4,
-                agilidade: 3,
-                magia: 2,
-                vigor: 1
-            },
+            experienciaNecessaria: 6000,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,16,5],
             habilidades: []
         },
         {
             level: 4,
-            experienciaNecessaria: 12500,
-            atributos: {
-                forca: 4,
-                agilidade: 4,
-                magia: 2,
-                vigor: 1
-            },
+            experienciaNecessaria: 10000,
+            bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,16,5],
             habilidades: []
         },
         {
             level: 5,
-            experienciaNecessaria: 18750,
-            atributos: {
-                forca: 5,
-                agilidade: 5,
-                magia: 3,
-                vigor: 2
-            },
+            experienciaNecessaria: 15000,
+            bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,16,5,33],
             habilidades: []

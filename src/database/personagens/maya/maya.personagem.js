@@ -4,6 +4,8 @@ import MAYA_2_SPRITE from "./assets/MAYA_2_SPRITE.png"
 import MAYA_2_PERFIL from "./assets/MAYA_2_PERFIL.png"
 import MAYA_3_SPRITE from "./assets/MAYA_3_SPRITE.png"
 import MAYA_3_PERFIL from "./assets/MAYA_3_PERFIL.png"
+import MAYA_4_SPRITE from "./assets/MAYA_4_SPRITE.png"
+import MAYA_4_PERFIL from "./assets/MAYA_4_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 
@@ -37,22 +39,30 @@ export const MAYA = {
             perfil: MAYA_3_PERFIL,
             santuario: null,
         },
+        {
+            visualId: 4,
+            nome: "Traje Pirata",
+            sprite: MAYA_4_SPRITE,
+            perfil: MAYA_4_PERFIL,
+            santuario: null,
+        },
     ],
     status: {
         pvBase: 16,
         pmBase: 3,
-        pvBonus: 4
+        pvBonus: 4,
+    },
+    atributosBase: {
+        forca: 4,
+        agilidade: 5,
+        magia: 2,
+        vigor: 3
     },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 4,
-                agilidade: 5,
-                magia: 2,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
@@ -60,12 +70,7 @@ export const MAYA = {
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 4,
-                agilidade: 5,
-                magia: 2,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
@@ -73,12 +78,7 @@ export const MAYA = {
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 4,
-                agilidade: 5,
-                magia: 2,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,16,49],
             habilidades: []
@@ -86,12 +86,7 @@ export const MAYA = {
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 5,
-                agilidade: 5,
-                magia: 2,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,16,49],
             habilidades: []
@@ -99,12 +94,7 @@ export const MAYA = {
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 6,
-                agilidade: 6,
-                magia: 3,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,16,49,31,51],
             habilidades: []

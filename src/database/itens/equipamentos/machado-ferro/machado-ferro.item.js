@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const MACHADO_FERRO = {
     id: 24,
     nome: "Machado de Ferro",
-    descricao: "Uma arma",
+    descricao: "Um simples machado de ferro.",
     sprite: MACHADO_FERRO_SPRITE,
     raridade: 3,
     tipo: ARMAS_TIPO.PESADA,

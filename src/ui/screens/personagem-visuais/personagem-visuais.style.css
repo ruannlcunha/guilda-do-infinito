@@ -87,6 +87,7 @@
     font-weight: 100;
     font-size: 2rem;
     text-align: center;
+    white-space: nowrap;
 }
 
 .personagem-visuais .visuais-section section .visual .setas {
@@ -153,4 +154,21 @@
 .personagem-visuais .visuais-section section .vazio {
     height: 95%;
     width: 30%;
+}
+
+@media screen and (max-height: 479px) {
+
+    .personagem-visuais .personagem h1 {
+        top: 0;
+        font-size: 2.5rem;
+    }
+    .personagem-visuais .visuais-section .titulo {
+        font-size: 2rem;
+    }
+    .personagem-visuais .visuais-section section {
+        height: 65%;
+    }
+    .personagem-visuais .visuais-section section .visual h1 {
+        margin: 0.5rem 0;
+    }
 }

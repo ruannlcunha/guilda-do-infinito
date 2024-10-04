@@ -1,32 +1,35 @@
 import "./modal-config.style.css"
-import useGlobalConfig from "../../../context/global-config.context"
 import { Modal } from "../modal/modal.component"
 import { useEffect, useState } from "react"
 import { CONTEXT_CONFIG_NAMES } from "../../../constants"
 import { useMusic, useSound } from "../../../hook"
 import { ICONS } from "../../../constants/images"
 import { useNavigate } from "react-router-dom"
+import useGlobalUser from "../../../context/global-user.context"
 
 export function ModalConfig({isOpen, setIsOpen}) {
     const [efeitosVolume, setEfeitosVolume] = useState(10)
     const [musicaVolume, setMusicaVolume] = useState(10)
-    const [config, setConfig] = useGlobalConfig()
+    const [user, setUser] = useGlobalUser()
     const { playClick } = useSound()
     const { restartMusic } = useMusic()
     const navigate = useNavigate()
 
     useEffect(()=> {
-        setEfeitosVolume(config[CONTEXT_CONFIG_NAMES.SOM_EFEITOS])
-        setMusicaVolume(config[CONTEXT_CONFIG_NAMES.SOM_MUSICA])
+        setEfeitosVolume(user.configuracoes[CONTEXT_CONFIG_NAMES.SOM_EFEITOS])
+        setMusicaVolume(user.configuracoes[CONTEXT_CONFIG_NAMES.SOM_MUSICA])
     },[])
 
     function handleDiminuir(configName, volume, setVolume) {
         playClick(1)
         if(volume>0)  {
             setVolume(volume-1)
-            setConfig({
-                ...config,
-                [configName]: volume-1,
+            setUser({
+                ...user,
+                configuracoes: {
+                    ...user.configuracoes,
+                    [configName]: volume-1,
+                }
             })
         }
         configName==="somMusica" ? restartMusic(volume-1) : null
@@ -36,9 +39,12 @@ export function ModalConfig({isOpen, setIsOpen}) {
         playClick(1)
         if(volume<10)  {
             setVolume(volume+1)
-            setConfig({
-                ...config,
-                [configName]: volume+1,
+            setUser({
+                ...user,
+                configuracoes: {
+                    ...user.configuracoes,
+                    [configName]: volume+1,
+                }
             })
         }
         configName==="somMusica" ? restartMusic(volume+1) : null

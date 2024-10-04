@@ -5,13 +5,14 @@ import useGlobalUser from "../../../context/global-user.context"
 import { useEffect, useState } from "react"
 import { calcularPorcentagem, instanciarPersonagem } from "../../../utils"
 import { ICONS } from "../../../constants/images"
-import { ITENS_DATA } from "../../../database/itens/outros"
 import { useSound } from "../../../hook"
+import { cheatTodosItens, cheatTodosPersonagens } from "../../../utils/cheats-testes.util"
+import { ganharExperiencia } from "../../../utils/ganhar-experiencia.util"
 
 export function PersonagemEvoluirScreen() {
     const { personagemId } = useParams()
-    const CARDS_ID = {EXP_PEQUENO: 1,EXP_MEDIO: 2,EXP_GRANDE: 3,}
-    const [user, setUser] = useGlobalUser()
+    const CARDS_ID = {EXP_PEQUENO:{id:1,xp:100},EXP_MEDIO:{id:2,xp:250},EXP_GRANDE:{id:3,xp:500},}
+    const [_user, _setUser] = useGlobalUser()
     const { playClick, playHover } = useSound()
     const [personagem, setPersonagem] = useState(null)
     const [personagemEvoluido, setPersonagemEvoluido] = useState(null)
@@ -19,27 +20,36 @@ export function PersonagemEvoluirScreen() {
     const [cardsDisponiveis, setCardsDisponiveis] = useState({pequeno: null, medio: null, grande: null})
     const [cardEscolhido, setCardEscolhido] = useState(
         {id: null, raridade: null, quantidadeExp: null, quant: 0})
+    const [user, setUser] = useState(null)
 
     useEffect(()=>{
-        const _personagem = user.personagens.find(item=>item.personagemId == personagemId)
-        const personagemInstanciado = instanciarPersonagem(_personagem)
-        setPersonagem(personagemInstanciado)
-        setPersonagemEvoluido(personagemInstanciado)
-        document.documentElement.style.setProperty('--fundo-tema',
-            `var(--${personagemInstanciado.corTema})`
-        );
+        const userTodosPersonagens = cheatTodosPersonagens(_user)
+        const userTodosItens = cheatTodosItens(userTodosPersonagens)
+        setUser(userTodosItens)
+    },[])
 
-        const _cardsPequenos = user.inventario
-        .find(item=>item.itemId===CARDS_ID.EXP_PEQUENO)
-        const _cardsMedios = user.inventario
-        .find(item=>item.itemId===CARDS_ID.EXP_MEDIO)
-        const _cardsGrandes = user.inventario
-        .find(item=>item.itemId===CARDS_ID.EXP_GRANDE)
-        setCardsDisponiveis({
-            pequeno: _cardsPequenos ? _cardsPequenos.quantidade : 0,
-            medio:  _cardsMedios ? _cardsMedios.quantidade : 0,
-            grande:  _cardsGrandes ? _cardsGrandes.quantidade : 0
-        })
+    useEffect(()=>{
+        if(user) {
+            const _personagem = user.personagens.find(item=>item.personagemId == personagemId)
+            const personagemInstanciado = instanciarPersonagem(_personagem)
+            setPersonagem(personagemInstanciado)
+            setPersonagemEvoluido(personagemInstanciado)
+            document.documentElement.style.setProperty('--fundo-tema',
+            `var(--${personagemInstanciado.corTema})`
+            );
+
+            const _cardsPequenos = user.inventario
+            .find(item=>item.itemId===CARDS_ID.EXP_PEQUENO.id)
+            const _cardsMedios = user.inventario
+            .find(item=>item.itemId===CARDS_ID.EXP_MEDIO.id)
+            const _cardsGrandes = user.inventario
+            .find(item=>item.itemId===CARDS_ID.EXP_GRANDE.id)
+            setCardsDisponiveis({
+                pequeno: _cardsPequenos ? _cardsPequenos.quantidade : 0,
+                medio:  _cardsMedios ? _cardsMedios.quantidade : 0,
+                grande:  _cardsGrandes ? _cardsGrandes.quantidade : 0
+            })
+        }
     },[user])
 
     useEffect(()=>{
@@ -54,12 +64,9 @@ export function PersonagemEvoluirScreen() {
 
     useEffect(()=>{
         if(personagem) {
-            const expGanho = cardEscolhido.quantidadeExp*quantidadeCard
+            let expGanho = cardEscolhido.quantidadeExp*quantidadeCard
             const _personagem = user.personagens.find(item=>item.personagemId == personagemId)
-            const novoPersonagem = {
-                ..._personagem,
-                experienciaAtual: _personagem.experienciaAtual+expGanho
-            }
+            const novoPersonagem = ganharExperiencia(_personagem, expGanho)
             const _personagemEvoluido = instanciarPersonagem(novoPersonagem)
             setPersonagemEvoluido(_personagemEvoluido)
         }
@@ -277,7 +284,7 @@ export function PersonagemEvoluirScreen() {
                             </div>
                             <div>
                                 {personagem.atributos.vigor}
-                                {personagem.atributos.vigor>personagemEvoluido.atributos.vigor ?
+                                {personagemEvoluido.atributos.vigor>personagem.atributos.vigor ?
                                 <>
                                 <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
                                 <span>
@@ -304,9 +311,9 @@ export function PersonagemEvoluirScreen() {
                     </div>
 
                     <div className="cards-experiencia">
-                        {renderCard(CARDS_ID.EXP_PEQUENO, 3, 25, cardsDisponiveis.pequeno, ICONS.CARD_3)}
-                        {renderCard(CARDS_ID.EXP_MEDIO, 4, 50, cardsDisponiveis.medio, ICONS.CARD_4)}
-                        {renderCard(CARDS_ID.EXP_GRANDE, 5, 100, cardsDisponiveis.grande, ICONS.CARD_5)}
+                        {renderCard(CARDS_ID.EXP_PEQUENO.id, 3, CARDS_ID.EXP_PEQUENO.xp, cardsDisponiveis.pequeno, ICONS.CARD_3)}
+                        {renderCard(CARDS_ID.EXP_MEDIO.id, 4, CARDS_ID.EXP_MEDIO.xp, cardsDisponiveis.medio, ICONS.CARD_4)}
+                        {renderCard(CARDS_ID.EXP_GRANDE.id, 5, CARDS_ID.EXP_GRANDE.xp, cardsDisponiveis.grande, ICONS.CARD_5)}
                     </div>
 
                     {cardEscolhido.raridade?

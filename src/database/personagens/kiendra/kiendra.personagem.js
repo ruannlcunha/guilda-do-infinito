@@ -24,17 +24,18 @@ export const KIENDRA = {
         pvBase: 14,
         pmBase: 4,
         pvBonus: 3
-        },
+    },
+    atributosBase: {
+        forca: 2,
+        agilidade: 3,
+        magia: 4,
+        vigor: 1
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1000,
-            atributos: {
-                forca: 2,
-                agilidade: 3,
-                magia: 4,
-                vigor: 1
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
@@ -42,12 +43,7 @@ export const KIENDRA = {
         {
             level: 2,
             experienciaNecessaria: 3000,
-            atributos: {
-                forca: 2,
-                agilidade: 3,
-                magia: 4,
-                vigor: 1
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
@@ -55,25 +51,15 @@ export const KIENDRA = {
         {
             level: 3,
             experienciaNecessaria: 6000,
-            atributos: {
-                forca: 2,
-                agilidade: 3,
-                magia: 4,
-                vigor: 1
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,2],
             habilidades: []
         },
         {
             level: 4,
-            experienciaNecessaria: 30000,
-            atributos: {
-                forca: 2,
-                agilidade: 3,
-                magia: 5,
-                vigor: 1
-            },
+            experienciaNecessaria: 10000,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [14,2],
             habilidades: []
@@ -81,12 +67,7 @@ export const KIENDRA = {
         {
             level: 5,
             experienciaNecessaria: 15000,
-            atributos: {
-                forca: 3,
-                agilidade: 4,
-                magia: 6,
-                vigor: 2
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [14,2,27],
             habilidades: []

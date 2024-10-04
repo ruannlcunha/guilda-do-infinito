@@ -87,3 +87,26 @@ export const ARMAS_TIPO = {
   DISTANCIA: "Arma á Distância",
   ARCANA: "Arma Arcana",
 }
+
+export const EPISODIO_TIPO = {
+  DIALOGO: {
+    nome: "Diálogo",
+    cor: "mid-green",
+    gradient: "dark-green",
+  },
+  BATALHA: {
+    nome: "Batalha",
+    cor: "mid-red",
+    gradient: "dark-red",
+  },
+  CHEFE: {
+    nome: "Batalha contra Chefe",
+    cor: "purple",
+    gradient: "dark-purple",
+  },
+}
+
+export const MODOS_JOGO = {
+  VERSUS: "VERSUS",
+  HISTORIA: "HISTORIA",
+}

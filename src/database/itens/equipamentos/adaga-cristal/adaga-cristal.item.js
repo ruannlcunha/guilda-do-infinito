@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const ADAGA_CRISTAL = {
     id: 16,
     nome: "Adaga de Cristal",
-    descricao: "Uma arma",
+    descricao: "Uma adaga afiada feita de um aço cristalino muito resistente.",
     sprite: ADAGA_CRISTAL_SPRITE,
     raridade: 4,
     tipo: ARMAS_TIPO.LEVE,

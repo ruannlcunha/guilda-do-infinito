@@ -34,16 +34,17 @@ export const JJC = {
         pmBase: 5,
         pvBonus: 3
     },
+    atributosBase: {
+        forca: 4,
+        agilidade: 2,
+        magia: 3,
+        vigor: 5
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 3,
-                vigor: 5
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [15],
             habilidades: []
@@ -51,12 +52,7 @@ export const JJC = {
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 3,
-                vigor: 5
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [15],
             habilidades: []
@@ -64,12 +60,7 @@ export const JJC = {
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 3,
-                vigor: 5
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [15,2],
             habilidades: [13]
@@ -77,12 +68,7 @@ export const JJC = {
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 3,
-                vigor: 6
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
             ataques: [15,2],
             habilidades: [13]
@@ -90,12 +76,7 @@ export const JJC = {
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 5,
-                agilidade: 3,
-                magia: 4,
-                vigor: 7
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
             ataques: [15,2,37],
             habilidades: [13]

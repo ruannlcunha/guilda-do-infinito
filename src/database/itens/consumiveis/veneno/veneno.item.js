@@ -11,7 +11,7 @@ const { iniciarEfeito, restaurarVida, finalizarAcao, consumirItem, informarErro 
 export const VENENO = {
     id: 44,
     nome: "Frasco de Veneno",
-    descricao: "Um item",
+    descricao: "Um frasco contendo um líquido corrosivo que pode ser arremessado.",
     efeito: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",

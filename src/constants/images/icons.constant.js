@@ -67,6 +67,9 @@ import ROBO from "../../assets/img/icons/ROBO.png";
 import SUCESSO from "../../assets/img/icons/SUCESSO.png";
 import ERRO from "../../assets/img/icons/ERRO.png";
 import AVISO from "../../assets/img/icons/AVISO.png";
+import CONCLUIDO from "../../assets/img/icons/CONCLUIDO.png";
+import TROCAR from "../../assets/img/icons/TROCAR.png";
+import ALIADO from "../../assets/img/icons/ALIADO.png";
 
 export const ICONS = {
   TITULO,
@@ -138,5 +141,8 @@ export const ICONS = {
   SUCESSO,
   ERRO,
   AVISO,
+  CONCLUIDO,
+  TROCAR,
+  ALIADO,
 };
   

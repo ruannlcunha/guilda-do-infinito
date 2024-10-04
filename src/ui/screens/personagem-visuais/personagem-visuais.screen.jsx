@@ -7,36 +7,44 @@ import { instanciarPersonagem } from "../../../utils"
 import { ICONS } from "../../../constants/images"
 import { PERSONAGENS_DATA } from "../../../database"
 import { useSound } from "../../../hook"
+import { cheatTodosPersonagens } from "../../../utils/cheats-testes.util"
 
 export function PersonagemVisuaisScreen() {
     const { personagemId } = useParams()
-    const [user, setUser] = useGlobalUser()
+    const [_user, _setUser] = useGlobalUser()
     const [personagem, setPersonagem] = useState(null)
     const [visualIndex, setVisualIndex] = useState(0)
     const [visuais, setVisuais] = useState([])
     const { playClick, playHover } = useSound()
+    const [user, setUser] = useState(null)
 
     useEffect(()=>{
-        const _personagem = user.personagens.find(item=>item.personagemId == personagemId)
-        const personagemInstanciado = instanciarPersonagem(_personagem)
-        setPersonagem(personagemInstanciado)
-        document.documentElement.style.setProperty('--fundo-tema',
-            `var(--${personagemInstanciado.corTema})`
-        );
-        const personagemData = PERSONAGENS_DATA.find(personagem=>personagem.id==personagemId)
-        
-        setVisuais(personagemData.visuais.map(visual=>{
-            if(_personagem.visuais.some(visuailAdquirido => visuailAdquirido==visual.visualId)) {
-                return {...visual, bloqueado: false}
-            }else {
-                return {...visual, bloqueado: true}
-            }
-        }))
-        personagemData.visuais.map((visual, i)=> {
-            if(visual.visualId==_personagem.visualAtivo) {
-                setVisualIndex(i)
-            }
-        })
+        setUser(cheatTodosPersonagens(_user))
+    },[])
+
+    useEffect(()=>{
+        if(user) {
+            const _personagem = user.personagens.find(item=>item.personagemId == personagemId)
+            const personagemInstanciado = instanciarPersonagem(_personagem)
+            setPersonagem(personagemInstanciado)
+            document.documentElement.style.setProperty('--fundo-tema',
+                `var(--${personagemInstanciado.corTema})`
+            );
+            const personagemData = PERSONAGENS_DATA.find(personagem=>personagem.id==personagemId)
+            
+            setVisuais(personagemData.visuais.map(visual=>{
+                if(_personagem.visuais.some(visuailAdquirido => visuailAdquirido==visual.visualId)) {
+                    return {...visual, bloqueado: false}
+                }else {
+                    return {...visual, bloqueado: true}
+                }
+            }))
+            personagemData.visuais.map((visual, i)=> {
+                if(visual.visualId==_personagem.visualAtivo) {
+                    setVisualIndex(i)
+                }
+            })
+        }
     },[user])
 
     function handleProximo() {

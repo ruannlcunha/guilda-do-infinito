@@ -13,7 +13,7 @@ export { VersusBatalhaScreen } from "./versus-batalha/versus-batalha.screen"
 export { CosmosScreen } from "./cosmos/cosmos.screen";
 export { LojaScreen } from "./loja/loja.screen";
 export { PerfilScreen } from "./perfil/perfil.screen";
-export { BatalhaScreen } from "./batalha/batalha.screen";
+export { HistoriaBatalhaScreen } from "./historia-batalha/historia-batalha.screen";
 export { CenaScreen } from "./cena/cena.screen"
 export { JogarGachaScreen } from "./jogar-gacha/jogar-gacha.screen"
 export { PerfilPersonagensScreen } from "./perfil-personagens/perfil-personagens.screen"

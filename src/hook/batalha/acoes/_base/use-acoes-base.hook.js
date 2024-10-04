@@ -91,6 +91,7 @@ export function useAcoesBase() {
         atual: novaMana,
       }
     };
+    _alterarPersonagem(functions.setPersonagens, novoAlvo);
 
     return novoAlvo;
   }
@@ -119,7 +120,7 @@ export function useAcoesBase() {
     const {dados, total} = rolarDado(1, 20, [modificador]);
     const ataque = {resultadoDado: dados[0].resultado, resultadoTotal: total, ...modificador}
     functions.ativarBannerAtaque(ataque, alvo.defesa, personagem.corTema);
-    return total >= alvo.defesa
+    return (total >= alvo.defesa && dados[0].resultado!=1)||(dados[0].resultado==20)
   }
 
   async function finalizarAcao(functions, novoAlvo, duracao) {
@@ -128,7 +129,7 @@ export function useAcoesBase() {
       functions.setAnimacoes((old) => {
         return { ...old, escolhendoAlvo: false, hudAtivo: true };
       });
-      pularTurno(functions.setTurno);
+      pularTurno(functions.setTurnos);
       _alterarPersonagem(functions.setPersonagens, {
         ...novoAlvo,
         effect: { asset: null, isAtivo: false },

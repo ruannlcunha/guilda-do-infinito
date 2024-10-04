@@ -8,6 +8,7 @@ import SANTUARIO_4_ESTRELAS from "../../assets/img/backgrounds/SANTUARIO_4_ESTRE
 import SANTUARIO_3_ESTRELAS from "../../assets/img/backgrounds/SANTUARIO_3_ESTRELAS.png"
 import GENERICO_SPRITE from "../../assets/img/others/GENERICO_SPRITE.png"
 import GENERICO_PERFIL from "../../assets/img/others/GENERICO_PERFIL.png"
+import LIVRO_HISTORIA_PARADO from "../../assets/img/others/LIVRO_HISTORIA_PARADO.png"
 
 export const IMAGES = {
     CEU,
@@ -20,4 +21,5 @@ export const IMAGES = {
     SANTUARIO_3_ESTRELAS,
     GENERICO_SPRITE,
     GENERICO_PERFIL,
+    LIVRO_HISTORIA_PARADO,
 }

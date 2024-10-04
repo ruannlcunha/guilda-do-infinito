@@ -1,6 +1,6 @@
 import { createHashRouter } from "react-router-dom";
 import { AventuraScreen,
-  BatalhaScreen,
+  HistoriaBatalhaScreen,
   CapitulosScreen,
   CenaScreen,
   CosmosScreen,
@@ -53,15 +53,15 @@ export const router = createHashRouter([
         element: <HistoriaScreen />,
       },
       {
-        path: `/historia/:campanha`,
+        path: `/historia/:historia`,
         element: <CapitulosScreen />,
       },
       {
-        path: `/historia/:campanha/:idCapitulo/:idEpisodio/batalha`,
-        element: <BatalhaScreen />,
+        path: `/historia/:historia/:idCapitulo/:idEpisodio/batalha`,
+        element: <HistoriaBatalhaScreen />,
       },
       {
-        path: `/historia/:campanha/:idCapitulo/:idEpisodio/cena`,
+        path: `/historia/:historia/:idCapitulo/:idEpisodio/cena`,
         element: <CenaScreen />,
       },
       {

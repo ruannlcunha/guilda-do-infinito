@@ -4,17 +4,12 @@ import { useRolarIniciativa } from "../rolar-iniciativa/use-rolar-iniciativa.hoo
 export function useIniciarBatalha() {
   const { rolarIniciativa } = useRolarIniciativa();
 
-  function _ordenarPersonagens(personagens) {
-    const novosPersonagens = rolarIniciativa(personagens);
-    return novosPersonagens;
-  }
-
-  function _rolarIniciativa(personagens, functions) {
+  function _rolarIniciativa(personagens, ordemIniciativa, functions) {
     functions.setAnimacoes((old) => {
       return { ...old, isDadosAtivos: true };
     });
-    const novosPersonagens = _ordenarPersonagens(personagens);
-    functions.setPersonagens(novosPersonagens);
+    const novaOrdemIniciativa = rolarIniciativa(personagens, ordemIniciativa);
+    functions.setTurnos(old=>{return {...old, ordemIniciativa: novaOrdemIniciativa}});
 
     setTimeout(() => {
       functions.setAnimacoes((old) => {
@@ -28,13 +23,13 @@ export function useIniciarBatalha() {
     }, 5000);
   }
 
-  function _pularBannersInicio(personagens, functions, primeiroTimeout, segundoTimeout) {
+  function _pularBannersInicio(personagens, ordemIniciativa, functions, primeiroTimeout, segundoTimeout) {
     clearTimeout(primeiroTimeout)
     clearTimeout(segundoTimeout)
-    _rolarIniciativa(personagens, functions)
+    _rolarIniciativa(personagens, ordemIniciativa, functions)
   }
 
-  function iniciarBatalha(personagens, functions) {
+  function iniciarBatalha(personagens, ordemIniciativa, functions) {
     functions.ativarBannerTexto("BATALHA", functions.setBanners);
 
     const primeiroTimeout = setTimeout(() => {
@@ -42,11 +37,11 @@ export function useIniciarBatalha() {
     }, BANNER_DURACAO.TEXTO+100);
 
     const segundoTimeout = setTimeout(() => {
-      _rolarIniciativa(personagens, functions)
+      _rolarIniciativa(personagens, ordemIniciativa, functions)
     }, (BANNER_DURACAO.TEXTO*2)+100);
     
     functions.setBanners(old => { return {...old, evento: 
-      ()=>{_pularBannersInicio(personagens, functions, primeiroTimeout, segundoTimeout)}} })
+      ()=>{_pularBannersInicio(personagens, ordemIniciativa, functions, primeiroTimeout, segundoTimeout)}} })
   }
 
   return { iniciarBatalha };

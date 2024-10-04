@@ -35,16 +35,17 @@ export const ANDRIUS = {
         pmBase: 3,
         pvBonus: 5,
     },
+    atributosBase: {
+        forca: 4,
+        agilidade: 2,
+        magia: 5,
+        vigor: 3
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,15],
             habilidades: [12]
@@ -52,12 +53,7 @@ export const ANDRIUS = {
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,15],
             habilidades: [12]
@@ -65,12 +61,7 @@ export const ANDRIUS = {
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 5,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,15,5,21],
             habilidades: [12, 1]
@@ -78,12 +69,7 @@ export const ANDRIUS = {
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 4,
-                agilidade: 2,
-                magia: 5,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
             ataques: [14,15,5,21],
             habilidades: [12, 1]
@@ -91,12 +77,7 @@ export const ANDRIUS = {
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 5,
-                agilidade: 3,
-                magia: 6,
-                vigor: 5
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
             ataques: [14,15,5,21,33],
             habilidades: [12, 1]

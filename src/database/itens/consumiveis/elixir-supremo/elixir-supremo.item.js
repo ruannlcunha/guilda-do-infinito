@@ -11,7 +11,7 @@ const { iniciarEfeito, restaurarVida, finalizarAcao, consumirItem, informarErro 
 export const ELIXIR_SUPREMO = {
     id: 40,
     nome: "Elixir Supremo",
-    descricao: "Um item",
+    descricao: "Um enorme frasco de vidro contendo um líquido dourado mágico que recupera sua vida e mana.",
     efeito: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",

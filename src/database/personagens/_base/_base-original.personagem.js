@@ -1,42 +1,41 @@
-import { PERFIL, SPRITES } from "../../../constants/images";
+import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 
 export const _BASE_ORIGINAL = {
-    id: 1,
+    id: 0,
     nome: "Base",
     titulo: "Título",
-    elemento: "FOGO",
-    arma: "PESADA",
-    comportamento: "ATACANTE",
-    corTema: "tema-amarelo",
-    estrelas: 5,
+    elemento: ELEMENTOS.NULO,
+    corTema: COR_TEMA.BRANCO,
+    raridade: 5,
     visuais:[
         {
             visualId: 1,
-            sprite: SPRITES.AYLA,
-            perfil: PERFIL.AYLA,
+            nome: "Original",
+            sprite: null,
+            perfil: null,
+            santuario: null,
         },
     ],
     status: {
-        pvBase: 0,
-        pmBase: 0,
-        pvBonus: 0,
+        pvBase: 1,
+        pmBase: 1,
+        pvBonus: 1,
+    },
+    atributosBase: {
+        forca: 1,
+        agilidade: 1,
+        magia: 1,
+        vigor: 1
     },
     evolucoes: [
         {
             level: 1,
-            experienciaNecessaria: 100,
-            pv: 15,
-            pm: 10,
-            atributos: {
-                forca: 4,
-                agilidade: 1,
-                magia: 2,
-                vigor: 3,
-            },
+            experienciaNecessaria: 1000,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1],
-            habilidades: [1],
-        }
+            ataques: [],
+            habilidades: []
+        },
     ],
     equipamentosProntos: [
         {

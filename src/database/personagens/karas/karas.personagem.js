@@ -1,5 +1,11 @@
 import KARAS_1_SPRITE from "./assets/KARAS_1_SPRITE.png"
 import KARAS_1_PERFIL from "./assets/KARAS_1_PERFIL.png"
+import KARAS_2_SPRITE from "./assets/KARAS_2_SPRITE.png"
+import KARAS_2_PERFIL from "./assets/KARAS_2_PERFIL.png"
+import KARAS_3_SPRITE from "./assets/KARAS_3_SPRITE.png"
+import KARAS_3_PERFIL from "./assets/KARAS_3_PERFIL.png"
+import KARAS_4_SPRITE from "./assets/KARAS_4_SPRITE.gif"
+import KARAS_4_PERFIL from "./assets/KARAS_4_PERFIL.gif"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { ELEMENTOS, COR_TEMA } from "../../../constants/personagens/personagem.constant"
 
@@ -18,7 +24,28 @@ export const KARAS = {
             sprite: KARAS_1_SPRITE,
             perfil: KARAS_1_PERFIL,
             santuario: null,
-        }
+        },
+        {
+            visualId: 2,
+            nome: "Traje Nobre",
+            sprite: KARAS_2_SPRITE,
+            perfil: KARAS_2_PERFIL,
+            santuario: null,
+        },
+        {
+            visualId: 3,
+            nome: "Traje Casual",
+            sprite: KARAS_3_SPRITE,
+            perfil: KARAS_3_PERFIL,
+            santuario: null,
+        },
+        {
+            visualId: 4,
+            nome: "Armadura Divina",
+            sprite: KARAS_4_SPRITE,
+            perfil: KARAS_4_PERFIL,
+            santuario: null,
+        },
 
     ],
     status: {
@@ -26,16 +53,17 @@ export const KARAS = {
         pmBase: 4,
         pvBonus: 5
     },
+    atributosBase: {
+        forca: 3,
+        agilidade: 2,
+        magia: 5,
+        vigor: 4
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 3,
-                agilidade: 2,
-                magia: 5,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: [1]
@@ -43,12 +71,7 @@ export const KARAS = {
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 3,
-                agilidade: 2,
-                magia: 5,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: [1]
@@ -56,12 +79,7 @@ export const KARAS = {
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 3,
-                agilidade: 2,
-                magia: 5,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,12,7],
             habilidades: [1]
@@ -69,12 +87,7 @@ export const KARAS = {
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 3,
-                agilidade: 2,
-                magia: 6,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [14,12,7],
             habilidades: [1]
@@ -82,12 +95,7 @@ export const KARAS = {
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 4,
-                agilidade: 3,
-                magia: 7,
-                vigor: 5
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [14,12,7,28],
             habilidades: [1]

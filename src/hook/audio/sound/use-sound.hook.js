@@ -1,10 +1,10 @@
 import { SOUNDS } from "../../../constants/audios/sounds.constant"
 import { CONTEXT_CONFIG_NAMES } from "../../../constants"
-import useGlobalConfig from "../../../context/global-config.context"
+import useGlobalUser from "../../../context/global-user.context"
 
 export function useSound() {
-    const [ config ] = useGlobalConfig()
-    const volumeEfeitos = (config[CONTEXT_CONFIG_NAMES.SOM_EFEITOS])/10
+    const [user] = useGlobalUser()
+    const volumeEfeitos = (user.configuracoes[CONTEXT_CONFIG_NAMES.SOM_EFEITOS])/10
 
     function playSound(audio) {
         const novoAudio = new Audio(audio)
@@ -48,6 +48,21 @@ export function useSound() {
         audio.play()
     }
 
-    return { playSound, playHover, playClick, playBanner, playDado, playDadoResultado, playCancel}
+    function playBook() {
+        const audio = new Audio(SOUNDS.BOOK)
+        audio.volume = volumeEfeitos
+        audio.play()
+    }
+
+    return {
+        playSound,
+        playHover,
+        playClick,
+        playBanner,
+        playDado,
+        playDadoResultado,
+        playCancel,
+        playBook,
+    }
 
 }

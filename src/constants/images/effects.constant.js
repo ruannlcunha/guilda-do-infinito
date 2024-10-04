@@ -1,5 +1,5 @@
-import SOCO_EFFECT from "../../assets/img/effects/SOCO_EFFECT.gif";
-import CURA_EFFECT from "../../assets/img/effects/CURA_EFFECT.gif";
+import SOCO from "../../assets/img/effects/SOCO.gif";
+import CURA_1 from "../../assets/img/effects/CURA_1.gif";
 import CURA_2 from "../../assets/img/effects/CURA_2.gif";
 import TIRO from "../../assets/img/effects/TIRO.gif";
 import BOLA_DE_FOGO from "../../assets/img/effects/BOLA_DE_FOGO.gif";
@@ -46,20 +46,20 @@ import GOLPE_RAPIDO_AR from "../../assets/img/effects/GOLPE_RAPIDO_AR.gif";
 import GOLPE_RAPIDO_GELO from "../../assets/img/effects/GOLPE_RAPIDO_GELO.gif";
 import GOLPE_RAPIDO_TREVAS from "../../assets/img/effects/GOLPE_RAPIDO_TREVAS.gif";
 import GOLPE_RAPIDO_LUZ from "../../assets/img/effects/GOLPE_RAPIDO_LUZ.gif";
-import TIRO_PRECISO_MAGICO from "../../assets/img/effects/TIRO_PRECISO_MAGICO.gif";
-import TIRO_PRECISO_ELETRICO from "../../assets/img/effects/TIRO_PRECISO_ELETRICO.gif";
-import TIRO_PRECISO_FOGO from "../../assets/img/effects/TIRO_PRECISO_FOGO.gif";
-import TIRO_PRECISO_AGUA from "../../assets/img/effects/TIRO_PRECISO_AGUA.gif";
-import TIRO_PRECISO_ACIDO from "../../assets/img/effects/TIRO_PRECISO_ACIDO.gif";
-import TIRO_PRECISO_TERRA from "../../assets/img/effects/TIRO_PRECISO_TERRA.gif";
-import TIRO_PRECISO_AR from "../../assets/img/effects/TIRO_PRECISO_AR.gif";
-import TIRO_PRECISO_GELO from "../../assets/img/effects/TIRO_PRECISO_GELO.gif";
-import TIRO_PRECISO_LUZ from "../../assets/img/effects/TIRO_PRECISO_LUZ.gif";
-import TIRO_PRECISO_TREVAS from "../../assets/img/effects/TIRO_PRECISO_TREVAS.gif";
+import TIRO_MAGICO from "../../assets/img/effects/TIRO_MAGICO.gif";
+import TIRO_ELETRICO from "../../assets/img/effects/TIRO_ELETRICO.gif";
+import TIRO_FOGO from "../../assets/img/effects/TIRO_FOGO.gif";
+import TIRO_AGUA from "../../assets/img/effects/TIRO_AGUA.gif";
+import TIRO_ACIDO from "../../assets/img/effects/TIRO_ACIDO.gif";
+import TIRO_TERRA from "../../assets/img/effects/TIRO_TERRA.gif";
+import TIRO_AR from "../../assets/img/effects/TIRO_AR.gif";
+import TIRO_GELO from "../../assets/img/effects/TIRO_GELO.gif";
+import TIRO_LUZ from "../../assets/img/effects/TIRO_LUZ.gif";
+import TIRO_TREVAS from "../../assets/img/effects/TIRO_TREVAS.gif";
 
 export const EFFECTS = {
-  SOCO_EFFECT,
-  CURA_EFFECT,
+  SOCO,
+  CURA_1,
   CURA_2,
   TIRO,
   BOLA_DE_FOGO,
@@ -106,14 +106,14 @@ export const EFFECTS = {
   GOLPE_RAPIDO_GELO,
   GOLPE_RAPIDO_LUZ,
   GOLPE_RAPIDO_TREVAS,
-  TIRO_PRECISO_MAGICO,
-  TIRO_PRECISO_FOGO,
-  TIRO_PRECISO_AGUA,
-  TIRO_PRECISO_ELETRICO,
-  TIRO_PRECISO_ACIDO,
-  TIRO_PRECISO_TERRA,
-  TIRO_PRECISO_AR,
-  TIRO_PRECISO_GELO,
-  TIRO_PRECISO_LUZ,
-  TIRO_PRECISO_TREVAS,
+  TIRO_MAGICO,
+  TIRO_FOGO,
+  TIRO_AGUA,
+  TIRO_ELETRICO,
+  TIRO_ACIDO,
+  TIRO_TERRA,
+  TIRO_AR,
+  TIRO_GELO,
+  TIRO_LUZ,
+  TIRO_TREVAS,
 };

@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const ARMADURA_FLORESTA = {
     id: 29,
     nome: "Armadura da Floresta",
-    descricao: "Uma armadura",
+    descricao: "Uma armadura de aço abençoada pela Deusa da Natureza.",
     sprite: ARMADURA_FLORESTA_SPRITE,
     raridade: 4,
     tipo: "Armadura Pesada",

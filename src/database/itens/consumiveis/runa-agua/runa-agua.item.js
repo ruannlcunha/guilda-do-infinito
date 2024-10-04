@@ -9,9 +9,9 @@ const { rolarDado } = useRolarDado();
 const { iniciarEfeito, restaurarVida, finalizarAcao, consumirItem, informarErro } = useAcoesBase();
 
 export const RUNA_AGUA = {
-    id: 42,
+    id: 41,
     nome: "Runa de Água",
-    descricao: "Um item",
+    descricao: "Uma pedra contendo uma runa mágica do elemento Água.",
     efeito: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",

@@ -2,17 +2,33 @@ import "./cosmos.style.css"
 import { BotaoPrimario, ContainerScreen, Header } from "../../components"
 import { ICONS, IMAGES } from "../../../constants/images"
 import { GACHA_DATA } from "../../../database"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useGlobalUser from "../../../context/global-user.context"
 import { useNavigate } from "react-router-dom"
+import { useSound } from "../../../hook"
 
 export function CosmosScreen() {
     const [gachaAtual, setGachaAtual] = useState(GACHA_DATA[0])
-    const [user] = useGlobalUser()
+    const [user, setUser] = useGlobalUser()
+    const {playHover, playClick} = useSound()
     const navigate = useNavigate()
 
+    useEffect(()=>{
+        user.modos.cosmos ? setGachaAtual(
+            GACHA_DATA.find(gacha=>gacha.id===user.modos.cosmos)
+        ) : null
+    },[])
+
     function handleEscolherGacha(gachaId) {
+        playClick(1)
         const _gacha = GACHA_DATA.find(item=>item.id === gachaId)
+        setUser({
+            ...user,
+            modos: {
+                ...user.modos,
+                cosmos: gachaId,
+            }
+        })
         setGachaAtual(_gacha)
     }
     
@@ -23,7 +39,7 @@ export function CosmosScreen() {
                     <img src={ICONS.BENCAO} alt="Benção de Orion" />
                     x{quantidade}
                 </div>
-                Jogar <span>x{quantidade}</span>
+                Simular <span>x{quantidade}</span>
             </BotaoPrimario>
         )
     }
@@ -32,6 +48,7 @@ export function CosmosScreen() {
         return (
             <li>
                 <div 
+                onMouseEnter={()=>playHover(1)}
                 onClick={()=>handleEscolherGacha(gacha.id)}
                 className={gacha.id===gachaAtual.id ? "opcao-escolhida" : "opcao"}
                 style={{backgroundImage: `url(${gacha.preview})`}}>

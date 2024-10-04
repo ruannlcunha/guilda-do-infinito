@@ -6,7 +6,7 @@ import { ICONS } from "../../../../constants/images"
 export const ANEL_GELO = {
     id: 33,
     nome: "Anel de Gelo",
-    descricao: "Um acessório",
+    descricao: "Um anel mágico feito com um gelo que nunca derrete.",
     sprite: ANEL_GELO_SPRITE,
     raridade: 4,
     santuario: BASE_SANTUARIO,

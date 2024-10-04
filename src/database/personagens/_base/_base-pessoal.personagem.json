@@ -11,5 +11,10 @@
         "acessorio2": null
     },
     "equipamentoProntoId": null,
-    "inventario": []
+    "inventario": [],
+    "multiplicadores": {
+        "pv": 1,
+        "pm": 1,
+        "turnos": 1
+    }
 }

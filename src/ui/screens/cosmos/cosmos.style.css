@@ -66,8 +66,9 @@
     padding: 0;
     list-style: none;
     width: 100%;
-    height: 75%;
+    height: 70%;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .cosmos-screen .cosmos-section .banner-opcoes ul li .opcao{
@@ -119,6 +120,7 @@
     justify-content: flex-end;
     cursor: var(--cursor-pointer);
     transition: all 0.1s;
+    margin: 0.5rem 0;
 }
 
 .cosmos-screen .cosmos-section .banner-opcoes ul li .opcao-escolhida img {
@@ -215,4 +217,51 @@
     margin-right: 0.5rem;
     border: none;
     box-shadow: none;
+}
+
+@media screen and (max-height: 479px) {
+    .cosmos-screen .cosmos-section .banner-detalhes img {
+        height: 70%;
+    }
+    .cosmos-screen .cosmos-section .banner-detalhes div {
+        height: 15%;
+    }
+    .cosmos-screen .cosmos-section .banner-detalhes div button {
+        font-size: 1.5rem;
+    }
+    .cosmos-screen .cosmos-section .banner-opcoes h1 {
+        font-size: 1.5rem;
+    }
+    .cosmos-screen .cosmos-section .banner-opcoes div {
+        width: 35%;
+    }
+    .cosmos-screen .cosmos-section .banner-opcoes ul {
+        margin: 0;
+    }
+    .cosmos-screen .cosmos-section .banner-opcoes ul li .opcao-escolhida {
+        width: 6rem;
+        height: 4rem;
+        min-width: 6rem;
+        min-height: 4rem;
+    }
+
+    .cosmos-screen .cosmos-section .banner-opcoes ul li .opcao{
+        width: 5rem;
+        height: 3rem;
+        min-width: 5rem;
+        min-height: 3rem;
+    }
+    
+    .cosmos-screen .cosmos-section .banner-opcoes ul li .opcao:hover {
+        width: 6rem;
+        height: 4rem;
+        min-width: 6rem;
+        min-height: 4rem;
+    }
+    .cosmos-screen .cosmos-section .banner-opcoes {
+        width: 25%;
+    }
+    .cosmos-screen .cosmos-section .banner-detalhes header .saldo {
+        font-size: 1rem;
+    }
 }

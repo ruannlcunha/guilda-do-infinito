@@ -1,7 +1,7 @@
 {
   "name": "app",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.2.0",
   "homepage": "https://ruannlcunha.github.io/guilda-do-infinito/",
   "type": "module",
   "scripts": {
@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "app": "file:",
-    "axios": "^1.4.0",
     "gifuct-js": "^2.1.2",
     "howler": "^2.2.4",
     "js-file-download": "^0.4.12",

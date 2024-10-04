@@ -7,27 +7,35 @@ import { calcularPorcentagem, instanciarPersonagem } from "../../../utils"
 import { ICONS } from "../../../constants/images"
 import { ITENS_DATA } from "../../../database"
 import { useSound } from "../../../hook"
+import { cheatTodosPersonagens } from "../../../utils/cheats-testes.util"
 
 export function PersonagemDetalhadoScreen() {
     const { personagemId } = useParams()
-    const [user] = useGlobalUser()
+    const [_user] = useGlobalUser()
     const {playHover, playClick} = useSound()
     const [personagem, setPersonagem] = useState(null)
     const navigate = useNavigate()
+    const [user, setUser] = useState(null)
 
     useEffect(()=>{
-        const personagem = user.personagens.find(item=>item.personagemId == personagemId)
-        const personagemInstanciado = instanciarPersonagem(personagem)
-        setPersonagem(personagemInstanciado)
-        const porcentagemExp = calcularPorcentagem(
-            personagemInstanciado.experiencia.atual,
-            personagemInstanciado.experiencia.maximo
-        );
-        document.documentElement.style.setProperty('--resultadoExp', `${porcentagemExp}%`);
-        document.documentElement.style.setProperty('--fundo-tema',
-            `var(--${personagemInstanciado.corTema})`
-        );
+        setUser(cheatTodosPersonagens(_user))
     },[])
+
+    useEffect(()=>{
+        if(user) {
+            const personagem = user.personagens.find(item=>item.personagemId == personagemId)
+            const personagemInstanciado = instanciarPersonagem(personagem)
+            setPersonagem(personagemInstanciado)
+            const porcentagemExp = calcularPorcentagem(
+                personagemInstanciado.experiencia.atual,
+                personagemInstanciado.experiencia.maximo
+            );
+            document.documentElement.style.setProperty('--resultadoExp', `${porcentagemExp}%`);
+            document.documentElement.style.setProperty('--fundo-tema',
+                `var(--${personagemInstanciado.corTema})`
+            );
+        }
+    },[user])
 
     function renderEstrelas(item) {
         const estrelasArray = []
@@ -93,7 +101,7 @@ export function PersonagemDetalhadoScreen() {
                         {renderOpcoes("Evoluir", "evoluir")}
                         {renderOpcoes("Equipamento", "equipamentos/")}
                         {renderOpcoes("Inventário", "inventario")}
-                        {renderOpcoes("Ações", "acoes")}
+                        {/* {renderOpcoes("Ações", "acoes")} */}
                         {renderOpcoes("Visuais", "visuais")}
                     </ul>
                 </section>

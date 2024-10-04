@@ -8,7 +8,7 @@ const { rolarDado } = useRolarDado();
 const { iniciarEfeito, causarDano, finalizarAcao, atacar, realizarEtapasAtaque } = useAcoesBase();
 
 export const GOLPE_PESADO_LUZ = {
-    id: 43,
+    id: 44,
     nome: "Golpe Pesado (Luz)",
     dadoDeDano: "1d10+FOR+1d6(Luz)",
     descricao: "Um golpe de luz impactante causado por uma arma pesada.",

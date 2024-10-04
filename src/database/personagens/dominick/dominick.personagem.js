@@ -55,77 +55,58 @@ export const DOMINICK = {
             perfil: DOMINICK_5_PERFIL,
             santuario: null,
         },
-        ],
-        status: {
-            pvBase: 16,
-            pmBase: 3,
-            pvBonus: 4,
+    ],
+    status: {
+        pvBase: 16,
+        pmBase: 3,
+        pvBonus: 4,
+    },
+    atributosBase: {
+        forca: 4,
+        agilidade: 5,
+        magia: 2,
+        vigor: 3
+    },
+    evolucoes: [
+        {
+            level: 1,
+            experienciaNecessaria: 1250,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
+            talentos: [],
+            ataques: [14, 17],
+            habilidades: []
         },
-        evolucoes: [
-            {
-                level: 1,
-                experienciaNecessaria: 1250,
-                atributos: {
-                    forca: 4,
-                    agilidade: 5,
-                    magia: 2,
-                    vigor: 3
-                },
-                talentos: [],
-                ataques: [14, 17],
-                habilidades: []
-            },
-            {
-                level: 2,
-                experienciaNecessaria: 3750,
-                atributos: {
-                    forca: 4,
-                    agilidade: 5,
-                    magia: 2,
-                    vigor: 3
-                },
-                talentos: [],
-                ataques: [14, 17],
-                habilidades: []
-            },
-            {
-                level: 3,
-                experienciaNecessaria: 7500,
-                atributos: {
-                    forca: 4,
-                    agilidade: 5,
-                    magia: 2,
-                    vigor: 3
-                },
-                talentos: [],
-                ataques: [14, 17, 19],
-                habilidades: []
-            },
-            {
-                level: 4,
-                experienciaNecessaria: 12500,
-                atributos: {
-                    forca: 5,
-                    agilidade: 5,
-                    magia: 2,
-                    vigor: 3
-                },
-                talentos: [],
-                ataques: [14, 17, 19],
-                habilidades: []
-            },
-            {
-                level: 5,
-                experienciaNecessaria: 18750,
-                atributos: {
-                    forca: 6,
-                    agilidade: 6,
-                    magia: 3,
-                    vigor: 4
-                },
-                talentos: [],
-                ataques: [14, 17, 19, 26, 58],
-                habilidades: []
-            },
+        {
+            level: 2,
+            experienciaNecessaria: 3750,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
+            talentos: [],
+            ataques: [14, 17],
+            habilidades: []
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 7500,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
+            talentos: [],
+            ataques: [14, 17, 19],
+            habilidades: []
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 12500,
+            bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
+            talentos: [],
+            ataques: [14, 17, 19],
+            habilidades: []
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 18750,
+            bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
+            talentos: [],
+            ataques: [14, 17, 19, 26, 58],
+            habilidades: []
+        },
     ]
 }

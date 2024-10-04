@@ -10,11 +10,10 @@ export function useFinalizarTurno() {
     }, 1000)
   }
 
-  function finalizarTurno(personagens, turno, functions) {
+  function finalizarTurno(personagens, turnos, functions) {
+    const _idCombate = turnos.ordemIniciativa.find(ordem=>ordem.ordemIniciativa===turnos.atual).idCombate
     functions.setPersonagemAtivo(
-      personagens.sort(function (a, b) {
-        return b.resultadoIniciativa - a.resultadoIniciativa;
-      })[turno.atual]
+      personagens.find(personagem=>personagem.idCombate===_idCombate)
     );
 
     if (personagens.length > 0) {

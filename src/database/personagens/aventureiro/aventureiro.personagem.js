@@ -46,16 +46,17 @@ export const AVENTUREIRO = {
         pmBase: 3,
         pvBonus: 5,
     },
+    atributosBase: {
+        forca: 5,
+        agilidade: 3,
+        magia: 2,
+        vigor: 4
+    },
     evolucoes: [
         {
             level: 1,
-            experienciaNecessaria: 1250,
-            atributos: {
-                forca: 5,
-                agilidade: 3,
-                magia: 2,
-                vigor: 4
-            },
+            experienciaNecessaria: 1000,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,14],
             habilidades: [12]
@@ -63,12 +64,7 @@ export const AVENTUREIRO = {
         {
             level: 2,
             experienciaNecessaria: 3000,
-            atributos: {
-                forca: 5,
-                agilidade: 3,
-                magia: 2,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,14],
             habilidades: [12]
@@ -76,25 +72,15 @@ export const AVENTUREIRO = {
         {
             level: 3,
             experienciaNecessaria: 6000,
-            atributos: {
-                forca: 5,
-                agilidade: 3,
-                magia: 2,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,14,12],
             habilidades: [12,13]
         },
         {
             level: 4,
-            experienciaNecessaria: 30000,
-            atributos: {
-                forca: 6,
-                agilidade: 3,
-                magia: 2,
-                vigor: 4
-            },
+            experienciaNecessaria: 10000,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [1,14,12],
             habilidades: [12,13]
@@ -102,12 +88,7 @@ export const AVENTUREIRO = {
         {
             level: 5,
             experienciaNecessaria: 15000,
-            atributos: {
-                forca: 7,
-                agilidade: 4,
-                magia: 3,
-                vigor: 5
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [1,14,12,34],
             habilidades: [12,13]

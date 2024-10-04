@@ -3,9 +3,8 @@ import "./resultado-experiencia.style.css"
 
 export function ResultadoExperiencia({personagens, experienciaMaximo}) {
 
-    const aliados = personagens.filter(item=> !item.isInimigo)
-    const expIndividual = Math.ceil((experienciaMaximo / (aliados.length)))
-
+    const aliados = personagens.filter(personagem=> !personagem.isInimigo && !personagem.isExtra)
+    const expIndividual = aliados.length>0?Math.ceil((experienciaMaximo / (aliados.length))):0
     return (
     <section className="experiencia-section">
         <header>
@@ -27,13 +26,16 @@ export function ResultadoExperiencia({personagens, experienciaMaximo}) {
             </section>
             <div className="triangulo" style={{transform:"scaleX(-1)"}}></div>
         </div>
-        <section className="experiencia-personagens">
-            {
+        <section className="experiencia-personagens"
+        style={aliados.length===0?{alignItems: "center", justifyContent: "center"}:null}>
+            {aliados.length>0?
                 aliados.map((personagem,i)=> {
                     return (
                         <CardExperiencia key={i} personagem={personagem} expRecebida={expIndividual}/>
                     )
                 })
+            :
+            <h1>Nenhum personagem recebeu experiência.</h1>
             }
         </section>
     </section>

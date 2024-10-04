@@ -16,7 +16,8 @@ export function Personagem({
     personagem.pv.maximo
   );
 
-  const isAlvo = acaoAtiva.alvos.some(item=> item.idCombate===personagem.idCombate)
+  const isAlvo = acaoAtiva.alvos.some(item=>
+     item.idCombate===personagem.idCombate && !personagem.isMorto)
 
   const estaAtivo =
     idAtivo === personagem.idCombate && idAtivo && animacoes.iniciativaTerminou
@@ -45,6 +46,7 @@ export function Personagem({
       onMouseEnter={hoverEscolherAlvo}
       onMouseLeave={hoverEscolherAlvo}
     >
+      {!animacoes.batalhaTerminou ?
       <img
         src={
           estaEscolhido ? ICONS.ESCOLHER_BAIXO :
@@ -56,6 +58,7 @@ export function Personagem({
         alt="Seta apontada para baixo"
         className="icone-ativo"
       />
+      :null}
 
       <img
         src={personagem.sprite}
@@ -64,7 +67,7 @@ export function Personagem({
         className="sprite-personagem"
       />
 
-      {personagem.effect.isAtivo ? (
+      {personagem.effect.isAtivo? (
         <img src={personagem.effect.asset} alt="" className="acao-effect" />
       ) : null}
 

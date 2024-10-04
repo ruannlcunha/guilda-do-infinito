@@ -250,6 +250,8 @@
 
 .personagem-evoluir .evoluir-section .experiencia-section ul li div {
     margin-right: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .personagem-evoluir .evoluir-section .experiencia-section ul li img{
@@ -295,4 +297,68 @@
 .personagem-evoluir .evoluir-section .quantidade-opcao div button:hover {
     border-color: var(--blue);
     background-color: var(--light-blue);
+}
+
+
+
+@media screen and (max-height: 479px) {
+
+    .personagem-evoluir .personagem h1 {
+        top: 0;
+        font-size: 2.5rem;
+    }
+    .personagem-evoluir .evoluir-section h1 {
+        font-size: 1.5rem;
+    }
+    .personagem-evoluir .evoluir-section .experiencia-section ul li {
+        font-size: 1rem;
+        margin: 5px;
+    }
+    .personagem-evoluir .evoluir-section .experiencia-section ul li img {
+        margin: 0 0.2rem;
+    }
+    .personagem-evoluir .evoluir-section .experiencia-section ul {
+        margin: 0;
+        height: 60%;
+        width: 100%;
+    }
+    .personagem-evoluir .evoluir-section .experiencia-section .level img {
+        height: 1.5rem;
+    }
+    .personagem-evoluir .evoluir-section .cards-experiencia {
+        height: 4rem;
+    }
+    .personagem-evoluir .evoluir-section .cards-experiencia .card-escolhido {
+        height: 4rem;
+        width: 4rem;
+    }
+    .personagem-evoluir .evoluir-section .cards-experiencia button {
+        height: 4rem;
+        width: 4rem;
+    }
+    .personagem-evoluir .evoluir-section .cards-experiencia button:hover {
+        height: 4rem;
+        width: 4rem;
+    }
+    .personagem-evoluir .evoluir-section .cards-experiencia button footer ul img {
+        height: 75%;
+        margin-top: 25%;
+    }
+    .personagem-evoluir .evoluir-section .quantidade-opcao {
+        font-size: 1.25rem;
+        padding: 5px 10px;
+        margin-top: -15px;
+        margin-bottom: 10px;
+    }
+    .personagem-evoluir .evoluir-section .quantidade-opcao div {
+        margin-left: -5%;
+        width: 20%;
+    }
+    .personagem-evoluir .evoluir-section .quantidade-opcao div h1 {
+        font-size: 1.25rem;
+    }
+    .personagem-evoluir .evoluir-section .quantidade-opcao div button {
+        font-size: 1rem;
+    }
+    
 }

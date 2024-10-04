@@ -17,7 +17,7 @@ export const APHELIOS = {
     ..._BASE_ORIGINAL,
     id: 4,
     nome: "Aphelios",
-    titulo: "Soberano de Gelo",
+    titulo: "Soberano Glacial",
     elemento: ELEMENTOS.GELO,
     corTema: COR_TEMA.CIANO,
     raridade: 5,
@@ -64,77 +64,58 @@ export const APHELIOS = {
             perfil: APHELIOS_6_PERFIL,
             santuario: null,
         },
-        ],
-        status: {
-            pvBase: 12,
-            pmBase: 6,
-            pvBonus: 2
+    ],
+    status: {
+        pvBase: 12,
+        pmBase: 6,
+        pvBonus: 2
+    },
+    atributosBase: {
+        forca: 2,
+        agilidade: 4,
+        magia: 5,
+        vigor: 3
+    },
+    evolucoes: [
+        {
+            level: 1,
+            experienciaNecessaria: 1250,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
+            talentos: [],
+            ataques: [1,21],
+            habilidades: []
         },
-        evolucoes: [
-            {
-                level: 1,
-                experienciaNecessaria: 1250,
-                atributos: {
-                    forca: 2,
-                    agilidade: 4,
-                    magia: 5,
-                    vigor: 3
-                },
-                talentos: [],
-                ataques: [1,21],
-                habilidades: []
-            },
-            {
-                level: 2,
-                experienciaNecessaria: 3750,
-                atributos: {
-                    forca: 2,
-                    agilidade: 4,
-                    magia: 5,
-                    vigor: 3
-                },
-                talentos: [],
-                ataques: [1,21],
-                habilidades: []
-            },
-            {
-                level: 3,
-                experienciaNecessaria: 7500,
-                atributos: {
-                    forca: 2,
-                    agilidade: 4,
-                    magia: 5,
-                    vigor: 3
-                },
-                talentos: [],
-                ataques: [1,16,21,22],
-                habilidades: []
-            },
-            {
-                level: 4,
-                experienciaNecessaria: 12500,
-                atributos: {
-                    forca: 2,
-                    agilidade: 4,
-                    magia: 6,
-                    vigor: 3
-                },
-                talentos: [],
-                ataques: [1,16,21,22],
-                habilidades: []
-            },
-            {
-                level: 5,
-                experienciaNecessaria: 18750,
-                atributos: {
-                    forca: 3,
-                    agilidade: 5,
-                    magia: 7,
-                    vigor: 4
-                },
-                talentos: [],
-                ataques: [1,16,21,22,52],
-                habilidades: []
-            },
+        {
+            level: 2,
+            experienciaNecessaria: 3750,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
+            talentos: [],
+            ataques: [1,21],
+            habilidades: []
+        },
+        {
+            level: 3,
+            experienciaNecessaria: 7500,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
+            talentos: [],
+            ataques: [1,16,21,22],
+            habilidades: []
+        },
+        {
+            level: 4,
+            experienciaNecessaria: 12500,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
+            talentos: [],
+            ataques: [1,16,21,22],
+            habilidades: []
+        },
+        {
+            level: 5,
+            experienciaNecessaria: 18750,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
+            talentos: [],
+            ataques: [1,16,21,22,52],
+            habilidades: []
+        },
     ]
 }

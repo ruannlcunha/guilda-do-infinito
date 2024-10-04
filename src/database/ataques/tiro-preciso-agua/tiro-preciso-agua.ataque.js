@@ -37,7 +37,7 @@ function tiroPrecisoAgua(personagem, alvo, functions) {
       },
       ()=>{
         const novoAlvo = causarDano(alvo, total, functions);
-        const duracao = iniciarEfeito(novoAlvo, functions, EFFECTS.TIRO_PRECISO_AGUA, ACOES_AUDIO.FLECHA);
+        const duracao = iniciarEfeito(novoAlvo, functions, EFFECTS.TIRO_AGUA, ACOES_AUDIO.FLECHA);
         finalizarAcao(functions, novoAlvo, duracao);
       },
       ()=>{

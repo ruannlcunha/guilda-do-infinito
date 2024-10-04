@@ -8,7 +8,7 @@ const { rolarDado } = useRolarDado();
 const { iniciarEfeito, causarDano, finalizarAcao, atacar, realizarEtapasAtaque } = useAcoesBase();
 
 export const GOLPE_PESADO_TREVAS = {
-    id: 44,
+    id: 43,
     nome: "Golpe Pesado (Trevas)",
     dadoDeDano: "1d10+FOR+1d6(Trevas)",
     descricao: "Um golpe de trevas impactante causado por uma arma pesada.",

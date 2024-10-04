@@ -6,8 +6,6 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
     const { playClick, playHover } = useSound()
     const { escolherAcao } = useEscolherAcao();
 
-    console.log(subAcoes)
-
     function handleEscolherAcao(personagem, personagens, acao, functions) {
         playClick(2)
         escolherAcao(personagem, personagens, acao, functions)

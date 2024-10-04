@@ -1,9 +1,10 @@
-import useGlobalConfig from '../../../context/global-config.context';
+
 import { CONTEXT_CONFIG_NAMES } from '../../../constants';
+import useGlobalUser from '../../../context/global-user.context';
 
 export function useMusic() {
-    const [ config ] = useGlobalConfig()
-    const volumeMusica = (config[CONTEXT_CONFIG_NAMES.SOM_MUSICA])/10
+    const [user] = useGlobalUser()
+    const volumeMusica = (user.configuracoes[CONTEXT_CONFIG_NAMES.SOM_MUSICA])/10
 
     function startMusic(loop) {
       const audioContext = new AudioContext();

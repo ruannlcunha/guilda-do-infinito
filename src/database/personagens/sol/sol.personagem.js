@@ -4,6 +4,8 @@ import SOL_2_SPRITE from "./assets/SOL_2_SPRITE.png"
 import SOL_2_PERFIL from "./assets/SOL_2_PERFIL.png"
 import SOL_3_SPRITE from "./assets/SOL_3_SPRITE.png"
 import SOL_3_PERFIL from "./assets/SOL_3_PERFIL.png"
+import SOL_4_SPRITE from "./assets/SOL_4_SPRITE.png"
+import SOL_4_PERFIL from "./assets/SOL_4_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 
@@ -37,22 +39,30 @@ export const SOL = {
             perfil: SOL_3_PERFIL,
             santuario: null,
         },
+        {
+            visualId: 4,
+            nome: "Traje de Escravo",
+            sprite: SOL_4_SPRITE,
+            perfil: SOL_4_PERFIL,
+            santuario: null,
+        },
     ],
     status: {
         pvBase: 20,
         pmBase: 3,
         pvBonus: 5
     },
+    atributosBase: {
+        forca: 5,
+        agilidade: 4,
+        magia: 2,
+        vigor: 3
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 5,
-                agilidade: 4,
-                magia: 2,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1],
             habilidades: []
@@ -60,12 +70,7 @@ export const SOL = {
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 5,
-                agilidade: 4,
-                magia: 2,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1],
             habilidades: []
@@ -73,40 +78,25 @@ export const SOL = {
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 5,
-                agilidade: 4,
-                magia: 2,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,14],
+            ataques: [1,16],
             habilidades: []
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 5,
-                agilidade: 5,
-                magia: 2,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,14],
+            ataques: [1,16],
             habilidades: []
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 6,
-                agilidade: 6,
-                magia: 3,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,14,47],
+            ataques: [1,16,47],
             habilidades: []
         },
     ],

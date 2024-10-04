@@ -52,16 +52,17 @@ export const HERES = {
         pmBase: 5,
         pvBonus: 4
     },
+    atributosBase: {
+        forca: 3,
+        agilidade: 2,
+        magia: 5,
+        vigor: 4
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 3,
-                agilidade: 2,
-                magia: 5,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,5],
             habilidades: [1]
@@ -69,12 +70,7 @@ export const HERES = {
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 3,
-                agilidade: 2,
-                magia: 5,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,5],
             habilidades: [1]
@@ -82,12 +78,7 @@ export const HERES = {
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 3,
-                agilidade: 2,
-                magia: 5,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,5,14],
             habilidades: [1]
@@ -95,12 +86,7 @@ export const HERES = {
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 3,
-                agilidade: 2,
-                magia: 6,
-                vigor: 4
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [1,5,14],
             habilidades: [1]
@@ -108,12 +94,7 @@ export const HERES = {
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 4,
-                agilidade: 3,
-                magia: 7,
-                vigor: 5
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [1,5,14,33],
             habilidades: [1]

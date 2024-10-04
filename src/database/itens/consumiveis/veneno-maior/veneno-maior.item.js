@@ -11,7 +11,7 @@ const { iniciarEfeito, restaurarVida, finalizarAcao, consumirItem, informarErro 
 export const VENENO_MAIOR = {
     id: 45,
     nome: "Frasco de Veneno Maior",
-    descricao: "Um item",
+    descricao: "Um grande frasco contendo um líquido corrosivo que pode ser arremessado.",
     efeito: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",

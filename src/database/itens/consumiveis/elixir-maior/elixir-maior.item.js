@@ -11,7 +11,7 @@ const { iniciarEfeito, restaurarVida, finalizarAcao, consumirItem, informarErro 
 export const ELIXIR_MAIOR = {
     id: 39,
     nome: "Elixir Maior",
-    descricao: "Um item",
+    descricao: "Um grande frasco de vidro contendo um líquido dourado mágico que recupera sua vida e mana.",
     efeito: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",

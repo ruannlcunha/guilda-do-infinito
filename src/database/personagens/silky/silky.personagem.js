@@ -7,7 +7,7 @@ export const SILKY = {
     ..._BASE_ORIGINAL,
     id: 32,
     nome: "Silky",
-    titulo: "Guardiã Roxa",
+    titulo: "Guardiã Solitária",
     elemento: ELEMENTOS.ELETRICO,
     corTema: COR_TEMA.ROXO,
     raridade: 4,
@@ -25,42 +25,33 @@ export const SILKY = {
         pmBase: 6,
         pvBonus: 2
     },
+    atributosBase: {
+        forca: 1,
+        agilidade: 3,
+        magia: 4,
+        vigor: 2
+    },
     evolucoes: [
         {
             level: 1,
-            experienciaNecessaria: 1250,
-            atributos: {
-                forca: 1,
-                agilidade: 3,
-                magia: 4,
-                vigor: 2
-            },
+            experienciaNecessaria: 1000,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,22],
             habilidades: []
         },
         {
             level: 2,
-            experienciaNecessaria: 3750,
-            atributos: {
-                forca: 1,
-                agilidade: 3,
-                magia: 4,
-                vigor: 2
-            },
+            experienciaNecessaria: 3000,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,22],
             habilidades: []
         },
         {
             level: 3,
-            experienciaNecessaria: 7500,
-            atributos: {
-                forca: 1,
-                agilidade: 3,
-                magia: 4,
-                vigor: 2
-            },
+            experienciaNecessaria: 6000,
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [1,16,22,5,12],
             habilidades: [1]
@@ -68,12 +59,7 @@ export const SILKY = {
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 1,
-                agilidade: 3,
-                magia: 5,
-                vigor: 2
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [1,16,22,5,12],
             habilidades: [1]
@@ -81,12 +67,7 @@ export const SILKY = {
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 2,
-                agilidade: 4,
-                magia: 6,
-                vigor: 3
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [1,16,22,5,12,45,46],
             habilidades: [1]

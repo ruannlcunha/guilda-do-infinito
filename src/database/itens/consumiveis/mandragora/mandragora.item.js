@@ -9,9 +9,9 @@ const { rolarDado } = useRolarDado();
 const { iniciarEfeito, restaurarVida, finalizarAcao, consumirItem, informarErro } = useAcoesBase();
 
 export const MANDRAGORA = {
-    id: 41,
+    id: 58,
     nome: "Madrágora",
-    descricao: "Um item",
+    descricao: "Uma pequena planta mágica que ao ser acordada atordoa o inimigo com seus gritos.",
     efeito: "Faz algo",
     evento: ()=>{},
     alvos: "INIMIGOS",

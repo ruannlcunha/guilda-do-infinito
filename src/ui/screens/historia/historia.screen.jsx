@@ -1,13 +1,18 @@
 import "./historia.style.css"
-import { ContainerScreen, Header, HomeBloqueado, HomeListItem } from "../../components"
-import { useForm } from "../../../hook";
+import { BotaoPrimario, ContainerScreen, Header, HomeBloqueado, HomeListItem } from "../../components"
+import { useForm, useSound } from "../../../hook";
 import { ICONS } from "../../../constants/images";
 import { useEffect, useState } from "react";
-import { CAMPANHAS_DATA } from "../../../database/campanhas/campanhas.data";
+import { HISTORIAS_DATA } from "../../../database/historias/HISTORIAS.data";
+import { useNavigate } from "react-router-dom";
 
 export function HistoriaScreen() {
+    const { playBook, playClick, playHover } = useSound()
     const [data, setData] = useState(null)
-    const [selectedData, setSelectedData] = useState(CAMPANHAS_DATA[0])
+    const [isLivroOpen, setIsLivroOpen] = useState(true)
+    const [selectedData, setSelectedData] = useState(HISTORIAS_DATA[0])
+    const [selectedIndex, setSelectedIndex] = useState(0)
+    const navigate = useNavigate()
     const {formData, handleChange} = useForm({
         filter: ""});
 
@@ -15,62 +20,81 @@ export function HistoriaScreen() {
         fetchData()
     },[])
 
+    useEffect(()=> {
+        setIsLivroOpen(true)
+        playBook()
+    },[selectedData])
+
     async function fetchData() {
-        setData(CAMPANHAS_DATA)
-        setSelectedData(CAMPANHAS_DATA[0])
+        setData(HISTORIAS_DATA)
+        setSelectedData(HISTORIAS_DATA[0])
+    }
+
+    function handleAnterior() {
+        if(selectedIndex>0) {
+            playClick(1)
+            setSelectedData(HISTORIAS_DATA[selectedIndex-1])
+            setSelectedIndex(selectedIndex-1)
+            setIsLivroOpen(false)
+        }
+    }
+
+    function handleProximo() {
+        if(selectedIndex<(data.length-1)) {
+            playClick(1)
+            setSelectedData(HISTORIAS_DATA[selectedIndex+1])
+            setSelectedIndex(selectedIndex+1)
+            setIsLivroOpen(false)
+        }
+    }
+    
+    function handleIniciar() {
+        playClick(2)
+        navigate(selectedData.url)
     }
 
     return (
         <ContainerScreen>
             <div className="historia-screen">
                 <Header idSelected={1}/>
-                 <HomeBloqueado /> 
-                {/*<div className="historia-list-screen">
-                <div className="historia-titulo">
-                    <img src={ICONS.HISTORIA} alt={`Livro aberto`} />
-                    <h1>Campanhas</h1>
-                </div>
-                <section>
-                    <section className="historia-list-left">
-                        <header>
-                            <input
-                            name={"filter"}
-                            value={formData.filter}
-                            type="text" 
-                            onChange={handleChange}
-                            placeholder="Pesquisar"
-                            />
-                        </header>
-                        <section>
-                            <ul>
-                                {data?
-                                data.filter(item=> item.title.includes(formData.filter)).map(item => {
-                                    return <HomeListItem 
-                                            key={item.id}
-                                            item={item}
-                                            selectedData={selectedData} 
-                                            setSelectedData={setSelectedData}
-                                            />
-                                })
-                                :<h1 className="historia-list-empty">Não há conteúdos nesta seção</h1>}
-                            </ul>
-                        </section>
-                    </section>
+                <div className="historia-list-screen">
+                {data?
+                <>
+                    {selectedIndex>0?
+                    <button className="setas"
+                    onMouseEnter={()=>playHover(1)}
+                    onClick={handleAnterior}>
+                        <img src={ICONS.SETA_DIREITA} style={{transform:"scaleX(-1)"}} alt="Seta" />
+                    </button>
+                    :<button className={"setas"}></button>}
 
-                    <section className="historia-list-right">
-
-                        {selectedData?
-                        <div style={{backgroundImage: `url(${selectedData.previewImage})`}}>
+                    {isLivroOpen?
+                    <div className="livro-historia">
+                        <div>
                             <section>
                                 <h1>{selectedData.title}</h1>
                                 <p>{selectedData.description}</p>
                             </section>
+                            <section>
+                                <img src={selectedData.previewImage} alt="" />
+                            <BotaoPrimario onClick={handleIniciar}>
+                                Iniciar
+                            </BotaoPrimario>
+                            </section>
                         </div>
-                        :null}
+                    </div>
+                    :null}
 
-                    </section>
-                </section>
-            </div>*/}
+                    {selectedIndex<(data.length-1)?
+                    <button className="setas"
+                    onMouseEnter={()=>playHover(1)}
+                    onClick={handleProximo}>
+                        <img src={ICONS.SETA_DIREITA} alt="Seta" />
+                    </button>
+                    :<button className={"setas"}></button>}
+                </>
+                :null}
+                </div>
             </div>
         </ContainerScreen>
     )

@@ -36,10 +36,12 @@
   --texto-destaque: #a7c5e9;
   --fundo-destaque: #c5d0dd;
   --black: #000000;
+  --light-black: #181818;
   --grey: #494949;
   --light-grey: #d4d4d4;
   --white: #ffffff;
   --red: #fe2826;
+  --mid-red: #a70906;
   --dark-red: #61110f;
   --red-transparent: #b90b08d8;
   --black-transparent: #000000e5;
@@ -57,8 +59,10 @@
   --dark-blue: #0f2249;
   --light-green: #43d843;
   --green: #00b800;
+  --mid-green: #0a610a;
   --dark-green: #0b410b;
   --purple: #5d0274;
+  --dark-purple: #2b0535;
   --cyan: #44dbfa;
   --background: #f0f0f0;
   --cyan-background: #E0ECF8;
@@ -67,17 +71,20 @@
   --card-3-estrelas: linear-gradient(0deg, rgb(92, 154, 196) 10%, rgb(8, 103, 141) 70%);
   --card-4-estrelas: linear-gradient(0deg, rgb(137, 3, 199) 10%, rgba(67,0,103,1) 70%);
   --card-5-estrelas: linear-gradient(0deg, rgb(255, 207, 49) 10%, rgb(207, 159, 0) 70%);
+  --card-aliado: linear-gradient(0deg, rgb(11, 114, 11) 10%, rgb(6, 71, 6) 70%);
 
   --tema-amarelo: #ffd900;
   --tema-azul: #292477;
   --tema-ciano: #70d6da;
-  --tema-roxo: #631974;
+  --tema-roxo: #821b99;
+  --tema-roxo-escuro: #3b0c46;
   --tema-rosa: #b3318c;
   --tema-preto: #0f0f0f;
   --tema-cinza: #6e6e6e;
   --tema-branco: #d4d4d4;
   --tema-turquesa: #057e4c;
   --tema-verde: #097e05;
+  --tema-verde-escuro: #11440f;
   --tema-laranja: #da6d14;
   --tema-vermelho: #bd0c0c;
 }

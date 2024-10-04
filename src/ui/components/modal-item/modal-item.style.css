@@ -21,7 +21,7 @@ div .modal .detalhes-item-modal header {
     justify-content: space-between;
 }
 
-div .modal .detalhes-item-modal header h1 {
+div .modal .detalhes-item-modal header h1{
     margin: 0;
     font-size: 2.5rem;
     font-weight: 100;

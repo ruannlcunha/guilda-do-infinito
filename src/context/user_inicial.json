@@ -5,7 +5,9 @@
     "moedas": 0,
     "bencaos": 0,
     "modos": {
+        "capituloEscolhido": null,
         "historia": [],
+        "cosmos": null,
         "versus": {
             "aliados": [],
             "inimigos": [],
@@ -13,5 +15,9 @@
         }
     },
     "personagens": [],
-    "inventario": []
+    "inventario": [],
+    "configuracoes": {
+        "somEfeitos": 10,
+        "somMusica": 10
+    }
 }

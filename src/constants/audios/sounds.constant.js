@@ -10,6 +10,7 @@ import GACHA_2 from "../../assets/audio/sound/GACHA_2.wav"
 import GACHA_3 from "../../assets/audio/sound/GACHA_3.wav"
 import GACHA_4 from "../../assets/audio/sound/GACHA_4.wav"
 import CANCEL from "../../assets/audio/sound/CANCEL.wav"
+import BOOK from "../../assets/audio/sound/BOOK.wav"
 
 export const SOUNDS = {
     HOVER_1,
@@ -24,4 +25,5 @@ export const SOUNDS = {
     GACHA_3,
     GACHA_4,
     CANCEL,
+    BOOK,
 }

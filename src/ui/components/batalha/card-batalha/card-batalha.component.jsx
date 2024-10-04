@@ -1,7 +1,15 @@
+import { MODOS_JOGO } from "../../../../constants"
 import { ICONS } from "../../../../constants/images"
+import { useSound } from "../../../../hook"
 import "./card-batalha.style.css"
 
-export function CardBatalha({personagem, reverse}) {
+export function CardBatalha({personagem, reverse, handleTrocarModal, modo}) {
+    const { playHover, playClick } = useSound()
+
+    function handleTrocar() {
+        playClick(1)
+        handleTrocarModal(personagem)
+    }
 
     return (
         <div className="card-batalha"
@@ -43,13 +51,19 @@ export function CardBatalha({personagem, reverse}) {
             <div className="card-perfil"
             style={{
                 transform: `${reverse?"scaleX(-1)":""}`,
-                background: `url(${personagem.perfil}) center,
-                radial-gradient(circle, var(--black) 7%, var(--${personagem.corTema}) 100%)`,
+                background: `radial-gradient(circle, var(--black) 7%, var(--${personagem.corTema}) 100%)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}>
+                <img src={personagem.perfil} alt={`Perfil de ${personagem.nome}`} />
             </div>
             <div className="card-ponta" style={reverse? {left: "-15px"}: {right: "-15px"}}></div>
+
+            {!personagem.isInimigo && modo!==MODOS_JOGO.VERSUS ?
+            <button className="trocar-icon" onMouseEnter={()=>playHover(1)} onClick={handleTrocar}>
+                <img src={ICONS.TROCAR} alt="Ícone de trocar"/>
+            </button>
+            :null}
         </div>
     )
 

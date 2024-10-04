@@ -4,6 +4,7 @@ import "./versus-batalha.style.css";
 import { useInstanciarPersonagens } from "../../../hook/batalha";
 import { useMusic } from "../../../hook";
 import useGlobalUser from "../../../context/global-user.context";
+import { MODOS_JOGO } from "../../../constants";
 
 export function VersusBatalhaScreen() {
   const [telas, setTelas] = useState({iniciarBatalha: true, jogarBatalha: false, fimBatalha: false})
@@ -56,6 +57,7 @@ export function VersusBatalhaScreen() {
     aliados={personagensInstanciados.filter((item) => item.isInimigo === false)}
     inimigos={personagensInstanciados.filter((item) => item.isInimigo === true)}
     iniciarFunction={handleIniciar}
+    modo={MODOS_JOGO.VERSUS}
     />
     : null}
     {telas.jogarBatalha ?

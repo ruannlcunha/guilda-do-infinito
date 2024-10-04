@@ -5,9 +5,9 @@ import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
 import { ICONS } from "../../../../constants/images"
 
 export const LANCA_MAGMA = {
-    id: 24,
+    id: 59,
     nome: "Lança de Magma",
-    descricao: "Uma arma",
+    descricao: "Uma lança forjada no magma que queima os inimigos perfurados por ela.",
     sprite: LANCA_MAGMA_SPRITE,
     raridade: 4,
     tipo: ARMAS_TIPO.PESADA,

@@ -37,7 +37,7 @@ function tiroPrecisoEletrico(personagem, alvo, functions) {
       },
       ()=>{
         const novoAlvo = causarDano(alvo, total, functions);
-        const duracao = iniciarEfeito(novoAlvo, functions, EFFECTS.TIRO_PRECISO_ELETRICO, ACOES_AUDIO.FLECHA);
+        const duracao = iniciarEfeito(novoAlvo, functions, EFFECTS.TIRO_ELETRICO, ACOES_AUDIO.FLECHA);
         finalizarAcao(functions, novoAlvo, duracao);
       },
       ()=>{

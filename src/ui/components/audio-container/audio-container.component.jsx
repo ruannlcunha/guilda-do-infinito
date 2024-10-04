@@ -1,5 +1,3 @@
-import { useEffect } from "react"
-import { useMusic } from "../../../hook"
 
 export function AudioContainer({audio}) {
 

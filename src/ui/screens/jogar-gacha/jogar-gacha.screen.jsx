@@ -27,7 +27,7 @@ export function JogarGachaScreen() {
 
     useEffect(()=>{
         startMusic(true)
-        if(user.bencaos >= quantidade) {
+        if(user.bencaos >= quantidade || true) {
             playSound(SOUNDS.GACHA_1)
             const _gacha2Sound = setTimeout(()=>{playSound(SOUNDS.GACHA_2)},2100)
             setTimeoutId([...timeoutId, _gacha2Sound])
@@ -99,11 +99,11 @@ export function JogarGachaScreen() {
                 }
             }
         })
-        setUser({...user,
-            bencaos: (user.bencaos)-quantidade,
-            inventario: novoInventario,
-            personagens: novosPersonagens,
-        })
+        // setUser({...user,
+        //     bencaos: (user.bencaos)-quantidade,
+        //     inventario: novoInventario,
+        //     personagens: novosPersonagens,
+        // })
     }
 
     function handleContinuar() {
@@ -159,6 +159,7 @@ export function JogarGachaScreen() {
 
     function renderCena2() {
         return recompensaAtivo?(
+            <>
                 <div className="gacha-cena-2">
                     <div className="gacha-fundo"
                     style={{backgroundImage:`url(${
@@ -167,7 +168,11 @@ export function JogarGachaScreen() {
                         :IMAGES[`SANTUARIO_${recompensas[recompensaAtualId].recompensa.raridade}_ESTRELAS`]})`}}>
                         <div className="gacha-detalhes">
                             <header>
-                            {/* <img src={ICONS.ELEMENTO_FOGO} alt="ícone" /> */}
+                            {recompensas[recompensaAtualId].recompensa.elemento?
+                                <img src={ICONS[`ELEMENTO_${
+                                    recompensas[recompensaAtualId].recompensa.elemento
+                                }`]} alt="ícone" />
+                            :null}
                             <h1>{recompensas[recompensaAtualId].recompensa.nome}</h1>
                             </header>
                             <div className="estrelas">
@@ -181,11 +186,12 @@ export function JogarGachaScreen() {
                         <img src={recompensas[recompensaAtualId].recompensa.sprite}
                         alt="Sprite" className="sprite"/>
                     </div>
-                    <button className="continuar-button" onClick={handleContinuar}>
-                        Próximo
-                        <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
-                    </button>
                 </div>
+                <button className="continuar-button" onClick={handleContinuar}>
+                    Próximo
+                    <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
+                </button>
+            </>
         ):null
     }
 
@@ -200,12 +206,12 @@ export function JogarGachaScreen() {
                                 <li className="gacha-recompensa" key={i}
                                 style={{backgroundImage: `url(${item.recompensa.santuario?
                                     item.recompensa.santuario
-                                    :IMAGES[`SANTUARIO_${recompensas[recompensaAtualId].recompensa.raridade}_ESTRELAS`]}),
+                                    :IMAGES[`SANTUARIO_${recompensas[i].recompensa.raridade}_ESTRELAS`]}),
                                 url(${ICONS[`BRILHO_${item.recompensa.raridade}`]})`}}>
                                     <div className="sprite-recompensa">
                                         <img
                                         style={item.tipo === RECOMPENSAS_TIPO.ARMA ?
-                                            {width: "65%"}
+                                            {width: "75%"}
                                         :null}
                                         src={item.recompensa.sprite}
                                         alt="" />

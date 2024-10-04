@@ -11,7 +11,7 @@ const { iniciarEfeito, restaurarVida, finalizarAcao, consumirItem, informarErro 
 export const ELIXIR_MENOR = {
     id: 38,
     nome: "Elixir Menor",
-    descricao: "Um item",
+    descricao: "Um pequeno frasco de vidro contendo um líquido dourado mágico que recupera sua vida e mana.",
     efeito: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",

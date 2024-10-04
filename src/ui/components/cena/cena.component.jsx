@@ -6,11 +6,13 @@ import { Imagem } from "../imagem/imagem.component"
 import { OpcoesCena } from "../opcoes-cena/opcoes-cena.component"
 import "./cena.style.css"
 import { AudioContainer } from "../audio-container/audio-container.component"
+import { useNavigate } from "react-router-dom"
 
-export function Cena({cenas, dialogo, setDialogo}) {
+export function Cena({cenas, dialogo, setDialogo, handleFinish}) {
     const [dialogoAtivo, setDialogoAtivo] = useState(true)
     const [audioAtual, setAudioAtual] = useState(null)
     const { startMusic } = useMusic()
+    const navigate = useNavigate()
     const { playClick } = useSound()
     
     useEffect(()=>{
@@ -31,8 +33,14 @@ export function Cena({cenas, dialogo, setDialogo}) {
         if((dialogo+1)<cenas.length) {
             setDialogo(dialogo+1)
         }
+        if((dialogo+1)===cenas.length && cenas[dialogo].navigateTo) {
+            navigate(cenas[dialogo].navigateTo)
+        }
         if((dialogo+1)===cenas.length && cenas[dialogo].onClick) {
             cenas[dialogo].onClick() 
+        }
+        if((dialogo+1)===cenas.length && cenas[dialogo].isFinish) {
+            handleFinish()
         }
     }
 
@@ -40,7 +48,7 @@ export function Cena({cenas, dialogo, setDialogo}) {
         playClick(2)
         let pulou = false
         cenas.map((item, index)=>{
-            if(index>dialogo && !pulou && (item.onClick || item.onEnter || item.musica)) {
+            if(index>dialogo && !pulou && (item.onClick || item.onEnter || item.musica || item.isFinish)) {
                 setDialogo(index)
                 pulou = true
             }
@@ -51,10 +59,12 @@ export function Cena({cenas, dialogo, setDialogo}) {
         <>
         <AudioContainer audio={audioAtual}/>
         <OpcoesCena dialogoAtivo={dialogoAtivo} functions={{setDialogoAtivo}}/>
-        <button onClick={handlePular} className="pular-button">
+        {cenas.length-1 !== dialogo ?
+            <button onClick={handlePular} className="pular-button">
                 Pular cena
                 <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
             </button>
+        :null}
             <div className="cena-screen" style={{backgroundImage: `url(${cenas[dialogo].fundo})`}}>
                 {cenas[dialogo].tipo === CENAS_TIPO.DIALOGO && dialogoAtivo? 
                 <section className="cena-dialogo">
@@ -68,8 +78,9 @@ export function Cena({cenas, dialogo, setDialogo}) {
                         </h1>
                         :null}
                     </div>
-                    <p onClick={handleProximo} > {cenas[dialogo].texto}
-                    <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
+                    <p onClick={handleProximo} translate="no">
+                        {cenas[dialogo].texto}
+                        <img src={ICONS.SETA_DIREITA} alt="Seta para direita" />
                     </p>
                 </section>
                 :null}

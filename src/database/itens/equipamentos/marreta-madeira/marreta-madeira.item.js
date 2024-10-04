@@ -7,7 +7,7 @@ import { ICONS } from "../../../../constants/images"
 export const MARRETA_MADEIRA = {
     id: 28,
     nome: "Marreta de Madeira",
-    descricao: "Uma arma",
+    descricao: "Uma simples marreta de madeira.",
     sprite: MARRETA_MADEIRA_SPRITE,
     raridade: 3,
     tipo: ARMAS_TIPO.PESADA,

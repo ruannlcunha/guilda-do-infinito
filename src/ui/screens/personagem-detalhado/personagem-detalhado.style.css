@@ -239,6 +239,9 @@
     .personagem-detalhado .personagem-menu ul li {
         font-size: 2.25rem;
     }
+    .personagem-detalhado .personagem-menu ul li:hover {
+        font-size: 2.5rem;
+    }
     
     .personagem-detalhado .personagem-info .elemento {
         height: 3.5rem;

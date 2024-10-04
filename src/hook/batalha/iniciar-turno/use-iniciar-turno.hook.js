@@ -10,7 +10,7 @@ export function useIniciarTurno() {
         ) {
             automatizarPersonagem(personagemAtivo, personagens, functions)
         }
-        personagemAtivo.isMorto ? pularTurno(functions.setTurno) : null
+        personagemAtivo.isMorto ? pularTurno(functions.setTurnos) : null
     }
 
     return { iniciarTurno }

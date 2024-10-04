@@ -8,8 +8,7 @@ export function CampoDeBatalha({
   zoom,
   animacoes,
   acaoAtiva,
-  mapa,
-  batalhaTipo,
+  batalha,
   functions,
 }) {
 
@@ -22,7 +21,7 @@ export function CampoDeBatalha({
   });
 
   function renderPersonagem(personagem) {
-    return (
+    return personagem?(
       <Personagem
         iniciativaTerminou={animacoes.iniciativaTerminou}
         idAtivo={idAtivo}
@@ -31,7 +30,7 @@ export function CampoDeBatalha({
         acaoAtiva={acaoAtiva}
         functions={functions}
       />
-    );
+    ):null
   }
 
   return (
@@ -42,11 +41,11 @@ export function CampoDeBatalha({
         height: `${zoom}%`,
         border: `${zoom < 100 ? "solid 5px var(--black)" : ""}`,
         marginBottom: `${zoom < 75 ? "5rem" : ""}`,
-        backgroundImage: `url(${mapa})`,
+        backgroundImage: `url(${batalha.mapa})`,
       }}
     >
       <section>
-        {batalhaTipo!="GIGANTE" ?
+        {!batalha.isBatalhaGigante ?
         <div className="inimigos">
           <section>
             {inimigosOrdenados.length>=4 ? renderPersonagem(inimigosOrdenados[3]):null}

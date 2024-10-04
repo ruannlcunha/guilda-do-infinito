@@ -64,16 +64,18 @@ export function PerfilScreen() {
             <div className="perfil-screen">
                 <Header idSelected={6}/>
                 <HomeSection titulo={"Perfil"} icon={ICONS.PERFIL}>
-                    {/*<MenuOption
+                    <MenuOption
                     navigateTo ={"/perfil/personagens"}
                     icon={ICONS.PESSOAS}
                     text={"Personagens"}
                     />
+                    {/*
                     <MenuOption
                     navigateTo ={"/perfil"}
                     icon={ICONS.INVENTARIO}
                     text={"Inventário"}
-                    />*/}
+                    />
+                    */}
                     <MenuOption
                     icon={ICONS.SALVAR_JOGO}
                     text={"Salvar Jogo"}

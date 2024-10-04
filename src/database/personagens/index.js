@@ -43,6 +43,22 @@ import { HERES } from "./heres/heres.personagem.data.js"
 import { FUUJI } from "./fuuji/fuuji.personagem.js"
 import { WILBUR } from "./wilbur/wilbur.personagem.js"
 import { KIRION } from "./kirion/kirion.personagem.js"
+import { MORGANA } from "./morgana/morgana.personagem.js"
+import { PANDORA } from "./pandora/pandora.personagem.js"
+import { KRISTOFFER } from "./kristoffer/kristoffer.personagem.js"
+import { AURA } from "./aura/aura.personagem.js"
+import { KARMA } from "./karma/karma.personagem.js"
+import { CLOUD } from "./cloud/cloud.personagem.js"
+import { TESTER } from "./_tester/_tester.personagem.js"
+import { ALUCARD } from "./alucard/alucard.personagem.js"
+import { CORA } from "./cora/cora.personagem.js"
+import { FENRI } from "./fenri/fenri.personagem.js"
+import { ARTE } from "./arte/arte.personagem.js"
+import { RHOGAR } from "./rhogar/rhogar.personagem.js"
+import { WANDA } from "./wanda/wanda.personagem.js"
+import { RIMURU } from "./rimuru/rimuru.personagem.js"
+import { LULU } from "./lulu/lulu.personagem.js"
+import { CHUNCHUMARU } from "./chunchumaru/chunchumaru.personagem.js"
 
 export const PERSONAGENS_DATA = [
     AVENTUREIRO,
@@ -65,7 +81,6 @@ export const PERSONAGENS_DATA = [
     GENEVIEVE,
     KAI,
     CALEB,
-    SOTIS,
     SAZANNA,
     KIENDRA,
     AURORA,
@@ -87,4 +102,21 @@ export const PERSONAGENS_DATA = [
     FUUJI,
     HERES,
     CANARIO,
+    MORGANA,
+    PANDORA,
+    KRISTOFFER,
+    AURA,
+    KARMA,
+    CLOUD,
+    FENRI,
+    CHUNCHUMARU,
+    ARTE,
+    ALUCARD,
+    SOTIS,
+    CORA,
+    RHOGAR,
+    LULU,
+    RIMURU,
+    WANDA,
+
 ]

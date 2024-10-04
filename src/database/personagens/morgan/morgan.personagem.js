@@ -2,6 +2,8 @@ import MORGAN_1_SPRITE from "./assets/MORGAN_1_SPRITE.png"
 import MORGAN_1_PERFIL from "./assets/MORGAN_1_PERFIL.png"
 import MORGAN_2_SPRITE from "./assets/MORGAN_2_SPRITE.png"
 import MORGAN_2_PERFIL from "./assets/MORGAN_2_PERFIL.png"
+import MORGAN_3_SPRITE from "./assets/MORGAN_3_SPRITE.png"
+import MORGAN_3_PERFIL from "./assets/MORGAN_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 
@@ -28,22 +30,30 @@ export const MORGAN = {
             perfil: MORGAN_2_PERFIL,
             santuario: null
         },
+        {
+            visualId: 3,
+            nome: "Traje de Baile",
+            sprite: MORGAN_3_SPRITE,
+            perfil: MORGAN_3_PERFIL,
+            santuario: null
+        },
     ],
     status: {
         pvBase: 14,
         pmBase: 4,
         pvBonus: 3
     },
+    atributosBase: {
+        forca: 3,
+        agilidade: 4,
+        magia: 5,
+        vigor: 2
+    },
     evolucoes: [
         {
             level: 1,
             experienciaNecessaria: 1250,
-            atributos: {
-                forca: 3,
-                agilidade: 4,
-                magia: 5,
-                vigor: 2
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
@@ -51,12 +61,7 @@ export const MORGAN = {
         {
             level: 2,
             experienciaNecessaria: 3750,
-            atributos: {
-                forca: 3,
-                agilidade: 4,
-                magia: 5,
-                vigor: 2
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14],
             habilidades: []
@@ -64,12 +69,7 @@ export const MORGAN = {
         {
             level: 3,
             experienciaNecessaria: 7500,
-            atributos: {
-                forca: 3,
-                agilidade: 4,
-                magia: 5,
-                vigor: 2
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14,7],
             habilidades: []
@@ -77,12 +77,7 @@ export const MORGAN = {
         {
             level: 4,
             experienciaNecessaria: 12500,
-            atributos: {
-                forca: 3,
-                agilidade: 4,
-                magia: 6,
-                vigor: 2
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [14,7],
             habilidades: []
@@ -90,12 +85,7 @@ export const MORGAN = {
         {
             level: 5,
             experienciaNecessaria: 18750,
-            atributos: {
-                forca: 3,
-                agilidade: 4,
-                magia: 6,
-                vigor: 2
-            },
+            bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [14,7,28],
             habilidades: []
