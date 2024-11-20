@@ -56,7 +56,7 @@ export function VersusBatalhaScreen() {
     batalha={batalha}
     aliados={personagensInstanciados.filter((item) => item.isInimigo === false)}
     inimigos={personagensInstanciados.filter((item) => item.isInimigo === true)}
-    iniciarFunction={handleIniciar}
+    functions={{handleIniciar,setPersonagensInstanciados}}
     modo={MODOS_JOGO.VERSUS}
     />
     : null}

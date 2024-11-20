@@ -1,4 +1,5 @@
 import PREVIEW from "./assets/PREVIEW.png"
+import { GUILDA_ORION_CAP } from "./capitulos/guilda-orion/guilda-orion.capitulo";
 import { PROLOGO } from "./capitulos/prologo/prologo.capitulo";
 
 export const GUILDA_ORION = {
@@ -10,5 +11,6 @@ export const GUILDA_ORION = {
     url: `/historia/guilda-de-orion`,
     capitulos: [
         PROLOGO,
+        GUILDA_ORION_CAP,
     ]
 }

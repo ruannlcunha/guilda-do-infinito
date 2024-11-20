@@ -123,6 +123,13 @@ export function useAcoesBase() {
     return (total >= alvo.defesa && dados[0].resultado!=1)||(dados[0].resultado==20)
   }
 
+  function atacarCurar(personagem, alvo, modificador, cura, functions) {
+    const {dados, total} = rolarDado(1, 20, [modificador]);
+    const ataque = {resultadoDado: dados[0].resultado, resultadoTotal: total, ...modificador}
+    functions.ativarBannerAtaque(ataque, alvo.defesa, personagem.corTema);
+    return (total >= alvo.defesa && dados[0].resultado!=1)||(dados[0].resultado==20)
+  }
+
   async function finalizarAcao(functions, novoAlvo, duracao) {
     setTimeout(() => {
       functions.setAcaoAtiva({ personagem: null, evento: null, alvos: [] });

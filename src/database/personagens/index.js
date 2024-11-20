@@ -7,7 +7,6 @@ import { MINUS } from "./minus/minus.personagem"
 import { OTAVIA } from "./otavia/otavia.personagem"
 import { MAYA } from "./maya/maya.personagem"
 import { LOBO } from "./lobo/lobo.personagem.js"
-import { SOMBRIO } from "./sombrio/sombrio.personagem"
 import { CANARIO } from "./canario/canario.personagem.js"
 import { ANDY } from "./andy/andy.personagem.js"
 import { MOXXIE } from "./moxxie/moxxie.personagem.js"
@@ -59,6 +58,8 @@ import { WANDA } from "./wanda/wanda.personagem.js"
 import { RIMURU } from "./rimuru/rimuru.personagem.js"
 import { LULU } from "./lulu/lulu.personagem.js"
 import { CHUNCHUMARU } from "./chunchumaru/chunchumaru.personagem.js"
+import { SOMBRIUS_GLUTAO } from "./sombrius-glutao/sombrius-glutao.personagem.js"
+import { SOMBRIUS_MENOR } from "./sombrius-menor/sombrius-menor.personagem.js"
 
 export const PERSONAGENS_DATA = [
     AVENTUREIRO,
@@ -118,5 +119,6 @@ export const PERSONAGENS_DATA = [
     LULU,
     RIMURU,
     WANDA,
-
+    SOMBRIUS_MENOR,
+    SOMBRIUS_GLUTAO,
 ]

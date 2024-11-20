@@ -8,7 +8,7 @@ export function IniciarBatalhaScreen({batalha, aliados, inimigos, functions, mod
     const { playHover, playClick } = useSound()
     const [trocarModal, setTrocarModal] = useState(false)
     const [personagemTrocado, setPersonagemTrocado] = useState({id:0})
-    const [aliadosExtras, setAliadosExtras] = useState([...batalha.aliadosExtras])
+    const [aliadosExtras, setAliadosExtras] = useState([])
 
     function handleIniciar() {
         playClick(2)
@@ -19,6 +19,10 @@ export function IniciarBatalhaScreen({batalha, aliados, inimigos, functions, mod
         setPersonagemTrocado(personagem)
         setTrocarModal(true)
     }
+
+    useEffect(()=>{
+        batalha.aliadosExtras? setAliadosExtras([...batalha.aliadosExtras]) : null
+    },[])
 
     useEffect(()=>{
         document.documentElement.style.setProperty('--iniciar-batalha-fundo', `url(${batalha.mapa})`);

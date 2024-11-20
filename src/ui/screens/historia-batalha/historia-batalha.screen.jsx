@@ -65,7 +65,7 @@ export function HistoriaBatalhaScreen() {
     handleFinalizarBatalha={handleFinalizarBatalha}
     />
     : null}
-    {telas.fimBatalha || true ?
+    {telas.fimBatalha ?
     <FimDeBatalha
     batalha={batalha}
     personagens={personagensInstanciados}

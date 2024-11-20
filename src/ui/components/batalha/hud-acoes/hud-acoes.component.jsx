@@ -38,8 +38,11 @@ export function HUDAcoes({ personagem, personagens, jogadores, functions }) {
       return { ...old, atual: old.atual + 1 };
     });
   }
+  console.log(jogadores)
+  console.log(personagem)
 
-  return jogadores==2 || jogadores==1&&!personagem.isInimigo ? (
+  return jogadores==2 || jogadores==1&&!personagem.isInimigo
+  || !jogadores&&!personagem.isInimigo ? (
     <>
       <ul className="hud-acoes">
         <li onMouseEnter={()=>playHover(1)}

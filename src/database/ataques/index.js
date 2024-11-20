@@ -57,6 +57,9 @@ import { TIRO_PRECISO_GELO } from "./tiro-preciso-gelo/tiro-preciso-gelo.ataque"
 import { TIRO_PRECISO_LUZ } from "./tiro-preciso-luz/tiro-preciso-luz.ataque";
 import { TIRO_PRECISO_TREVAS } from "./tiro-preciso-trevas/tiro-preciso-trevas.ataque";
 import { CHIFRADA } from "./chifrada/chifrada.ataque.data";
+import { GARRADA } from "./garrada/garrada.ataque";
+import { MORDIDA } from "./mordida/mordida.ataque";
+import { DRENAR_VITALIDADE } from "./drenar-vitalidade/drenar-vitalidade.ataque";
 
 export const ATAQUES_DATA = [
     SOCO,
@@ -118,4 +121,7 @@ export const ATAQUES_DATA = [
     TIRO_PRECISO_LUZ,
     TIRO_PRECISO_TREVAS,
     CHIFRADA,
+    GARRADA,
+    MORDIDA,
+    DRENAR_VITALIDADE,
 ]

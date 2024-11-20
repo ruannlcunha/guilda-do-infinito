@@ -11,6 +11,7 @@ import ESTRADA_DESERTO from "../../assets/img/mapas/ESTRADA_DESERTO.png"
 import ESTRADA_GELADA from "../../assets/img/mapas/ESTRADA_GELADA.png"
 import ESTRADA_SOMBRIA from "../../assets/img/mapas/ESTRADA_SOMBRIA.png"
 import ESTRADA_TERRA from "../../assets/img/mapas/ESTRADA_TERRA.png"
+import ESTRADA_FLORESTA from "../../assets/img/mapas/ESTRADA_FLORESTA.png"
 import FLORESTA from "../../assets/img/mapas/FLORESTA.png"
 import FLORESTA_CLAREIRA from "../../assets/img/mapas/FLORESTA_CLAREIRA.png"
 import FLORESTA_DESERTO from "../../assets/img/mapas/FLORESTA_DESERTO.png"
@@ -50,6 +51,7 @@ export const MAPAS = {
     ESTRADA_GELADA,
     ESTRADA_SOMBRIA,
     ESTRADA_TERRA,
+    ESTRADA_FLORESTA,
     FLORESTA,
     FLORESTA_CLAREIRA,
     FLORESTA_DESERTO,

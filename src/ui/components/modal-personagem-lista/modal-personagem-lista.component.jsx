@@ -16,26 +16,42 @@ export function ModalPersonagemLista({modalIsOpen, setModalIsOpen, aliadosExtras
     const { instanciarPersonagens } = useInstanciarPersonagens()
     const [user] = useGlobalUser()
     const [personagemEscolhido, setPersonagemEscolhido] = useState(personagemTrocado)
-
     useEffect(()=>{
         if(personagemTrocado.id !== 0 && personagemTrocado.perfil) {
+
             const personagensExtras = aliadosExtras ?
             aliadosExtras.map(personagem=>{
                 const personagemInstanciado = instanciarPersonagem(personagem)
                 return {...personagemInstanciado, isExtra: true}
             }) : []
+            
             const personagensAdquiridos = user.personagens
             .map(personagem=>{
                 const personagemInstanciado = instanciarPersonagem(personagem)
                 return {...personagemInstanciado}
-            }).filter(personagem=>personagem.id!==personagemTrocado.id ||
-                personagem.isExtra!==personagemTrocado.isExtra)
+            }).filter(personagem=>
+                (
+                    personagem.id!==personagemTrocado.id &&
+                    !aliados.some(aliado=>
+                        aliado.id===personagem.id &&
+                        aliado.isExtra==personagem.isExtra
+                    )
+                ) ||
+                (
+                    personagem.isExtra!==personagemTrocado.isExtra &&
+                    !aliados.some(aliado=>
+                        aliado.id===personagem.id &&
+                        aliado.isExtra==personagem.isExtra
+                    )
+                )
+                
+            )
 
             setPersonagens([personagemTrocado, ...personagensExtras, ...personagensAdquiridos])
             setPersonagemEscolhido(personagemTrocado)
         }
     },[personagemTrocado, aliados])
-
+    console.log(aliados)
     function handleFecharModal() {
         playClick(1)
         setModalIsOpen(false)
@@ -53,9 +69,12 @@ export function ModalPersonagemLista({modalIsOpen, setModalIsOpen, aliadosExtras
 
     function handleTrocar() {
         const _aliados = aliados.filter(aliado=>
-            (aliado.idCombate!==personagemTrocado.idCombate) &&
-            (aliado.isExtra===personagemTrocado.isExtra))
-        _aliados.push(personagemEscolhido)
+            (aliado.idCombate!==personagemTrocado.idCombate))
+        _aliados.push({...personagemEscolhido, idCombate: personagemTrocado.idCombate})
+
+        const _aliadosOrdenados = _aliados.sort(function (a, b) {
+            return a.idCombate - b.idCombate;
+        })
 
         functions.setAliadosExtras(old=>{
             let _aliadosExtras = [...old]
@@ -69,9 +88,8 @@ export function ModalPersonagemLista({modalIsOpen, setModalIsOpen, aliadosExtras
             }
             return _aliadosExtras
         })
-
-        const _aliadosMapeados = _aliados.map(aliado=>{
-            if(personagemEscolhido.isExtra) {
+        const _aliadosMapeados = _aliadosOrdenados.map(aliado=>{
+            if(personagemEscolhido.isExtra&&aliado.isExtra) {
                 return {...instanciarBasePessoal(aliado), isExtra: true}
             }
             return instanciarBasePessoal(aliado)
@@ -81,7 +99,10 @@ export function ModalPersonagemLista({modalIsOpen, setModalIsOpen, aliadosExtras
             const inimigosMapeados = old.filter(personagem=>personagem.isInimigo)
             .map(inimigo=>{return instanciarBasePessoal(inimigo)})
             const _personagensInstanciados = instanciarPersonagens(_aliadosMapeados, inimigosMapeados)
-            return _personagensInstanciados
+            const personagensOrdenados = _personagensInstanciados.sort(function (a, b) {
+                return a.idCombate - b.idCombate;
+            })
+            return personagensOrdenados
         });
         setModalIsOpen(false)
     }

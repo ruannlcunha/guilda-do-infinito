@@ -5,8 +5,8 @@ export function useIniciarTurno() {
     const { automatizarPersonagem } = useAutomatizarPersonagem()
 
     function iniciarTurno(personagemAtivo, personagens, jogadores, functions) {
-        if(personagemAtivo.isInimigo && !personagemAtivo.isMorto && jogadores<2
-            ||!personagemAtivo.isMorto && jogadores<1
+        if((personagemAtivo.isInimigo && !personagemAtivo.isMorto && (jogadores<2||!jogadores))
+            || (!personagemAtivo.isMorto && jogadores<1)
         ) {
             automatizarPersonagem(personagemAtivo, personagens, functions)
         }

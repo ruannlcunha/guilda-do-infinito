@@ -224,4 +224,10 @@ export const MAPAS_DATA = [
         img: MAPAS.COSMOS,
         musica: MUSICS.BATALHA_COSMOS,
     },
+    {
+        id: 38,
+        nome: "Estrada na Floresta",
+        img: MAPAS.ESTRADA_FLORESTA,
+        musica: MUSICS.BATALHA_1,
+    },
 ]

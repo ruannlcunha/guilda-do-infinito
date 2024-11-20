@@ -14,6 +14,8 @@ import PLANTA_1 from "../../assets/audio/acoes/PLANTA_1.wav"
 import LUZ_1 from "../../assets/audio/acoes/LUZ_1.wav"
 import TIRO from "../../assets/audio/acoes/TIRO.wav"
 import FOLEGO from "../../assets/audio/acoes/FOLEGO.wav"
+import GARRADA from "../../assets/audio/acoes/GARRADA.wav"
+import MORDIDA from "../../assets/audio/acoes/MORDIDA.mp3"
 
 export const ACOES_AUDIO = {
     SOCO,
@@ -32,4 +34,6 @@ export const ACOES_AUDIO = {
     LUZ_1,
     TIRO,
     FOLEGO,
+    GARRADA,
+    MORDIDA,
 }

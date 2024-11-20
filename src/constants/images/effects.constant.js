@@ -56,6 +56,8 @@ import TIRO_AR from "../../assets/img/effects/TIRO_AR.gif";
 import TIRO_GELO from "../../assets/img/effects/TIRO_GELO.gif";
 import TIRO_LUZ from "../../assets/img/effects/TIRO_LUZ.gif";
 import TIRO_TREVAS from "../../assets/img/effects/TIRO_TREVAS.gif";
+import GARRADA from "../../assets/img/effects/GARRADA.gif";
+import MORDIDA from "../../assets/img/effects/MORDIDA.gif";
 
 export const EFFECTS = {
   SOCO,
@@ -116,4 +118,6 @@ export const EFFECTS = {
   TIRO_GELO,
   TIRO_LUZ,
   TIRO_TREVAS,
+  GARRADA,
+  MORDIDA,
 };

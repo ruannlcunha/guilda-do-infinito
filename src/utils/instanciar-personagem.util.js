@@ -88,7 +88,8 @@ export function instanciarBasePessoal(personagemInstanciado) {
         equipamentos: personagemInstanciado.equipamentos,
         equipamentoProntoId: personagemInstanciado.equipamentoProntoId,
         inventario: personagemInstanciado.inventario.itens,
-        multiplicadores: personagemInstanciado.multiplicadores
+        multiplicadores: personagemInstanciado.multiplicadores,
+        isExtra: personagemInstanciado.isExtra,
     }
 }
 
