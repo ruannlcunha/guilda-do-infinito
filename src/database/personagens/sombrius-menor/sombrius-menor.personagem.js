@@ -21,7 +21,7 @@ export const SOMBRIUS_MENOR = {
         },
     ],
     status: {
-        pvBase: 10,
+        pvBase: 5,
         pmBase: 2,
         pvBonus: 3
     },

@@ -90,11 +90,12 @@
     align-items: center;
     color: var(--blue);
     font-size: 0.8rem;
+    overflow-y: hidden;
 }
 
 .capitulos-list-screen section .capitulos-list-left section ul .episodio-card section section .dificuldade {
-    width: 3vw;
-    height: 3vw;
+    width: 2.5vw;
+    height: 2.5vw;
     display: flex;
     align-items: center;
     justify-content: center;

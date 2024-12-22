@@ -1,5 +1,6 @@
 import { MAPAS } from "../../../../../constants/images";
 import { ENFRENTANDO_SOMBRIUS } from "./episodios/enfrentando-sombrius/enfrentando-sombrius.episodio";
+import { INICIO } from "./episodios/inicio/inicio.episodio";
 import { SOMBRIUS_DEVORA } from "./episodios/sombrius-devora/sombrius-devora.episodio";
 
 export const GUILDA_ORION_CAP = {
@@ -11,6 +12,7 @@ export const GUILDA_ORION_CAP = {
     previewImage: MAPAS.PLANICES,
     background: MAPAS.PLANICES,
     episodios: [
+        INICIO,
         ENFRENTANDO_SOMBRIUS,
         SOMBRIUS_DEVORA,
     ]

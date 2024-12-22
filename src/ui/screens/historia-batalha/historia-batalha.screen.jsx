@@ -3,9 +3,10 @@ import { IniciarBatalhaScreen, JogarBatalha, FimDeBatalha, AudioContainer } from
 import "./historia-batalha.style.css";
 import { useInstanciarPersonagens } from "../../../hook/batalha";
 import { useMusic } from "../../../hook";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { HISTORIAS_DATA } from "../../../database/historias/HISTORIAS.data";
 import { MODOS_JOGO } from "../../../constants";
+import useGlobalUser from "../../../context/global-user.context";
 
 export function HistoriaBatalhaScreen() {
   const [telas, setTelas] = useState({iniciarBatalha: true, jogarBatalha: false, fimBatalha: false})
@@ -16,6 +17,8 @@ export function HistoriaBatalhaScreen() {
   const { startMusic } = useMusic()
   const { historia, idCapitulo, idEpisodio } = useParams()
   const [batalha, setBatalha] = useState(null)
+  const navigate = useNavigate()
+  const [user, setUser] = useGlobalUser()
 
   useEffect(()=>{
     fetchData()
@@ -39,7 +42,66 @@ export function HistoriaBatalhaScreen() {
     setTelas({iniciarBatalha: false, jogarBatalha: true, fimBatalha: false})
   }
 
+  function handleConcluirEpisodio() {
+      const _historia = HISTORIAS_DATA.find(item => item.url === `/historia/${historia}`)
+      const _capitulo = _historia.capitulos.find(item => item.id == idCapitulo)
+      const _episodio = _capitulo.episodios.find(item => item.id == idEpisodio)
+      let novoModoHistoria = [...user.modos.historia]
+      const _historiaUser = [...user.modos.historia].find(historia=>historia.historiaId===_historia.id)
+      if(_historiaUser) {
+          novoModoHistoria = novoModoHistoria.filter(historia=>historia.historiaId !=_historiaUser.historiaId)
+          const capituloUser = _historiaUser.capitulos.find(capitulo=>capitulo.capituloId===_capitulo.id)
+          if(capituloUser) {
+              if(!capituloUser.episodios.find(episodio=>episodio===_episodio.id)) {
+                  novoModoHistoria.push({
+                      historiaId: _historiaUser.historiaId,
+                      capitulos: [
+                          ..._historiaUser.capitulos.filter(capitulo=>capitulo.capituloId !=capituloUser.capituloId),
+                          {
+                              capituloId: capituloUser.capituloId,
+                              episodios: [...capituloUser.episodios, _episodio.id],
+                          },
+                      ],
+                  })
+              } else {
+                  novoModoHistoria = [...user.modos.historia]
+              }
+          } else {
+              novoModoHistoria.push({
+                  historiaId: _historiaUser.historiaId,
+                  capitulos: [
+                      ..._historiaUser.capitulos,
+                      {
+                          capituloId: _capitulo.id,
+                          episodios: [_episodio.id],
+                      },
+                  ],
+              })
+          }
+      } else {
+          novoModoHistoria.push({
+              historiaId: _historia.id,
+              capitulos: [
+                  {
+                      capituloId: _capitulo.id,
+                      episodios: [_episodio.id],
+                  },
+              ],
+          })
+      }
+      const novoUser = {
+          ...user,
+          modos: {
+              ...user.modos,
+              historia: novoModoHistoria
+          }
+      }
+      setUser(novoUser)
+      navigate(`/historia/${historia}`)
+  }
+
   function handleFinalizarBatalha(texto) {
+    handleConcluirEpisodio()
     setTelas({iniciarBatalha: false, jogarBatalha: true, fimBatalha: true})
     setResultado(texto)
   }

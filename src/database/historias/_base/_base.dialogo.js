@@ -20,7 +20,8 @@ export const BASE_DIALOGO = {
             musica: null,
             navigateTo: "/",
             onEnter: ()=>{},
-            onClick: ()=>{}
+            onClick: ()=>{},
+            isFinish: true,
         },
     ],
 }

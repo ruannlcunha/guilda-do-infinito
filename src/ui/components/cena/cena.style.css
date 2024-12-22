@@ -3,6 +3,8 @@
     width: 100%;
     height: 100%;
     background-size: 105%;
+    background-position: top;
+    background-repeat: no-repeat;
     background-color: var(--black);
     display: flex;
     align-items: self-end;

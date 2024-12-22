@@ -35,17 +35,17 @@ export const DOMINICK = {
             santuario: null,
         },
         {
-            visualId: 4,
-            nome: "Traje de Rainha",
-            sprite: DOMINICK_4_SPRITE,
-            perfil: DOMINICK_4_PERFIL,
-            santuario: null,
-        },
-        {
             visualId: 3,
             nome: "Guilda de Orion",
             sprite: DOMINICK_3_SPRITE,
             perfil: DOMINICK_3_PERFIL,
+            santuario: null,
+        },
+        {
+            visualId: 4,
+            nome: "Traje de Rainha",
+            sprite: DOMINICK_4_SPRITE,
+            perfil: DOMINICK_4_PERFIL,
             santuario: null,
         },
         {
