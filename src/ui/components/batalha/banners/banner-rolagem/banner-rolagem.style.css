@@ -67,8 +67,23 @@
 }
   
 .batalha-screen .banner-rolagem div .valor-total {
+  flex-direction: column;
   background-image: url(../../../../../assets/img/icons/VALOR_TOTAL.png);
   animation: valor-total 5s ease-in-out;
+}
+  
+.batalha-screen .banner-rolagem div .valor-total h3 {
+  margin: 0;
+  height: 3vw;
+  margin-bottom: -3vw;
+  position: relative;
+  font-weight: 500;
+  bottom: 45%;
+  font-size: 4rem;
+  left: 30%;
+  text-shadow: 4px 0px var(--black), 0px 4px var(--black),
+  -4px 0px var(--black),  0px -4px var(--black);
+  animation: valor-total-2x 5s ease-in-out;
 }
   
 .batalha-screen .banner-rolagem div .Força {
@@ -89,6 +104,35 @@
   
 .batalha-screen .banner-rolagem div .Modificador {
   background-image: url(../../../../../assets/img/icons/VALOR_MODIFICADOR.png);
+}
+
+.batalha-screen .banner-rolagem .dado .elemento-dado {
+  height: 4vw;
+  width: 4vw;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  left: 30%;
+  z-index: 1000;
+  filter: drop-shadow(-2px 2px 2px var(--black)) drop-shadow(2px -2px 2px var(--black));
+  animation: none;
+  margin: 0;
+  margin-bottom: -4vw;
+  transform: none;
+  font-size: 1.5rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.batalha-screen .banner-rolagem .dado .elemento-dado img {
+  height: 1.5vw;
+  margin-bottom: -1.5vw;
+  position: relative;
+  bottom: 1.5vw;
+  left: 1%;
 }
 
 .batalha-screen .banner-rolagem .dado div {
@@ -184,6 +228,26 @@
   50% {
     color: var(--white);
     text-shadow: var(--borda-texto);
+  }
+}
+
+@keyframes valor-total-2x {
+  0% {
+    opacity: 0%;
+    color: transparent;
+    text-shadow: none;
+  }
+  5% {
+    opacity: 100%;
+  }
+  35% {
+    color: transparent;
+    text-shadow: none;
+  }
+  50% {
+    color: var(--white);
+    text-shadow: 4px 0px var(--black), 0px 4px var(--black),
+    -4px 0px var(--black),  0px -4px var(--black);;
   }
 }
 

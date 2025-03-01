@@ -29,9 +29,18 @@
 .batalha-screen .batalha-hud .hud-acoes li:hover {
   transition: 0.1s;
   cursor: url(../../../../assets/img/cursors/POINTER.png), pointer;
-  font-size: 1.75rem;
   width: 100%;
   background-color: var(--cyan-transparent);
+}
+
+.batalha-screen .batalha-hud .hud-acoes .acao-bloqueada {
+  opacity: 50%;
+}
+
+.batalha-screen .batalha-hud .hud-acoes .acao-bloqueada:hover {
+  cursor: var(--cursor-not-allowed);
+  width: 95%;
+  background-color: var(--background-text);
 }
 
 

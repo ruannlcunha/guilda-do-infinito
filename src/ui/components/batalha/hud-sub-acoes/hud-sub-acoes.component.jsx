@@ -39,6 +39,14 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
         )
     }
 
+    function renderAcaoExtra(subAcao) {
+        return (
+            <section>
+              <h2><span>Descrição:</span> {subAcao.descricao}</h2>
+            </section>
+        )
+    }
+
     return (
         <>
         {subAcoes.ativo ? (
@@ -67,8 +75,9 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
                             }
                             >
                           <h1>{subAcao.nome}</h1>
-                          {subAcao.dadoDeDano ? renderAtaque(subAcao) :
-                          subAcao.custo ? renderHabilidade(subAcao) :
+                          {subAcoes.titulo==="Ataques" ? renderAtaque(subAcao) :
+                          subAcoes.titulo==="Habilidades" ? renderHabilidade(subAcao) :
+                          subAcoes.titulo==="Ações Extras" ? renderAcaoExtra(subAcao) :
                           renderItem(subAcao)}
                         </li>
                       );

@@ -7,7 +7,7 @@ import { RAIZES_CORTANTES } from "./raizes-cortantes/raizes-cortantes.ataque";
 import { RAJADA_PEDRA } from "./rajada-pedra/rajada-pedra.ataque";
 import { RELAMPAGO } from "./relampago/relampago.ataque";
 import { SOCO } from "./soco/soco.ataque.data";
-import { TIRO_ACIDO } from "./tiro-acido/tiro-acido.ataque";
+import { JATOS_ACIDO } from "./jatos-acido/jatos-acido.ataque";
 import { TIRO_PRECISO_BALA } from "./tiro-preciso-bala/tiro-preciso-bala.ataque";
 import { TIRO_PRECISO_FLECHA } from "./tiro-preciso-flecha/tiro-preciso-flecha.ataque";
 import { TIRO_RAPIDO_BALA } from "./tiro-rapido-bala/tiro-rapido-bala.ataque";
@@ -60,6 +60,9 @@ import { CHIFRADA } from "./chifrada/chifrada.ataque.data";
 import { GARRADA } from "./garrada/garrada.ataque";
 import { MORDIDA } from "./mordida/mordida.ataque";
 import { DRENAR_VITALIDADE } from "./drenar-vitalidade/drenar-vitalidade.ataque";
+import { BOLHA_VENENO } from "./bolha-veneno/bolha-veneno.ataque";
+import { TOQUE_FLAMEJANTE } from "./toque-flamejante/toque-flamejante.ataque";
+import { SOPRO_CONGELANTE } from "./sopro-congelante/sopro-congelante.ataque";
 
 export const ATAQUES_DATA = [
     SOCO,
@@ -68,11 +71,12 @@ export const ATAQUES_DATA = [
     RAIZES_CORTANTES,
     RAJADA_PEDRA,
     LAMINA_VENTO,
+    SOPRO_CONGELANTE,
     RAIO_LUZ,
     RELAMPAGO,
     ESTACAS_GELO,
     ONDA_AGUA,
-    TIRO_ACIDO,
+    JATOS_ACIDO,
     TIRO_RAPIDO_FLECHA,
     TIRO_PRECISO_FLECHA,
     TIRO_RAPIDO_BALA,
@@ -124,4 +128,6 @@ export const ATAQUES_DATA = [
     GARRADA,
     MORDIDA,
     DRENAR_VITALIDADE,
+    BOLHA_VENENO,
+    TOQUE_FLAMEJANTE,
 ]

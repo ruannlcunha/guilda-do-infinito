@@ -114,7 +114,7 @@ export const APHELIOS = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,16,21,22,52],
+            ataques: [1,16,21,22,52,11],
             habilidades: []
         },
     ]

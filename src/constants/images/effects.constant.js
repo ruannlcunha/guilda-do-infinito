@@ -9,10 +9,13 @@ import ACIDO_1 from "../../assets/img/effects/ACIDO_1.gif";
 import TERRA_1 from "../../assets/img/effects/TERRA_1.gif";
 import AR_1 from "../../assets/img/effects/AR_1.gif";
 import GELO_1 from "../../assets/img/effects/GELO_1.gif";
+import GELO_2 from "../../assets/img/effects/GELO_2.gif";
 import ELETRICO_1 from "../../assets/img/effects/ELETRICO_1.gif";
+import ELETRICO_2 from "../../assets/img/effects/ELETRICO_2.gif";
 import RAIZES from "../../assets/img/effects/RAIZES.gif";
 import LUZ_1 from "../../assets/img/effects/LUZ_1.gif";
 import FUMACA_1 from "../../assets/img/effects/FUMACA_1.gif";
+import FUMACA_2 from "../../assets/img/effects/FUMACA_2.gif";
 import GOLPE_PESADO from "../../assets/img/effects/GOLPE_PESADO.gif";
 import GOLPE_PESADO_MAGICO from "../../assets/img/effects/GOLPE_PESADO_MAGICO.gif";
 import GOLPE_PESADO_ELETRICO from "../../assets/img/effects/GOLPE_PESADO_ELETRICO.gif";
@@ -58,6 +61,8 @@ import TIRO_LUZ from "../../assets/img/effects/TIRO_LUZ.gif";
 import TIRO_TREVAS from "../../assets/img/effects/TIRO_TREVAS.gif";
 import GARRADA from "../../assets/img/effects/GARRADA.gif";
 import MORDIDA from "../../assets/img/effects/MORDIDA.gif";
+import QUEBRAR_GELO from "../../assets/img/effects/QUEBRAR_GELO.gif";
+import SONO from "../../assets/img/effects/SONO.gif";
 
 export const EFFECTS = {
   SOCO,
@@ -71,10 +76,13 @@ export const EFFECTS = {
   TERRA_1,
   AR_1,
   GELO_1,
+  GELO_2,
   ELETRICO_1,
+  ELETRICO_2,
   RAIZES,
   LUZ_1,
   FUMACA_1,
+  FUMACA_2,
   GOLPE_PESADO,
   GOLPE_PESADO_MAGICO,
   GOLPE_PESADO_ELETRICO,
@@ -120,4 +128,6 @@ export const EFFECTS = {
   TIRO_TREVAS,
   GARRADA,
   MORDIDA,
+  QUEBRAR_GELO,
+  SONO,
 };

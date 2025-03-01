@@ -1,19 +1,22 @@
 import "./cosmos.style.css"
-import { BotaoPrimario, ContainerScreen, Header } from "../../components"
+import { AudioContainer, BotaoPrimario, ContainerScreen, Header } from "../../components"
 import { ICONS, IMAGES } from "../../../constants/images"
 import { GACHA_DATA } from "../../../database"
 import { useEffect, useState } from "react"
 import useGlobalUser from "../../../context/global-user.context"
 import { useNavigate } from "react-router-dom"
-import { useSound } from "../../../hook"
+import { useMusic, useSound } from "../../../hook"
+import { MUSICS } from "../../../constants/audios/musics.constant"
 
 export function CosmosScreen() {
+    const { startMusic } = useMusic()
     const [gachaAtual, setGachaAtual] = useState(GACHA_DATA[0])
     const [user, setUser] = useGlobalUser()
     const {playHover, playClick} = useSound()
     const navigate = useNavigate()
 
     useEffect(()=>{
+        startMusic(true)
         user.modos.cosmos ? setGachaAtual(
             GACHA_DATA.find(gacha=>gacha.id===user.modos.cosmos)
         ) : null
@@ -60,6 +63,7 @@ export function CosmosScreen() {
 
     return (
         <ContainerScreen>
+        <AudioContainer audio={MUSICS.COSMOS}/>
             <div className="cosmos-screen">
                 <Header idSelected={4}/>
                 <section className="cosmos-section">

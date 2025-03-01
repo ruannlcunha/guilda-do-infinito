@@ -19,6 +19,7 @@ export function HistoriaBatalhaScreen() {
   const [batalha, setBatalha] = useState(null)
   const navigate = useNavigate()
   const [user, setUser] = useGlobalUser()
+  const [logsBatalha, setLogsBatalha] = useState([])
 
   useEffect(()=>{
     fetchData()
@@ -101,7 +102,6 @@ export function HistoriaBatalhaScreen() {
   }
 
   function handleFinalizarBatalha(texto) {
-    handleConcluirEpisodio()
     setTelas({iniciarBatalha: false, jogarBatalha: true, fimBatalha: true})
     setResultado(texto)
   }
@@ -125,6 +125,8 @@ export function HistoriaBatalhaScreen() {
     setMusica={setMusica}
     personagensInstanciados={personagensInstanciados}
     handleFinalizarBatalha={handleFinalizarBatalha}
+    logsBatalha={logsBatalha}
+    setLogsBatalha={setLogsBatalha}
     />
     : null}
     {telas.fimBatalha ?
@@ -133,6 +135,8 @@ export function HistoriaBatalhaScreen() {
     personagens={personagensInstanciados}
     resultado={resultado}
     setMusica={setMusica}
+    handleConcluirEpisodio={handleConcluirEpisodio}
+    logs={logsBatalha}
     />
     : null}
     </>

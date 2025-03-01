@@ -1,21 +1,24 @@
 import "./perfil.style.css"
-import { ContainerScreen, Header, HomeSection, MenuOption } from "../../components"
+import { AudioContainer, ContainerScreen, Header, HomeSection, MenuOption } from "../../components"
 import { ICONS } from "../../../constants/images"
 import { useNavigate } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { downloadJson } from "../../../utils"
-import { useSound } from "../../../hook"
+import { useMusic, useSound } from "../../../hook"
 import { useEffect } from "react"
 import { PERSONAGENS_DATA } from "../../../database"
 import basePersonagem from "../../../database/personagens/_base/_base-pessoal.personagem.json"
+import { MUSICS } from "../../../constants/audios/musics.constant"
 
 export function PerfilScreen() {
     const navigate = useNavigate()
+    const { startMusic } = useMusic()
     const { playClick } = useSound()
     const [user, setUser] = useGlobalUser()
 
     useEffect(()=>{
         //cheat()
+        startMusic(true)
     })
 
     function cheat() {
@@ -61,6 +64,7 @@ export function PerfilScreen() {
 
     return (
         <ContainerScreen>
+        <AudioContainer audio={MUSICS.TOWN}/>
             <div className="perfil-screen">
                 <Header idSelected={6}/>
                 <HomeSection titulo={"Perfil"} icon={ICONS.PERFIL}>

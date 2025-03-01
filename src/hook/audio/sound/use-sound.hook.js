@@ -40,6 +40,7 @@ export function useSound() {
         const audio = new Audio(SOUNDS.DADO_RESULTADO)
         audio.volume = volumeEfeitos
         audio.play()
+        return audio
     }
 
     function playCancel() {

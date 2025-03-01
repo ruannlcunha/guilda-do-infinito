@@ -88,7 +88,7 @@ export const MORGAN = {
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
             ataques: [14,7,28],
-            habilidades: []
+            habilidades: [17]
         },
     ],
 }

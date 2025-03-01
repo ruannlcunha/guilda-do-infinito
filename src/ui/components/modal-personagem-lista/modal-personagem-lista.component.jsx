@@ -51,7 +51,7 @@ export function ModalPersonagemLista({modalIsOpen, setModalIsOpen, aliadosExtras
             setPersonagemEscolhido(personagemTrocado)
         }
     },[personagemTrocado, aliados])
-    console.log(aliados)
+    
     function handleFecharModal() {
         playClick(1)
         setModalIsOpen(false)

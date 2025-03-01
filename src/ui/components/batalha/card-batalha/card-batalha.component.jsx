@@ -15,7 +15,10 @@ export function CardBatalha({personagem, reverse, handleTrocarModal, modo}) {
         <div className="card-batalha"
         style={reverse?{flexDirection: "row"}:null}>
             <section className="card-info">
-                <header><h1>{personagem.nome}</h1></header>
+                <header>
+                    <img src={ICONS[`ELEMENTO_${personagem.elemento}`]} alt="" />
+                    <h1>{personagem.nome}</h1>
+                </header>
                 <section>
                     <section className="card-status">
                         <h1>

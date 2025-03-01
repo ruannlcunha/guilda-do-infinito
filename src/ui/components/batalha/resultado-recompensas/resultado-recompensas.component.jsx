@@ -4,13 +4,14 @@ import { useSound } from "../../../../hook"
 import "./resultado-recompensas.style.css"
 import { BotaoPrimario } from "../../botao-primario/botao-primario.component"
 
-export function ResultadoRecompensas({recompensas}) {
+export function ResultadoRecompensas({recompensas, handleConcluirEpisodio, setLogsOpen}) {
     const { playClick } = useSound()
     const { historia } = useParams()
     const navigate = useNavigate()
 
     function handleContinuar() {
         playClick(2)
+        handleConcluirEpisodio()
         navigate("/historia/"+historia)
     }
 
@@ -38,9 +39,12 @@ export function ResultadoRecompensas({recompensas}) {
                 })
             :null}
         </section>
+        <footer>
+        <button className="botao-logs" onClick={()=>setLogsOpen(true)}><img src={ICONS.LOGS_ATIVO} alt="Logs"/></button>
         <BotaoPrimario onClick={handleContinuar}>
             Continuar
         </BotaoPrimario>
+        </footer>
     </section>
     )
 

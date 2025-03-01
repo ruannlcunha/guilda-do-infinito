@@ -1,6 +1,6 @@
 import "./modal.style.css";
 
-export function Modal({ children, isOpen, setIsOpen }) {
+export function Modal({ children, isOpen, setIsOpen, style }) {
   const handleClose = (event) => {
     event.preventDefault();
 
@@ -12,7 +12,7 @@ export function Modal({ children, isOpen, setIsOpen }) {
   function renderModal() {
     if (isOpen) {
       return (
-        <div className="modal" onClick={handleClose}>
+        <div className="modal" onClick={handleClose} style={style}>
           {children}
         </div>
       );

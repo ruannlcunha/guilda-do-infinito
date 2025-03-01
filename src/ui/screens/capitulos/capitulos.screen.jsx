@@ -85,7 +85,7 @@ export function CapitulosScreen() {
 
     return data ? (
         <ContainerScreen>
-            <BackButton/>
+            <BackButton navigateTo={"/historia"} />
             <div className="capitulos-screen">
                 <div className="capitulos-list-screen">
                 <div className="capitulos-titulo">

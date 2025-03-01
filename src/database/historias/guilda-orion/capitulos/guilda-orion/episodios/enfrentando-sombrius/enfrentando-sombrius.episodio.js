@@ -48,6 +48,18 @@ export const ENFRENTANDO_SOMBRIUS = {
                 ...basePessoal,
                 personagemId: 10,
             },
+            {
+                ...basePessoal,
+                personagemId: 10,
+            },
+            {
+                ...basePessoal,
+                personagemId: 10,
+            },
+            {
+                ...basePessoal,
+                personagemId: 10,
+            },
         ],
         aliadosExtras: [
         ],

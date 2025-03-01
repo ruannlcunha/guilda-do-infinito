@@ -13,6 +13,8 @@ export function BannerAtaque({banners, testeRealizado, renderPularBanner}) {
   }
 
     return (
+      <>
+      {renderPularBanner()}
         <div className="banner-ataque" style={bannerStyle}>
           {testeRealizado ? (
             <h1>{
@@ -47,5 +49,6 @@ export function BannerAtaque({banners, testeRealizado, renderPularBanner}) {
             </>
           )}
         </div>
+        </>
       )
 }

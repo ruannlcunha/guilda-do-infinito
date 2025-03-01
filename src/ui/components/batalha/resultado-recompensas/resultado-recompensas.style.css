@@ -76,3 +76,29 @@
     text-shadow: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black),  0px -2px var(--black);
     font-weight: 100;
 }
+
+.fim-de-batalha .recompensas-section footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fim-de-batalha .recompensas-section footer .botao-logs {
+    height: 3.25vw;
+    width: 3.25vw;
+    background-color: var(--white);
+    border: double 5px var(--blue);
+    margin: 0 10px;
+    padding: 0;
+    transition: all 0.1s;
+}
+
+.fim-de-batalha .recompensas-section footer .botao-logs img {
+    width: 95%;
+    filter: drop-shadow(-2px 2px 5px var(--background-text));
+}
+
+.fim-de-batalha .recompensas-section footer .botao-logs:hover {
+    transition: all 0.1s;
+    background-color: var(--light-blue);
+}

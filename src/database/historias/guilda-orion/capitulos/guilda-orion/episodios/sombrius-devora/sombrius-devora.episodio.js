@@ -131,7 +131,7 @@ export const SOMBRIUS_DEVORA = {
                 ...basePessoal,
                 personagemId: 70,
                 multiplicadores: {
-                    pv: 2,
+                    pv: 3,
                     pm: 2,
                     turnos: 2
                 }

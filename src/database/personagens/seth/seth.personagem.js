@@ -69,7 +69,7 @@ export const SETH = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [14,2,27],
+            ataques: [14,2,27,80],
             habilidades: []
         },
     ],

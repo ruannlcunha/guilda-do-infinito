@@ -1,11 +1,20 @@
 import "./versus.style.css"
-import { ContainerScreen, Header, HomeSection, MenuOption } from "../../components"
+import { AudioContainer, ContainerScreen, Header, HomeSection, MenuOption } from "../../components"
 import { ICONS } from "../../../constants/images"
+import { MUSICS } from "../../../constants/audios/musics.constant"
+import { useEffect } from "react"
+import { useMusic } from "../../../hook"
 
 export function VersusScreen() {
-    
+    const { startMusic } = useMusic()
+
+    useEffect(()=> {
+        startMusic(true)
+    },[])
+
     return (
         <ContainerScreen>
+        <AudioContainer audio={MUSICS.TOWN}/>
             <div className="versus-screen">
                 <Header idSelected={3}/>
                 <HomeSection titulo={"Versus"} icon={ICONS.VERSUS}>

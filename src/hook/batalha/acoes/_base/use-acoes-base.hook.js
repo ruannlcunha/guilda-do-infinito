@@ -1,24 +1,26 @@
 import { getGifDuration } from "../../../../utils";
-import { usePularTurno } from "../../";
+import { useEncerrarCondicao, usePularTurno } from "../../";
 import { useRolarDado } from "../../rolar-dado/use-rolar-dado.hook";
 import { BANNER_DURACAO } from "../../../../constants";
 import { useToast } from "../../../";
+import { SOUNDS } from "../../../../constants/audios/sounds.constant";
 
 export function useAcoesBase() {
   const { pularTurno } = usePularTurno();
   const { rolarDado } = useRolarDado();
+  const { encerrarDormindo } = useEncerrarCondicao()
   const {toastError} = useToast()
 
   function _matarPersonagem(alvo) {
     return { ...alvo, isMorto: true };
   }
 
-  function _alterarPersonagem(setPersonagens, novoPersonagem) {
-    setPersonagens((old) => {
+  function alterarPersonagem(functions, novoPersonagem) {
+    functions.setPersonagens((old) => {
       return old.map((personagem) => {
         if (personagem.idCombate === novoPersonagem.idCombate) {
-          if (novoPersonagem.pv.atual < 1) {
-            return _matarPersonagem(novoPersonagem);
+          if (novoPersonagem.pv.atual < 1 && !novoPersonagem.isMorto) {
+            return _matarPersonagem(novoPersonagem, functions);
           }
           return novoPersonagem;
         }
@@ -36,24 +38,33 @@ export function useAcoesBase() {
       ...alvo,
       effect: { asset: effect, isAtivo: true },
     };
-    _alterarPersonagem(functions.setPersonagens, novoAlvo);
+    alterarPersonagem(functions, novoAlvo);
+
+    setTimeout(()=>{
+      alterarPersonagem(functions, alvo);
+    }, duracao)
 
     return duracao;
   }
 
-  function causarDano(alvo, dano, functions) {
-    let novaVida = Number(alvo.pv.atual - dano);
+  function causarDano(alvo, dano, ataque, functions) {
+    const novoDano = ataque.dado===20 ? (dano*2) : dano
+    let novaVida = Number(alvo.pv.atual - novoDano);
     novaVida < 0 ? (novaVida = 0) : null;
 
-    const novoAlvo = {
+    const alvoNovaVida = {
       ...alvo,
+      isMorto: novaVida<1 ? true : false,
       pv: {
         ...alvo.pv,
         atual: novaVida,
       }
     };
-    _alterarPersonagem(functions.setPersonagens, novoAlvo);
+    const novoAlvo = encerrarDormindo(alvoNovaVida, functions)
 
+    novoAlvo.isMorto ? functions.adicionarLog(`O personagem ${alvo.nome} foi derrotado.`) : null
+    
+    alterarPersonagem(functions, novoAlvo)
     return novoAlvo;
   }
 
@@ -74,7 +85,7 @@ export function useAcoesBase() {
       },
     };
     
-    _alterarPersonagem(functions.setPersonagens, novoPersonagem);
+    alterarPersonagem(functions, novoPersonagem);
     return novoPersonagem;
   }
 
@@ -91,7 +102,7 @@ export function useAcoesBase() {
         atual: novaMana,
       }
     };
-    _alterarPersonagem(functions.setPersonagens, novoAlvo);
+    alterarPersonagem(functions, novoAlvo);
 
     return novoAlvo;
   }
@@ -111,7 +122,7 @@ export function useAcoesBase() {
         atual: novaVida,
       }
     };
-    _alterarPersonagem(functions.setPersonagens, novoAlvo);
+    alterarPersonagem(functions, novoAlvo);
 
     return novoAlvo;
   }
@@ -120,43 +131,66 @@ export function useAcoesBase() {
     const {dados, total} = rolarDado(1, 20, [modificador]);
     const ataque = {resultadoDado: dados[0].resultado, resultadoTotal: total, ...modificador}
     functions.ativarBannerAtaque(ataque, alvo.defesa, personagem.corTema);
-    return (total >= alvo.defesa && dados[0].resultado!=1)||(dados[0].resultado==20)
+    return {acerto: (ataque.resultadoTotal >= alvo.defesa && ataque.resultadoDado!=1)||(ataque.resultadoDado==20), total: ataque.resultadoTotal, dado: ataque.resultadoDado}
   }
 
-  function atacarCurar(personagem, alvo, modificador, cura, functions) {
-    const {dados, total} = rolarDado(1, 20, [modificador]);
-    const ataque = {resultadoDado: dados[0].resultado, resultadoTotal: total, ...modificador}
-    functions.ativarBannerAtaque(ataque, alvo.defesa, personagem.corTema);
-    return (total >= alvo.defesa && dados[0].resultado!=1)||(dados[0].resultado==20)
-  }
-
-  async function finalizarAcao(functions, novoAlvo, duracao) {
+  async function finalizarAcao(functions, novoAlvo, duracao, duracaoMinima) {
+    const duracaoTotal = await duracao<duracaoMinima ? duracaoMinima : await duracao
     setTimeout(() => {
-      functions.setAcaoAtiva({ personagem: null, evento: null, alvos: [] });
+      functions.setAcaoAtiva({ personagem: null, acao: null, alvos: [] });
       functions.setAnimacoes((old) => {
         return { ...old, escolhendoAlvo: false, hudAtivo: true };
       });
       pularTurno(functions.setTurnos);
-      _alterarPersonagem(functions.setPersonagens, {
+      alterarPersonagem(functions, {
         ...novoAlvo,
         effect: { asset: null, isAtivo: false },
+        testeResistencia: null,
       });
-    }, await duracao);
+
+      //limpar timeouts (talvez não faça efeito nenhum, mas estarei monitorando para verificar se os bugs de banner sumindo resolvem.)
+      var timeoutsIDs = window.setTimeout(function() {}, 0);
+      while (timeoutsIDs--) {
+      window.clearTimeout(timeoutsIDs);
+}
+    }, await duracaoTotal);
+  }
+
+  function testeResistencia(personagem, dificuldade, modificador, functions) {
+    const {dados, total} = rolarDado(1, 20, [modificador]);
+    functions.playSound(SOUNDS.DADO)
+    const teste = {resultadoDado: dados[0].resultado, resultadoTotal: total, ...modificador}
+    const novoPersonagem = {...personagem, testeResistencia: total}
+    alterarPersonagem(functions, novoPersonagem);
+    
+    return {
+      acerto: (teste.resultadoTotal >= dificuldade && teste.resultadoDado!=1)||(teste.resultadoDado==20),
+      total: teste.resultadoTotal, dado: teste.resultadoDado,
+      personagem: novoPersonagem,
+    }
   }
 
   function informarErro(error, functions) {
     toastError(error.message)
-    functions.setAcaoAtiva({ personagem: null, evento: null, alvos: [] });
+    functions.setAcaoAtiva({ personagem: null, acao: null, alvos: [] });
     functions.setAnimacoes((old) => {
       return { ...old, escolhendoAlvo: false, hudAtivo: true };
     });
   }
   
-  function realizarEtapasAtaque(primeiraEtapa, segundaEtapa, etapaErro, resultadoAtaque, functions) {
+  function realizarEtapasAtaque(primeiraEtapa, segundaEtapa, etapaFinalizacao, resultadoAtaque, functions, personagem, alvo, ataque, dano) {
     
     function _primeiraEtapa() {
       primeiraEtapa()
+      if(resultadoAtaque.dado===20) {
+        functions.adicionarLog(`${personagem.nome} usou ${ataque.nome} em ${alvo.nome} e teve um sucesso crítico com ${resultadoAtaque.total} no teste!`)
+      }else {
+        functions.adicionarLog(`${personagem.nome} usou ${ataque.nome} em ${alvo.nome} e acertou com ${resultadoAtaque.total} no teste.`)
+      }
+
       const segundoTimeout = setTimeout(()=>{
+        const novoDano = resultadoAtaque.dado===20 ? (dano*2) : dano
+        functions.adicionarLog(`${ataque.nome} causou ${novoDano} de dano em ${alvo.nome}.`)
         segundaEtapa()
       }, BANNER_DURACAO.ROLAGEM+100)
       functions.setBanners(old => { return {...old, evento: 
@@ -165,8 +199,8 @@ export function useAcoesBase() {
           segundaEtapa()
         }}})
     }
-
-    if(resultadoAtaque) {
+    
+    if(resultadoAtaque.acerto) {
       const primeiroTimeout = setTimeout(() => {
         _primeiraEtapa()
         
@@ -178,18 +212,75 @@ export function useAcoesBase() {
           _primeiraEtapa()
         }}})
     } else {
+      //CASO ERRE
       const primeiroTimeout = setTimeout(() => {
-        etapaErro()
+        //Só finaliza a ação
+        if(resultadoAtaque.dado===1) {
+          functions.adicionarLog(`${personagem.nome} usou ${ataque.nome} em ${alvo.nome} mas teve uma falha crítica com ${resultadoAtaque.total} no teste.`)
+        }else {
+          functions.adicionarLog(`${personagem.nome} usou ${ataque.nome} em ${alvo.nome} mas falhou com ${resultadoAtaque.total} no teste.`)
+        }
+        etapaFinalizacao()
+        //Dps do banner rolar ele finaliza a ação
       }, (BANNER_DURACAO.ATAQUE)+100);
+
+      //Seta o evento de SKIP que basicamente é limpar o timeout anterior e realizar a ação que ele deveria
       functions.setBanners(old => { return {...old, evento: 
         ()=>{
           clearTimeout(primeiroTimeout)
-          etapaErro()
+          functions.adicionarLog(`${personagem.nome} usou ${ataque.nome} em ${alvo.nome} mas falhou com ${resultadoAtaque.total} no teste.`)
+          etapaFinalizacao()
+        }}})
+    }
+  }
+  
+  function realizarEtapasAtaqueSemDano(primeiraEtapa, etapaFinalizacao, resultadoAtaque, functions, personagem, alvo, ataque) {
+    
+    function _primeiraEtapa() {
+      primeiraEtapa()
+      if(resultadoAtaque.dado===20) {
+        functions.adicionarLog(`${personagem.nome} usou ${ataque.nome} em ${alvo.nome} e teve um sucesso crítico com ${resultadoAtaque.total} no teste!`)
+      }else {
+        functions.adicionarLog(`${personagem.nome} usou ${ataque.nome} em ${alvo.nome} e acertou com ${resultadoAtaque.total} no teste.`)
+      }
+    }
+    
+    if(resultadoAtaque.acerto) {
+      const primeiroTimeout = setTimeout(() => {
+        _primeiraEtapa()
+        
+      }, (BANNER_DURACAO.ATAQUE)+100);
+      
+      functions.setBanners(old => { return {...old, evento: 
+        ()=>{
+          clearTimeout(primeiroTimeout)
+          _primeiraEtapa()
+        }}})
+    } else {
+      //CASO ERRE
+      const primeiroTimeout = setTimeout(() => {
+        //Só finaliza a ação
+        if(resultadoAtaque.dado===1) {
+          functions.adicionarLog(`${personagem.nome} usou ${ataque.nome} em ${alvo.nome} mas teve uma falha crítica com ${resultadoAtaque.total} no teste.`)
+        }else {
+          functions.adicionarLog(`${personagem.nome} usou ${ataque.nome} em ${alvo.nome} mas falhou com ${resultadoAtaque.total} no teste.`)
+        }
+        etapaFinalizacao()
+        //Dps do banner rolar ele finaliza a ação
+      }, (BANNER_DURACAO.ATAQUE)+100);
+
+      //Seta o evento de SKIP que basicamente é limpar o timeout anterior e realizar a ação que ele deveria
+      functions.setBanners(old => { return {...old, evento: 
+        ()=>{
+          clearTimeout(primeiroTimeout)
+          functions.adicionarLog(`${personagem.nome} usou ${ataque.nome} em ${alvo.nome} mas falhou com ${resultadoAtaque.total} no teste.`)
+          etapaFinalizacao()
         }}})
     }
   }
 
   return {
+    alterarPersonagem,
     iniciarEfeito,
     causarDano,
     restaurarVida,
@@ -198,6 +289,8 @@ export function useAcoesBase() {
     informarErro,
     consumirItem,
     atacar,
+    testeResistencia,
     realizarEtapasAtaque,
+    realizarEtapasAtaqueSemDano,
   };
 }

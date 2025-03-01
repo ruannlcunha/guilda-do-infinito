@@ -1,12 +1,13 @@
-import { useEffect } from "react"
-import { BotaoPrimario, ContainerScreen } from ".."
+import { useEffect, useState } from "react"
+import { BotaoPrimario, ContainerScreen, LogsFinais } from ".."
 import "./fim-batalha-versus.style.css"
 import { MUSICS } from "../../../constants/audios/musics.constant"
 import { useNavigate, useParams } from "react-router-dom"
 
-export function FimBatalhaVersus({ resultado, setMusica }) {
+export function FimBatalhaVersus({ resultado, logs, setMusica }) {
     const navigate = useNavigate()
     const { jogadores } = useParams()
+    const [isLogsOpen, setLogsOpen] = useState(false)
 
     useEffect(()=>{
         setMusica({src: MUSICS.VICTORY, loop: false})
@@ -23,6 +24,8 @@ export function FimBatalhaVersus({ resultado, setMusica }) {
 
     return (
         <ContainerScreen style={containerStyle}>
+        <LogsFinais logs={logs} isOpen={isLogsOpen} setIsOpen={setLogsOpen}/>
+
         <h1 className="resultado-batalha" translate="no">{resultado}</h1>
         <div className="fim-batalha-versus">
             <BotaoPrimario onClick={()=>{navigate(0)}}>
@@ -30,6 +33,9 @@ export function FimBatalhaVersus({ resultado, setMusica }) {
             </BotaoPrimario>
             <BotaoPrimario onClick={()=>{navigate(`/versus/${jogadores}/personagens`)}}>
                 Escolher Personagens
+            </BotaoPrimario>
+            <BotaoPrimario onClick={()=>setLogsOpen(true)}>
+                Visualizar Logs da Batalha
             </BotaoPrimario>
             <BotaoPrimario onClick={()=>{navigate("/versus")}}>
                 Voltar para o menu

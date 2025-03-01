@@ -1,12 +1,14 @@
 import "./historia.style.css"
-import { BotaoPrimario, ContainerScreen, Header, HomeBloqueado, HomeListItem } from "../../components"
-import { useForm, useSound } from "../../../hook";
+import { AudioContainer, BotaoPrimario, ContainerScreen, Header, HomeBloqueado, HomeListItem } from "../../components"
+import { useForm, useMusic, useSound } from "../../../hook";
 import { ICONS } from "../../../constants/images";
 import { useEffect, useState } from "react";
 import { HISTORIAS_DATA } from "../../../database/historias/HISTORIAS.data";
 import { useNavigate } from "react-router-dom";
+import { MUSICS } from "../../../constants/audios/musics.constant";
 
 export function HistoriaScreen() {
+    const { startMusic } = useMusic()
     const { playBook, playClick, playHover } = useSound()
     const [data, setData] = useState(null)
     const [isLivroOpen, setIsLivroOpen] = useState(true)
@@ -18,6 +20,7 @@ export function HistoriaScreen() {
 
     useEffect(()=> {
         fetchData()
+        startMusic(true)
     },[])
 
     useEffect(()=> {
@@ -55,6 +58,7 @@ export function HistoriaScreen() {
 
     return (
         <ContainerScreen>
+        <AudioContainer audio={MUSICS.HOME}/>
             <div className="historia-screen">
                 <Header idSelected={1}/>
                 <div className="historia-list-screen">

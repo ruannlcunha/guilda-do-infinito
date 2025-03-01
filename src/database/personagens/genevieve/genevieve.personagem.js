@@ -87,7 +87,7 @@ export const GENEVIEVE = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [16,6,49],
+            ataques: [16,6,49,79],
             habilidades: [1]
         },
     ]

@@ -86,4 +86,5 @@
     color: var(--white);
     text-shadow: var(--borda-texto-sombra);
     font-size: 2rem;
+    text-align: center;
 }

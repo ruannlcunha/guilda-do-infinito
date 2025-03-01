@@ -70,6 +70,17 @@ import AVISO from "../../assets/img/icons/AVISO.png";
 import CONCLUIDO from "../../assets/img/icons/CONCLUIDO.png";
 import TROCAR from "../../assets/img/icons/TROCAR.png";
 import ALIADO from "../../assets/img/icons/ALIADO.png";
+import MAXIMIZAR from "../../assets/img/icons/MAXIMIZAR.png";
+import MINIMIZAR from "../../assets/img/icons/MINIMIZAR.png";
+import LOGS_ATIVO from "../../assets/img/icons/LOGS_ATIVO.png";
+import LOGS_INATIVO from "../../assets/img/icons/LOGS_INATIVO.png";
+import SETA_VANTAGEM from "../../assets/img/icons/SETA_VANTAGEM.png";
+import SETA_DESVANTAGEM from "../../assets/img/icons/SETA_DESVANTAGEM.png";
+import CONDICAO_ENVENENADO from "../../assets/img/icons/CONDICAO_ENVENENADO.png";
+import CONDICAO_QUEIMANDO from "../../assets/img/icons/CONDICAO_QUEIMANDO.png";
+import CONDICAO_CONGELADO from "../../assets/img/icons/CONDICAO_CONGELADO.png";
+import CONDICAO_PARALISADO from "../../assets/img/icons/CONDICAO_PARALISADO.png";
+import CONDICAO_DORMINDO from "../../assets/img/icons/CONDICAO_DORMINDO.png";
 
 export const ICONS = {
   TITULO,
@@ -144,5 +155,16 @@ export const ICONS = {
   CONCLUIDO,
   TROCAR,
   ALIADO,
+  MAXIMIZAR,
+  MINIMIZAR,
+  LOGS_ATIVO,
+  LOGS_INATIVO,
+  SETA_VANTAGEM,
+  SETA_DESVANTAGEM,
+  CONDICAO_ENVENENADO,
+  CONDICAO_QUEIMANDO,
+  CONDICAO_CONGELADO,
+  CONDICAO_PARALISADO,
+  CONDICAO_DORMINDO,
 };
   

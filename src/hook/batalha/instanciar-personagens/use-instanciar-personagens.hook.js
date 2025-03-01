@@ -17,7 +17,6 @@ export function useInstanciarPersonagens() {
         ordemInicial: index + 1,
         isInimigo: false,
         isMorto: false,
-        effect: { asset: null, isAtivo: true },
       };
     });
 
@@ -30,7 +29,6 @@ export function useInstanciarPersonagens() {
         posicaoEmCampo: index + 1,
         isInimigo: true,
         isMorto: false,
-        effect: { asset: null, isAtivo: true },
       };
     });
 
@@ -39,6 +37,10 @@ export function useInstanciarPersonagens() {
         ...personagem,
         idCombate: index + 1,
         ordemInicial: index + 1,
+        effect: { asset: null, isAtivo: true },
+        testeResistencia: null,
+        condicoes: [],
+        acoesExtras: [],
       };
     });
 

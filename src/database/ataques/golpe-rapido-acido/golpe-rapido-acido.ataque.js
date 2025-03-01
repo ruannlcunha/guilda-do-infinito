@@ -2,7 +2,8 @@ import { EFFECTS } from "../../../constants/images";
 import { ACOES_AUDIO } from "../../../constants/audios/acoes.constant";
 import { useAcoesBase } from "../../../hook/batalha/acoes/_base/use-acoes-base.hook";
 import { useRolarDado } from "../../../hook/batalha/rolar-dado/use-rolar-dado.hook";
-import { ALVOS, CATEGORIAS_DE_DANO, TIPOS_DE_DANO } from "../../../constants/acoes/acoes.constant";
+import { ALVOS, CATEGORIAS_DE_DANO } from "../../../constants/acoes/acoes.constant";
+import { ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 
 const { rolarDado } = useRolarDado();
 const { iniciarEfeito, causarDano, finalizarAcao, atacar, realizarEtapasAtaque } = useAcoesBase();
@@ -12,7 +13,7 @@ export const GOLPE_RAPIDO_ACIDO = {
     nome: "Golpe Rápido (Ácido)",
     dadoDeDano: "1d6+FOR+1d6(Ácido)",
     descricao: "Um golpe de ácido veloz que dificulta a esquiva do inimigo.",
-    tipoDano: TIPOS_DE_DANO.ACIDO,
+    elemento: ELEMENTOS.ACIDO,
     categoria: CATEGORIAS_DE_DANO.CORPO_A_CORPO,
     custo: 0,
     evento: golpeRapidoAcido,
@@ -27,8 +28,8 @@ function golpeRapidoAcido(personagem, alvo, functions) {
     const modificadorForca = {valor: personagem.atributos.forca, atributo: "Força"}
     const resultadoAtaque = atacar(personagem, alvo, modificadorForca, functions)
     const modificadores = [modificadorForca]
-    const dado1d6 = rolarDado(1, 6, modificadores)
-    const dado1d6Elemental = rolarDado(1, 6)
+    const dado1d6 = rolarDado(1, 6, modificadores, ELEMENTOS.FISICO, alvo.elemento)
+    const dado1d6Elemental = rolarDado(1, 6, [], GOLPE_RAPIDO_ACIDO.elemento, alvo.elemento)
     const total = dado1d6.total + dado1d6Elemental.total
     
     realizarEtapasAtaque(
@@ -36,12 +37,12 @@ function golpeRapidoAcido(personagem, alvo, functions) {
         functions.ativarBannerRolagem([...dado1d6.dados,...dado1d6Elemental.dados], modificadores, total, personagem.corTema)
       },
       ()=>{
-        const novoAlvo = causarDano(alvo, total, functions);
+        const novoAlvo = causarDano(alvo, total, resultadoAtaque, functions);
         const duracao = iniciarEfeito(novoAlvo, functions, EFFECTS.GOLPE_RAPIDO_ACIDO, ACOES_AUDIO.CORTE);
         finalizarAcao(functions, novoAlvo, duracao);
       },
       ()=>{
         finalizarAcao(functions, alvo, 0);
-      }, resultadoAtaque, functions
+      }, resultadoAtaque, functions, personagem, alvo, GOLPE_RAPIDO_ACIDO, total
     )
   }

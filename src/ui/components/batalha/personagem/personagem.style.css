@@ -39,14 +39,51 @@
   animation: battle-inimigo 1s alternate infinite ease-in-out;
 }
 
-.batalha-screen .campo-de-batalha section div section div .icone-ativo {
+.batalha-screen .campo-de-batalha section div section div .icones-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   height: 17%;
-  width: 17%;
+  width: 34%;
   margin-bottom: -17%;
-  position: relative;
   top: -17%;
-  animation: icone-ativo 1s infinite alternate-reverse ease-in-out;
+}
+
+.batalha-screen .campo-de-batalha section div section div .icones-container img {
+  position: relative;
   z-index: 999;
+  animation: icone-ativo 1s infinite alternate-reverse ease-in-out;
+}
+
+.batalha-screen .campo-de-batalha section div section div .icones-container .icone-ativo {
+  height: 100%;
+  width: 50%;
+}
+
+.batalha-screen .campo-de-batalha section div section div .icones-container .icone-dado-resistencia {
+  position: relative;
+  z-index: 999;
+  height: 2.5vw;
+  width: 2.5vw;
+  margin-left: -2.5vw;
+  background-image: url(../../../../assets/img/icons/D20.png);
+  background-position: center;
+  background-size: cover;
+  transform: rotate(1080deg);
+  color: var(--white);
+  text-shadow: var(--borda-texto);
+  font-family: titleFont, sans-serif;
+  font-size: 1.25rem;
+  transition: all 0.3s;
+  animation: rolar-dado-resistencia 3s ease-in-out;
+  opacity: 0%;
+}
+
+.batalha-screen .campo-de-batalha section div section div .icones-container .icone-vantagem {
+  height: 65%;
+  margin-left: -40%;
+  position: relative;
+  left: 40%;
 }
 
 .batalha-screen .campo-de-batalha section div section div section {
@@ -56,23 +93,36 @@
   height: 30%;
   color: white;
   text-shadow: var(--borda-texto);
+  justify-content: center;
 }
 
-.batalha-screen .campo-de-batalha section div section div section h1 {
-  height: 50%;
+
+.batalha-screen .campo-de-batalha section div section div section div {
+  height: 25%;
   width: 100%;
   text-align: center;
   font-size: 1.2rem;
-  margin: 0;
   font-weight: 300;
+  margin: 0;
+  color: white;
   text-shadow: var(--borda-texto);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.batalha-screen .campo-de-batalha section div section div section div img {
+  height: 100%;
+  margin-right: -1vw;
+  position: relative;
+  right: 1.25vw;
+  filter: drop-shadow(-1px 1px 1px var(--background-text)) drop-shadow(1px -1px 1px var(--background-text));
 }
 
 .batalha-screen .campo-de-batalha section div section div section h2 {
-  height: 50%;
   width: 100%;
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 300;
   margin: -2px 0;
   text-shadow: var(--borda-texto);
@@ -92,6 +142,36 @@
   border: solid 2px var(--white);
   transform: skew(-50deg);
   margin: 3px 0;
+}
+
+.batalha-screen
+  .campo-de-batalha
+  section
+  div
+  section
+  div
+  section
+  .condicoes {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 70%;
+
+}
+.batalha-screen
+  .campo-de-batalha
+  section
+  div
+  section
+  div
+  section
+  .condicoes
+  img {
+    height: 1vw;
+    border: solid 2px var(--white);
+    background-color: var(--light-grey);
+    filter: none;
 }
 
 .batalha-screen
@@ -171,5 +251,32 @@
   }
   to {
     top: -12%;
+  }
+}
+
+@keyframes rolar-dado-resistencia {
+  0% {
+    opacity: 0%;
+    transform: rotate(0deg);
+    color: transparent;
+    text-shadow: none;
+  }
+  15% {
+    opacity: 100%;
+  }
+  40% {
+    transform: rotate(1080deg);
+    color: transparent;
+    text-shadow: none;
+  }
+  50% {
+    color: var(--white);
+    text-shadow: var(--borda-texto);
+  }
+  95% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
   }
 }

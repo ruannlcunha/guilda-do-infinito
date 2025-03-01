@@ -12,6 +12,8 @@ export function useIniciarBatalha() {
     functions.setTurnos(old=>{return {...old, ordemIniciativa: novaOrdemIniciativa}});
 
     setTimeout(() => {
+      functions.adicionarLog("Todos rolaram suas iniciativas!")
+      functions.setBanners(old => { return {...old, evento: null} })
       functions.setAnimacoes((old) => {
         return {
           ...old,
@@ -42,6 +44,7 @@ export function useIniciarBatalha() {
     
     functions.setBanners(old => { return {...old, evento: 
       ()=>{_pularBannersInicio(personagens, ordemIniciativa, functions, primeiroTimeout, segundoTimeout)}} })
+      
   }
 
   return { iniciarBatalha };

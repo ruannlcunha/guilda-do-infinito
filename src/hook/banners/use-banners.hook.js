@@ -5,9 +5,11 @@ import { useSound } from "../audio/sound/use-sound.hook";
 export function useBanners() {
   const { playBanner, playDado } = useSound()
   const [banners, setBanners] = useState({
-    tipo: null, ativo: false, evento: null,
+    ativo: false,
+    ativoDano: false,
+    tipo: null, evento: null,
     texto: "",
-    ataque: null, defesa: null, 
+    ataque: null, defesa: null, isCritico: false,
     dados: [], modificadores: [], total: null,
     nomeAcao: null, personagemPerfil: null, alvoPerfil: null,
   });
@@ -70,21 +72,23 @@ export function useBanners() {
     }, BANNER_DURACAO.ATAQUE);
   }
 
-  function ativarBannerRolagem(dados, modificadores, total, cor) {
+  function ativarBannerRolagem(dados, modificadores, total, cor, resultadoAtaque) {
+    const isCritico = resultadoAtaque===20
     playBanner()
     playDado()
     setBanners((old) => {
       return {
-        ...old, ativo: true, tipo: BANNER_TIPOS.ROLAGEM, cor: cor,
-        dados, modificadores, total,
+        ...old, ativoDano: true, tipo: BANNER_TIPOS.ROLAGEM, cor: cor,
+        dados, modificadores, total, isCritico
       };
     });
 
     setTimeout(() => {
       setBanners((old) => {
-        if (old.ativo) {
-          return { ...old, ativo: false, tipo: null,
+        if (old.ativoDano) {
+          return { ...old, ativoDano: false, tipo: null,
             dados: [], modificadores: [], total: null,
+            isCritico: false,
            };
         }
         return { ...old };

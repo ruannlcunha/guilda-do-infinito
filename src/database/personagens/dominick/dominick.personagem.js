@@ -106,7 +106,7 @@ export const DOMINICK = {
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
             ataques: [14, 17, 19, 26, 58],
-            habilidades: []
+            habilidades: [16]
         },
     ]
 }

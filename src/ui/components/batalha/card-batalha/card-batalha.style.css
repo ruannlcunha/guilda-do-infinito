@@ -44,6 +44,7 @@
     height: 25%;
     width: 100%;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     background-color: var(--fundo-destaque);
     border-bottom: double 3px var(--blue);
@@ -56,8 +57,12 @@
     font-family: textFont, sans-serif;
     color: var(--white);
     text-shadow: var(--borda-texto);
-    width: 100%;
     text-align: left;
+}
+
+.iniciar-batalha-screen section .party-cards .card-batalha .card-info header img {
+    height: 75%;
+    filter: drop-shadow(-1px 1px 1px var(--background-text)) drop-shadow(1px -1px 1px var(--background-text));
 }
 
 .iniciar-batalha-screen section .party-cards .card-batalha .card-info section {

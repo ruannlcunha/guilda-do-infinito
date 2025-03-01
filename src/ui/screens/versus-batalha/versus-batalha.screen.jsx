@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { IniciarBatalhaScreen, JogarBatalha, FimDeBatalha, AudioContainer, FimBatalhaVersus } from "../../components";
+import { IniciarBatalhaScreen, JogarBatalha, AudioContainer, FimBatalhaVersus } from "../../components";
 import "./versus-batalha.style.css";
 import { useInstanciarPersonagens } from "../../../hook/batalha";
 import { useMusic } from "../../../hook";
 import useGlobalUser from "../../../context/global-user.context";
 import { MODOS_JOGO } from "../../../constants";
+import { ATAQUES_DATA } from "../../../database";
 
 export function VersusBatalhaScreen() {
   const [telas, setTelas] = useState({iniciarBatalha: true, jogarBatalha: false, fimBatalha: false})
@@ -15,6 +16,7 @@ export function VersusBatalhaScreen() {
   const { startMusic } = useMusic()
   const [user] = useGlobalUser()
   const [batalha, setBatalha] = useState(null)
+  const [logsBatalha, setLogsBatalha] = useState([])
 
   useEffect(()=>{
     fetchData()
@@ -66,11 +68,14 @@ export function VersusBatalhaScreen() {
     setMusica={setMusica}
     personagensInstanciados={personagensInstanciados}
     handleFinalizarBatalha={handleFinalizarBatalha}
+    logsBatalha={logsBatalha}
+    setLogsBatalha={setLogsBatalha}
     />
     : null}
     {telas.fimBatalha ?
     <FimBatalhaVersus
     resultado={resultado}
+    logs={logsBatalha}
     setMusica={setMusica}
     />
     : null}

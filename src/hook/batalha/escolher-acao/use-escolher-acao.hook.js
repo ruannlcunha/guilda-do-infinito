@@ -15,7 +15,7 @@ export function useEscolherAcao() {
       : acao.alvos===ALVOS.INIMIGOS ? [...inimigos]
       : acao.alvos===ALVOS.PESSOAL ? [personagem] : null
       )
-      return { personagem: personagem, evento: acao.evento, alvos };
+      return { personagem: personagem, acao: acao,  alvos };
     });
 
   }

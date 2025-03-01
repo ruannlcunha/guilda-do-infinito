@@ -20,7 +20,7 @@ export function BatalhaHUD({ personagens, personagemAtivo, animacoes, batalha, f
   }, [personagemAtivo.idCombate, animacoes.iniciativaTerminou]);
 
   function handleCancelarAcao() {
-    functions.setAcaoAtiva({ personagem: null, evento: null, alvos: [] });
+    functions.setAcaoAtiva({ personagem: null, acao: null, alvos: [] });
     functions.setAnimacoes((old) => {
       return { ...old, escolhendoAlvo: false, hudAtivo: true };
     });

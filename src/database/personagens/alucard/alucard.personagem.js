@@ -13,7 +13,7 @@ export const ALUCARD = {
     nome: "Alucard",
     titulo: "Príncipe Vampiro",
     elemento: ELEMENTOS.ELETRICO,
-    corTema: COR_TEMA.PRETO,
+    corTema: COR_TEMA.AMARELO,
     raridade: 5,
     visuais:[
         {

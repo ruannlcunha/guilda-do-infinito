@@ -27,28 +27,28 @@ export function Banners({ banners, setBanners }) {
     playClick(2)
     banners.evento()
   }
-
+  
   function renderPularBanner() {
     return <button onClick={handlePular} className="pular-banner">Pular</button>
   }
 
-  return banners.ativo ? (
+  return (
     <>
-    {banners.tipo===BANNER_TIPOS.TEXTO ?
+    {banners.ativo && banners.tipo===BANNER_TIPOS.TEXTO ?
      <BannerTexto banners={banners} renderPularBanner={renderPularBanner}/> 
     : null}
 
-    {banners.tipo===BANNER_TIPOS.ATAQUE ?
+    {banners.ativo && banners.tipo===BANNER_TIPOS.ATAQUE ?
     <BannerAtaque banners={banners} testeRealizado={testeRealizado} renderPularBanner={renderPularBanner}/>
     : null}
 
-    {banners.tipo===BANNER_TIPOS.ROLAGEM ? 
+    {banners.ativoDano && banners.tipo===BANNER_TIPOS.ROLAGEM ? 
     <BannerRolagem banners={banners}  renderPularBanner={renderPularBanner}/>
     : null}
     
-    {banners.tipo===BANNER_TIPOS.INIMIGO ? 
+    {banners.ativo && banners.tipo===BANNER_TIPOS.INIMIGO ? 
     <BannerInimigo banners={banners} />
     : null}
     </>
-  ) : null;
+  );
 }

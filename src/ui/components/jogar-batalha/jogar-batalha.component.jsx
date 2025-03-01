@@ -6,6 +6,7 @@ import {
     BatalhaHUD,
     OpcoesBatalha,
     Banners,
+    LogsBatalha,
   } from "../../components";
   import {
     useFinalizarTurno,
@@ -15,14 +16,14 @@ import {
   import { useEffect, useState } from "react";
   import { useBanners, useSound } from "../../../hook";
   
-export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, personagensInstanciados }) {
+export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, logsBatalha, setLogsBatalha, personagensInstanciados }) {
     const { banners, setBanners,
       ativarBannerTexto, ativarBannerAtaque, ativarBannerInimigo, ativarBannerRolagem } = useBanners();
     const [personagens, setPersonagens] = useState([]);
     const [personagemAtivo, setPersonagemAtivo] = useState({ idCombate: null });
     const [acaoAtiva, setAcaoAtiva] = useState({
       personagem: null,
-      evento: null,
+      acao: null,
       alvos: [],
     });
     const [turnos, setTurnos] = useState({ atual: 0, maximo: 0, ordemIniciativa: []});
@@ -56,6 +57,7 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, perso
         playSound,
         setPersonagemAtivo,
         handleFinalizarBatalha,
+        adicionarLog,
       }
       setFunctions(todasFuncoes)
       const ordemIniciativa = instanciarOrdemIniciativa(personagensInstanciados);
@@ -84,7 +86,15 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, perso
       setTurnos({ atual: 0, maximo: _personagens.length, ordemIniciativa: ordemInicial });
       return ordemInicial
     }
-  
+
+    function adicionarLog(novoLog) {
+      setLogsBatalha(old=> { return [...old, novoLog]})
+    }
+
+    function getJogadores() {
+      return
+    }
+
     return functions ? (
       <ContainerScreen>
         <div className="batalha-screen">
@@ -99,6 +109,8 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, perso
   
           {personagens.length > 0 && personagemAtivo ? (
             <>
+              <LogsBatalha logs={logsBatalha} />
+
               <Turnos
                 animacoes={animacoes}
                 ordemIniciativa={turnos.ordemIniciativa}

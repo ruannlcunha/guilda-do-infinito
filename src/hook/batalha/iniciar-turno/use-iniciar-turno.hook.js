@@ -1,16 +1,26 @@
-import { useAutomatizarPersonagem, usePularTurno } from "../"
+import { useAutomatizarPersonagem, usePularTurno, useRealizarCondicao } from "../"
+import { useAcoesBase } from "../acoes/_base/use-acoes-base.hook"
 
 export function useIniciarTurno() {
     const { pularTurno } = usePularTurno()
+    const realizarCondicoes = useRealizarCondicao()
     const { automatizarPersonagem } = useAutomatizarPersonagem()
+    const {alterarPersonagem} = useAcoesBase()
 
     function iniciarTurno(personagemAtivo, personagens, jogadores, functions) {
-        if((personagemAtivo.isInimigo && !personagemAtivo.isMorto && (jogadores<2||!jogadores))
-            || (!personagemAtivo.isMorto && jogadores<1)
+        let novoPersonagem = personagemAtivo
+        realizarCondicoes.map(eventoCondicao=> {
+            novoPersonagem = eventoCondicao(novoPersonagem, functions)
+        })
+        
+        alterarPersonagem(functions, novoPersonagem)
+
+        if((novoPersonagem.isInimigo && !novoPersonagem.isMorto && (jogadores<2||!jogadores))
+            || (!novoPersonagem.isMorto && jogadores<1)
         ) {
-            automatizarPersonagem(personagemAtivo, personagens, functions)
+            automatizarPersonagem(novoPersonagem, personagens, functions)
         }
-        personagemAtivo.isMorto ? pularTurno(functions.setTurnos) : null
+        novoPersonagem.isMorto ? pularTurno(functions.setTurnos) : null
     }
 
     return { iniciarTurno }
