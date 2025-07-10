@@ -1,16 +1,19 @@
 import SILKY_1_SPRITE from "./assets/SILKY_1_SPRITE.png"
 import SILKY_1_PERFIL from "./assets/SILKY_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants";
 
 export const SILKY = {
     ..._BASE_ORIGINAL,
     id: 32,
     nome: "Silky",
     titulo: "Guardiã Solitária",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.ELETRICO,
     corTema: COR_TEMA.ROXO,
     raridade: 4,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -37,7 +40,10 @@ export const SILKY = {
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,22],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 22, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -45,7 +51,10 @@ export const SILKY = {
             experienciaNecessaria: 3000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,22],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 22, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -53,24 +62,50 @@ export const SILKY = {
             experienciaNecessaria: 6000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,16,22,5,12],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 12, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,16,22,5,12],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 12, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,16,22,5,12,45,46],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 12, variantes: []},
+                {ataqueId: 45, variantes: []},
+                {ataqueId: 46, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
     ]
 }

@@ -12,7 +12,7 @@ export const VENENO = {
     id: 44,
     nome: "Frasco de Veneno",
     descricao: "Um frasco contendo um líquido corrosivo que pode ser arremessado.",
-    efeito: "Faz algo",
+    descricao: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",
     sprite: "/guilda-do-infinito/src/database/itens/consumiveis/veneno/VENENO.png",

@@ -15,16 +15,19 @@ import AYLA_7_PERFIL from "./assets/AYLA_7_PERFIL.png"
 import AYLA_8_SPRITE from "./assets/AYLA_8_SPRITE.gif"
 import AYLA_8_PERFIL from "./assets/AYLA_8_PERFIL.gif"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { ELEMENTOS, COR_TEMA } from "../../../constants/personagens/personagem.constant"
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const AYLA = {
     ..._BASE_ORIGINAL,
     id: 2,
     nome: "Ayla",
     titulo: "Guardiã Imortal",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.AMARELO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -100,40 +103,67 @@ export const AYLA = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
-            habilidades: [12]
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 12, variantes: []},
+            ]
         },
         {
             level: 2,
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
-            habilidades: [12]
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 12, variantes: []},
+            ]
         },
         {
             level: 3,
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,15],
-            habilidades: [12, 1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 15, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 12, variantes: []},
+                {habilidadeId: 1, variantes: []},
+            ],
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [14,15],
-            habilidades: [12, 1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 15, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 12, variantes: []},
+                {habilidadeId: 1, variantes: []},
+            ],
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [14, 15, 27],
-            habilidades: [12, 1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 27, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 12, variantes: []},
+                {habilidadeId: 1, variantes: []},
+            ],
         },
     ],
 }

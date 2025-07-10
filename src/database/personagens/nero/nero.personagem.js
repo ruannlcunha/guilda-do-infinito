@@ -17,16 +17,19 @@ import NERO_8_PERFIL from "./assets/NERO_8_PERFIL.gif"
 import NERO_9_SPRITE from "./assets/NERO_9_SPRITE.gif"
 import NERO_9_PERFIL from "./assets/NERO_9_PERFIL.gif"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { ELEMENTOS, COR_TEMA } from "../../../constants/personagens/personagem.constant"
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const NERO = {
     ..._BASE_ORIGINAL,
     id: 14,
     nome: "Nero",
     titulo: "Inventora Amaldiçoada",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.LARANJA,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -109,7 +112,9 @@ export const NERO = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [19],
+            ataques: [
+                {ataqueId: 19, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -117,7 +122,9 @@ export const NERO = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [19],
+            ataques: [
+                {ataqueId: 19, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -125,7 +132,11 @@ export const NERO = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [19,20,2],
+            ataques: [
+                {ataqueId: 19, variantes: []},
+                {ataqueId: 20, variantes: []},
+                {ataqueId: 2, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -133,7 +144,11 @@ export const NERO = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [19,20,2],
+            ataques: [
+                {ataqueId: 19, variantes: []},
+                {ataqueId: 20, variantes: []},
+                {ataqueId: 2, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -141,7 +156,12 @@ export const NERO = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [19,20,2,55],
+            ataques: [
+                {ataqueId: 19, variantes: []},
+                {ataqueId: 20, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 55, variantes: []},
+            ],
             habilidades: []
         },
     ]

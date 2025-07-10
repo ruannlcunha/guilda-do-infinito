@@ -1,16 +1,19 @@
 import EREENA_1_SPRITE from "./assets/EREENA_1_SPRITE.png"
 import EREENA_1_PERFIL from "./assets/EREENA_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const EREENA = {
     ..._BASE_ORIGINAL,
     id: 17,
     nome: "Ereena",
     titulo: "Demônio Pálido",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.GELO,
     corTema: COR_TEMA.CIANO,
     raridade: 4,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -37,40 +40,64 @@ export const EREENA = {
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
         {
             level: 2,
             experienciaNecessaria: 3000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
         {
             level: 3,
             experienciaNecessaria: 6000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,21],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 21, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
         {
             level: 4,
             experienciaNecessaria: 10000,
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,21],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 21, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
         {
             level: 5,
             experienciaNecessaria: 15000,
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,21,32],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 21, variantes: []},
+                {ataqueId: 32, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
     ],
 }

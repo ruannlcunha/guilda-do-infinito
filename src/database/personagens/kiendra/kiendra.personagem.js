@@ -1,16 +1,19 @@
 import KIENDRA_1_SPRITE from "./assets/KIENDRA_1_SPRITE.png"
 import KIENDRA_1_PERFIL from "./assets/KIENDRA_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const KIENDRA = {
     ..._BASE_ORIGINAL,
     id: 28,
     nome: "Kien'dra",
     titulo: "Filha das Chamas",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.VERMELHO,
     raridade: 4,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
             {
             visualId: 1,
@@ -37,7 +40,9 @@ export const KIENDRA = {
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -45,7 +50,9 @@ export const KIENDRA = {
             experienciaNecessaria: 3000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -53,7 +60,10 @@ export const KIENDRA = {
             experienciaNecessaria: 6000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,2],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 2, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -61,7 +71,10 @@ export const KIENDRA = {
             experienciaNecessaria: 10000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [14,2],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 2, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -69,7 +82,11 @@ export const KIENDRA = {
             experienciaNecessaria: 15000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [14,2,27],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 27, variantes: []},
+            ],
             habilidades: []
         },
     ],

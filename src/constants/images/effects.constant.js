@@ -3,17 +3,24 @@ import CURA_1 from "../../assets/img/effects/CURA_1.gif";
 import CURA_2 from "../../assets/img/effects/CURA_2.gif";
 import TIRO from "../../assets/img/effects/TIRO.gif";
 import BOLA_DE_FOGO from "../../assets/img/effects/BOLA_DE_FOGO.gif";
+import EXPLOSAO_FOGO from "../../assets/img/effects/EXPLOSAO_FOGO.gif";
 import TREVAS_1 from "../../assets/img/effects/TREVAS_1.gif";
+import TREVAS_2 from "../../assets/img/effects/TREVAS_2.gif";
+import TREVAS_3 from "../../assets/img/effects/TREVAS_3.gif";
 import AGUA_1 from "../../assets/img/effects/AGUA_1.gif";
 import ACIDO_1 from "../../assets/img/effects/ACIDO_1.gif";
 import TERRA_1 from "../../assets/img/effects/TERRA_1.gif";
+import TERRA_2 from "../../assets/img/effects/TERRA_2.gif";
 import AR_1 from "../../assets/img/effects/AR_1.gif";
 import GELO_1 from "../../assets/img/effects/GELO_1.gif";
 import GELO_2 from "../../assets/img/effects/GELO_2.gif";
 import ELETRICO_1 from "../../assets/img/effects/ELETRICO_1.gif";
 import ELETRICO_2 from "../../assets/img/effects/ELETRICO_2.gif";
+import ELETRICO_3 from "../../assets/img/effects/ELETRICO_3.gif";
 import RAIZES from "../../assets/img/effects/RAIZES.gif";
 import LUZ_1 from "../../assets/img/effects/LUZ_1.gif";
+import LUZ_2 from "../../assets/img/effects/LUZ_2.gif";
+import LUZ_3 from "../../assets/img/effects/LUZ_3.gif";
 import FUMACA_1 from "../../assets/img/effects/FUMACA_1.gif";
 import FUMACA_2 from "../../assets/img/effects/FUMACA_2.gif";
 import GOLPE_PESADO from "../../assets/img/effects/GOLPE_PESADO.gif";
@@ -63,6 +70,8 @@ import GARRADA from "../../assets/img/effects/GARRADA.gif";
 import MORDIDA from "../../assets/img/effects/MORDIDA.gif";
 import QUEBRAR_GELO from "../../assets/img/effects/QUEBRAR_GELO.gif";
 import SONO from "../../assets/img/effects/SONO.gif";
+import ARMADURA_MAGICA from "../../assets/img/effects/ARMADURA_MAGICA.gif";
+import DUPLICATA_ILUSORIA from "../../assets/img/effects/DUPLICATA_ILUSORIA.gif";
 
 export const EFFECTS = {
   SOCO,
@@ -70,17 +79,24 @@ export const EFFECTS = {
   CURA_2,
   TIRO,
   BOLA_DE_FOGO,
+  EXPLOSAO_FOGO,
   TREVAS_1,
+  TREVAS_2,
+  TREVAS_3,
   AGUA_1,
   ACIDO_1,
   TERRA_1,
+  TERRA_2,
   AR_1,
   GELO_1,
   GELO_2,
   ELETRICO_1,
   ELETRICO_2,
+  ELETRICO_3,
   RAIZES,
   LUZ_1,
+  LUZ_2,
+  LUZ_3,
   FUMACA_1,
   FUMACA_2,
   GOLPE_PESADO,
@@ -130,4 +146,6 @@ export const EFFECTS = {
   MORDIDA,
   QUEBRAR_GELO,
   SONO,
+  ARMADURA_MAGICA,
+  DUPLICATA_ILUSORIA,
 };

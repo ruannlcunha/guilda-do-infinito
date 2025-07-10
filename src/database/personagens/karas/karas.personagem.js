@@ -7,7 +7,8 @@ import KARAS_3_PERFIL from "./assets/KARAS_3_PERFIL.png"
 import KARAS_4_SPRITE from "./assets/KARAS_4_SPRITE.gif"
 import KARAS_4_PERFIL from "./assets/KARAS_4_PERFIL.gif"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { ELEMENTOS, COR_TEMA } from "../../../constants/personagens/personagem.constant"
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const KARAS = {
     ..._BASE_ORIGINAL,
@@ -17,6 +18,7 @@ export const KARAS = {
     elemento: ELEMENTOS.AGUA,
     corTema: COR_TEMA.AZUL,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -65,40 +67,67 @@ export const KARAS = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 2,
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 3,
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,12,7],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 12, variantes: []},
+                {ataqueId: 7, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [14,12,7],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 12, variantes: []},
+                {ataqueId: 7, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [14,12,7,28],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 12, variantes: []},
+                {ataqueId: 7, variantes: []},
+                {ataqueId: 28, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
     ]
 }

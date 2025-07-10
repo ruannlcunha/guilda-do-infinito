@@ -10,7 +10,7 @@ export const POCAO_CURA_SUPREMA = {
     id: 14,
     nome: "Poção de Cura Suprema",
     descricao: "Um enorme frasco de vidro contendo um líquido vermelho mágico que recupera sua vida.",
-    efeito: "Cura completamente o PV de você mesmo ou de um aliado.",
+    descricao: "Cura completamente o PV de você mesmo ou de um aliado.",
     evento: pocaoCuraSuprema,
     alvos: "ALIADOS",
     sprite: "/guilda-do-infinito/src/database/itens/consumiveis/pocao-cura-suprema/POCAO_CURA_SUPREMA.png",
@@ -18,7 +18,7 @@ export const POCAO_CURA_SUPREMA = {
     categoria: ITENS_CATEGORIA.CONSUMIVEL,
 }
 
-function pocaoCuraSuprema(personagem, alvo, functions) {
+function pocaoCuraSuprema(personagem, alvo, acao, functions) {
     functions.setAnimacoes((old) => {
       return { ...old, escolhendoAlvo: false };
     });
@@ -31,5 +31,6 @@ function pocaoCuraSuprema(personagem, alvo, functions) {
       finalizarAcao(functions, alvoRestaurado, duracao);
     } catch (error) {
       informarErro(error, functions)
+      throw error
     }
 }

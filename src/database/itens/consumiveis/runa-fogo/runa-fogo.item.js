@@ -12,7 +12,7 @@ export const RUNA_FOGO = {
     id: 42,
     nome: "Runa de Fogo",
     descricao: "Uma pedra contendo uma runa mágica do elemento Fogo.",
-    efeito: "Faz algo",
+    descricao: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",
     sprite: "/guilda-do-infinito/src/database/itens/consumiveis/runa-fogo/RUNA_FOGO.png",

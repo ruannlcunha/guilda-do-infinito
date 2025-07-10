@@ -1,16 +1,19 @@
 import PANDORA_1_SPRITE from "./assets/PANDORA_1_SPRITE.png"
 import PANDORA_1_PERFIL from "./assets/PANDORA_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const PANDORA = {
     ..._BASE_ORIGINAL,
     id: 45,
     nome: "Pandora",
     titulo: "Amaldiçoada pelo Oceano",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.AGUA,
     corTema: COR_TEMA.AZUL,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -37,7 +40,9 @@ export const PANDORA = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17],
+            ataques: [
+                {ataqueId: 17, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -45,7 +50,9 @@ export const PANDORA = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17],
+            ataques: [
+                {ataqueId: 17, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -53,7 +60,11 @@ export const PANDORA = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,18,7],
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 18, variantes: []},
+                {ataqueId: 7, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -61,7 +72,11 @@ export const PANDORA = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,18,7],
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 18, variantes: []},
+                {ataqueId: 7, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -69,7 +84,13 @@ export const PANDORA = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,18,7,5,68],
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 18, variantes: []},
+                {ataqueId: 7, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 68, variantes: []},
+            ],
             habilidades: []
         },
     ],

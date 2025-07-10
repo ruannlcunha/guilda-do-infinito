@@ -7,7 +7,7 @@ export function useIniciarTurno() {
     const { automatizarPersonagem } = useAutomatizarPersonagem()
     const {alterarPersonagem} = useAcoesBase()
 
-    function iniciarTurno(personagemAtivo, personagens, jogadores, functions) {
+    function iniciarTurno(personagemAtivo, personagens, jogadores, jogadaAutomatica, functions) {
         let novoPersonagem = personagemAtivo
         realizarCondicoes.map(eventoCondicao=> {
             novoPersonagem = eventoCondicao(novoPersonagem, functions)
@@ -15,8 +15,10 @@ export function useIniciarTurno() {
         
         alterarPersonagem(functions, novoPersonagem)
 
-        if((novoPersonagem.isInimigo && !novoPersonagem.isMorto && (jogadores<2||!jogadores))
+        if(
+            (novoPersonagem.isInimigo && !novoPersonagem.isMorto && (jogadores<2||!jogadores))
             || (!novoPersonagem.isMorto && jogadores<1)
+            || jogadaAutomatica
         ) {
             automatizarPersonagem(novoPersonagem, personagens, functions)
         }

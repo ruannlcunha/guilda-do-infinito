@@ -1,5 +1,5 @@
 import DEVORADORA_ALMAS_SPRITE from "./DEVORADORA_ALMAS_SPRITE.png"
-import BASE_SANTUARIO from "../assets/BASE_SANTUARIO.png"
+import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
 import { ARMAS_TIPO } from "../../../../constants"
 import { EQUIPAMENTO_TIPO, ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
 import { ICONS } from "../../../../constants/images"

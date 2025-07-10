@@ -3,10 +3,20 @@ import { calcularPorcentagem } from "../../../../utils";
 import pixelTexture from "../../../../assets/img/textures/BANNER_TEXTURE.png";
 import { CATEGORIA_CONDICAO, TIPO_CONDICAO } from "../../../../constants/personagens/personagem.constant";
 import { ICONS } from "../../../../constants/images";
+import { useSound } from "../../../../hook";
+import { Modal } from "../../"
+import { useState } from "react";
 
-export function StatusHUD({ personagem, jogadores }) {
-  const styleInvertido = personagem.isInimigo && jogadores==1
-                      ||jogadores==0
+export function StatusHUD({ personagem, jogadores, jogadaAutomatica }) {
+  const { playClick, playHover} = useSound()
+  const [condicaoIsOpen, setCondicaoIsOpen] = useState(false)
+  const [condicaoAtiva, setCondicaoAtiva] = useState(null)
+
+  const styleInvertido = personagem.isInimigo && jogadores==1 
+  || personagem.isInimigo && jogadores==1
+  || jogadores==1 && jogadaAutomatica
+  || jogadores==2 && jogadaAutomatica 
+  || jogadores==0
   const porcentagemVida = calcularPorcentagem(
     personagem.pv.atual,
     personagem.pv.maximo
@@ -15,6 +25,44 @@ export function StatusHUD({ personagem, jogadores }) {
     personagem.pm.atual,
     personagem.pm.maximo
   );
+
+  function handleVerCondicao(condicao) {
+    playClick(1)
+    setCondicaoIsOpen(true)
+    setCondicaoAtiva(condicao)
+  }
+
+  function handleFecharCondicaoModal() {
+    playClick(1)
+    setCondicaoIsOpen(false)
+  }
+
+  function renderCondicaoModal() {
+    return condicaoAtiva ? (
+          <Modal isOpen={condicaoIsOpen} setIsOpen={setCondicaoIsOpen}>
+            <div className="condicao-modal">
+              <header>
+                <div>
+                  <h1>{condicaoAtiva.nome}</h1>
+                  <img
+                  src={condicaoAtiva.icon}
+                  style={{backgroundColor: condicaoAtiva.tipo===TIPO_CONDICAO.BUFF ? "var(--mid-green)" : "var(--mid-red)"}}
+                  alt={`Ícone da condição ${condicaoAtiva.nome}`} />
+                </div>
+                <button onMouseEnter={()=>playHover(1)} onClick={handleFecharCondicaoModal}>
+                  X
+                </button>
+              </header>
+              <section>
+                {condicaoAtiva.duracao ?
+                  <p><span>{condicaoAtiva.duracaoTitulo}: </span>{condicaoAtiva.duracao} restante{condicaoAtiva.duracao>1?"s":null}</p>
+                :null}
+                <p><span>Descrição: </span> {condicaoAtiva.descricao}</p>
+              </section>
+            </div>
+          </Modal>
+    ) : null
+  }
 
   return (
     <section
@@ -56,16 +104,20 @@ export function StatusHUD({ personagem, jogadores }) {
           <h2>
             PV: {personagem.pv.atual}/{personagem.pv.maximo}
           </h2>
-          {personagem.condicoes.map(condicao=>{
+          {personagem.condicoes.map((condicao,i)=>{
             if(condicao.categoria===CATEGORIA_CONDICAO.FISICA) {
               return <img
+              key={i}
               src={condicao.icon}
+              onMouseEnter={()=>playHover(1)}
+              onClick={()=>handleVerCondicao(condicao)}
               style={{backgroundColor: condicao.tipo===TIPO_CONDICAO.BUFF ? "var(--mid-green)" : "var(--mid-red)"}}
               alt={`ícone de ${condicao.nome}`}
               />
             }
             })
           }
+          {renderCondicaoModal()}
         </div>
 
         <div
@@ -79,9 +131,10 @@ export function StatusHUD({ personagem, jogadores }) {
         <h2>
           PM: {personagem.pm.atual}/{personagem.pm.maximo}
         </h2>
-        {personagem.condicoes.map(condicao=>{
+        {personagem.condicoes.map((condicao,i)=>{
             if(condicao.categoria===CATEGORIA_CONDICAO.MENTAL) {
               return <img
+              key={i}
               src={condicao.icon}
               style={{backgroundColor: condicao.tipo===TIPO_CONDICAO.BUFF ? "var(--mid-green)" : "var(--mid-red)"}}
               alt={`ícone de ${condicao.nome}`}

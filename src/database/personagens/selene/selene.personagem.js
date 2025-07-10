@@ -3,16 +3,19 @@ import SELENE_1_PERFIL from "./assets/SELENE_1_PERFIL.png"
 import SELENE_2_SPRITE from "./assets/SELENE_2_SPRITE.png"
 import SELENE_2_PERFIL from "./assets/SELENE_2_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const SELENE = {
     ..._BASE_ORIGINAL,
     id: 31,
     nome: "Selene",
     titulo: "Guardiã Azul",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.AGUA,
     corTema: COR_TEMA.AZUL,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -46,7 +49,9 @@ export const SELENE = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [15],
+            ataques: [
+                {ataqueId: 15, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -54,7 +59,9 @@ export const SELENE = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [15],
+            ataques: [
+                {ataqueId: 15, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -62,24 +69,44 @@ export const SELENE = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [15,7,10],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 7, variantes: []},
+                {ataqueId: 10, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
-            ataques: [15,7,10],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 7, variantes: []},
+                {ataqueId: 10, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
-            ataques: [15,7,10,38,40],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 7, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 38, variantes: []},
+                {ataqueId: 40, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
     ],
 }

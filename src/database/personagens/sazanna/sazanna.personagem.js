@@ -3,16 +3,19 @@ import SAZANNA_1_PERFIL from "./assets/SAZANNA_1_PERFIL.png"
 import SAZANNA_2_SPRITE from "./assets/SAZANNA_2_SPRITE.png"
 import SAZANNA_2_PERFIL from "./assets/SAZANNA_2_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const SAZANNA = {
     ..._BASE_ORIGINAL,
     id: 26,
     nome: "Saz'anna",
     titulo: "Instrutora Real",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.ROXO,
     raridade: 4,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -46,7 +49,10 @@ export const SAZANNA = {
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,2],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 2, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -54,7 +60,10 @@ export const SAZANNA = {
             experienciaNecessaria: 3000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,2],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 2, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -62,7 +71,12 @@ export const SAZANNA = {
             experienciaNecessaria: 6000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,16,2,5],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 5, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -70,7 +84,12 @@ export const SAZANNA = {
             experienciaNecessaria: 10000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,16,2,5],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 5, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -78,7 +97,14 @@ export const SAZANNA = {
             experienciaNecessaria: 15000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,16,2,5,47,53],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 47, variantes: []},
+                {ataqueId: 53, variantes: []},
+            ],
             habilidades: []
         },
     ]

@@ -1,6 +1,6 @@
 import MANTO_VELHO_SPRITE from "./MANTO_VELHO_SPRITE.png"
-import BASE_SANTUARIO from "../assets/BASE_SANTUARIO.png"
-import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
+import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
+import { ARMADURA_TIPO, ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
 import { ICONS } from "../../../../constants/images"
 
 export const MANTO_VELHO = {
@@ -9,7 +9,7 @@ export const MANTO_VELHO = {
     descricao: "Um manto velho e desgastado.",
     sprite: MANTO_VELHO_SPRITE,
     raridade: 3,
-    tipo: "Armadura Leve",
+    tipo: ARMADURA_TIPO.LEVE,
     santuario: BASE_SANTUARIO,
     categoria: ITENS_CATEGORIA.EQUIPAMENTO,
     equipamentoTipo: "ARMADURA",

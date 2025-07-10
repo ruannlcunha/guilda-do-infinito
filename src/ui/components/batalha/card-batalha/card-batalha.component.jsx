@@ -18,6 +18,7 @@ export function CardBatalha({personagem, reverse, handleTrocarModal, modo}) {
                 <header>
                     <img src={ICONS[`ELEMENTO_${personagem.elemento}`]} alt="" />
                     <h1>{personagem.nome}</h1>
+                    <h2>Lv.{personagem.level}</h2>
                 </header>
                 <section>
                     <section className="card-status">

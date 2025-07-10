@@ -1,12 +1,18 @@
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { ATAQUES } from "../../ataques";
+import { HABILIDADES } from "../../habilidades";
+import { TALENTOS } from "../../talentos";
 
 export const _BASE_ORIGINAL = {
     id: 0,
     nome: "Base",
     titulo: "Título",
+    pronomes: PRONOMES.MASCULINO,
     elemento: ELEMENTOS.NULO,
     corTema: COR_TEMA.BRANCO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -32,9 +38,9 @@ export const _BASE_ORIGINAL = {
             level: 1,
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
-            talentos: [],
-            ataques: [],
-            habilidades: []
+            talentos: [TALENTOS.CURA_APRIMORADA],
+            ataques: [{ataqueId: ATAQUES.BOLA_DE_FOGO.id, variantes: ["NIVEL_1","NIVEL_2"]}],
+            habilidades: [{habilidadeId: HABILIDADES.CURAR.id, variantes: ["NIVEL_1","NIVEL_2"]}]
         },
     ],
     equipamentosProntos: [

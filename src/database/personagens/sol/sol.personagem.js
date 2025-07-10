@@ -7,7 +7,8 @@ import SOL_3_PERFIL from "./assets/SOL_3_PERFIL.png"
 import SOL_4_SPRITE from "./assets/SOL_4_SPRITE.png"
 import SOL_4_PERFIL from "./assets/SOL_4_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const SOL = {
     ..._BASE_ORIGINAL,
@@ -17,6 +18,7 @@ export const SOL = {
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.VERMELHO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -64,7 +66,9 @@ export const SOL = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1],
+            ataques: [
+                {ataqueId: 1, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -72,7 +76,9 @@ export const SOL = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1],
+            ataques: [
+                {ataqueId: 1, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -80,7 +86,10 @@ export const SOL = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,16],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 16, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -88,7 +97,10 @@ export const SOL = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,16],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 16, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -96,7 +108,11 @@ export const SOL = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,16,47],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 47, variantes: []},
+            ],
             habilidades: []
         },
     ],

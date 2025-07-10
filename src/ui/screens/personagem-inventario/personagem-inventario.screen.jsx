@@ -304,7 +304,6 @@ export function PersonagemInventarioScreen() {
                             <h2>Raridade:</h2>
                             {renderEstrelas(itemEscolhido.raridade)}
                         </div>
-                        <h2>Efeito: <span>{itemEscolhido.efeito}</span></h2>
                         <h2>Quantidade: <span>{itemEscolhido.quantidade}</span></h2>
                     </div>
                     <BotaoPrimario onClick={evento}>{texto}</BotaoPrimario>

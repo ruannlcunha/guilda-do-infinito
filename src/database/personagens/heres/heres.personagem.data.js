@@ -7,7 +7,8 @@ import HERES_3_PERFIL from "./assets/HERES_3_PERFIL.png"
 import HERES_4_SPRITE from "./assets/HERES_4_SPRITE.png"
 import HERES_4_PERFIL from "./assets/HERES_4_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const HERES = {
     ..._BASE_ORIGINAL,
@@ -17,6 +18,7 @@ export const HERES = {
     elemento: ELEMENTOS.TREVAS,
     corTema: COR_TEMA.AZUL,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -64,40 +66,69 @@ export const HERES = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,5],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 5, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 2,
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,5],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 5, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 3,
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,5,14],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 14, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,5,14],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 14, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,5,14,33],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 33, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
     ],
 }

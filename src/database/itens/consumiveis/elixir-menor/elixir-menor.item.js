@@ -12,7 +12,7 @@ export const ELIXIR_MENOR = {
     id: 38,
     nome: "Elixir Menor",
     descricao: "Um pequeno frasco de vidro contendo um líquido dourado mágico que recupera sua vida e mana.",
-    efeito: "Faz algo",
+    descricao: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",
     sprite: "/guilda-do-infinito/src/database/itens/consumiveis/elixir-menor/ELIXIR_MENOR.png",

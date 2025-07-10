@@ -25,7 +25,10 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, logsB
       personagem: null,
       acao: null,
       alvos: [],
+      tipoAcao: null
     });
+    const [jogadaAutomatica, setJogadaAutomatica] = useState(false);
+    const [acaoEmAndamento, setAcaoEmAndamento] = useState(false);
     const [turnos, setTurnos] = useState({ atual: 0, maximo: 0, ordemIniciativa: []});
     const { iniciarBatalha } = useIniciarBatalha(banners);
     const { finalizarTurno } = useFinalizarTurno();
@@ -58,6 +61,8 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, logsB
         setPersonagemAtivo,
         handleFinalizarBatalha,
         adicionarLog,
+        setJogadaAutomatica,
+        setAcaoEmAndamento,
       }
       setFunctions(todasFuncoes)
       const ordemIniciativa = instanciarOrdemIniciativa(personagensInstanciados);
@@ -68,6 +73,8 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, logsB
     useEffect(() => {
       functions ? finalizarTurno(personagens, turnos, functions) : null
     }, [turnos, personagens, functions]);
+
+
 
     function instanciarOrdemIniciativa(personagensInstanciados) {
       let _personagens = [...personagensInstanciados]
@@ -91,10 +98,6 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, logsB
       setLogsBatalha(old=> { return [...old, novoLog]})
     }
 
-    function getJogadores() {
-      return
-    }
-
     return functions ? (
       <ContainerScreen>
         <div className="batalha-screen">
@@ -102,10 +105,13 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, logsB
           <OpcoesBatalha
             animacoes={animacoes}
             zoom={zoom}
-            functions={{ setAnimacoes, aumentarZoom, diminuirZoom }}
+            jogadaAutomatica={jogadaAutomatica}
+            acaoEmAndamento={acaoEmAndamento}
+            personagemAtivo={personagemAtivo}
+            functions={functions}
           />
   
-          <Banners banners={banners} setBanners={setBanners} />
+          <Banners banners={banners} setBanners={setBanners} functions={functions} />
   
           {personagens.length > 0 && personagemAtivo ? (
             <>
@@ -135,6 +141,8 @@ export function JogarBatalha({ batalha, setMusica, handleFinalizarBatalha, logsB
                 personagemAtivo={personagemAtivo}
                 animacoes={animacoes}
                 batalha={batalha}
+                acaoEmAndamento={acaoEmAndamento}
+                jogadaAutomatica={jogadaAutomatica}
                 functions={functions}
               />
             </>

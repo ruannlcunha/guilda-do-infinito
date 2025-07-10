@@ -5,7 +5,6 @@ export function useInstanciarPersonagens() {
   const [user] = useGlobalUser()
 
   function instanciarPersonagens(aliadosData, inimigosData) {
-
     const aliados = aliadosData.map((personagem, index) => {
       const personagemAtual = personagem.personagemId !== 1 ? personagem :
       user.personagens.find(item => item.personagemId === 1)
@@ -38,6 +37,7 @@ export function useInstanciarPersonagens() {
         idCombate: index + 1,
         ordemInicial: index + 1,
         effect: { asset: null, isAtivo: true },
+        defesaEffect: null,
         testeResistencia: null,
         condicoes: [],
         acoesExtras: [],

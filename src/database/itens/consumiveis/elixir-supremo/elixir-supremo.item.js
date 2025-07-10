@@ -12,7 +12,7 @@ export const ELIXIR_SUPREMO = {
     id: 40,
     nome: "Elixir Supremo",
     descricao: "Um enorme frasco de vidro contendo um líquido dourado mágico que recupera sua vida e mana.",
-    efeito: "Faz algo",
+    descricao: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",
     sprite: "/guilda-do-infinito/src/database/itens/consumiveis/elixir-supremo/ELIXIR_SUPREMO.png",

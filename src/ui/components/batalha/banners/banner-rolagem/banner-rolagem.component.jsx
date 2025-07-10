@@ -29,10 +29,10 @@ export function BannerRolagem({banners, renderPularBanner}) {
             return (
               <>
               {i!==0 && banners.dados.length > 1 ?
-              <h2>+</h2>
+              <h2 key={i}>+</h2>
               :null}
               <div className="dado" key={i}>
-                <div className="elemento-dado" style={{backgroundImage: `url(${ICONS[`ELEMENTO_${dado.elemento}`]})`}}>
+                <div className="elemento-dado" key={i} style={{backgroundImage: `url(${ICONS[`ELEMENTO_${dado.elemento}`]})`}}>
                   {renderVantagem(dado.multiplicador)}
                 </div>
                 <div className={dado.tipo}>{dado.resultado}</div>
@@ -44,14 +44,18 @@ export function BannerRolagem({banners, renderPularBanner}) {
             
           }
           {banners.modificadores.map((modificador, i)=>{
-            return (
-              <>
-              <h2>+</h2>
+            if(modificador.valor!==0) {
+              return (
+                <>
+              <h2 key={i}>{modificador.valor<0 ? "-" : "+"}</h2>
               <div key={i}>
-                <div className={modificador.atributo}>{modificador.valor}</div>
+                <div className={modificador.atributo}>
+                  {modificador.valor<0 ? Math.abs(modificador.valor) : modificador.valor}
+                </div>
                 <h2>{modificador.atributo}</h2>
               </div>
               </>)
+            }
           })
           }
           <h2>=</h2>

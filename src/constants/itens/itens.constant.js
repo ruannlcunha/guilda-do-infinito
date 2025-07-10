@@ -6,6 +6,11 @@ export const ITENS_CATEGORIA = {
     OUTROS: "OUTROS",
 }
 
+export const ARMADURA_TIPO = {
+  LEVE: "Armadura Leve",
+  PESADA: "Armadura Pesada",
+}
+
 export const EQUIPAMENTO_TIPO = {
   ARMA: {
     titulo: "Arma",

@@ -81,9 +81,10 @@ export function VersusMapaScreen() {
         navigate(`/versus/${jogadores}/batalha`)
     }
 
-    function renderCardMapa(mapa) {
+    function renderCardMapa(mapa, index) {
         return (
             <li
+            key={index}
             onMouseEnter={()=>playHover(1)}
             className={mapa.id===mapaEscolhido.id?"card-escolhido":null}
             onClick={()=>handleEscolherCard(mapa)}
@@ -94,7 +95,7 @@ export function VersusMapaScreen() {
 
     return (
         <ContainerScreen>
-            <BackButton />
+            <BackButton navigateTo={`/versus/${jogadores}/personagens`}/>
             <div className="versus-mapas">
                 <header className="titulo">
                     <h1>Escolha o mapa</h1>
@@ -128,8 +129,8 @@ export function VersusMapaScreen() {
                         </button>
                         <ul>
                             {
-                                mapas.map(mapa=>{
-                                    return renderCardMapa(mapa)
+                                mapas.map((mapa,i)=>{
+                                    return renderCardMapa(mapa, i)
                                 })
                             }
                         </ul>

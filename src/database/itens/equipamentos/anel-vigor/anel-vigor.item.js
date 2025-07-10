@@ -1,5 +1,5 @@
 import ANEL_VIGOR_SPRITE from "./ANEL_VIGOR_SPRITE.png"
-import BASE_SANTUARIO from "../assets/BASE_SANTUARIO.png"
+import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
 import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
 import { ICONS } from "../../../../constants/images"
 

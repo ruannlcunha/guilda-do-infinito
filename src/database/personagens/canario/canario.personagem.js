@@ -5,7 +5,8 @@ import CANARIO_2_PERFIL from "./assets/CANARIO_2_PERFIL.png"
 import CANARIO_3_SPRITE from "./assets/CANARIO_3_SPRITE.png"
 import CANARIO_3_PERFIL from "./assets/CANARIO_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const CANARIO = {
     ..._BASE_ORIGINAL,
@@ -15,6 +16,7 @@ export const CANARIO = {
     elemento: ELEMENTOS.TREVAS,
     corTema: COR_TEMA.PRETO,
     raridade: 4,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -55,7 +57,9 @@ export const CANARIO = {
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -63,7 +67,9 @@ export const CANARIO = {
             experienciaNecessaria: 3000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -71,7 +77,11 @@ export const CANARIO = {
             experienciaNecessaria: 6000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,16,5],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 5, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -79,7 +89,11 @@ export const CANARIO = {
             experienciaNecessaria: 10000,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,16,5],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 5, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -87,7 +101,12 @@ export const CANARIO = {
             experienciaNecessaria: 15000,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,16,5,33],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 33, variantes: []},
+            ],
             habilidades: []
         },
     ],

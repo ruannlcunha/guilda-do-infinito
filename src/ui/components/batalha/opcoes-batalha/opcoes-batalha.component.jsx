@@ -3,12 +3,13 @@ import { ICONS } from "../../../../constants/images";
 import { ModalConfig } from "../../"
 import "./opcoes-batalha.style.css";
 import { useSound } from "../../../../hook";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export function OpcoesBatalha({ animacoes, zoom, functions }) {
+export function OpcoesBatalha({ animacoes, zoom, jogadaAutomatica, personagemAtivo, acaoEmAndamento, functions }) {
   const [configIsOpen, setConfigIsOpen] = useState(false)
   const navigate = useNavigate()
   const { playHover, playClick } = useSound()
+  const { jogadores } = useParams()
 
   function handleConfig() {
     playClick(2)
@@ -20,6 +21,13 @@ export function OpcoesBatalha({ animacoes, zoom, functions }) {
     animacoes.hudAtivo
       ? functions.setAnimacoes({ ...animacoes, hudAtivo: false })
       : functions.setAnimacoes({ ...animacoes, hudAtivo: true });
+  }
+
+  function handleAutomatico() {
+    playClick(2)
+    jogadaAutomatica
+      ? functions.setJogadaAutomatica(false)
+      : functions.setJogadaAutomatica(true);
   }
 
   function handleEscape() {
@@ -36,8 +44,9 @@ export function OpcoesBatalha({ animacoes, zoom, functions }) {
     playClick(2)
     functions.aumentarZoom()
   }
+  console.log(personagemAtivo)
 
-  return animacoes.iniciativaTerminou && !animacoes.escolhendoAlvo ? (
+  return animacoes.iniciativaTerminou ? (
     <div className="opcoes-batalha">
       <ModalConfig isOpen={configIsOpen} setIsOpen={setConfigIsOpen}/>
 
@@ -45,7 +54,6 @@ export function OpcoesBatalha({ animacoes, zoom, functions }) {
       onMouseEnter={()=>playHover(1)} 
       onClick={handleEscape}
       style={{ backgroundImage: `url(${ICONS.ESCAPE})` }}>
-
       </button>
 
       <button
@@ -63,6 +71,20 @@ export function OpcoesBatalha({ animacoes, zoom, functions }) {
           })`,
         }}
       ></button>
+
+      {jogadores === "1" ?
+      <button
+      onMouseEnter={()=>playHover(1)}
+        style={{
+          backgroundImage: `url(${
+            jogadaAutomatica ? ICONS.ROBO_ATIVADO : ICONS.ROBO_DESATIVADO
+          })`,
+          opacity: `${acaoEmAndamento && !personagemAtivo.isInimigo? "50%" : "100%"}`,
+          cursor: `var(--${acaoEmAndamento && !personagemAtivo.isInimigo? "cursor-not-allowed" : "cursor-pointer"})`
+        }}
+        onClick={acaoEmAndamento && !personagemAtivo.isInimigo ? null : handleAutomatico}
+      ></button>
+      :null}
 
       <button
       onMouseEnter={()=>playHover(1)}

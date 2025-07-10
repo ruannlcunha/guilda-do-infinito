@@ -1,6 +1,6 @@
 import MANTO_LUXUOSO_SPRITE from "./MANTO_LUXUOSO_SPRITE.png"
-import BASE_SANTUARIO from "../assets/BASE_SANTUARIO.png"
-import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
+import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
+import { ARMADURA_TIPO, ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
 import { ICONS } from "../../../../constants/images"
 
 export const MANTO_LUXUOSO = {
@@ -9,7 +9,7 @@ export const MANTO_LUXUOSO = {
     descricao: "Um manto feito com materiais de grande qualidade que auxilia na conjuração.",
     sprite: MANTO_LUXUOSO_SPRITE,
     raridade: 5,
-    tipo: "Armadura Leve",
+    tipo: ARMADURA_TIPO.LEVE,
     santuario: BASE_SANTUARIO,
     categoria: ITENS_CATEGORIA.EQUIPAMENTO,
     equipamentoTipo: "ARMADURA",

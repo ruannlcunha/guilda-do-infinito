@@ -5,7 +5,8 @@ import ALAN_2_PERFIL from "./assets/ALAN_2_PERFIL.png"
 import ALAN_3_SPRITE from "./assets/ALAN_3_SPRITE.png"
 import ALAN_3_PERFIL from "./assets/ALAN_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const ALAN = {
     ..._BASE_ORIGINAL,
@@ -15,6 +16,7 @@ export const ALAN = {
     elemento: ELEMENTOS.TERRA,
     corTema: COR_TEMA.AZUL,
     raridade: 4,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -55,7 +57,9 @@ export const ALAN = {
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -63,7 +67,9 @@ export const ALAN = {
             experienciaNecessaria: 3000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -71,7 +77,9 @@ export const ALAN = {
             experienciaNecessaria: 6000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -79,7 +87,9 @@ export const ALAN = {
             experienciaNecessaria: 10000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -87,7 +97,10 @@ export const ALAN = {
             experienciaNecessaria: 15000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
-            ataques: [14,30],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 30, variantes: []}
+            ],
             habilidades: []
         },
     ],

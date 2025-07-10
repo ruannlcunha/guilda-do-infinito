@@ -1,5 +1,5 @@
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { ELEMENTOS, COR_TEMA } from "../../../constants/personagens/personagem.constant"
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 import { ATAQUES_DATA } from "../../ataques"
 import { HABILIDADES_DATA } from "../../habilidades"
 import { IMAGES } from "../../../constants/images"
@@ -12,6 +12,7 @@ export const TESTER = {
     elemento: ELEMENTOS.NULO,
     corTema: COR_TEMA.PRETO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,

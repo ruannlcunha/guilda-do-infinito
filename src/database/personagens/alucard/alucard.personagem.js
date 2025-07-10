@@ -5,7 +5,8 @@ import ALUCARD_2_PERFIL from "./assets/ALUCARD_2_PERFIL.png"
 import ALUCARD_3_SPRITE from "./assets/ALUCARD_3_SPRITE.png"
 import ALUCARD_3_PERFIL from "./assets/ALUCARD_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const ALUCARD = {
     ..._BASE_ORIGINAL,
@@ -15,6 +16,7 @@ export const ALUCARD = {
     elemento: ELEMENTOS.ELETRICO,
     corTema: COR_TEMA.AMARELO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -55,7 +57,11 @@ export const ALUCARD = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [16,22,2],
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 2, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -63,7 +69,11 @@ export const ALUCARD = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [16,22,2],
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 2, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -71,7 +81,13 @@ export const ALUCARD = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [16,22,2,10,5],
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 5, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -79,7 +95,13 @@ export const ALUCARD = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [16,22,2,10,5],
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 5, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -87,7 +109,13 @@ export const ALUCARD = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [16,22,2,10,5],
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 5, variantes: []},
+            ],
             habilidades: []
         },
     ]

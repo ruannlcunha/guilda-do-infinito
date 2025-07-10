@@ -9,16 +9,19 @@ import DOMINICK_4_SPRITE from "./assets/DOMINICK_4_SPRITE.png"
 import DOMINICK_5_PERFIL from "./assets/DOMINICK_5_PERFIL.png"
 import DOMINICK_5_SPRITE from "./assets/DOMINICK_5_SPRITE.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const DOMINICK = {
     ..._BASE_ORIGINAL,
     id: 3,
     nome: "Dominick",
     titulo: "Rainha dos Piratas",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.ELETRICO,
     corTema: COR_TEMA.ROXO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -73,7 +76,10 @@ export const DOMINICK = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14, 17],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 17, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -81,7 +87,10 @@ export const DOMINICK = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14, 17],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 17, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -89,7 +98,11 @@ export const DOMINICK = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14, 17, 19],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 19, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -97,7 +110,11 @@ export const DOMINICK = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14, 17, 19],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 19, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -105,8 +122,16 @@ export const DOMINICK = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14, 17, 19, 26, 58],
-            habilidades: [16]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 19, variantes: []},
+                {ataqueId: 26, variantes: []},
+                {ataqueId: 58, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 16, variantes: []},
+            ]
         },
     ]
 }

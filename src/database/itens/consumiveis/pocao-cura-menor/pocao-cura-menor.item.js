@@ -12,7 +12,7 @@ export const POCAO_CURA_MENOR = {
     id: 12,
     nome: "Poção de Cura Menor",
     descricao: "Um pequeno frasco de vidro contendo um líquido vermelho mágico que recupera sua vida.",
-    efeito: "Cura 1d8+1 de PV de você mesmo ou de um aliado.",
+    descricao: "Cura 1d8+1 de PV de você mesmo ou de um aliado.",
     evento: pocaoCuraMenor,
     alvos: "ALIADOS",
     sprite: "/guilda-do-infinito/src/database/itens/consumiveis/pocao-cura-menor/POCAO_CURA_MENOR.png",
@@ -20,7 +20,7 @@ export const POCAO_CURA_MENOR = {
     categoria: ITENS_CATEGORIA.CONSUMIVEL,
 }
 
-function pocaoCuraMenor(personagem, alvo, functions) {
+function pocaoCuraMenor(personagem, alvo, acao, functions) {
     functions.setAnimacoes((old) => {
       return { ...old, escolhendoAlvo: false };
     });
@@ -31,7 +31,7 @@ function pocaoCuraMenor(personagem, alvo, functions) {
       const modificadores = [{valor: 1, atributo: "Modificador"}]
       const {dados, total} = rolarDado(1, 8, modificadores);
       const alvoRestaurado = restaurarVida(novoAlvo, total, functions);
-      functions.ativarBannerRolagem([...dados], modificadores, total, personagem.corTema, resultadoAtaque.dado)
+      functions.ativarBannerRolagem([...dadoDano.dados], modificadores, total, personagem.corTema, resultadoAtaque.dado)
       function _etapas() {
         const duracao = iniciarEfeito(alvoRestaurado, functions, EFFECTS.CURA_1, ACOES_AUDIO.CURA);
         finalizarAcao(functions, alvoRestaurado, duracao);
@@ -47,5 +47,6 @@ function pocaoCuraMenor(personagem, alvo, functions) {
         }}})
     } catch (error) {
       informarErro(error, functions)
+      throw error
     }
 }

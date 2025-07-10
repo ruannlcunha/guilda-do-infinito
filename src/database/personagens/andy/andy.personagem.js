@@ -5,7 +5,8 @@ import ANDY_2_PERFIL from "./assets/ANDY_2_PERFIL.png"
 import ANDY_3_SPRITE from "./assets/ANDY_3_SPRITE.png"
 import ANDY_3_PERFIL from "./assets/ANDY_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { ELEMENTOS, COR_TEMA } from "../../../constants/personagens/personagem.constant"
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const ANDY = {
     ..._BASE_ORIGINAL,
@@ -15,6 +16,7 @@ export const ANDY = {
     elemento: ELEMENTOS.AR,
     corTema: COR_TEMA.VERDE,
     raridade: 4,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -56,7 +58,10 @@ export const ANDY = {
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,18],
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 18, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -64,7 +69,10 @@ export const ANDY = {
             experienciaNecessaria: 3000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,18],
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 18, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -72,7 +80,11 @@ export const ANDY = {
             experienciaNecessaria: 6000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,18,10],
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 18, variantes: []},
+                {ataqueId: 10, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -80,7 +92,11 @@ export const ANDY = {
             experienciaNecessaria: 10000,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,18,10],
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 18, variantes: []},
+                {ataqueId: 10, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -88,7 +104,12 @@ export const ANDY = {
             experienciaNecessaria: 15000,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,18,10,71],
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 18, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 71, variantes: []},
+            ],
             habilidades: []
         },
     ]

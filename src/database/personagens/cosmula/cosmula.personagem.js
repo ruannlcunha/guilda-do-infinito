@@ -1,16 +1,19 @@
 import COSMULA_1_SPRITE from "./assets/COSMULA_1_SPRITE.png"
 import COSMULA_1_PERFIL from "./assets/COSMULA_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const COSMULA = {
     ..._BASE_ORIGINAL,
     id: 36,
     nome: "Cósmula",
     titulo: "Bruxa Pálida",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.AR,
     corTema: COR_TEMA.CIANO,
     raridade: 4,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -37,7 +40,11 @@ export const COSMULA = {
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,10,21],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 21, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -45,7 +52,11 @@ export const COSMULA = {
             experienciaNecessaria: 3000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,10,21],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 21, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -53,24 +64,49 @@ export const COSMULA = {
             experienciaNecessaria: 6000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,10,21,5,12],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 21, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 12, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 4,
             experienciaNecessaria: 10000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,10,21,5,12],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 21, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 12, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 5,
             experienciaNecessaria: 15000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,10,21,5,12,51],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 21, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 12, variantes: []},
+                {ataqueId: 51, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
     ]
 }

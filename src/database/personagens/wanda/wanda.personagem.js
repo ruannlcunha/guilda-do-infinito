@@ -1,16 +1,19 @@
 import WANDA_1_SPRITE from "./assets/WANDA_1_SPRITE.png"
 import WANDA_1_PERFIL from "./assets/WANDA_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants";
 
 export const WANDA = {
     ..._BASE_ORIGINAL,
     id: 69,
     nome: "Wanda",
     titulo: "Aprendiz de Alquimista",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.NULO,
     corTema: COR_TEMA.VERMELHO,
     raridade: 4,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -37,40 +40,60 @@ export const WANDA = {
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 2,
             experienciaNecessaria: 3000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 3,
             experienciaNecessaria: 6000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 4,
             experienciaNecessaria: 10000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 5,
             experienciaNecessaria: 15000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 1, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
     ]
 }

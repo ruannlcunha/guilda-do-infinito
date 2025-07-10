@@ -49,9 +49,6 @@ export function ModalItemLista({modalIsOpen, setModalIsOpen, categoria, itens, f
                             <h2>Raridade:</h2>
                             {renderEstrelas(itemEscolhido.raridade)}
                         </div>
-                        {itemEscolhido.efeito?
-                            <h2>Efeito: <span>{itemEscolhido.efeito}</span></h2>
-                        :null}
                         {itemEscolhido.quantidade&&itemEscolhido.categoria!==ITENS_CATEGORIA.EQUIPAMENTO?
                             <h2>Quantidade: <span>{itemEscolhido.quantidade}</span></h2>
                         :null}

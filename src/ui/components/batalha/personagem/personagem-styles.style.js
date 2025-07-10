@@ -1,8 +1,19 @@
+import { ALVOS } from "../../../../constants/acoes/acoes.constant"
 
-function personagemStyle(personagem, estaAtivo, isAlvo, escolhendoAlvo) {
+function personagemStyle(personagem, estaAtivo, isAlvo, escolhendoAlvo, acaoAtiva) {
+  let estaMorto = acaoAtiva.acao ? personagem.isMorto || acaoAtiva.acao.alvos===ALVOS.ALIADOS_MORTOS && personagem.isMorto
+  : personagem.isMorto
     return {
         animation: `${
-          estaAtivo && !escolhendoAlvo && !personagem.isMorto || isAlvo
+          isAlvo && estaMorto
+            ? `battle-${
+                personagem.isInimigo ? "inimigo" : "personagem"
+              } 1s alternate infinite ease-in-out,
+              derrotado-${
+                personagem.isInimigo ? "inimigo" : isAlvo ? "aliado" : "personagem"
+              } 0.8s alternate infinite ease-in-out`
+          :
+          estaAtivo && !escolhendoAlvo && !estaMorto || isAlvo
             ? `battle-${
                 personagem.isInimigo ? "inimigo" : "personagem"
               } 1s alternate infinite ease-in-out,
@@ -11,7 +22,7 @@ function personagemStyle(personagem, estaAtivo, isAlvo, escolhendoAlvo) {
               } 0.8s alternate infinite ease-in-out`
             : ""
         }`,
-        filter: `${personagem.isMorto ? "grayscale(100%)" : null}`,
+        filter: `${estaMorto? "grayscale(100%)" : null}`,
       }
 }
 

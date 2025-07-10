@@ -94,6 +94,158 @@
 }
 
 
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal {
+  min-width: 65vw;
+  max-width: 75vw;
+  height: auto;
+  background-color: var(--black-transparent);
+  border: double 7px var(--blue-metal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  background-color: var(--blue-metal);
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal header h1 {
+  font-size: 4rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-grossa);
+  margin: 1rem;
+  font-weight: 500;
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal header div {
+  display: flex;
+  align-items: flex-end;
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal header div h2 {
+  font-size: 3.5rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-grossa);
+  margin: 1rem;
+  font-weight: 500;
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal header div h3 {
+  font-size: 3.5rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-grossa);
+  margin: 1rem;
+  font-weight: 500;
+  width: 10rem;
+  padding: 5px 0;
+  background-color: var(--black-transparent);
+  text-align: center;
+  border: solid 2px var(--black);
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal .variante-categoria {
+  width: 100%;
+  background-color: var(--light-grey);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-top: solid 2px var(--white);
+  border-bottom: solid 2px var(--white);
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal .variante-categoria h1 {
+  font-size: 3.5rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-grossa);
+  margin: 0.5rem 1rem;
+  margin-left: 2rem;
+  font-weight: 500;
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal .variante-categoria div {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal .variante-categoria div h2 {
+  font-size: 3rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-grossa);
+  margin: 0.5rem 1rem;
+  font-weight: 500;
+  width: 75%;
+  padding: 5px 0;
+  background-color: var(--black-transparent);
+  text-align: center;
+  border: solid 2px var(--black);
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal .variante-categoria div button {
+  height: 4vw;
+  width: 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  background: none;
+  border: none;
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal .variante-categoria div .botao-vazio {
+  width: 4vw;
+  opacity: 0%;
+  margin: 0 1rem;
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal .variante-categoria div .botao-vazio:hover {
+  cursor: var(--cursor-auto);
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal .variante-categoria div button img {
+  width: 100%;
+  height: auto;
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal .variante-categoria div button:hover img {
+  filter: drop-shadow(-2px 0 var(--light-blue)) drop-shadow(2px 0 var(--light-blue))
+  drop-shadow(0 -2px var(--light-blue)) drop-shadow(0 2px var(--light-blue));
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal .variante-descricao {
+  width: 100%;
+  margin: 0;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: double 7px var(--blue-metal);
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal .variante-descricao p {
+  color: var(--white);
+  font-size: 2.5rem;
+  margin: 0 1rem;
+  width: auto;
+  font-weight: 500;
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal footer {
+  width: 100%;
+  background-color: var(--blue-metal);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.batalha-screen .batalha-hud .hud-sub-acoes .modal .variantes-modal footer .botao-primario {
+  font-size: 3rem;
+  margin: 0.5rem;
+}
+
+
 @media screen and (max-height: 479px) {
   
   .batalha-screen .batalha-hud .hud-sub-acoes header {

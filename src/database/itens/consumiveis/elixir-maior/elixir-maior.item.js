@@ -12,7 +12,7 @@ export const ELIXIR_MAIOR = {
     id: 39,
     nome: "Elixir Maior",
     descricao: "Um grande frasco de vidro contendo um líquido dourado mágico que recupera sua vida e mana.",
-    efeito: "Faz algo",
+    descricao: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",
     sprite: "/guilda-do-infinito/src/database/itens/consumiveis/elixir-maior/ELIXIR_MAIOR.png",

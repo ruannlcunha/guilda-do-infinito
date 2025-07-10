@@ -29,8 +29,8 @@ export function LogsBatalha({ logs }) {
             {ativo ?
                 <div className="logs-batalha" id="logs-batalha" style={isMaximizado?{height: "95%" , backgroundColor: "var(--black-transparent)"}:null}>
                     {logs.length>0?
-                        logs.map(log=> {
-                            return <p>{log}</p>
+                        logs.map((log,i)=> {
+                            return <p key={i}>{log}</p>
                         })
                     :null}
                 </div>

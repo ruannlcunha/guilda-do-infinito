@@ -3,7 +3,8 @@ import ANDRIUS_1_PERFIL from "./assets/ANDRIUS_1_PERFIL.png"
 import ANDRIUS_2_SPRITE from "./assets/ANDRIUS_2_SPRITE.png"
 import ANDRIUS_2_PERFIL from "./assets/ANDRIUS_2_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const ANDRIUS = {
     ..._BASE_ORIGINAL,
@@ -13,21 +14,22 @@ export const ANDRIUS = {
     elemento: ELEMENTOS.TREVAS,
     corTema: COR_TEMA.ROXO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
-            nome: "Armadura Sombria",
+            nome: "Kimono Nobre",
             sprite: ANDRIUS_1_SPRITE,
             perfil: ANDRIUS_1_PERFIL,
             santuario: null,
         },
         {
             visualId: 2,
-            nome: "Traje Real",
+            nome: "Armadura Sombria",
             sprite: ANDRIUS_2_SPRITE,
             perfil: ANDRIUS_2_PERFIL,
             santuario: null,
-        }
+        },
 
     ],
     status: {
@@ -47,40 +49,75 @@ export const ANDRIUS = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,15],
-            habilidades: [12]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 15, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 12, variantes: []},
+            ]
         },
         {
             level: 2,
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,15],
-            habilidades: [12]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 15, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 12, variantes: []},
+            ]
         },
         {
             level: 3,
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,15,5,21],
-            habilidades: [12, 1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 21, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 12, variantes: []},
+                {habilidadeId: 1, variantes: []},
+            ],
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
-            ataques: [14,15,5,21],
-            habilidades: [12, 1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 21, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 12, variantes: []},
+                {habilidadeId: 1, variantes: []},
+            ],
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
-            ataques: [14,15,5,21,33],
-            habilidades: [12, 1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 21, variantes: []},
+                {ataqueId: 33, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 12, variantes: []},
+                {habilidadeId: 1, variantes: []},
+            ],
         },
     ],
 }

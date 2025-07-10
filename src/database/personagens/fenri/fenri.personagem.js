@@ -1,7 +1,8 @@
 import FENRI_1_SPRITE from "./assets/FENRI_1_SPRITE.png"
 import FENRI_1_PERFIL from "./assets/FENRI_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const FENRI = {
     ..._BASE_ORIGINAL,
@@ -11,6 +12,7 @@ export const FENRI = {
     elemento: ELEMENTOS.ACIDO,
     corTema: COR_TEMA.AZUL,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -37,7 +39,10 @@ export const FENRI = {
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [16,17],
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 17, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -45,7 +50,10 @@ export const FENRI = {
             experienciaNecessaria: 3000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [16,17],
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 17, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -53,7 +61,11 @@ export const FENRI = {
             experienciaNecessaria: 6000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [16,17,14],
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 14, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -61,7 +73,11 @@ export const FENRI = {
             experienciaNecessaria: 10000,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [16,17,14],
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 14, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -69,7 +85,13 @@ export const FENRI = {
             experienciaNecessaria: 15000,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [16,17,14,56,26],
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 56, variantes: []},
+                {ataqueId: 26, variantes: []},
+            ],
             habilidades: []
         },
     ],

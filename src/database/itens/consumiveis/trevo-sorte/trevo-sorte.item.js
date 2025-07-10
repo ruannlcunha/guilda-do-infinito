@@ -12,7 +12,7 @@ export const TREVO_SORTE = {
     id: 43,
     nome: "Trevo da Sorte",
     descricao: "Um pequeno trevo de 4 folhas que carrega muita sorte.",
-    efeito: "Faz algo",
+    descricao: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",
     sprite: "/guilda-do-infinito/src/database/itens/consumiveis/trevo-sorte/TREVO_SORTE.png",

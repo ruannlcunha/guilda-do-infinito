@@ -49,6 +49,8 @@ import ELEMENTO_AR from "../../assets/img/icons/ELEMENTO_AR.png";
 import ELEMENTO_LUZ from "../../assets/img/icons/ELEMENTO_LUZ.png";
 import ELEMENTO_TREVAS from "../../assets/img/icons/ELEMENTO_TREVAS.png";
 import ELEMENTO_NULO from "../../assets/img/icons/ELEMENTO_NULO.png";
+import ELEMENTO_ESSENCIA from "../../assets/img/icons/ELEMENTO_ESSENCIA.png";
+import ELEMENTO_MENTAL from "../../assets/img/icons/ELEMENTO_MENTAL.png";
 import INVENTARIO from "../../assets/img/icons/INVENTARIO.png";
 import PESSOAS from "../../assets/img/icons/PESSOAS.png";
 import SALVAR_JOGO from "../../assets/img/icons/SALVAR_JOGO.png";
@@ -64,6 +66,8 @@ import ANEL from "../../assets/img/icons/ANEL.png";
 import DEFESA from "../../assets/img/icons/SHIELD.png";
 import DUPLA from "../../assets/img/icons/DUPLA.png";
 import ROBO from "../../assets/img/icons/ROBO.png";
+import ROBO_ATIVADO from "../../assets/img/icons/ROBO_ATIVADO.png";
+import ROBO_DESATIVADO from "../../assets/img/icons/ROBO_DESATIVADO.png";
 import SUCESSO from "../../assets/img/icons/SUCESSO.png";
 import ERRO from "../../assets/img/icons/ERRO.png";
 import AVISO from "../../assets/img/icons/AVISO.png";
@@ -81,6 +85,15 @@ import CONDICAO_QUEIMANDO from "../../assets/img/icons/CONDICAO_QUEIMANDO.png";
 import CONDICAO_CONGELADO from "../../assets/img/icons/CONDICAO_CONGELADO.png";
 import CONDICAO_PARALISADO from "../../assets/img/icons/CONDICAO_PARALISADO.png";
 import CONDICAO_DORMINDO from "../../assets/img/icons/CONDICAO_DORMINDO.png";
+import CONDICAO_ATORDOADO from "../../assets/img/icons/CONDICAO_ATORDOADO.png";
+import CONDICAO_LENTO from "../../assets/img/icons/CONDICAO_LENTO.png";
+import CONDICAO_VELOZ from "../../assets/img/icons/CONDICAO_VELOZ.png";
+import CONDICAO_ARMADURA_MAGICA from "../../assets/img/icons/CONDICAO_ARMADURA_MAGICA.png";
+import CONDICAO_DUPLICATAS from "../../assets/img/icons/CONDICAO_DUPLICATAS.png";
+import CONDICAO_ABENCOADO from "../../assets/img/icons/CONDICAO_ABENCOADO.png";
+import CONDICAO_AMALDICOADO from "../../assets/img/icons/CONDICAO_AMALDICOADO.png";
+import CONDICAO_ATAQUE_ESPECIAL from "../../assets/img/icons/CONDICAO_ATAQUE_ESPECIAL.png";
+import EM_AREA from "../../assets/img/icons/EM_AREA.png";
 
 export const ICONS = {
   TITULO,
@@ -134,6 +147,8 @@ export const ICONS = {
   ELEMENTO_LUZ,
   ELEMENTO_TREVAS,
   ELEMENTO_NULO,
+  ELEMENTO_ESSENCIA,
+  ELEMENTO_MENTAL,
   INVENTARIO,
   PESSOAS,
   SALVAR_JOGO,
@@ -149,6 +164,8 @@ export const ICONS = {
   DEFESA,
   DUPLA,
   ROBO,
+  ROBO_ATIVADO,
+  ROBO_DESATIVADO,
   SUCESSO,
   ERRO,
   AVISO,
@@ -166,5 +183,14 @@ export const ICONS = {
   CONDICAO_CONGELADO,
   CONDICAO_PARALISADO,
   CONDICAO_DORMINDO,
+  CONDICAO_ATORDOADO,
+  CONDICAO_LENTO,
+  CONDICAO_VELOZ,
+  CONDICAO_ARMADURA_MAGICA,
+  CONDICAO_DUPLICATAS,
+  CONDICAO_ABENCOADO,
+  CONDICAO_AMALDICOADO,
+  CONDICAO_ATAQUE_ESPECIAL,
+  EM_AREA,
 };
   

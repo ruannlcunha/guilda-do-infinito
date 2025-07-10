@@ -4,12 +4,15 @@ import { useRolarDado } from "../../rolar-dado/use-rolar-dado.hook";
 import { BANNER_DURACAO } from "../../../../constants";
 import { useToast } from "../../../";
 import { SOUNDS } from "../../../../constants/audios/sounds.constant";
+import { BONUS_DADO, ELEMENTOS } from "../../../../constants/personagens/personagem.constant";
+import { realizarEspecialDuplicata } from "../../../../utils/realizar-condicoes-especiais.util";
+import { getModificadoresAtaque, getModificadoresResistencia } from "../../../../utils/get-modificadores.util";
 
 export function useAcoesBase() {
   const { pularTurno } = usePularTurno();
   const { rolarDado } = useRolarDado();
-  const { encerrarDormindo } = useEncerrarCondicao()
-  const {toastError} = useToast()
+  const { encerrarDormindo, encerrarCongelado, encerrarQueimando } = useEncerrarCondicao()
+  const {toastWarning} = useToast()
 
   function _matarPersonagem(alvo) {
     return { ...alvo, isMorto: true };
@@ -47,20 +50,48 @@ export function useAcoesBase() {
     return duracao;
   }
 
-  function causarDano(alvo, dano, ataque, functions) {
-    const novoDano = ataque.dado===20 ? (dano*2) : dano
-    let novaVida = Number(alvo.pv.atual - novoDano);
-    novaVida < 0 ? (novaVida = 0) : null;
+  function causarDano(alvo, danos, ataque, acao, functions) {
+    let novoAlvo = {...alvo}
+    let danoTotal = 0
+    let danoResistido = 0
+    let resistenciasRestantes = [...novoAlvo.resistenciaDano]
 
-    const alvoNovaVida = {
-      ...alvo,
+    danos.map(dano=> {
+      const resistencia = resistenciasRestantes.find(resistencia=>resistencia.elemento===dano.elemento)
+      let novoDano = dano.total
+
+      if(ataque.dado===20) {
+        novoDano = (dano.total*2)
+      }
+      if(resistencia) {
+        resistenciasRestantes.filter(res=>res.elemento===resistencia.elemento)
+        if((resistencia.valor-novoDano)>0) {
+          resistenciasRestantes.push({...resistencia, valor: resistencia.valor-novoDano})
+        }
+        novoDano = (novoDano-resistencia.valor)>0 ? novoDano-resistencia.valor : 0
+        danoResistido += dano.total-novoDano
+      }
+      
+      if(novoDano>0) novoAlvo = encerrarDormindo(novoAlvo, functions)
+      if(novoDano>0 && dano.elemento===ELEMENTOS.FOGO) novoAlvo = encerrarCongelado(novoAlvo, functions)
+      if(novoDano>0 && dano.elemento===ELEMENTOS.AGUA) novoAlvo = encerrarQueimando(novoAlvo, functions)
+
+      danoTotal = danoTotal + novoDano
+    })
+
+    let novaVida = Number(novoAlvo.pv.atual - danoTotal);
+    novaVida < 0 ? (novaVida = 0) : null;
+    novoAlvo = {
+      ...novoAlvo,
       isMorto: novaVida<1 ? true : false,
       pv: {
-        ...alvo.pv,
+        ...novoAlvo.pv,
         atual: novaVida,
       }
     };
-    const novoAlvo = encerrarDormindo(alvoNovaVida, functions)
+
+    danoResistido>0 ? functions.adicionarLog(`${alvo.nome} resistiu a ${danoResistido} de dano graças a sua Resistência de Dano.`) : null
+    functions.adicionarLog(`${alvo.nome} sofreu ${danoTotal} de dano causado por ${acao.nome}.`)
 
     novoAlvo.isMorto ? functions.adicionarLog(`O personagem ${alvo.nome} foi derrotado.`) : null
     
@@ -127,20 +158,32 @@ export function useAcoesBase() {
     return novoAlvo;
   }
 
-  function atacar(personagem, alvo, modificador, functions) {
-    const {dados, total} = rolarDado(1, 20, [modificador]);
-    const ataque = {resultadoDado: dados[0].resultado, resultadoTotal: total, ...modificador}
-    functions.ativarBannerAtaque(ataque, alvo.defesa, personagem.corTema);
-    return {acerto: (ataque.resultadoTotal >= alvo.defesa && ataque.resultadoDado!=1)||(ataque.resultadoDado==20), total: ataque.resultadoTotal, dado: ataque.resultadoDado}
+  function atacar(personagem, alvo, modificador, functions, ataquePadrao) {
+    const novoAlvo = realizarEspecialDuplicata(alvo, functions)
+
+    const modificadores = getModificadoresAtaque([modificador], personagem)
+    const dadoRolado = rolarDado(1, 20, modificadores);
+
+    const ataque = ataquePadrao ? ataquePadrao : {resultadoDado: dadoRolado.dados[0].resultado, resultadoTotal: dadoRolado.total, modificadores}
+
+    !ataquePadrao ? functions.ativarBannerAtaque(ataque, alvo.defesa, personagem.corTema) : null
+    
+    return {
+      acerto: (ataque.resultadoTotal >= alvo.defesa && ataque.resultadoDado!=1)||(ataque.resultadoDado==20),
+      total: ataque.resultadoTotal,
+      dado: ataque.resultadoDado,
+      alvo: novoAlvo,
+    }
   }
 
   async function finalizarAcao(functions, novoAlvo, duracao, duracaoMinima) {
     const duracaoTotal = await duracao<duracaoMinima ? duracaoMinima : await duracao
     setTimeout(() => {
-      functions.setAcaoAtiva({ personagem: null, acao: null, alvos: [] });
+      functions.setAcaoAtiva({ personagem: null, acao: null, alvos: [], tipoAcao: null });
       functions.setAnimacoes((old) => {
         return { ...old, escolhendoAlvo: false, hudAtivo: true };
       });
+      functions.setAcaoEmAndamento(false)
       pularTurno(functions.setTurnos);
       alterarPersonagem(functions, {
         ...novoAlvo,
@@ -152,12 +195,60 @@ export function useAcoesBase() {
       var timeoutsIDs = window.setTimeout(function() {}, 0);
       while (timeoutsIDs--) {
       window.clearTimeout(timeoutsIDs);
-}
+      }
     }, await duracaoTotal);
   }
 
-  function testeResistencia(personagem, dificuldade, modificador, functions) {
-    const {dados, total} = rolarDado(1, 20, [modificador]);
+  async function finalizarAcaoArea(functions, novosAlvos, duracao, duracaoMinima) {
+    const duracaoTotal = await duracao<duracaoMinima ? duracaoMinima : await duracao
+    setTimeout(() => {
+      functions.setAcaoAtiva({ personagem: null, acao: null, alvos: [], tipoAcao: null });
+      functions.setAnimacoes((old) => {
+        return { ...old, escolhendoAlvo: false, hudAtivo: true };
+      });
+      functions.setAcaoEmAndamento(false)
+      pularTurno(functions.setTurnos);
+
+      novosAlvos.map(novoAlvo=> {
+        alterarPersonagem(functions, {
+          ...novoAlvo,
+          defesaEffect: null,
+          effect: { asset: null, isAtivo: false },
+          testeResistencia: null,
+        });
+      })
+
+      var timeoutsIDs = window.setTimeout(function() {}, 0);
+      while (timeoutsIDs--) {
+      window.clearTimeout(timeoutsIDs);
+      }
+    }, await duracaoTotal);
+  }
+
+  async function finalizarAcaoLivre(functions, novoAlvo, duracao, duracaoMinima) {
+    const duracaoTotal = await duracao<duracaoMinima ? duracaoMinima : await duracao
+    setTimeout(() => {
+      functions.setAcaoAtiva({ personagem: null, acao: null, alvos: [], tipoAcao: null });
+      functions.setAnimacoes((old) => {
+        return { ...old, escolhendoAlvo: false, hudAtivo: true };
+      });
+      functions.setAcaoEmAndamento(false)
+      alterarPersonagem(functions, {
+        ...novoAlvo,
+        effect: { asset: null, isAtivo: false },
+        testeResistencia: null,
+      });
+
+      var timeoutsIDs = window.setTimeout(function() {}, 0);
+      while (timeoutsIDs--) {
+      window.clearTimeout(timeoutsIDs);
+      }
+    }, await duracaoTotal);
+  }
+
+  function testarResistencia(personagem, dificuldade, modificador, functions) {
+    const modificadores = getModificadoresResistencia(modificador.atributo, [modificador], personagem)
+    const {dados, total} = rolarDado(1, 20, modificadores);
     functions.playSound(SOUNDS.DADO)
     const teste = {resultadoDado: dados[0].resultado, resultadoTotal: total, ...modificador}
     const novoPersonagem = {...personagem, testeResistencia: total}
@@ -171,14 +262,14 @@ export function useAcoesBase() {
   }
 
   function informarErro(error, functions) {
-    toastError(error.message)
-    functions.setAcaoAtiva({ personagem: null, acao: null, alvos: [] });
+    toastWarning(error.message)
+    functions.setAcaoAtiva({ personagem: null, acao: null, alvos: [], tipoAcao: null });
     functions.setAnimacoes((old) => {
       return { ...old, escolhendoAlvo: false, hudAtivo: true };
     });
   }
   
-  function realizarEtapasAtaque(primeiraEtapa, segundaEtapa, etapaFinalizacao, resultadoAtaque, functions, personagem, alvo, ataque, dano) {
+  function realizarEtapasAtaque(primeiraEtapa, segundaEtapa, etapaFinalizacao, resultadoAtaque, functions, personagem, alvo, ataque) {
     
     function _primeiraEtapa() {
       primeiraEtapa()
@@ -189,8 +280,6 @@ export function useAcoesBase() {
       }
 
       const segundoTimeout = setTimeout(()=>{
-        const novoDano = resultadoAtaque.dado===20 ? (dano*2) : dano
-        functions.adicionarLog(`${ataque.nome} causou ${novoDano} de dano em ${alvo.nome}.`)
         segundaEtapa()
       }, BANNER_DURACAO.ROLAGEM+100)
       functions.setBanners(old => { return {...old, evento: 
@@ -229,6 +318,98 @@ export function useAcoesBase() {
         ()=>{
           clearTimeout(primeiroTimeout)
           functions.adicionarLog(`${personagem.nome} usou ${ataque.nome} em ${alvo.nome} mas falhou com ${resultadoAtaque.total} no teste.`)
+          etapaFinalizacao()
+        }}})
+    }
+  }
+  
+  function realizarEtapasAtaqueArea(primeiraEtapa, segundaEtapa, etapaFinalizacao, resultadoAtaques, functions, personagem, ataqueData) {
+    
+    if(resultadoAtaques.ataquePadrao.resultadoDado===20) {
+      functions.adicionarLog(`${personagem.nome} usou ${ataqueData.nome} em área e teve um sucesso crítico no teste!`)
+    }
+    if (resultadoAtaques.ataquePadrao.resultadoDado===1){
+      functions.adicionarLog(`${personagem.nome} usou ${ataqueData.nome} em área mas teve uma falha crítica no teste.`)
+    }
+
+    function _alterarEfeitoDefesa(boolean) {
+      resultadoAtaques.ataques.map(ataque=> {
+        const novaDefesaEffect = boolean ? {acerto: ataque.acerto} : null
+        const novoAlvo = {
+          ...ataque.alvo,
+          defesaEffect: novaDefesaEffect,
+        }
+        functions.setAnimacoes((old) => {
+          return { ...old, escolhendoAlvo: false};
+        });
+        alterarPersonagem(functions, novoAlvo)
+      })
+    }
+
+    function _primeiraEtapa() {
+      _alterarEfeitoDefesa(false)
+      primeiraEtapa()
+
+      resultadoAtaques.ataques.map(ataque=> {
+        if(ataque.acerto) {
+          functions.adicionarLog(`${personagem.nome} usou ${ataqueData.nome} em ${ataque.alvo.nome} e acertou com ${ataque.total} no teste.`)
+        }
+        else {
+          functions.adicionarLog(`${personagem.nome} usou ${ataqueData.nome} em ${ataque.alvo.nome} mas falhou com ${ataque.total} no teste.`)
+        }
+      })
+      
+      const segundoTimeout = setTimeout(()=>{
+        segundaEtapa()
+      }, BANNER_DURACAO.ROLAGEM+100)
+      functions.setBanners(old => { return {...old, evento: 
+        ()=>{
+          clearTimeout(segundoTimeout)
+          segundaEtapa()
+        }}})
+    }
+
+    let acertos = 0
+    resultadoAtaques.ataques.map(ataque=> {
+      if(ataque.acerto) {
+        acertos = acertos+1
+      }
+    })
+    
+    
+
+    if(acertos>0) {
+      const primeiroTimeout = setTimeout(() => {
+        _alterarEfeitoDefesa(true)
+        setTimeout(() => {
+          _primeiraEtapa()
+          
+        }, (BANNER_DURACAO.DEFESA_EFFECT)+100);
+        
+      }, (BANNER_DURACAO.ATAQUE)+100);
+      
+      functions.setBanners(old => { return {...old, evento: 
+        ()=>{
+          clearTimeout(primeiroTimeout)
+          _primeiraEtapa()
+        }}})
+    }
+    else {
+      const primeiroTimeout = setTimeout(() => {
+        _alterarEfeitoDefesa(true)
+        setTimeout(() => {
+          _alterarEfeitoDefesa(false)
+          functions.adicionarLog(`${personagem.nome} usou ${ataqueData.nome} em área mas não acertou ninguém.`)
+          etapaFinalizacao()
+        }, (BANNER_DURACAO.DEFESA_EFFECT)+100);
+
+      }, (BANNER_DURACAO.ATAQUE)+100);
+
+      functions.setBanners(old => { return {...old, evento: 
+        ()=>{
+          clearTimeout(primeiroTimeout)
+          _alterarEfeitoDefesa(false)
+          functions.adicionarLog(`${personagem.nome} usou ${ataqueData.nome} em área mas não acertou ninguém.`)
           etapaFinalizacao()
         }}})
     }
@@ -285,12 +466,15 @@ export function useAcoesBase() {
     causarDano,
     restaurarVida,
     finalizarAcao,
+    finalizarAcaoArea,
+    finalizarAcaoLivre,
     gastarMana,
     informarErro,
     consumirItem,
     atacar,
-    testeResistencia,
+    testarResistencia,
     realizarEtapasAtaque,
+    realizarEtapasAtaqueArea,
     realizarEtapasAtaqueSemDano,
   };
 }

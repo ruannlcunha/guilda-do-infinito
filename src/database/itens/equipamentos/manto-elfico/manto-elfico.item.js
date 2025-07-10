@@ -1,6 +1,6 @@
 import MANTO_ELFICO_SPRITE from "./MANTO_ELFICO_SPRITE.png"
-import BASE_SANTUARIO from "../assets/BASE_SANTUARIO.png"
-import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
+import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
+import { ARMADURA_TIPO, ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
 import { ICONS } from "../../../../constants/images"
 
 export const MANTO_ELFICO = {
@@ -9,7 +9,7 @@ export const MANTO_ELFICO = {
     descricao: "Um manto leve usado pelos elfos.",
     sprite: MANTO_ELFICO_SPRITE,
     raridade: 4,
-    tipo: "Armadura Leve",
+    tipo: ARMADURA_TIPO.LEVE,
     santuario: BASE_SANTUARIO,
     categoria: ITENS_CATEGORIA.EQUIPAMENTO,
     equipamentoTipo: "ARMADURA",

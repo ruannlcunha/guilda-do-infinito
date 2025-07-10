@@ -11,7 +11,6 @@ export function BannerAtaque({banners, testeRealizado, renderPularBanner}) {
     backgroundPosition: "right",
     backgroundRepeat: "no-repeat",
   }
-
     return (
       <>
       {renderPularBanner()}
@@ -20,6 +19,7 @@ export function BannerAtaque({banners, testeRealizado, renderPularBanner}) {
             <h1>{
               banners.ataque.resultadoDado === 20 ? "Sucesso Crítico" :
               banners.ataque.resultadoDado === 1 ? "Falha Crítica" :
+              banners.defesa === null ? "Ataque realizado" :
               banners.ataque.resultadoTotal >= banners.defesa ? "Sucesso" :
               "Falha"
               }</h1>
@@ -29,16 +29,26 @@ export function BannerAtaque({banners, testeRealizado, renderPularBanner}) {
                 <div className="d20">{banners.ataque.resultadoDado}</div>
                 <h2>Dado</h2>
               </div>
-              <h2>+</h2>
-              <div>
-                <div className={banners.ataque.atributo}>{banners.ataque.valor}</div>
-                <h2>{banners.ataque.atributo}</h2>
-              </div>
+              {banners.ataque.modificadores ?
+              banners.ataque.modificadores.map(modificador=> {
+                return (
+                <>
+                <h2>+</h2>
+                <div>
+                  <div className={modificador.atributo}>{modificador.valor}</div>
+                  <h2>{modificador.atributo}</h2>
+                </div>
+                </>
+                )
+              })
+              :null}
               <h2>=</h2>
               <div>
                 <div className="valor-ataque">{banners.ataque.resultadoTotal}</div>
                 <h2>Ataque</h2>
               </div>
+              {banners.defesa ?
+              <>
               <div>
                 <div className="cross-sword"></div>
               </div>
@@ -46,6 +56,8 @@ export function BannerAtaque({banners, testeRealizado, renderPularBanner}) {
                 <div className="shield">{banners.defesa}</div>
                 <h2>Defesa</h2>
               </div>
+              </>
+              :null}
             </>
           )}
         </div>

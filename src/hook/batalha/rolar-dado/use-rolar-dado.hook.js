@@ -3,8 +3,8 @@ import { getRandomInt } from "../../../utils";
 
 export function useRolarDado() {
 
-  function rolarDado(quantidade, tipo, modificadores, elementoDado, elementoAlvo) {
-    const dados = [];
+  function rolarDado(quantidade, tipo, modificadores, elementoDado, elementoAlvo, dadosPadrao) {
+    let dados = [];
     const multiplicador = !elementoDado||!elementoAlvo ? 1 :
     elementoAlvo === ELEMENTOS_REACOES[elementoDado].vantagem ? 1.5 :
     elementoAlvo === ELEMENTOS_REACOES[elementoDado].desvantagem ? 0.5 : 1;
@@ -14,6 +14,8 @@ export function useRolarDado() {
       dados.push({resultado: resultadoDado, tipo: `d${tipo}`, elemento: elementoDado, multiplicador })
     }
     
+    dados = dadosPadrao ? dadosPadrao : dados;
+
     const resultadoTotalDados = dados.reduce((acc, obj) => acc + Math.round(obj.resultado*multiplicador), 0);
     
     const resultadoTotalModificadores = modificadores ?
@@ -21,7 +23,7 @@ export function useRolarDado() {
 
     const total = resultadoTotalDados + resultadoTotalModificadores
     
-    return {dados, total};
+    return {dados, total, elemento: elementoDado};
   }
 
   return { rolarDado };

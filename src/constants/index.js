@@ -22,6 +22,7 @@ export const BANNER_DURACAO = {
   ATAQUE: 8000,
   ROLAGEM: 5000,
   INIMIGO: 5000,
+  DEFESA_EFFECT: 3500,
 }
 
 export const BANNER_TIPOS = {

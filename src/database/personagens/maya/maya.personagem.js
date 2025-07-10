@@ -7,16 +7,19 @@ import MAYA_3_PERFIL from "./assets/MAYA_3_PERFIL.png"
 import MAYA_4_SPRITE from "./assets/MAYA_4_SPRITE.png"
 import MAYA_4_PERFIL from "./assets/MAYA_4_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const MAYA = {
     ..._BASE_ORIGINAL,
     id: 8,
     nome: "Maya",
     titulo: "Imperatriz das Lâminas",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.AR,
     corTema: COR_TEMA.PRETO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -64,7 +67,9 @@ export const MAYA = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -72,7 +77,9 @@ export const MAYA = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -80,7 +87,11 @@ export const MAYA = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,16,49],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 49, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -88,7 +99,11 @@ export const MAYA = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,16,49],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 49, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -96,7 +111,13 @@ export const MAYA = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,16,49,31,51],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 49, variantes: []},
+                {ataqueId: 31, variantes: []},
+                {ataqueId: 51, variantes: []},
+            ],
             habilidades: []
         },
     ],

@@ -3,7 +3,9 @@ import JJC_1_PERFIL from "./assets/JJC_1_PERFIL.png"
 import JJC_2_SPRITE from "./assets/JJC_2_SPRITE.png"
 import JJC_2_PERFIL from "./assets/JJC_2_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
+import { TALENTOS } from "../../talentos"
 
 export const JJC = {
     ..._BASE_ORIGINAL,
@@ -13,6 +15,7 @@ export const JJC = {
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.LARANJA,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -45,41 +48,71 @@ export const JJC = {
             level: 1,
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
-            talentos: [],
-            ataques: [15],
+            talentos: [
+                TALENTOS.ARMADURADO
+            ],
+            ataques: [
+                {ataqueId: 15, variantes: []}
+            ],
             habilidades: []
         },
         {
             level: 2,
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
-            talentos: [],
-            ataques: [15],
+            talentos: [
+                TALENTOS.ARMADURADO
+            ],
+            ataques: [
+                {ataqueId: 15, variantes: []}
+            ],
             habilidades: []
         },
         {
             level: 3,
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
-            talentos: [],
-            ataques: [15,2],
-            habilidades: [13]
+            talentos: [
+                TALENTOS.ARMADURADO
+            ],
+            ataques: [
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 2, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
-            talentos: [],
-            ataques: [15,2],
-            habilidades: [13]
+            talentos: [
+                TALENTOS.ARMADURADO
+            ],
+            ataques: [
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 2, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
-            talentos: [],
-            ataques: [15,2,37],
-            habilidades: [13]
+            talentos: [
+                TALENTOS.ARMADURADO
+            ],
+            ataques: [
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 37, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
     ],
 }

@@ -7,7 +7,8 @@ import WILBUR_3_PERFIL from "./assets/WILBUR_3_PERFIL.png"
 import WILBUR_4_SPRITE from "./assets/WILBUR_4_SPRITE.png"
 import WILBUR_4_PERFIL from "./assets/WILBUR_4_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const WILBUR = {
     ..._BASE_ORIGINAL,
@@ -17,6 +18,7 @@ export const WILBUR = {
     elemento: ELEMENTOS.TERRA,
     corTema: COR_TEMA.ROXO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -64,7 +66,9 @@ export const WILBUR = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -72,7 +76,9 @@ export const WILBUR = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -80,7 +86,9 @@ export const WILBUR = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -88,7 +96,9 @@ export const WILBUR = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -96,7 +106,10 @@ export const WILBUR = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
-            ataques: [14,30],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 30, variantes: []}
+            ],
             habilidades: []
         },
     ],

@@ -5,7 +5,8 @@ import MINUS_2_PERFIL from "./assets/MINUS_2_PERFIL.png"
 import MINUS_3_SPRITE from "./assets/MINUS_3_SPRITE.png"
 import MINUS_3_PERFIL from "./assets/MINUS_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const MINUS = {
     ..._BASE_ORIGINAL,
@@ -15,6 +16,7 @@ export const MINUS = {
     elemento: ELEMENTOS.TREVAS,
     corTema: COR_TEMA.BRANCO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -55,7 +57,10 @@ export const MINUS = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [15,75],
+            ataques: [
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 75, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -63,7 +68,10 @@ export const MINUS = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [15,75],
+            ataques: [
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 75, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -71,7 +79,10 @@ export const MINUS = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [15,75],
+            ataques: [
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 75, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -79,7 +90,10 @@ export const MINUS = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
-            ataques: [15,75],
+            ataques: [
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 75, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -87,7 +101,11 @@ export const MINUS = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 1},
             talentos: [],
-            ataques: [15,75,43],
+            ataques: [
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 75, variantes: []},
+                {ataqueId: 43, variantes: []},
+            ],
             habilidades: []
         },
     ],

@@ -1,7 +1,8 @@
 import SOMBRIUS_MENOR_1_SPRITE from "./assets/SOMBRIUS_MENOR_1_SPRITE.png"
 import SOMBRIUS_MENOR_1_PERFIL from "./assets/SOMBRIUS_MENOR_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const SOMBRIUS_MENOR = {
     ..._BASE_ORIGINAL,
@@ -11,6 +12,7 @@ export const SOMBRIUS_MENOR = {
     elemento: ELEMENTOS.TREVAS,
     corTema: COR_TEMA.CIANO,
     raridade: 3,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -37,7 +39,10 @@ export const SOMBRIUS_MENOR = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [76,5],
+            ataques: [
+                {ataqueId: 76, variantes: []},
+                {ataqueId: 5, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -45,7 +50,10 @@ export const SOMBRIUS_MENOR = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [76,5],
+            ataques: [
+                {ataqueId: 76, variantes: []},
+                {ataqueId: 5, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -53,7 +61,10 @@ export const SOMBRIUS_MENOR = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [76,5],
+            ataques: [
+                {ataqueId: 76, variantes: []},
+                {ataqueId: 5, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -61,7 +72,10 @@ export const SOMBRIUS_MENOR = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [76,5],
+            ataques: [
+                {ataqueId: 76, variantes: []},
+                {ataqueId: 5, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -69,7 +83,10 @@ export const SOMBRIUS_MENOR = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [76,5],
+            ataques: [
+                {ataqueId: 76, variantes: []},
+                {ataqueId: 5, variantes: []}
+            ],
             habilidades: []
         },
     ],

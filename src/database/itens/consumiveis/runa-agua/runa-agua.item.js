@@ -12,7 +12,7 @@ export const RUNA_AGUA = {
     id: 41,
     nome: "Runa de Água",
     descricao: "Uma pedra contendo uma runa mágica do elemento Água.",
-    efeito: "Faz algo",
+    descricao: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",
     sprite: "/guilda-do-infinito/src/database/itens/consumiveis/runa-agua/RUNA_AGUA.png",

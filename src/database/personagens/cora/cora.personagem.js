@@ -5,16 +5,19 @@ import CORA_2_PERFIL from "./assets/CORA_2_PERFIL.png"
 import CORA_3_SPRITE from "./assets/CORA_3_SPRITE.png"
 import CORA_3_PERFIL from "./assets/CORA_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { ELEMENTOS, COR_TEMA } from "../../../constants/personagens/personagem.constant"
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const CORA = {
     ..._BASE_ORIGINAL,
     id: 41,
     nome: "Cora",
     titulo: "A Lobisomem",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.TERRA,
     corTema: COR_TEMA.VERDE_ESCURO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -56,40 +59,72 @@ export const CORA = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,6],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 6, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 2,
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,6],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 6, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 3,
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,6,10,9],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 6, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 9, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,6,10,9],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 6, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 9, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [17,6,10,9,60],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 17, variantes: []},
+                {ataqueId: 6, variantes: []},
+                {ataqueId: 10, variantes: []},
+                {ataqueId: 9, variantes: []},
+                {ataqueId: 60, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
     ]
 }

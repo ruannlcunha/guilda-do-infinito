@@ -356,11 +356,13 @@ export function VersusPersonagensScreen() {
             item.id===personagemEscolhido.equipamentos[tipo])
         return (
             <div
+            style={{cursor: `${item?"var(--cursor-pointer)":"var(--cursor-auto)"}`}}
             onClick={item?()=>handleDetalharItem(item) :null}>
                 {
                 item? <img src={item.sprite} alt="" />
                 : <img src={icon} alt="" style={{opacity:"15%"}}/>
                 }
+            
             </div>
         )
     }
@@ -376,7 +378,7 @@ export function VersusPersonagensScreen() {
 
     return (
         <ContainerScreen>
-            <BackButton />
+            <BackButton navigateTo={"/versus"}/>
             <div className="versus-personagens">
                 <header className="titulo">
                     <h1>{renderTitulo()}</h1>
@@ -527,7 +529,7 @@ export function VersusPersonagensScreen() {
                                             style={{transform:"scaleX(-1)"}}/>
                                             :null}
                                         </button>
-                                        {personagemEscolhido.equipamentos.nome}
+                                        <h1>{personagemEscolhido.equipamentos.nome}</h1>
                                         <button
                                         onClick={personagemEscolhido.equipamentoProntoId!==
                                             findPersonagemData().equipamentosProntos.length?

@@ -4,7 +4,7 @@ import { BANNER_DURACAO, BANNER_TIPOS } from "../../../../constants";
 import { BannerAtaque, BannerInimigo, BannerRolagem, BannerTexto } from "./"
 import { useSound } from "../../../../hook/audio/sound/use-sound.hook";
 
-export function Banners({ banners, setBanners }) {
+export function Banners({ banners, setBanners, functions }) {
   const [testeRealizado, setTesteRealizado] = useState(false);
   const { playDadoResultado, playClick } = useSound()
   const [timeoutId, setTimeoutId] = useState(null)

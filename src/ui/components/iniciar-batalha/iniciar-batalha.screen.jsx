@@ -3,12 +3,14 @@ import { useSound } from "../../../hook"
 import { BackButton, CardBatalha, ContainerScreen, ModalPersonagemLista } from ".."
 import "./iniciar-batalha.style.css"
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 
 export function IniciarBatalhaScreen({batalha, aliados, inimigos, functions, modo}) {
     const { playHover, playClick } = useSound()
     const [trocarModal, setTrocarModal] = useState(false)
     const [personagemTrocado, setPersonagemTrocado] = useState({id:0})
     const [aliadosExtras, setAliadosExtras] = useState([])
+    const { jogadores } = useParams()
 
     function handleIniciar() {
         playClick(2)
@@ -30,7 +32,7 @@ export function IniciarBatalhaScreen({batalha, aliados, inimigos, functions, mod
     
     return (
         <ContainerScreen>
-            <BackButton />
+            <BackButton navigateTo={`/versus/${jogadores}/mapas`}/>
             <ModalPersonagemLista
             modalIsOpen={trocarModal}
             setModalIsOpen={setTrocarModal}

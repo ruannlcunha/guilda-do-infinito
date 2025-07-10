@@ -63,8 +63,9 @@ import { DRENAR_VITALIDADE } from "./drenar-vitalidade/drenar-vitalidade.ataque"
 import { BOLHA_VENENO } from "./bolha-veneno/bolha-veneno.ataque";
 import { TOQUE_FLAMEJANTE } from "./toque-flamejante/toque-flamejante.ataque";
 import { SOPRO_CONGELANTE } from "./sopro-congelante/sopro-congelante.ataque";
+import { EXPLOSAO_FOGO } from "./explosao-fogo/explosao-fogo.ataque";
 
-export const ATAQUES_DATA = [
+export const ATAQUES = {
     SOCO,
     BOLA_DE_FOGO,
     TOQUE_SOMBRIO,
@@ -130,4 +131,7 @@ export const ATAQUES_DATA = [
     DRENAR_VITALIDADE,
     BOLHA_VENENO,
     TOQUE_FLAMEJANTE,
-]
+    EXPLOSAO_FOGO
+}
+
+export const ATAQUES_DATA = Object.values(ATAQUES)

@@ -1,7 +1,7 @@
 import { EFFECTS } from "../../../constants/images";
 import { ACOES_AUDIO } from "../../../constants/audios/acoes.constant";
 import { useAcoesBase } from "../../../hook/batalha/acoes/_base/use-acoes-base.hook";
-import { ALVOS } from "../../../constants/acoes/acoes.constant";
+import { ACAO_EXECUCAO, ALVOS } from "../../../constants/acoes/acoes.constant";
 import { useEncerrarCondicao } from "../../../hook/batalha";
 import { ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 
@@ -15,9 +15,11 @@ export const APAGAR_CHAMAS = {
     descricao: "Apaga as chamas de si próprio para encerrar a condição Queimando.",
     evento: apagarChamasEvento,
     alvos: ALVOS.PESSOAL,
+    execucao: ACAO_EXECUCAO.PADRAO,
+    variantes: [],
 }
 
-function apagarChamasEvento(personagem, alvo, functions) {
+function apagarChamasEvento(personagem, alvo, acao, functions) {
     functions.setAnimacoes((old) => {
       return { ...old, escolhendoAlvo: false };
     });
@@ -32,5 +34,6 @@ function apagarChamasEvento(personagem, alvo, functions) {
       
     } catch (error) {
       informarErro(error, functions)
+      throw error
     }
   }

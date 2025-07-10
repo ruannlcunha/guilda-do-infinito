@@ -3,12 +3,12 @@ import { HUDAcoes, StatusHUD } from "../../";
 import "./batalha-hud.style.css";
 import { useIniciarTurno } from "../../../../hook/batalha/iniciar-turno/use-iniciar-turno.hook";
 
-export function BatalhaHUD({ personagens, personagemAtivo, animacoes, batalha, functions }) {
+export function BatalhaHUD({ personagens, personagemAtivo, animacoes, batalha, jogadaAutomatica, acaoEmAndamento, functions }) {
   const { iniciarTurno } = useIniciarTurno();
 
   useEffect(() => {
-    personagemAtivo && animacoes.iniciativaTerminou && !animacoes.batalhaTerminou
-    ? iniciarTurno(personagemAtivo, personagens, batalha.jogadores, functions) : null;
+    personagemAtivo && animacoes.iniciativaTerminou && !animacoes.batalhaTerminou && !acaoEmAndamento
+    ? iniciarTurno(personagemAtivo, personagens, batalha.jogadores, jogadaAutomatica, functions) : null;
 
     if(animacoes.hudAtivo) {
       functions.setAnimacoes((old) => {return { ...old, hudAtivo: false };});
@@ -17,10 +17,10 @@ export function BatalhaHUD({ personagens, personagemAtivo, animacoes, batalha, f
       },100)
     }
     
-  }, [personagemAtivo.idCombate, animacoes.iniciativaTerminou]);
+  }, [personagemAtivo.idCombate, animacoes.iniciativaTerminou, jogadaAutomatica]);
 
   function handleCancelarAcao() {
-    functions.setAcaoAtiva({ personagem: null, acao: null, alvos: [] });
+    functions.setAcaoAtiva({ personagem: null, acao: null, alvos: [], tipoAcao: null });
     functions.setAnimacoes((old) => {
       return { ...old, escolhendoAlvo: false, hudAtivo: true };
     });
@@ -33,6 +33,7 @@ export function BatalhaHUD({ personagens, personagemAtivo, animacoes, batalha, f
           className="batalha-hud"
           style={
             personagemAtivo.isInimigo && batalha.jogadores<2
+            || !personagemAtivo.isInimigo && batalha.jogadores<2 && jogadaAutomatica
             || batalha.jogadores<1
               ? {
                   flexDirection: "row-reverse",
@@ -43,11 +44,13 @@ export function BatalhaHUD({ personagens, personagemAtivo, animacoes, batalha, f
           <StatusHUD
           personagem={personagemAtivo} 
           jogadores={batalha.jogadores}
+          jogadaAutomatica={jogadaAutomatica}
           />
           <HUDAcoes
           personagem={personagemAtivo}
           personagens={personagens}
           jogadores={batalha.jogadores}
+          jogadaAutomatica={jogadaAutomatica}
           functions={functions}
           />
         </div>

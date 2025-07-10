@@ -4,7 +4,7 @@ import { useSound } from "../../../../hook";
 import { HUDSubAcoes } from "../hud-sub-acoes/hud-sub-acoes.component";
 import { CONDICOES } from "../../../../constants/personagens/personagem.constant";
 
-export function HUDAcoes({ personagem, personagens, jogadores, functions }) {
+export function HUDAcoes({ personagem, personagens, jogadores, jogadaAutomatica, functions }) {
   const { playHover, playClick } = useSound()
   const [acoesBloqueadas, setAcoesBloqueadas] = useState({ataque: false, habilidades: false, itens: false, extras: false})
   const [subAcoes, setSubAcoes] = useState({
@@ -27,8 +27,12 @@ export function HUDAcoes({ personagem, personagens, jogadores, functions }) {
     if(personagem.condicoes.some(condicao=>condicao.nome === CONDICOES.DORMINDO.nome)) {
       setAcoesBloqueadas({ataque: true, habilidades: true, itens: true, extras: true})
     }
+    const condicaoAtordoado = personagem.condicoes.find(condicao=>condicao.nome === CONDICOES.ATORDOADO.nome)
+    if(condicaoAtordoado) {
+      condicaoAtordoado.acaoBloqueada ? setAcoesBloqueadas({ataque: true, habilidades: true, itens: true, extras: true}) : null
+    }
   }
-
+  
   function handleHoverSound(isBloqueado) {
     if(!isBloqueado) playHover(1)
   }
@@ -65,8 +69,8 @@ export function HUDAcoes({ personagem, personagens, jogadores, functions }) {
     });
   }
 
-  return jogadores==2 || jogadores==1&&!personagem.isInimigo
-  || !jogadores&&!personagem.isInimigo ? (
+  return jogadores==2 && !jogadaAutomatica || jogadores==1 && !personagem.isInimigo && !jogadaAutomatica
+  || !jogadores && !personagem.isInimigo ? (
     <>
       <ul className="hud-acoes">
         {personagem.acoesExtras.length>0 ?

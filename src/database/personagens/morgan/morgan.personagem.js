@@ -5,7 +5,8 @@ import MORGAN_2_PERFIL from "./assets/MORGAN_2_PERFIL.png"
 import MORGAN_3_SPRITE from "./assets/MORGAN_3_SPRITE.png"
 import MORGAN_3_PERFIL from "./assets/MORGAN_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const MORGAN = {
     ..._BASE_ORIGINAL,
@@ -15,6 +16,7 @@ export const MORGAN = {
     elemento: ELEMENTOS.AGUA,
     corTema: COR_TEMA.AZUL,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -55,7 +57,9 @@ export const MORGAN = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -63,7 +67,9 @@ export const MORGAN = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -71,7 +77,10 @@ export const MORGAN = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,7],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 7, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -79,7 +88,10 @@ export const MORGAN = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [14,7],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 7, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -87,8 +99,14 @@ export const MORGAN = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [14,7,28],
-            habilidades: [17]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 7, variantes: []},
+                {ataqueId: 28, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 17, variantes: []},
+            ]
         },
     ],
 }

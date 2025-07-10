@@ -5,16 +5,19 @@ import SAXA_2_PERFIL from "./assets/SAXA_2_PERFIL.png"
 import SAXA_3_SPRITE from "./assets/SAXA_3_SPRITE.png"
 import SAXA_3_PERFIL from "./assets/SAXA_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const SAXA = {
     ..._BASE_ORIGINAL,
     id: 53,
     nome: "Saxa",
     titulo: "Bruxa das Chamas",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.PRETO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -55,7 +58,11 @@ export const SAXA = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,22,2],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 2, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -63,7 +70,11 @@ export const SAXA = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,22,2],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 2, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -71,7 +82,13 @@ export const SAXA = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,22,2,9,5],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 9, variantes: []},
+                {ataqueId: 5, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -79,7 +96,13 @@ export const SAXA = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,22,2,9,5],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 9, variantes: []},
+                {ataqueId: 5, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -87,7 +110,13 @@ export const SAXA = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,22,2,9,5],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 22, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 9, variantes: []},
+                {ataqueId: 5, variantes: []},
+            ],
             habilidades: []
         },
     ]

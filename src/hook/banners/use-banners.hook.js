@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BANNER_DURACAO, BANNER_TIPOS } from "../../constants";
 import { useSound } from "../audio/sound/use-sound.hook";
+import { ICONS } from "../../constants/images";
 
 export function useBanners() {
   const { playBanner, playDado } = useSound()
@@ -14,7 +15,14 @@ export function useBanners() {
     nomeAcao: null, personagemPerfil: null, alvoPerfil: null,
   });
 
-  function ativarBannerInimigo(nomeAcao, personagemPerfil, alvoPerfil, cor) {
+  function ativarBannerInimigo(nomeAcao, personagemPerfil, alvo, cor) {
+    let alvoPerfil = null
+    if(Array.isArray(alvo)) {
+      alvoPerfil = ICONS.EM_AREA
+    } else {
+      alvoPerfil = alvo.perfil
+    }
+    
     playBanner()
     setBanners((old) => {
       return { ...old, ativo: true, tipo: BANNER_TIPOS.INIMIGO,
@@ -56,7 +64,7 @@ export function useBanners() {
     setBanners((old) => {
       return {
         ...old, ativo: true, tipo: BANNER_TIPOS.ATAQUE,
-        ataque: ataque, defesa: defesa, cor: cor,
+        ataque, defesa, cor,
       };
     });
 
@@ -72,14 +80,16 @@ export function useBanners() {
     }, BANNER_DURACAO.ATAQUE);
   }
 
-  function ativarBannerRolagem(dados, modificadores, total, cor, resultadoAtaque) {
-    const isCritico = resultadoAtaque===20
+  function ativarBannerRolagem(dados, modificadores, total, personagem, resultadoAtaque, alvo) {
+    const isCritico = resultadoAtaque ? resultadoAtaque.dado===20 : null
+    const novosModificadores = [...modificadores]
+    
     playBanner()
     playDado()
     setBanners((old) => {
       return {
-        ...old, ativoDano: true, tipo: BANNER_TIPOS.ROLAGEM, cor: cor,
-        dados, modificadores, total, isCritico
+        ...old, ativoDano: true, tipo: BANNER_TIPOS.ROLAGEM, cor: personagem.corTema,
+        dados, modificadores: novosModificadores, total, isCritico
       };
     });
 

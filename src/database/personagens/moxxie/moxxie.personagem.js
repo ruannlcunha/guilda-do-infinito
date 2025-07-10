@@ -7,7 +7,8 @@ import MOXXIE_3_PERFIL from "./assets/MOXXIE_3_PERFIL.png"
 import MOXXIE_4_SPRITE from "./assets/MOXXIE_4_SPRITE.gif"
 import MOXXIE_4_PERFIL from "./assets/MOXXIE_4_PERFIL.gif"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { ELEMENTOS, COR_TEMA } from "../../../constants/personagens/personagem.constant"
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const MOXXIE = {
     ..._BASE_ORIGINAL,
@@ -17,6 +18,7 @@ export const MOXXIE = {
     elemento: ELEMENTOS.TERRA,
     corTema: COR_TEMA.VERDE,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -65,40 +67,78 @@ export const MOXXIE = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,6],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 6, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+                {habilidadeId: 11, variantes: []},
+            ],
         },
         {
             level: 2,
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,6],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 6, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+                {habilidadeId: 11, variantes: []},
+            ],
         },
         {
             level: 3,
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,6,12,9],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 6, variantes: []},
+                {ataqueId: 12, variantes: []},
+                {ataqueId: 9, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+                {habilidadeId: 11, variantes: []},
+            ],
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,6,12,9],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 6, variantes: []},
+                {ataqueId: 12, variantes: []},
+                {ataqueId: 9, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+                {habilidadeId: 11, variantes: []},
+            ],
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,6,12,9,30,47],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 6, variantes: []},
+                {ataqueId: 12, variantes: []},
+                {ataqueId: 9, variantes: []},
+                {ataqueId: 30, variantes: []},
+                {ataqueId: 47, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+                {habilidadeId: 11, variantes: []},
+            ],
         },
     ]
 }

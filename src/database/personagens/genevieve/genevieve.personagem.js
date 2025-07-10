@@ -5,16 +5,19 @@ import GENEVIEVE_2_PERFIL from "./assets/GENEVIEVE_2_PERFIL.png"
 import GENEVIEVE_3_SPRITE from "./assets/GENEVIEVE_3_SPRITE.png"
 import GENEVIEVE_3_PERFIL from "./assets/GENEVIEVE_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const GENEVIEVE = {
     ..._BASE_ORIGINAL,
     id: 23,
     nome: "Genevieve",
     titulo: "A Curandeira",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.ACIDO,
     corTema: COR_TEMA.TURQUESA,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -55,40 +58,66 @@ export const GENEVIEVE = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [16],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 16, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+                {habilidadeId: 11, variantes: []},
+            ],
         },
         {
             level: 2,
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [16],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 16, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 3,
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [16,6],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 6, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [16,6],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 6, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [16,6,49,79],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 6, variantes: []},
+                {ataqueId: 49, variantes: []},
+                {ataqueId: 79, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
     ]
 }

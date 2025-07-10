@@ -1,43 +1,117 @@
-import { ALVOS } from "../../../constants/acoes/acoes.constant"
-import { getRandomInt } from "../../../utils"
+import { ACAO_EXECUCAO, ALVOS } from "../../../constants/acoes/acoes.constant"
+import { COMPORTAMENTOS, CONDICOES } from "../../../constants/personagens/personagem.constant"
+import { ACOES_EXTRAS } from "../../../database/acoes-extras";
+import { sleep } from "../../../utils";
+import { useToast } from "../../toast/use-toast.hook";
+import { usePularTurno } from "../pular-turno/use-pular-turno.hook";
+import { atacanteEspertoComportamento, atacanteFerozComportamento, suporteEspertoComportamento, suporteMedicoComportamento } from "./comportamentos";
 
 export function useAutomatizarPersonagem() {
+  const { toastWarning } = useToast()  
+  const { pularTurno } = usePularTurno();
 
-    function automatizarPersonagem(personagemAtivo, personagens, functions) {
-        
-        const acoes = [...personagemAtivo.ataques]
-        const indexAcao = getRandomInt(1,acoes.length)
-        const acaoEscolhida = acoes.find((ataque,i)=> (i+1) === indexAcao)
+    async function automatizarPersonagem(personagemAtivo, personagens, functions) {
+        let acaoRealizada = false
+        let quantidadeDeErros = 0
+        while(!acaoRealizada) {
+            functions.setAcaoEmAndamento(true)
+            try {
+                if(_verificarSePodeAgir(personagemAtivo)) {
+                    let comportamento = {acaoEscolhida: {execucao: null}}
+                    //Por enquanto BOTs não usam ações livres
+                    while(comportamento.acaoEscolhida.execucao !== ACAO_EXECUCAO.PADRAO) {
+                        comportamento = _escolherComportamento(personagemAtivo.comportamento, personagemAtivo, personagens)
+                    }
+                    await sleep(3000)
+                    functions.setAnimacoes(old=> {return {...old, hudAtivo: false}})
+                    functions.ativarBannerInimigo(comportamento.acaoEscolhida.nome, personagemAtivo.perfil,
+                                                comportamento.alvoEscolhido, personagemAtivo.corTema)
+                    await sleep(5100)
+                    await comportamento.acaoEscolhida.evento(personagemAtivo, comportamento.alvoEscolhido, comportamento.acaoEscolhida, functions);
+                    acaoRealizada = true
+                }
+                else {
+                    pularTurno(functions.setTurnos);
+                }
+            } catch(e) {
+                console.log(e.message)
+                acaoRealizada = false
+                quantidadeDeErros = quantidadeDeErros+1
+                if(quantidadeDeErros>=2) {
+                    acaoRealizada = true
+                    const mensagemDeErro = `${personagemAtivo.nome} não conseguiu realizar a ação pela segunda vez consecutiva, então seu turno foi pulado.`
+                    toastWarning(mensagemDeErro)
+                    functions.adicionarLog(mensagemDeErro)
+                    pularTurno(functions.setTurnos)
+                }
+            }
+        }
+    }
+    
+    
 
-        const alvos = escolherAlvos(personagens, personagemAtivo,acaoEscolhida)
-        
-        const indexAlvo = getRandomInt(1, alvos.length)
-        const alvoEscolhido = alvos[indexAlvo-1]
+    function _verificarSePodeAgir(personagem) {
+        if(personagem.condicoes.some(condicao=>
+            condicao.nome === CONDICOES.PARALISADO.nome ||
+            condicao.nome === CONDICOES.DORMINDO.nome)) {
+          return false
+        }
 
-        setTimeout(()=>{
-            functions.setAnimacoes(old=> {return {...old, hudAtivo: false}})
-            functions.ativarBannerInimigo(acaoEscolhida.nome, personagemAtivo.perfil,
-                                            alvoEscolhido.perfil, personagemAtivo.corTema)
-        }, 3000)
+        const condicaoAtordoado = personagem.condicoes.find(condicao=>condicao.nome === CONDICOES.ATORDOADO.nome)
+        if(condicaoAtordoado) {
+          if(condicaoAtordoado.acaoBloqueada) return false
+        }
 
-        setTimeout(()=>{
-            acaoEscolhida.evento(personagemAtivo, alvoEscolhido, functions);
-        }, 8100)
+        return true
+    }
+    
+
+    function _verificarCondicoesAcaoExtra(personagem) {
+        if(personagem.condicoes.some(condicao=>
+            condicao.nome === CONDICOES.CONGELADO.nome)) {
+          return true
+        }
+        return false
     }
 
-    return { automatizarPersonagem }
+    function _realizarAcaoExtraDeCondicao(personagem) {
+        const acoes = [...personagem.acoesExtras]
+        let acaoEscolhida = null
+        if(personagem.condicoes.some(condicao=>
+            condicao.nome === CONDICOES.CONGELADO.nome)) {
+          acaoEscolhida = acoes.find((acao)=> acao.id===ACOES_EXTRAS.QUEBRAR_GELO.id)
+        }
+        
+        const alvoEscolhido = personagem
+        return {acaoEscolhida, alvoEscolhido}
+    }
 
-    function escolherAlvos(personagens, personagemAtivo, acaoEscolhida) {
-        if(acaoEscolhida.alvos===ALVOS.INIMIGOS) {
-            return personagens.filter(personagem=>
-                (!personagem.isInimigo && personagemAtivo.isInimigo && !personagem.isMorto)
-                ||
-                (personagem.isInimigo && !personagemAtivo.isInimigo && !personagem.isMorto)
-            )
+    function _escolherComportamento(comportamento, personagemAtivo, personagens) {
+        if(_verificarCondicoesAcaoExtra(personagemAtivo)) {
+            return _realizarAcaoExtraDeCondicao(personagemAtivo)
         }
         else {
-
+            if(comportamento) {
+                if(comportamento===COMPORTAMENTOS.ATACANTE_FEROZ) {
+                    return atacanteFerozComportamento(personagemAtivo, personagens)
+                }
+                if(comportamento===COMPORTAMENTOS.ATACANTE_ESPERTO) {
+                    return atacanteEspertoComportamento(personagemAtivo, personagens)
+                }
+                if(comportamento===COMPORTAMENTOS.SUPORTE_ESPERTO) {
+                    return suporteEspertoComportamento(personagemAtivo, personagens)
+                }
+                if(comportamento===COMPORTAMENTOS.SUPORTE_MEDICO) {
+                    return suporteMedicoComportamento(personagemAtivo, personagens)
+                }
+            }
+            else {
+                return atacanteFerozComportamento(personagemAtivo, personagens)
+            }
         }
     }
+    
+
+    return { automatizarPersonagem }
 
 }

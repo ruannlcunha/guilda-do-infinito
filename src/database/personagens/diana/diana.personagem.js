@@ -5,16 +5,19 @@ import DIANA_2_PERFIL from "./assets/DIANA_2_PERFIL.png"
 import DIANA_3_SPRITE from "./assets/DIANA_3_SPRITE.png"
 import DIANA_3_PERFIL from "./assets/DIANA_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const DIANA = {
     ..._BASE_ORIGINAL,
     id: 35,
     nome: "Diana",
     titulo: "Presa Ruiva",
+    pronomes: PRONOMES.FEMININO,
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.VERMELHO,
     raridade: 4,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -55,40 +58,64 @@ export const DIANA = {
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
         {
             level: 2,
             experienciaNecessaria: 3000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
         {
             level: 3,
             experienciaNecessaria: 6000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,16],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 16, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
         {
             level: 4,
             experienciaNecessaria: 10000,
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,16],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 16, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
         {
             level: 5,
             experienciaNecessaria: 15000,
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,16,27],
-            habilidades: [13]
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 27, variantes: []},
+            ],
+            habilidades: [
+                {habilidadeId: 13, variantes: []},
+            ]
         },
     ],
 }

@@ -12,7 +12,7 @@ export const VENENO_MAIOR = {
     id: 45,
     nome: "Frasco de Veneno Maior",
     descricao: "Um grande frasco contendo um líquido corrosivo que pode ser arremessado.",
-    efeito: "Faz algo",
+    descricao: "Faz algo",
     evento: ()=>{},
     alvos: "ALIADOS",
     sprite: "/guilda-do-infinito/src/database/itens/consumiveis/veneno-maior/VENENO_MAIOR.png",

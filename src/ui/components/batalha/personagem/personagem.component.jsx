@@ -4,6 +4,9 @@ import "./personagem.style.css";
 import { personagemStyle } from "./personagem-styles.style"
 import { useEffect, useState } from "react";
 import { ELEMENTOS_REACOES, TIPO_CONDICAO } from "../../../../constants/personagens/personagem.constant";
+import { ALVOS } from "../../../../constants/acoes/acoes.constant";
+import DADO_AZUL from "../../../../assets/img/icons/D20.png"
+import DADO_VERMELHO from "../../../../assets/img/icons/D20_VERMELHO.png"
 
 export function Personagem({personagem, idAtivo, animacoes, acaoAtiva, functions, }) {
 
@@ -13,7 +16,12 @@ export function Personagem({personagem, idAtivo, animacoes, acaoAtiva, functions
   );
 
   const isAlvo = acaoAtiva.alvos.some(item=>
-     item.idCombate===personagem.idCombate && !personagem.isMorto)
+     item.idCombate===personagem.idCombate
+     && (!personagem.isMorto || acaoAtiva.acao.alvos===ALVOS.ALIADOS_MORTOS && personagem.isMorto)
+     && animacoes.escolhendoAlvo
+    )
+
+  const isArea = acaoAtiva.acao ? (acaoAtiva.acao.alvos===ALVOS.ALIADOS_AREA || acaoAtiva.acao.alvos===ALVOS.INIMIGOS_AREA) : false
 
   const estaAtivo =
     idAtivo === personagem.idCombate && idAtivo && animacoes.iniciativaTerminou
@@ -30,13 +38,17 @@ export function Personagem({personagem, idAtivo, animacoes, acaoAtiva, functions
       estaEscolhido ? setEstaEscolhido(false) : setEstaEscolhido(true);
     }
   }
-
   function handleEscolherAlvo() {
-    acaoAtiva.acao.evento(acaoAtiva.personagem, personagem, functions);
+    if(isArea) {
+      functions.setAcaoEmAndamento(true)
+      acaoAtiva.acao.evento(acaoAtiva.personagem, [...acaoAtiva.alvos], acaoAtiva.acao, functions)
+    }
+    else {
+      functions.setAcaoEmAndamento(true)
+      acaoAtiva.acao.evento(acaoAtiva.personagem, personagem, acaoAtiva.acao, functions);
+    }
   }
-  console.log(personagem)
-  console.log(personagem.acoesExtras)
-  console.log("============================")
+
   return (
     <div
       className={estaEscolhido ? "personagem-escolhido" : null}
@@ -48,7 +60,7 @@ export function Personagem({personagem, idAtivo, animacoes, acaoAtiva, functions
       <div className="icones-container">
         <img
         src={
-          estaEscolhido ? ICONS.ESCOLHER_BAIXO :
+          estaEscolhido || (isAlvo&&isArea) ? ICONS.ESCOLHER_BAIXO :
           isAlvo && personagem.isInimigo ? ICONS.CRISTAL_VERMELHO :
           isAlvo && !personagem.isInimigo ? ICONS.CRISTAL_AZUL :
           estaAtivo && personagem.isInimigo && !animacoes.escolhendoAlvo ? ICONS.SETA_ATIVO_INIMIGO :
@@ -60,15 +72,27 @@ export function Personagem({personagem, idAtivo, animacoes, acaoAtiva, functions
         />
         
         <img src={
-          isAlvo && ELEMENTOS_REACOES[acaoAtiva.acao.elemento].vantagem === personagem.elemento ? ICONS.SETA_VANTAGEM :
-          isAlvo && ELEMENTOS_REACOES[acaoAtiva.acao.elemento].desvantagem === personagem.elemento ? ICONS.SETA_DESVANTAGEM :
+          isAlvo && acaoAtiva.tipoAcao==="Ataques" && ELEMENTOS_REACOES[acaoAtiva.acao.elemento].vantagem === personagem.elemento ? ICONS.SETA_VANTAGEM :
+          isAlvo && acaoAtiva.tipoAcao==="Ataques" && ELEMENTOS_REACOES[acaoAtiva.acao.elemento].desvantagem === personagem.elemento ? ICONS.SETA_DESVANTAGEM :
           ICONS.QUADRADO_VAZIO
         }
         alt="Seta de Vantagem"
         className="icone-vantagem"
         />
         
-        {personagem.testeResistencia ? <div className="icone-dado-resistencia"> {personagem.testeResistencia} </div> : null}
+        {personagem.testeResistencia ? 
+        <div className="icone-dado-resistencia" style={{backgroundImage: `url(${personagem.isInimigo? DADO_VERMELHO : DADO_AZUL})`}}>
+          {personagem.testeResistencia}
+        </div>
+        : null}
+
+        {personagem.defesaEffect ? 
+        <div className="icone-defesa" style={{
+          textShadow: `var(--borda-texto-${personagem.defesaEffect.acerto? "verde" : "vermelho"})`,
+          animation: `defesa-effect-${personagem.defesaEffect.acerto? "verde" : "vermelho"} 3s ease-in-out`}}>
+          {personagem.defesa}
+        </div>
+        : null}
 
       </div>
       :null}
@@ -76,7 +100,7 @@ export function Personagem({personagem, idAtivo, animacoes, acaoAtiva, functions
       <img
         src={personagem.sprite}
         alt="Sprite do personagem"
-        style={personagemStyle(personagem, estaAtivo, isAlvo, animacoes.escolhendoAlvo)}
+        style={personagemStyle(personagem, estaAtivo, isAlvo, animacoes.escolhendoAlvo, acaoAtiva)}
         className="sprite-personagem"
       />
 

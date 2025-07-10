@@ -1,7 +1,8 @@
 import CLOUD_1_SPRITE from "./assets/CLOUD_1_SPRITE.png"
 import CLOUD_1_PERFIL from "./assets/CLOUD_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const CLOUD = {
     ..._BASE_ORIGINAL,
@@ -11,6 +12,7 @@ export const CLOUD = {
     elemento: ELEMENTOS.ELETRICO,
     corTema: COR_TEMA.BRANCO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -37,7 +39,9 @@ export const CLOUD = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [19],
+            ataques: [
+                {ataqueId: 19, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -45,7 +49,9 @@ export const CLOUD = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [19],
+            ataques: [
+                {ataqueId: 19, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -53,24 +59,37 @@ export const CLOUD = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [19],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 19, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 4,
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [19],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 19, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
         {
             level: 5,
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [19,56],
-            habilidades: [1]
+            ataques: [
+                {ataqueId: 19, variantes: []},
+                {ataqueId: 56, variantes: []}
+            ],
+            habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
         },
     ],
 }

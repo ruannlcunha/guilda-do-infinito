@@ -12,7 +12,7 @@ export const POCAO_MANA_MENOR = {
     id: 15,
     nome: "Poção de Mana Menor",
     descricao: "Um pequeno frasco de vidro contendo um líquido azul mágico que recupera sua mana.",
-    efeito: "Recupera 1d4 de PM de você mesmo ou de um aliado.",
+    descricao: "Recupera 1d4 de PM de você mesmo ou de um aliado.",
     evento: null,
     alvos: "ALIADOS",
     sprite: "/guilda-do-infinito/src/database/itens/consumiveis/pocao-mana-menor/POCAO_MANA_MENOR.png",

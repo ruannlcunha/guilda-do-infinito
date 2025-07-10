@@ -1,7 +1,8 @@
 import LUCIUS_1_SPRITE from "./assets/LUCIUS_1_SPRITE.png"
 import LUCIUS_1_PERFIL from "./assets/LUCIUS_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const LUCIUS = {
     ..._BASE_ORIGINAL,
@@ -11,6 +12,7 @@ export const LUCIUS = {
     elemento: ELEMENTOS.LUZ,
     corTema: COR_TEMA.CIANO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -37,7 +39,10 @@ export const LUCIUS = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,12],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 12, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -45,7 +50,10 @@ export const LUCIUS = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,12],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 12, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -53,7 +61,11 @@ export const LUCIUS = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,12,15],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 12, variantes: []},
+                {ataqueId: 15, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -61,7 +73,11 @@ export const LUCIUS = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,12,15],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 12, variantes: []},
+                {ataqueId: 15, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -69,7 +85,13 @@ export const LUCIUS = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,12,15,34,44],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 12, variantes: []},
+                {ataqueId: 15, variantes: []},
+                {ataqueId: 34, variantes: []},
+                {ataqueId: 44, variantes: []},
+            ],
             habilidades: []
         },
     ],

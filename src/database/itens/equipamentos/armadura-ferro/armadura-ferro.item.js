@@ -1,6 +1,6 @@
 import ARMADURA_FERRO_SPRITE from "./ARMADURA_FERRO_SPRITE.png"
-import BASE_SANTUARIO from "../assets/BASE_SANTUARIO.png"
-import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
+import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
+import { ARMADURA_TIPO, ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
 import { ICONS } from "../../../../constants/images"
 
 export const ARMADURA_FERRO = {
@@ -9,7 +9,7 @@ export const ARMADURA_FERRO = {
     descricao: "Uma simples armadura de ferro.",
     sprite: ARMADURA_FERRO_SPRITE,
     raridade: 3,
-    tipo: "Armadura Pesada",
+    tipo: ARMADURA_TIPO.PESADA,
     santuario: BASE_SANTUARIO,
     categoria: ITENS_CATEGORIA.EQUIPAMENTO,
     equipamentoTipo: "ARMADURA",

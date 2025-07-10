@@ -1,7 +1,8 @@
 import DEMONIO_AREIAS_1_SPRITE from "./assets/DEMONIO_AREIAS_1_SPRITE.png"
 import DEMONIO_AREIAS_1_PERFIL from "./assets/DEMONIO_AREIAS_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const DEMONIO_AREIAS = {
     ..._BASE_ORIGINAL,
@@ -11,6 +12,7 @@ export const DEMONIO_AREIAS = {
     elemento: ELEMENTOS.TERRA,
     corTema: COR_TEMA.AMARELO,
     raridade: 3,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -38,8 +40,12 @@ export const DEMONIO_AREIAS = {
               vigor: 2
           },
           talentos: [],
-          ataques: [1],
-          habilidades: [1]
+          ataques: [
+                {ataqueId: 1, variantes: []}
+            ],
+          habilidades: [
+                {habilidadeId: 1, variantes: []},
+            ]
       }
     ]
 }

@@ -43,7 +43,10 @@ export function useIniciarBatalha() {
     }, (BANNER_DURACAO.TEXTO*2)+100);
     
     functions.setBanners(old => { return {...old, evento: 
-      ()=>{_pularBannersInicio(personagens, ordemIniciativa, functions, primeiroTimeout, segundoTimeout)}} })
+      ()=>{
+        _pularBannersInicio(personagens, ordemIniciativa, functions, primeiroTimeout, segundoTimeout)
+        functions.setAcaoEmAndamento(false)
+      }} })
       
   }
 

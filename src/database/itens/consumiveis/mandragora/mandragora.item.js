@@ -12,7 +12,7 @@ export const MANDRAGORA = {
     id: 58,
     nome: "Madrágora",
     descricao: "Uma pequena planta mágica que ao ser acordada atordoa o inimigo com seus gritos.",
-    efeito: "Faz algo",
+    descricao: "Faz algo",
     evento: ()=>{},
     alvos: "INIMIGOS",
     sprite: "/guilda-do-infinito/src/database/itens/consumiveis/mandragora/MANDRAGORA.png",

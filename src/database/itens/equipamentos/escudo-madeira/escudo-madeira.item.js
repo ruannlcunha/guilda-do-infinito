@@ -1,5 +1,5 @@
 import ESCUDO_MADEIRA_SPRITE from "./ESCUDO_MADEIRA_SPRITE.png"
-import BASE_SANTUARIO from "../assets/BASE_SANTUARIO.png"
+import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
 import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
 import { ICONS } from "../../../../constants/images"
 

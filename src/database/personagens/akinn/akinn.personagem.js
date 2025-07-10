@@ -5,7 +5,8 @@ import AKINN_2_PERFIL from "./assets/AKINN_2_PERFIL.png"
 import AKINN_3_SPRITE from "./assets/AKINN_3_SPRITE.png"
 import AKINN_3_PERFIL from "./assets/AKINN_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const AKINN = {
     ..._BASE_ORIGINAL,
@@ -15,6 +16,7 @@ export const AKINN = {
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.AMARELO,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -55,7 +57,10 @@ export const AKINN = {
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,2],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 2, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -63,7 +68,10 @@ export const AKINN = {
             experienciaNecessaria: 3750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,2],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 2, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -71,7 +79,12 @@ export const AKINN = {
             experienciaNecessaria: 7500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [1,16,2,5],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 5, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -79,7 +92,12 @@ export const AKINN = {
             experienciaNecessaria: 12500,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,16,2,5],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 5, variantes: []},
+            ],
             habilidades: []
         },
         {
@@ -87,7 +105,14 @@ export const AKINN = {
             experienciaNecessaria: 18750,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 1, vigor: 0},
             talentos: [],
-            ataques: [1,16,2,5,47,53],
+            ataques: [
+                {ataqueId: 1, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 2, variantes: []},
+                {ataqueId: 5, variantes: []},
+                {ataqueId: 47, variantes: []},
+                {ataqueId: 53, variantes: []},
+            ],
             habilidades: []
         },
     ]

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import DADO_AZUL from "../../../../assets/img/icons/D20.png"
+import DADO_VERMELHO from "../../../../assets/img/icons/D20_VERMELHO.png"
 import "./turnos.style.css";
 
 export function Turnos({ personagens, turnos, ordemIniciativa, idAtivo, animacoes }) {
@@ -13,11 +15,11 @@ export function Turnos({ personagens, turnos, ordemIniciativa, idAtivo, animacoe
         return [...ordenados];
       });
     }
-  }, [animacoes.iniciativaTerminou]);
+  }, [animacoes.iniciativaTerminou, turnos.ordemIniciativa]);
 
-  function renderDado(iniciativa) {
+  function renderDado(iniciativa, isInimigo) {
     return animacoes.isDadosAtivos ? (
-      <div className="d20-turnos">{iniciativa}</div>
+      <div className="d20-turnos" style={{backgroundImage: `url(${isInimigo? DADO_VERMELHO : DADO_AZUL})`}}>{iniciativa}</div>
     ) : null;
   }
 
@@ -45,7 +47,7 @@ export function Turnos({ personagens, turnos, ordemIniciativa, idAtivo, animacoe
         className={ativo&&novoPersonagem.isInimigo ? "turnos-ativo-inimigo"
           : ativo ? "turnos-ativo-aliado":null}
       >
-        {renderDado(resultadoDado)}
+        {renderDado(resultadoDado, novoPersonagem.isInimigo)}
       </div>
     );
   }

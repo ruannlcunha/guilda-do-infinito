@@ -3,7 +3,7 @@ import { ACOES_AUDIO } from "../../../constants/audios/acoes.constant";
 import { BANNER_DURACAO } from "../../../constants";
 import { useRolarDado } from "../../../hook/batalha/rolar-dado/use-rolar-dado.hook";
 import { useAcoesBase } from "../../../hook/batalha/acoes/_base/use-acoes-base.hook";
-import { ALVOS } from "../../../constants/acoes/acoes.constant";
+import { ACAO_EXECUCAO, ALVOS, HABILIDADE_TIPO } from "../../../constants/acoes/acoes.constant";
 import { ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 
 const { rolarDado } = useRolarDado();
@@ -14,22 +14,25 @@ export const RECUPERAR_FOLEGO = {
     nome: "Recuperar Fôlego",
     elemento: ELEMENTOS.FISICO,
     custo: 3,
-    efeito: "Recupera 1d10+Vigor de PV de você mesmo.",
+    tipo: HABILIDADE_TIPO.CURA,
+    descricao: "Recupera 1d10+Vigor de PV de você mesmo.",
     evento: recuperarFolego,
     alvos: ALVOS.PESSOAL,
+    execucao: ACAO_EXECUCAO.PADRAO,
+    variantes: [],
 }
 
-function recuperarFolego(personagem, alvo, functions) {
+function recuperarFolego(personagem, alvo, acao, functions) {
     functions.setAnimacoes((old) => {
       return { ...old, escolhendoAlvo: false };
     });
     try {
-      const personagemNovo = gastarMana(personagem, 3, functions);
-      const novoAlvo = personagem.idCombate===alvo.idCombate ? personagemNovo : alvo
+      const personagemNovo = gastarMana(personagem, acao.custo, functions);
+      const alvoCorreto = personagem.idCombate===alvo.idCombate ? personagemNovo : alvo
       const modificadores = [{valor: personagem.atributos.vigor, atributo: "Vigor"}]
       const {dados, total} = rolarDado(1, 10, modificadores);
-      const alvoRestaurado = restaurarVida(novoAlvo, total, functions);
-      functions.ativarBannerRolagem([...dados], modificadores, total, personagem.corTema, resultadoAtaque.dado)
+      const alvoRestaurado = restaurarVida(alvoCorreto, total, functions);
+      functions.ativarBannerRolagem([...dados], modificadores, total, personagem)
       function _etapas() {
         const duracao = iniciarEfeito(alvoRestaurado, functions, EFFECTS.FUMACA_1, ACOES_AUDIO.FOLEGO);
         functions.adicionarLog(`${personagem.nome} usou ${RECUPERAR_FOLEGO.nome} e curou ${total} PV de si mesmo.`)
@@ -46,5 +49,6 @@ function recuperarFolego(personagem, alvo, functions) {
         }}})
     } catch (error) {
       informarErro(error, functions)
+      throw error
     }
   }

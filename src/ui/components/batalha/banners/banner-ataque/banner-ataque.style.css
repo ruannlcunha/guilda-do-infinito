@@ -81,6 +81,10 @@
   background-image: url(../../../../../assets/img/icons/VALOR_VIGOR.png);
 }
   
+.batalha-screen .banner-ataque div .Modificador {
+  background-image: url(../../../../../assets/img/icons/VALOR_MODIFICADOR.png);
+}
+  
 .batalha-screen .banner-ataque div .shield {
   background-image: url(../../../../../assets/img/icons/SHIELD.png);
 }

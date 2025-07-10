@@ -1,7 +1,8 @@
 import RIMURU_1_SPRITE from "./assets/RIMURU_1_SPRITE.png"
 import RIMURU_1_PERFIL from "./assets/RIMURU_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
-import { COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+import { PRONOMES } from "../../../constants"
 
 export const RIMURU = {
     ..._BASE_ORIGINAL,
@@ -11,6 +12,7 @@ export const RIMURU = {
     elemento: ELEMENTOS.AR,
     corTema: COR_TEMA.TURQUESA,
     raridade: 5,
+    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
             visualId: 1,
@@ -37,7 +39,9 @@ export const RIMURU = {
             experienciaNecessaria: 1000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -45,7 +49,9 @@ export const RIMURU = {
             experienciaNecessaria: 3000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14],
+            ataques: [
+                {ataqueId: 14, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -53,7 +59,10 @@ export const RIMURU = {
             experienciaNecessaria: 6000,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,16],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 16, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -61,7 +70,10 @@ export const RIMURU = {
             experienciaNecessaria: 10000,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,16],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 16, variantes: []}
+            ],
             habilidades: []
         },
         {
@@ -69,7 +81,12 @@ export const RIMURU = {
             experienciaNecessaria: 15000,
             bonusAtributos: {forca: 0, agilidade: 1, magia: 0, vigor: 0},
             talentos: [],
-            ataques: [14,16,31,51],
+            ataques: [
+                {ataqueId: 14, variantes: []},
+                {ataqueId: 16, variantes: []},
+                {ataqueId: 31, variantes: []},
+                {ataqueId: 51, variantes: []},
+            ],
             habilidades: []
         },
     ],
