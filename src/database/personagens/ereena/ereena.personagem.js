@@ -2,7 +2,7 @@ import EREENA_1_SPRITE from "./assets/EREENA_1_SPRITE.png"
 import EREENA_1_PERFIL from "./assets/EREENA_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const EREENA = {
     ..._BASE_ORIGINAL,
@@ -13,6 +13,7 @@ export const EREENA = {
     elemento: ELEMENTOS.GELO,
     corTema: COR_TEMA.CIANO,
     raridade: 4,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

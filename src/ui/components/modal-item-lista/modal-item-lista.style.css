@@ -51,7 +51,7 @@ div .modal .modal-item-lista section {
 }
 
 div .modal .modal-item-lista section .lista-itens {
-    width: 37%;
+    width: 32vw;
     height: 90%;
     display: flex;
     align-items: self-start;
@@ -78,12 +78,11 @@ div .modal .modal-item-lista section .lista-itens ul {
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-    width: 95%;
 }
 
 div .modal .modal-item-lista section .lista-itens ul li {
-    width: 5rem;
-    height: 5.5rem;
+    width: 5vw;
+    height: 5.5vw;
     border: solid 2px var(--black);
     background: var(--card-4-estrelas);
     margin: 0.5rem;
@@ -96,8 +95,6 @@ div .modal .modal-item-lista section .lista-itens ul li {
 
 div .modal .modal-item-lista section .lista-itens ul li:hover {
     transition: all 0.1s;
-    width: 5.1rem;
-    height: 5.6rem;
     box-shadow: var(--light-blue) 0px 0px 5px 2px, var(--light-blue) 0px 0px 0px 2px;
     cursor: var(--cursor-pointer);
 }
@@ -122,8 +119,8 @@ div .modal .modal-item-lista section .lista-itens ul li .personagem-equipado {
 div .modal .modal-item-lista section .lista-itens ul .item-escolhido {
     transition: all 0.1s;
     cursor: auto;
-    width: 5.1rem;
-    height: 5.6rem;
+    width: 5vw;
+    height: 5.5vw;
     box-shadow: var(--box-brilho);
 }
 

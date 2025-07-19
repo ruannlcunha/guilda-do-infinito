@@ -1,9 +1,9 @@
 import { ICONS } from "../images"
 
-export const ITENS_CATEGORIA = {
+export const ITEM_TIPO = {
     EQUIPAMENTO: "EQUIPAMENTO",
     CONSUMIVEL: "CONSUMIVEL",
-    OUTROS: "OUTROS",
+    RECURSO: "RECURSO",
 }
 
 export const ARMADURA_TIPO = {

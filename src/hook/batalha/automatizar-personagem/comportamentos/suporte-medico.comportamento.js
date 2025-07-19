@@ -47,7 +47,7 @@ export function suporteMedicoComportamento(personagemAtivo, personagens) {
                 acaoEscolhida = { ...acaoEscolhida, ...varianteEscolhida.novaAcao }
             })
         }
-        debugger
+        
         if(!alvoEscolhido) {
             const alvosPossiveis = escolherAlvos(personagens, personagemAtivo, acaoEscolhida)
 

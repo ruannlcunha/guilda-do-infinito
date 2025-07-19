@@ -1,6 +1,8 @@
-import { ATAQUES_DATA, HABILIDADES_DATA, ITENS_DATA, PERSONAGENS_DATA } from "../database"
+import { ATAQUES_DATA, HABILIDADES_DATA, CONSUMIVEIS_DATA, EQUIPAMENTOS_DATA, PERSONAGENS_DATA } from "../database"
 import { evoluirPersonagem } from "./evoluir-personagem.util"
 import basePessoal from "../database/personagens/_base/_base-pessoal.personagem.json"
+import { ATAQUES } from "../database/ataques";
+import { BONUS_DADO } from "../constants/personagens/personagem.constant";
 
 export function instanciarPersonagem(_personagem) {
     const personagem = {...basePessoal, ..._personagem};
@@ -8,44 +10,16 @@ export function instanciarPersonagem(_personagem) {
     const visual = data.visuais.find(item => item.visualId === personagem.visualAtivo)
     const personagemEvoluido = evoluirPersonagem(personagem)
     const evolucao = data.evolucoes.find(item => item.level === personagemEvoluido.level)
-
-    const novosAtaques = ATAQUES_DATA
-    .filter(ataqueData => evolucao.ataques.find(ataque=>ataque.ataqueId === ataqueData.id))
-    .map(ataque=> {
-        if(evolucao.ataques.find(ataqueEvo=>ataqueEvo.ataqueId === ataque.id).variantes.length>0) {
-            const variantesAtuais = evolucao.ataques.find(ataqueEvo=>ataqueEvo.ataqueId === ataque.id).variantes
-            const novasVariantes = [...ataque.variantes]
-            .filter(variante=> variante.lista.some(item => variantesAtuais.includes(item.varianteId)))
-            .map(variante=> {
-                const novaListaVariante = [...variante.lista].filter(varianteItem=> variantesAtuais.some(atual=> atual === varianteItem.varianteId))
-                return {...variante, lista: novaListaVariante}
-            })
-            return {...ataque, variantes: novasVariantes}
-        }
-        return {...ataque, variantes: []}
-    })
     
-    const novasHabilidades = HABILIDADES_DATA
-    .filter(habilidadeData => evolucao.habilidades.find(habilidade=>habilidade.habilidadeId === habilidadeData.id))
-    .map(habilidade=> {
-        if(evolucao.habilidades.find(habilidadeEvo=>habilidadeEvo.habilidadeId === habilidade.id).variantes.length>0) {
-            const variantesAtuais = evolucao.habilidades.find(habilidadeEvo=>habilidadeEvo.habilidadeId === habilidade.id).variantes
-            const novasVariantes = [...habilidade.variantes]
-            .filter(variante=> variante.lista.some(item => variantesAtuais.includes(item.varianteId)))
-            .map(variante=> {
-                const novaListaVariante = [...variante.lista].filter(varianteItem=> variantesAtuais.some(atual=> atual === varianteItem.varianteId))
-                return {...variante, lista: novaListaVariante}
-            })
-            return {...habilidade, variantes: novasVariantes}
-        }
-        return {...habilidade, variantes: []}
-    })
-    const novosTalentos = evolucao.talentos
-
     const _equipamentos = personagem.equipamentoProntoId ? 
-        data.equipamentosProntos.find(equipamento=>equipamento.id===personagem.equipamentoProntoId)
-        : personagem.equipamentos
-    const _inventario = personagem.equipamentoProntoId? _equipamentos.consumiveis : personagem.inventario
+    data.equipamentosProntos.find(equipamento=>equipamento.id===personagem.equipamentoProntoId) 
+    : personagem.equipamentos
+    const _inventario = personagem.equipamentoProntoId ? _equipamentos.consumiveis : personagem.inventario
+
+    const novosAtaques = _getAtaques(_equipamentos, evolucao)
+    const novasHabilidades = _getHabilidades(_equipamentos, evolucao)
+    const novosTalentos = _getTalentos(_equipamentos, evolucao)
+
     const atributos = _getAtributos(data, evolucao, _equipamentos)
     const defesa = (10 + atributos.agilidade + _findBonusEquipamento(_equipamentos, "defesa"))
     const status = {
@@ -86,7 +60,7 @@ export function instanciarPersonagem(_personagem) {
         },
         defesa: defesa,
         atributos: atributos,
-        bonusDado: [],
+        bonusDado: _getBonusDados(_equipamentos),
         resistenciaDano: [],
         passivas: evolucao.passivas,
         ataques: novosAtaques,
@@ -100,7 +74,7 @@ export function instanciarPersonagem(_personagem) {
                 maximo: (atributos.forca*5),
             },
             itens: _inventario.map(item =>{
-                const itemData = ITENS_DATA.find(data=> data.id==item.itemId)
+                const itemData = CONSUMIVEIS_DATA.find(data=> data.id==item.itemId)
                 return { 
                     ...itemData,
                     quantidade: item.quantidade
@@ -132,16 +106,112 @@ export function instanciarBasePessoal(personagemInstanciado) {
     }
 }
 
+function _getEquipamentos(equipamentos) {
+    return {
+            arma: equipamentos.arma,
+            armadura: equipamentos.armadura,
+            acessorio1: equipamentos.acessorio1,
+            acessorio2: equipamentos.acessorio2,
+        }
+}
+ 
+function _getTalentos(equipamentos, evolucao) {
+    let talentosEquipamentos = []
+    Object.values(_getEquipamentos(equipamentos)).map(itemId => {
+        const itemData = EQUIPAMENTOS_DATA.find(data=> data.id==itemId)
+        if(itemData) {
+            talentosEquipamentos = [...talentosEquipamentos, ...itemData.acoes.talentos]
+        }
+    })
+    const talentosObtidas = [...evolucao.talentos, ...talentosEquipamentos]
+    return talentosObtidas.filter((obj, index, self) =>index === self.findIndex(o => o.id === obj.id));
+}
+
+function _getAtaques(equipamentos, evolucao) {
+    let ataquesEquipamentos = []
+    Object.entries(_getEquipamentos(equipamentos)).map(item => {
+        const [equipamentoNome, itemId] = item
+        const itemData = EQUIPAMENTOS_DATA.find(data=> data.id==itemId)
+        if(itemData) {
+            if(equipamentoNome==="arma" && itemData.acoes.ataques.length===0) {
+                ataquesEquipamentos = [...ataquesEquipamentos, {ataqueId: ATAQUES.GOLPE_DESARMADO.id, variantes: []}]
+            }
+            else {
+                ataquesEquipamentos = [...ataquesEquipamentos, ...itemData.acoes.ataques]
+            }
+        }
+    })
+    const ataquesObtidos = [...evolucao.ataques, ...ataquesEquipamentos]
+    const _ataques = ATAQUES_DATA
+    .filter(ataqueData => ataquesObtidos.find(ataque=>ataque.ataqueId === ataqueData.id))
+    .map(ataque=> {
+        if(ataquesObtidos.find(ataqueEvo=>ataqueEvo.ataqueId === ataque.id).variantes.length>0) {
+            const variantesAtuais = ataquesObtidos.find(ataqueEvo=>ataqueEvo.ataqueId === ataque.id).variantes
+            const novasVariantes = [...ataque.variantes]
+            .filter(variante=> variante.lista.some(item => variantesAtuais.includes(item.varianteId)))
+            .map(variante=> {
+                const novaListaVariante = [...variante.lista].filter(varianteItem=> variantesAtuais.some(atual=> atual === varianteItem.varianteId))
+                return {...variante, lista: novaListaVariante}
+            })
+            return {...ataque, variantes: novasVariantes}
+        }
+        return {...ataque, variantes: []}
+    })
+    return _ataques
+}
+
+function _getHabilidades(equipamentos, evolucao) {
+    let habilidadesEquipamentos = []
+    Object.values(_getEquipamentos(equipamentos)).map(itemId => {
+        const itemData = EQUIPAMENTOS_DATA.find(data=> data.id==itemId)
+        if(itemData) {
+            habilidadesEquipamentos = [...habilidadesEquipamentos, ...itemData.acoes.habilidades]
+        }
+    })
+    const habilidadesObtidas = [...evolucao.habilidades, ...habilidadesEquipamentos]
+    const _habilidades = HABILIDADES_DATA
+    .filter(habilidadeData => habilidadesObtidas.find(habilidade=>habilidade.habilidadeId === habilidadeData.id))
+    .map(habilidade=> {
+        if(habilidadesObtidas.find(habilidadeEvo=>habilidadeEvo.habilidadeId === habilidade.id).variantes.length>0) {
+            const variantesAtuais = habilidadesObtidas.find(habilidadeEvo=>habilidadeEvo.habilidadeId === habilidade.id).variantes
+            const novasVariantes = [...habilidade.variantes]
+            .filter(variante=> variante.lista.some(item => variantesAtuais.includes(item.varianteId)))
+            .map(variante=> {
+                const novaListaVariante = [...variante.lista].filter(varianteItem=> variantesAtuais.some(atual=> atual === varianteItem.varianteId))
+                return {...variante, lista: novaListaVariante}
+            })
+            return {...habilidade, variantes: novasVariantes}
+        }
+        return {...habilidade, variantes: []}
+    })
+    return _habilidades
+}
+
+function _getBonusDados(equipamentos) {
+    const _equipamentos = _getEquipamentos(equipamentos)
+    let novosBonus = []
+    Object.values(_equipamentos).map(equipamentoId=> {
+        const _equipamento = EQUIPAMENTOS_DATA.find(item=>item.id==equipamentoId)
+        if(_equipamento) {
+            const bonus = _equipamento.bonus
+            bonus.map(_bonus=> {
+                if(Object.values(BONUS_DADO).some(bonus=> bonus === _bonus.atributo)) {
+                    const _novoBonus = {modificador: _bonus.valor, tipo: _bonus.atributo, atributo: _bonus.nome}
+                    novosBonus = [...novosBonus, _novoBonus]
+                }
+            })
+
+        }
+        return
+    })
+    return novosBonus
+}
+
 function _findBonusEquipamento(equipamentos, atributo) {
-    const _equipamentos = {
-        arma: equipamentos.arma,
-        armadura: equipamentos.armadura,
-        acessorio1: equipamentos.acessorio1,
-        acessorio2: equipamentos.acessorio2,
-    }
+    const _equipamentos = _getEquipamentos(equipamentos)
     let novoBonus = 0
     Object.values(_equipamentos).map(equipamentoId=> {
-        const _equipamento = ITENS_DATA.find(item=>item.id==equipamentoId)
+        const _equipamento = EQUIPAMENTOS_DATA.find(item=>item.id==equipamentoId)
         if(_equipamento) {
             const _bonus = _equipamento.bonus
             const bonusEncontrado = _bonus.find(__bonus=> __bonus.atributo == atributo)

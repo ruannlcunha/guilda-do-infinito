@@ -1,18 +1,20 @@
 import { useState } from "react";
-import { useSound } from "../../../../hook";
+import { useSound, useToast } from "../../../../hook";
 import { useEscolherAcao } from "../../../../hook/batalha";
-import { BotaoPrimario, Modal } from "../../"
+import { BotaoPrimario, CardAcao, Modal } from "../../"
 import "./hud-sub-acoes.style.css"
 import { ICONS } from "../../../../constants/images";
 
 export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
-    const { playClick, playHover } = useSound()
+    const { playClick, playHover, playCancel } = useSound()
     const { escolherAcao } = useEscolherAcao();
+    const { toastWarning } = useToast()
     const [variantesModal, setVariantesModal] = useState(false)
     const [variantesAtuais, setVariantesAtuais] = useState(null)
     const [acaoAtual, setAcaoAtual] = useState(null)
 
-    function handleEscolherAcao(personagem, personagens, acao, functions) {
+    function handleEscolherAcao(personagem, personagens, acao, functions, estaBloqueado) {
+      if(!estaBloqueado) {
         playClick(2)
         if(acao.variantes) {
           if(acao.variantes.length>0) {
@@ -27,8 +29,13 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
           }
         }
         else {
-            escolherAcao(personagem, personagens, acao, subAcoes.titulo, functions)
+          escolherAcao(personagem, personagens, acao, subAcoes.titulo, functions)
         }
+      }
+      else {
+        playCancel()
+        toastWarning("Você não possui PM o suficiente para realizar essa ação.")
+      }
     }
 
     function _encontrarIndexVariante(variante, modificador) {
@@ -99,7 +106,10 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
     function renderItem(subAcao) {
         return (
             <section>
-              <h2><span>Descrição:</span> {subAcao.descricao}</h2>
+              {subAcao.efeito?
+                <h2><span>Efeito:</span> {subAcao.efeito}</h2>
+              : <h2><span>Descrição:</span> {subAcao.descricao}</h2>
+              }
               <h2><span>Quantidade:</span> {subAcao.quantidade}</h2>
             </section>
         )
@@ -154,8 +164,8 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
               </Modal>
               :null}
 
-              <header>{subAcoes.titulo}</header>
-              <section>
+              <header className="sub-acoes-header">{subAcoes.titulo}</header>
+              <section className="sub-acoes-section">
                 {subAcoes.acoesAtuais
                   ? subAcoes.acoesAtuais.map((subAcao, index) => {
                       const estaBloqueado = subAcao.custo ? (personagem.pm.atual < subAcao.custo) : false;
@@ -164,24 +174,13 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
                           key={index}
                           onMouseEnter={()=>{playHover(2)}}
                           className={estaBloqueado ? "acao-bloqueada" : null}
-                          onClick={
-                              !estaBloqueado
-                              ? () => {
-                                  handleEscolherAcao(
-                                      personagem, 
-                                      personagens,
-                                      subAcao,
-                                      functions
-                                  );
-                              }
-                              : null
-                            }
                             >
-                          <h1>{subAcao.nome}</h1>
-                          {subAcoes.titulo==="Ataques" ? renderAtaque(subAcao) :
-                          subAcoes.titulo==="Habilidades" ? renderHabilidade(subAcao) :
-                          subAcoes.titulo==="Ações Extras" ? renderAcaoExtra(subAcao) :
-                          renderItem(subAcao)}
+                          {
+                            <CardAcao
+                            acao={subAcao}
+                            onClick={()=>{handleEscolherAcao(personagem, personagens, subAcao, functions, estaBloqueado)}}
+                            />
+                          }
                         </li>
                       );
                     })

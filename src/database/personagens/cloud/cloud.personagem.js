@@ -2,7 +2,7 @@ import CLOUD_1_SPRITE from "./assets/CLOUD_1_SPRITE.png"
 import CLOUD_1_PERFIL from "./assets/CLOUD_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const CLOUD = {
     ..._BASE_ORIGINAL,
@@ -12,6 +12,7 @@ export const CLOUD = {
     elemento: ELEMENTOS.ELETRICO,
     corTema: COR_TEMA.BRANCO,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

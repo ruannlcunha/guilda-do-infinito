@@ -6,7 +6,7 @@ import { BENCAO_DIVINA } from "./bencao-divina/bencao-divina.habilidade.data";
 import { CHOQUE_PARALISANTE } from "./choque-paralisante/choque-paralisante.habilidade.data";
 import { CONGELAR } from "./congelar/congelar.habilidade.data";
 import { CURA_MAOS } from "./cura-maos/cura-maos.habilidade.data";
-import { CURAR } from "./curar/curar.habilidade.data";
+import { CURAR_FERIMENTOS } from "./curar-ferimentos/curar-ferimentos.habilidade.data";
 import { DISSIPAR_BENCAO } from "./dissipar-bencao/dissipar-bencao.habilidade.data";
 import { DUPLICATA_ILUSORIA } from "./duplicata-ilusoria/duplicata-ilusoria.habilidade.data";
 import { ESFERA_ATORDOANTE } from "./esfera-atordoante/esfera-atordoante.habilidade.data";
@@ -17,7 +17,7 @@ import { RECUPERAR_FOLEGO } from "./recuperar-folego/recuperar-folego.habilidade
 import { SONO } from "./sono/sono.habilidade.data";
 
 export const HABILIDADES = {
-    CURAR,
+    CURAR_FERIMENTOS,
     CURA_MAOS,
     RECUPERAR_FOLEGO,
     CHOQUE_PARALISANTE,

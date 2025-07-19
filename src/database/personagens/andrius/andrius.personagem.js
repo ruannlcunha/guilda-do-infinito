@@ -4,7 +4,7 @@ import ANDRIUS_2_SPRITE from "./assets/ANDRIUS_2_SPRITE.png"
 import ANDRIUS_2_PERFIL from "./assets/ANDRIUS_2_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const ANDRIUS = {
     ..._BASE_ORIGINAL,
@@ -14,6 +14,7 @@ export const ANDRIUS = {
     elemento: ELEMENTOS.TREVAS,
     corTema: COR_TEMA.ROXO,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

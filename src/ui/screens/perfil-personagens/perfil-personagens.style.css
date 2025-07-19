@@ -7,7 +7,7 @@
     background:
     url(../../../assets/img/textures/CLOUDS.png),
     linear-gradient(var(--fundo-tema) 25%, var(--white) 100%);
-    background-size: 105%;
+    background-size: 110%;
     animation: leftToRight 35s alternate-reverse infinite ease-in-out;
     overflow: hidden;
 }
@@ -16,7 +16,7 @@
     height: 80%;
     width: 50%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
 }
 
@@ -43,12 +43,13 @@
 
 .perfil-personagens .lista-personagens section {
     height: 90%;
-    width: 85%;
+    width: 30vw;
     overflow-y: auto;
     background-color: var(--background-text);
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 0.3rem 0;
+    margin-left: 5%;
 }
 
 .perfil-personagens .lista-personagens section ul {
@@ -118,6 +119,8 @@
     justify-content: center;
     font-size: 1.25rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px -25px 36px -20px inset;
+    text-shadow: var(--borda-texto-branco);
+    text-align: center;
 }
 
 .perfil-personagens .personagem-selecionado {

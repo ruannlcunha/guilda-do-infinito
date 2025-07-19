@@ -2,7 +2,7 @@ import PANDORA_1_SPRITE from "./assets/PANDORA_1_SPRITE.png"
 import PANDORA_1_PERFIL from "./assets/PANDORA_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const PANDORA = {
     ..._BASE_ORIGINAL,
@@ -13,6 +13,7 @@ export const PANDORA = {
     elemento: ELEMENTOS.AGUA,
     corTema: COR_TEMA.AZUL,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

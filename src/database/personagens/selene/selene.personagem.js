@@ -4,7 +4,7 @@ import SELENE_2_SPRITE from "./assets/SELENE_2_SPRITE.png"
 import SELENE_2_PERFIL from "./assets/SELENE_2_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const SELENE = {
     ..._BASE_ORIGINAL,
@@ -15,6 +15,7 @@ export const SELENE = {
     elemento: ELEMENTOS.AGUA,
     corTema: COR_TEMA.AZUL,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

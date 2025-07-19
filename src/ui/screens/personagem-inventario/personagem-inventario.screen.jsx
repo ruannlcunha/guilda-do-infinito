@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { useEffect, useState } from "react"
 import { instanciarPersonagem } from "../../../utils"
-import { ITENS_DATA } from "../../../database"
-import { ITENS_CATEGORIA } from "../../../constants/itens/itens.constant"
+import { CONSUMIVEIS_DATA, ITENS_DATA } from "../../../database"
+import { ITEM_TIPO } from "../../../constants/itens/itens.constant"
 import { ICONS } from "../../../constants/images"
 import { useSound } from "../../../hook"
 import { cheatTodosItens, cheatTodosPersonagens } from "../../../utils/cheats-testes.util"
 
-export function PersonagemInventarioScreen() {
+export function PersonagemInventarioScreen({personagemBatalha, onBack}) {
     const EVENTO = {ADICIONAR:"ADICIONAR", REMOVER: "REMOVER"}
     const { personagemId } = useParams()
     const [user, setUser] = useGlobalUser()
@@ -24,6 +24,9 @@ export function PersonagemInventarioScreen() {
     const [quantidadeModal, setQuantidadeModal] = useState(false)
     const [quantidadeEvento, setQuantidadeEvento] = useState({evento: null})
     const [listaModal, setListaModal] = useState(false)
+
+    console.log(novoUser)
+    console.log(personagem)
 
     useEffect(()=>{
         const userTodosPersonagens = cheatTodosPersonagens(user)
@@ -46,18 +49,25 @@ export function PersonagemInventarioScreen() {
         const _inventario = [
             ..._user.inventario.map(item=> {
                 return {
-                ...ITENS_DATA.find(data=> data.id===item.itemId),
+                ...CONSUMIVEIS_DATA.find(itemData=> (itemData.id===item.itemId) && (itemData.itemTipo===item.itemTipo)),
                 quantidade: item.quantidade,
                 }
             }),
         ]
         .map((item,i)=>{return{...item, index: i}})
-        .filter(item=>item.categoria===ITENS_CATEGORIA.CONSUMIVEL)
+        .filter(item=>item.itemTipo===ITEM_TIPO.CONSUMIVEL)
         .sort(function (a, b) {return b.raridade-a.raridade;});
         setInventario(_inventario)
 
-        const _personagem = _user.personagens.find(item=>item.personagemId == personagemId)
-        const personagemInstanciado = instanciarPersonagem(_personagem)
+        
+        let personagemInstanciado = null
+        if(personagemBatalha) {
+            personagemInstanciado = personagemBatalha
+        }
+        else {
+            const _personagem = novoUser.personagens.find(item=>item.personagemId == personagemId)
+            personagemInstanciado = instanciarPersonagem(_personagem)
+        }
         setPersonagem(personagemInstanciado)
         document.documentElement.style.setProperty('--fundo-tema',
             `var(--${personagemInstanciado.corTema})`
@@ -322,7 +332,7 @@ export function PersonagemInventarioScreen() {
 
     return (
         <ContainerScreen>
-            <BackButton />
+            <BackButton onClick={onBack? ()=>{onBack()} : null}/>
             <div className="personagem-inventario">
             {personagem?
             <>
@@ -347,20 +357,20 @@ export function PersonagemInventarioScreen() {
                                     }
                                 </ul>
                             </section>
-                    <BotaoPrimario onClick={handleAbrirInventario}>Adicionar item</BotaoPrimario>
+                    {!personagemBatalha?<BotaoPrimario onClick={handleAbrirInventario}>Adicionar item</BotaoPrimario>:null}
                 </section>
 
                 <ModalItem
                 detalhesModal={detalhesModal}
                 setDetalhesModal={setDetalhesModal}
                 itemEscolhido={itemEscolhido}
-                botao={{texto: "Remover", evento: handleRemoverQuantidadeModal}}
+                botao={!personagemBatalha?{texto: "Remover", evento: handleRemoverQuantidadeModal}:null}
                 />
                 
                 <ModalItemLista
                 modalIsOpen={listaModal}
                 setModalIsOpen={setListaModal}
-                categoria={ITENS_CATEGORIA.CONSUMIVEL}
+                categoria={ITEM_TIPO.CONSUMIVEL}
                 itens={inventario}
                 itemEscolhido={itemEscolhido}
                 titulo={"Inventário Geral"}

@@ -1,7 +1,7 @@
 import BOTAS_ELFICAS_SPRITE from "./BOTAS_ELFICAS_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
-import { ICONS } from "../../../../constants/images"
+import { ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { createBonusItem } from "../../../../utils/create-bonus-item.util"
 
 export const BOTAS_ELFICAS = {
     id: 56,
@@ -11,21 +11,16 @@ export const BOTAS_ELFICAS = {
     sprite: BOTAS_ELFICAS_SPRITE,
     raridade: 5,
     santuario: BASE_SANTUARIO,
-    categoria: ITENS_CATEGORIA.EQUIPAMENTO,
+    itemTipo: ITEM_TIPO.EQUIPAMENTO,
     tipo: "Acessório",
     equipamentoTipo: "ACESSORIO",
+    acoes: {
+        ataques: [],
+        habilidades: [],
+        talentos: [],
+    },
     bonus: [
-        {
-            nome: "Defesa",
-            icon: ICONS.DEFESA,
-            atributo: "defesa",
-            valor: 2,
-        },
-        {
-            nome: "Agilidade",
-            icon: ICONS.AGILIDADE,
-            atributo: "agilidade",
-            valor: 1,
-        },
+        createBonusItem("Defesa", "defesa", 2),
+        createBonusItem("Agilidade", "agilidade", 1),
     ]
 }

@@ -82,11 +82,9 @@ export const RECOMPENSAS_TIPO = {
   PERSONAGEM: "PERSONAGEM",
 }
 
-export const ARMAS_TIPO = {
-  PESADA: "Arma Pesada",
-  LEVE: "Arma Leve",
-  DISTANCIA: "Arma á Distância",
-  ARCANA: "Arma Arcana",
+export const ITEM_PROFICIENCIA = {
+  PESADA: "Pesada",
+  LEVE: "Leve",
 }
 
 export const EPISODIO_TIPO = {

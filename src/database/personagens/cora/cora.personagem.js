@@ -6,7 +6,7 @@ import CORA_3_SPRITE from "./assets/CORA_3_SPRITE.png"
 import CORA_3_PERFIL from "./assets/CORA_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const CORA = {
     ..._BASE_ORIGINAL,
@@ -17,6 +17,7 @@ export const CORA = {
     elemento: ELEMENTOS.TERRA,
     corTema: COR_TEMA.VERDE_ESCURO,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

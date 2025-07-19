@@ -1,8 +1,9 @@
 import DEVORADORA_ALMAS_SPRITE from "./DEVORADORA_ALMAS_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ARMAS_TIPO } from "../../../../constants"
-import { EQUIPAMENTO_TIPO, ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
-import { ICONS } from "../../../../constants/images"
+import { ITEM_PROFICIENCIA } from "../../../../constants"
+import { ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { createBonusItem } from "../../../../utils/create-bonus-item.util"
+import { BONUS_DADO } from "../../../../constants/personagens/personagem.constant"
 
 export const DEVORADORA_ALMAS = {
     id: 6,
@@ -10,22 +11,18 @@ export const DEVORADORA_ALMAS = {
     descricao: "Uma espada lendária responsável pela morte de milhares de pessoas.",
     sprite: DEVORADORA_ALMAS_SPRITE,
     raridade: 5,
-    tipo: ARMAS_TIPO.PESADA,
+    tipo: ITEM_PROFICIENCIA.PESADA,
     santuario: BASE_SANTUARIO,
-    categoria: ITENS_CATEGORIA.EQUIPAMENTO,
+    itemTipo: ITEM_TIPO.EQUIPAMENTO,
     equipamentoTipo: "ARMA",
+    acoes: {
+        ataques: [],
+        habilidades: [],
+        talentos: [],
+    },
     bonus: [
-        {
-            nome: "Força",
-            icon: ICONS.FORCA,
-            atributo: "forca",
-            valor: 3,
-        },
-        {
-            nome: "Magia",
-            icon: ICONS.MAGIA,
-            atributo: "magia",
-            valor: 2,
-        },
+        createBonusItem ("Força", "forca", 3),
+        createBonusItem("Magia", "magia", 2),
+        createBonusItem("Teste de ataque", BONUS_DADO.ATAQUE, 2),
     ]
 }

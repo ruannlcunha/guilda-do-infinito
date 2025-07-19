@@ -1,8 +1,7 @@
 import { ARMADURA_TIPO } from "../../../../constants/itens/itens.constant";
 import { BONUS_DADO, CONDICOES } from "../../../../constants/personagens/personagem.constant"
-import { ITENS_DATA } from "../../../../database";
 import { ACOES_EXTRAS_DATA } from "../../../../database/acoes-extras";
-import { diminuirTurno } from "../../../../utils";
+import { diminuirTurno, getArmadura } from "../../../../utils";
 import { aumentarTurno } from "../../../../utils/alterar-turnos.util";
 import { useRolarDado } from "../../rolar-dado/use-rolar-dado.hook";
 import { useAcoesBase } from "../_base/use-acoes-base.hook"
@@ -335,7 +334,7 @@ export function useCausarCondicao() {
     function causarArmaduraMagica(alvo, acao, functions) {
         if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.ARMADURA_MAGICA.nome)) {
             if(alvo.equipamentos.armadura) {
-                const armadura = ITENS_DATA.find(item=>item.id===alvo.equipamentos.armadura)
+                const armadura = getArmadura(alvo)
                 if(armadura.tipo===ARMADURA_TIPO.PESADA) {
                     functions.adicionarLog(`AVISO: ${alvo.nome} está usando Armadura Pesada e não pode receber os efeitos de ${CONDICOES.ARMADURA_MAGICA.nome}.`)
                     throw { message: `${alvo.nome} está usando Armadura Pesada e não pode receber os efeitos de ${CONDICOES.ARMADURA_MAGICA.nome}.`}

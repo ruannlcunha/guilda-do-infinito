@@ -1,8 +1,8 @@
 import "./versus-personagens.style.css"
 import { BackButton, BotaoPrimario, ContainerScreen, Modal, ModalItem } from "../../components"
-import { ICONS, IMAGES, PERFIL, SPRITES } from "../../../constants/images"
+import { ICONS, IMAGES } from "../../../constants/images"
 import { instanciarPersonagem } from "../../../utils"
-import { ITENS_DATA, PERSONAGENS_DATA } from "../../../database"
+import { EQUIPAMENTOS_DATA, PERSONAGENS_DATA } from "../../../database"
 import basePersonagem from "../../../database/personagens/_base/_base-pessoal.personagem.json"
 import { useEffect, useState } from "react"
 import useGlobalUser from "../../../context/global-user.context"
@@ -352,7 +352,7 @@ export function VersusPersonagensScreen() {
     }
 
     function renderEquipamento(tipo, icon) {
-        const item = ITENS_DATA.find(item=>
+        const item = EQUIPAMENTOS_DATA.find(item=>
             item.id===personagemEscolhido.equipamentos[tipo])
         return (
             <div

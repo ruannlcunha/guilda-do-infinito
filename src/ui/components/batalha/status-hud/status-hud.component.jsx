@@ -4,13 +4,19 @@ import pixelTexture from "../../../../assets/img/textures/BANNER_TEXTURE.png";
 import { CATEGORIA_CONDICAO, TIPO_CONDICAO } from "../../../../constants/personagens/personagem.constant";
 import { ICONS } from "../../../../constants/images";
 import { useSound } from "../../../../hook";
-import { Modal } from "../../"
-import { useState } from "react";
+import { Modal, ModalPersonagemDetalhes } from "../../"
+import { useEffect, useState } from "react";
 
 export function StatusHUD({ personagem, jogadores, jogadaAutomatica }) {
   const { playClick, playHover} = useSound()
   const [condicaoIsOpen, setCondicaoIsOpen] = useState(false)
   const [condicaoAtiva, setCondicaoAtiva] = useState(null)
+  const [personagemDetalhado, setPersonagemDetalhado] = useState(null)
+  const [modalPersonagem, setModalPersonagem] = useState(false)
+
+  useEffect(()=>{
+    !modalPersonagem? setPersonagemDetalhado(false):null
+  },[modalPersonagem])
 
   const styleInvertido = personagem.isInimigo && jogadores==1 
   || personagem.isInimigo && jogadores==1
@@ -35,6 +41,11 @@ export function StatusHUD({ personagem, jogadores, jogadaAutomatica }) {
   function handleFecharCondicaoModal() {
     playClick(1)
     setCondicaoIsOpen(false)
+  }
+
+  function handleModalDetalhes() {
+    setPersonagemDetalhado(personagem)
+    setModalPersonagem(true)
   }
 
   function renderCondicaoModal() {
@@ -75,17 +86,23 @@ export function StatusHUD({ personagem, jogadores, jogadaAutomatica }) {
         var(--${personagem.corTema}) 0%, var(--${personagem.corTema}) 90%, transparent 99%, transparent 100%)`
       }}
     >
-      <img
-        src={personagem.perfil}
-        alt=""
-        style={{
-          animation: `${styleInvertido ?"hud-perfil-inimigo 1s alternate infinite ease-in-out": ""}`,
-          right: `${styleInvertido ? 0 : ""}`,
-          left: `${!styleInvertido ? 0 : ""}`,
-        }}
-      />
+      <div
+      className="perfil-personagem"
+      onMouseEnter={!styleInvertido?()=>{playHover(1)}:null}
+      onClick={!styleInvertido?handleModalDetalhes:null}
+      style={{
+        cursor: `${!styleInvertido?"var(--cursor-pointer)":""}`,
+        animation: `${styleInvertido ?"hud-perfil-inimigo 1s alternate infinite ease-in-out": ""}`,
+        right: `${styleInvertido ? 0 : ""}`,
+        left: `${!styleInvertido ? 0 : ""}`,
+      }}
+      >
+        <img src={personagem.perfil} alt=""/>
+        {!styleInvertido?<h1 style={{transform: `${!styleInvertido?"scaleX(-1)":""}`}}>Ver detalhes</h1>:null}
+      </div>
 
       <header
+      className="status-header"
         style={
           styleInvertido
             ? { borderRadius: "0px 0px 0px 5px", flexDirection: "row" }
@@ -99,7 +116,7 @@ export function StatusHUD({ personagem, jogadores, jogadaAutomatica }) {
           <img src={ICONS[`ELEMENTO_${personagem.elemento}`]} alt={`ícone do elemento ${personagem.elemento}`} />
         </div>
       </header>
-      <section style={styleInvertido ? { marginLeft: "2rem" } : null}>
+      <section className="status-section" style={styleInvertido ? { marginLeft: "2rem" } : null}>
         <div>
           <h2>
             PV: {personagem.pv.atual}/{personagem.pv.maximo}
@@ -150,6 +167,7 @@ export function StatusHUD({ personagem, jogadores, jogadaAutomatica }) {
         >
         </div>
       </section>
+      <ModalPersonagemDetalhes personagem={personagemDetalhado} isOpen={modalPersonagem} setIsOpen={setModalPersonagem}/>
     </section>
   );
 }

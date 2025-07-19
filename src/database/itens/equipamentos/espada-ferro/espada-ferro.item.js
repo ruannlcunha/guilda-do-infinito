@@ -1,8 +1,9 @@
 import ESPADA_FERRO_SPRITE from "./ESPADA_FERRO_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ARMAS_TIPO } from "../../../../constants"
-import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
-import { ICONS } from "../../../../constants/images"
+import { ITEM_PROFICIENCIA } from "../../../../constants"
+import { ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { createBonusItem } from "../../../../utils/create-bonus-item.util"
+import { BONUS_DADO } from "../../../../constants/personagens/personagem.constant"
 
 export const ESPADA_FERRO = {
     id: 4,
@@ -10,16 +11,17 @@ export const ESPADA_FERRO = {
     descricao: "Uma simples espada de ferro.",
     sprite: ESPADA_FERRO_SPRITE,
     raridade: 3,
-    tipo: ARMAS_TIPO.PESADA,
+    tipo: ITEM_PROFICIENCIA.PESADA,
     santuario: BASE_SANTUARIO,
-    categoria: ITENS_CATEGORIA.EQUIPAMENTO,
+    itemTipo: ITEM_TIPO.EQUIPAMENTO,
     equipamentoTipo: "ARMA",
+    acoes: {
+        ataques: [],
+        habilidades: [],
+        talentos: [],
+    },
     bonus: [
-        {
-            nome: "Força",
-            icon: ICONS.FORCA,
-            atributo: "forca",
-            valor: 1,
-        },
+        createBonusItem("Força", "forca", 1),
+        createBonusItem("Teste de ataque", BONUS_DADO.ATAQUE, 1),
     ]
 }

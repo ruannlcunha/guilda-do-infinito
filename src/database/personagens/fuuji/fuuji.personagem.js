@@ -2,7 +2,7 @@ import FUUJI_1_SPRITE from "./assets/FUUJI_1_SPRITE.png"
 import FUUJI_1_PERFIL from "./assets/FUUJI_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const FUUJI = {
     ..._BASE_ORIGINAL,
@@ -12,6 +12,7 @@ export const FUUJI = {
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.VERMELHO,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

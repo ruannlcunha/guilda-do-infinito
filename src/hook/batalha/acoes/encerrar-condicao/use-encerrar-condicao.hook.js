@@ -1,4 +1,5 @@
 import { CONDICOES } from "../../../../constants/personagens/personagem.constant"
+import { ACOES_EXTRAS } from "../../../../database/acoes-extras"
 
 export function useEncerrarCondicao() {
 
@@ -16,12 +17,10 @@ export function useEncerrarCondicao() {
     }
 
     function encerrarQueimando(personagem) {
-        const APAGAR_CHAMAS_ID = 1;
-
         if(personagem.condicoes.some(condicao=>condicao.nome===CONDICOES.QUEIMANDO.nome)) {
             functions.adicionarLog(`${personagem.nome} não está mais ${CONDICOES.QUEIMANDO.nome}`)
             const novasCondicoes = [...personagem.condicoes.filter(condicao=>condicao.nome !== CONDICOES.QUEIMANDO.nome)]
-            const novasAcoesExtras = [...personagem.acoesExtras.filter(acao=>acao.id !== APAGAR_CHAMAS_ID)]
+            const novasAcoesExtras = [...personagem.acoesExtras.filter(acao=>acao.id !== ACOES_EXTRAS.APAGAR_CHAMAS.id)]
             const novoPersonagem = {
                 ...personagem,
                 condicoes: novasCondicoes,
@@ -33,12 +32,10 @@ export function useEncerrarCondicao() {
     }
 
     function encerrarCongelado(personagem, functions) {
-        const QUEBRAR_GELO_ID = 1;
-
         if(personagem.condicoes.some(condicao=>condicao.nome===CONDICOES.CONGELADO.nome)) {
             functions.adicionarLog(`${personagem.nome} não está mais ${CONDICOES.CONGELADO.nome}.`)
             const novasCondicoes = [...personagem.condicoes.filter(condicao=>condicao.nome !== CONDICOES.CONGELADO.nome)]
-            const novasAcoesExtras = [...personagem.acoesExtras.filter(acao=>acao.id !== QUEBRAR_GELO_ID)]
+            const novasAcoesExtras = [...personagem.acoesExtras.filter(acao=>acao.id !== ACOES_EXTRAS.QUEBRAR_GELO.id)]
             const novoPersonagem = {
                 ...personagem,
                 condicoes: novasCondicoes,

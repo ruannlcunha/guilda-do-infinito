@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { ICONS } from "../../../constants/images"
-import { ITENS_CATEGORIA } from "../../../constants/itens/itens.constant"
+import { ITEM_TIPO } from "../../../constants/itens/itens.constant"
 import { useSound } from "../../../hook"
 import { BotaoPrimario } from "../botao-primario/botao-primario.component"
 import { Modal } from "../modal/modal.component"
@@ -49,7 +49,7 @@ export function ModalItemLista({modalIsOpen, setModalIsOpen, categoria, itens, f
                             <h2>Raridade:</h2>
                             {renderEstrelas(itemEscolhido.raridade)}
                         </div>
-                        {itemEscolhido.quantidade&&itemEscolhido.categoria!==ITENS_CATEGORIA.EQUIPAMENTO?
+                        {itemEscolhido.quantidade&&itemEscolhido.itemTipo!==ITEM_TIPO.EQUIPAMENTO?
                             <h2>Quantidade: <span>{itemEscolhido.quantidade}</span></h2>
                         :null}
                         {itemEscolhido.bonus?
@@ -69,7 +69,7 @@ export function ModalItemLista({modalIsOpen, setModalIsOpen, categoria, itens, f
                         :null}
                     </div>
                     {
-                    itemEscolhido.categoria === ITENS_CATEGORIA.EQUIPAMENTO?
+                    itemEscolhido.itemTipo === ITEM_TIPO.EQUIPAMENTO?
                         itemEscolhido.personagemEquipadoId==personagemId ?
                         <BotaoPrimario
                         style={{borderColor: "var(--grey)"}}
@@ -96,7 +96,7 @@ export function ModalItemLista({modalIsOpen, setModalIsOpen, categoria, itens, f
         return (
             <>
             {
-            categoria===ITENS_CATEGORIA.EQUIPAMENTO?
+            categoria===ITEM_TIPO.EQUIPAMENTO?
                 itens
                 .filter(item=>item.equipamentoTipo===filtroItem.tipo)
                 .length>0 ?

@@ -1,7 +1,10 @@
 import ARMADURA_DIVINA_SPRITE from "./ARMADURA_DIVINA_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ARMADURA_TIPO, ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
-import { ICONS } from "../../../../constants/images"
+import { ARMADURA_TIPO, ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { createBonusItem } from "../../../../utils/create-bonus-item.util"
+import { ATAQUES } from "../../../ataques"
+import { HABILIDADES } from "../../../habilidades"
+import { TALENTOS } from "../../../talentos"
 
 export const ARMADURA_DIVINA = {
     id: 8,
@@ -11,20 +14,15 @@ export const ARMADURA_DIVINA = {
     raridade: 5,
     tipo: ARMADURA_TIPO.PESADA,
     santuario: BASE_SANTUARIO,
-    categoria: ITENS_CATEGORIA.EQUIPAMENTO,
+    itemTipo: ITEM_TIPO.EQUIPAMENTO,
     equipamentoTipo: "ARMADURA",
+    acoes: {
+        ataques: [{ataqueId: ATAQUES.BOLA_DE_FOGO.id, variantes:[]}],
+        habilidades: [{habilidadeId: HABILIDADES.PURIFICAR.id, variantes:[]}],
+        talentos: [TALENTOS.ARMADURADO],
+    },
     bonus: [
-        {
-            nome: "Defesa",
-            icon: ICONS.DEFESA,
-            atributo: "defesa",
-            valor: 5,
-        },
-        {
-            nome: "Vigor",
-            icon: ICONS.VIGOR,
-            atributo: "vigor",
-            valor: 1,
-        },
+        createBonusItem("Defesa", "defesa", 5),
+        createBonusItem("Vigor", "vigor", 1),
     ]
 }

@@ -3,6 +3,7 @@ import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personag
 import { ATAQUES_DATA } from "../../ataques"
 import { HABILIDADES_DATA } from "../../habilidades"
 import { IMAGES } from "../../../constants/images"
+import { ITEM_PROFICIENCIA } from "../../../constants";
 
 export const TESTER = {
     ..._BASE_ORIGINAL,
@@ -12,6 +13,7 @@ export const TESTER = {
     elemento: ELEMENTOS.NULO,
     corTema: COR_TEMA.PRETO,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

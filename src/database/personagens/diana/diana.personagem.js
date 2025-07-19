@@ -6,7 +6,7 @@ import DIANA_3_SPRITE from "./assets/DIANA_3_SPRITE.png"
 import DIANA_3_PERFIL from "./assets/DIANA_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const DIANA = {
     ..._BASE_ORIGINAL,
@@ -17,6 +17,7 @@ export const DIANA = {
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.VERMELHO,
     raridade: 4,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

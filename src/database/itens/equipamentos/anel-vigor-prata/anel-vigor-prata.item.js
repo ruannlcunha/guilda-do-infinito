@@ -1,7 +1,7 @@
 import ANEL_VIGOR_PRATA_SPRITE from "./ANEL_VIGOR_PRATA_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
-import { ICONS } from "../../../../constants/images"
+import { ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { createBonusItem } from "../../../../utils/create-bonus-item.util"
 
 export const ANEL_VIGOR_PRATA = {
     id: 10,
@@ -10,14 +10,14 @@ export const ANEL_VIGOR_PRATA = {
     sprite: ANEL_VIGOR_PRATA_SPRITE,
     raridade: 4,
     santuario: BASE_SANTUARIO,
-    categoria: ITENS_CATEGORIA.EQUIPAMENTO,
+    itemTipo: ITEM_TIPO.EQUIPAMENTO,
     equipamentoTipo: "ACESSORIO",
+    acoes: {
+        ataques: [],
+        habilidades: [],
+        talentos: [],
+    },
     bonus: [
-        {
-            nome: "Vigor",
-            icon: ICONS.VIGOR,
-            atributo: "vigor",
-            valor: 2,
-        },
+        createBonusItem("Vigor", "vigor", 2),
     ]
 }

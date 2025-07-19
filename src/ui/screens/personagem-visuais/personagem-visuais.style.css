@@ -8,6 +8,7 @@
     background:
     url(../../../assets/img/textures/CLOUDS.png),
     linear-gradient(var(--fundo-tema) 25%, var(--white) 100%);
+    background-size: 110%;
     animation: leftToRight 60s alternate-reverse infinite ease-in-out;
     color: var(--white);
     text-shadow: var(--borda-texto-sombra);

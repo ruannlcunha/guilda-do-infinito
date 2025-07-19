@@ -18,7 +18,7 @@ import NERO_9_SPRITE from "./assets/NERO_9_SPRITE.gif"
 import NERO_9_PERFIL from "./assets/NERO_9_PERFIL.gif"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const NERO = {
     ..._BASE_ORIGINAL,
@@ -29,6 +29,7 @@ export const NERO = {
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.LARANJA,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

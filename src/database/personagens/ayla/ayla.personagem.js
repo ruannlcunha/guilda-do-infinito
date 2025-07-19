@@ -16,7 +16,9 @@ import AYLA_8_SPRITE from "./assets/AYLA_8_SPRITE.gif"
 import AYLA_8_PERFIL from "./assets/AYLA_8_PERFIL.gif"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
+import { TALENTOS } from "../../talentos"
+import { ATAQUES } from "../../ataques"
 
 export const AYLA = {
     ..._BASE_ORIGINAL,
@@ -27,6 +29,7 @@ export const AYLA = {
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.AMARELO,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
@@ -102,9 +105,12 @@ export const AYLA = {
             level: 1,
             experienciaNecessaria: 1250,
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
-            talentos: [],
+            talentos: [
+                TALENTOS.CURA_APRIMORADA,
+            ],
             ataques: [
-                {ataqueId: 14, variantes: []}
+                {ataqueId: 14, variantes: []},
+                {ataqueId: ATAQUES.BOLA_DE_FOGO.id, variantes: ["NIVEL_1", "NIVEL_2", "NIVEL_3"]},
             ],
             habilidades: [
                 {habilidadeId: 12, variantes: []},

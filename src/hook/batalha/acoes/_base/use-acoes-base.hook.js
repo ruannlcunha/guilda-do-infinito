@@ -158,6 +158,26 @@ export function useAcoesBase() {
     return novoAlvo;
   }
 
+  function restaurarMana(alvo, cura, functions) {
+    let novaMana = Number(alvo.pm.atual + cura);
+    novaMana > alvo.pm.maximo ? (novaMana = alvo.pm.maximo) : null;
+
+    if (alvo.isMorto) {
+      throw { message: "Personagens mortos não podem ter sua mana recuperada." };
+    }
+
+    const novoAlvo = {
+      ...alvo,
+      pm: {
+        ...alvo.pm,
+        atual: novaMana,
+      }
+    };
+    alterarPersonagem(functions, novoAlvo);
+
+    return novoAlvo;
+  }
+
   function atacar(personagem, alvo, modificador, functions, ataquePadrao) {
     const novoAlvo = realizarEspecialDuplicata(alvo, functions)
 
@@ -465,6 +485,7 @@ export function useAcoesBase() {
     iniciarEfeito,
     causarDano,
     restaurarVida,
+    restaurarMana,
     finalizarAcao,
     finalizarAcaoArea,
     finalizarAcaoLivre,

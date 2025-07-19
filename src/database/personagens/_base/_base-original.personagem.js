@@ -1,8 +1,9 @@
-import { PRONOMES } from "../../../constants";
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants";
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 import { ATAQUES } from "../../ataques";
 import { HABILIDADES } from "../../habilidades";
 import { TALENTOS } from "../../talentos";
+import { equipamentosProntosData } from "./equipamentos-prontos.data";
 
 export const _BASE_ORIGINAL = {
     id: 0,
@@ -12,6 +13,7 @@ export const _BASE_ORIGINAL = {
     elemento: ELEMENTOS.NULO,
     corTema: COR_TEMA.BRANCO,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
@@ -40,126 +42,8 @@ export const _BASE_ORIGINAL = {
             bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
             talentos: [TALENTOS.CURA_APRIMORADA],
             ataques: [{ataqueId: ATAQUES.BOLA_DE_FOGO.id, variantes: ["NIVEL_1","NIVEL_2"]}],
-            habilidades: [{habilidadeId: HABILIDADES.CURAR.id, variantes: ["NIVEL_1","NIVEL_2"]}]
+            habilidades: [{habilidadeId: HABILIDADES.CURAR_FERIMENTOS.id, variantes: ["NIVEL_1","NIVEL_2"]}]
         },
     ],
-    equipamentosProntos: [
-        {
-            id: 1,
-            nome: "Nenhum",
-            arma: null,
-            armadura: null,
-            acessorio1: null,
-            acessorio2: null,
-            consumiveis: [],
-        },
-        {
-            id: 2,
-            nome: "Kit de Combatente 3*",
-            arma: 4,
-            armadura: 7,
-            acessorio1: 9,
-            acessorio2: null,
-            consumiveis: [
-                {itemId: 12, quantidade: 1},
-            ],
-        },
-        {
-            id: 3,
-            nome: "Kit de Combatente 4*",
-            arma: 21,
-            armadura: 30,
-            acessorio1: 10,
-            acessorio2: 46,
-            consumiveis: [
-                {itemId: 12, quantidade: 1},
-                {itemId: 13, quantidade: 1},
-            ],
-        },
-        {
-            id: 4,
-            nome: "Kit de Combatente 5*",
-            arma: 6,
-            armadura: 8,
-            acessorio1: 11,
-            acessorio2: 36,
-            consumiveis: [
-                {itemId: 12, quantidade: 1},
-                {itemId: 13, quantidade: 1},
-                {itemId: 14, quantidade: 1},
-            ],
-        },
-        {
-            id: 5,
-            nome: "Kit de Atirador 3*",
-            arma: 18,
-            armadura: 7,
-            acessorio1: 9,
-            acessorio2: null,
-            consumiveis: [
-                {itemId: 12, quantidade: 1},
-            ],
-        },
-        {
-            id: 6,
-            nome: "Kit de Atirador 4*",
-            arma: 17,
-            armadura: 30,
-            acessorio1: 10,
-            acessorio2: 37,
-            consumiveis: [
-                {itemId: 12, quantidade: 1},
-                {itemId: 13, quantidade: 1},
-            ],
-        },
-        {
-            id: 7,
-            nome: "Kit de Atirador 5*",
-            arma: 57,
-            armadura: 8,
-            acessorio1: 11,
-            acessorio2: 56,
-            consumiveis: [
-                {itemId: 12, quantidade: 1},
-                {itemId: 13, quantidade: 1},
-                {itemId: 14, quantidade: 1},
-            ],
-        },
-        {
-            id: 8,
-            nome: "Kit de Conjurador 3*",
-            arma: 20,
-            armadura: 50,
-            acessorio1: 9,
-            acessorio2: null,
-            consumiveis: [
-                {itemId: 12, quantidade: 1},
-            ],
-        },
-        {
-            id: 9,
-            nome: "Kit de Conjurador 4*",
-            arma: 47,
-            armadura: 51,
-            acessorio1: 10,
-            acessorio2: 53,
-            consumiveis: [
-                {itemId: 12, quantidade: 1},
-                {itemId: 13, quantidade: 1},
-            ],
-        },
-        {
-            id: 10,
-            nome: "Kit de Conjurador 5*",
-            arma: 48,
-            armadura: 52,
-            acessorio1: 11,
-            acessorio2: 54,
-            consumiveis: [
-                {itemId: 12, quantidade: 1},
-                {itemId: 13, quantidade: 1},
-                {itemId: 14, quantidade: 1},
-            ],
-        },
-    ]
+    equipamentosProntos: equipamentosProntosData,
 }

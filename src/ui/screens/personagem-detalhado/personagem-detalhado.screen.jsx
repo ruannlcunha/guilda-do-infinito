@@ -5,11 +5,11 @@ import { useNavigate, useParams } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { calcularPorcentagem, instanciarPersonagem } from "../../../utils"
 import { ICONS } from "../../../constants/images"
-import { ITENS_DATA } from "../../../database"
+import { EQUIPAMENTOS_DATA } from "../../../database"
 import { useSound } from "../../../hook"
 import { cheatTodosPersonagens } from "../../../utils/cheats-testes.util"
 
-export function PersonagemDetalhadoScreen() {
+export function PersonagemDetalhadoScreen({personagemBatalha, onBack, setTela}) {
     const { personagemId } = useParams()
     const [_user] = useGlobalUser()
     const {playHover, playClick} = useSound()
@@ -23,8 +23,14 @@ export function PersonagemDetalhadoScreen() {
 
     useEffect(()=>{
         if(user) {
-            const personagem = user.personagens.find(item=>item.personagemId == personagemId)
-            const personagemInstanciado = instanciarPersonagem(personagem)
+            let personagemInstanciado = null
+            if(personagemBatalha) {
+                personagemInstanciado = personagemBatalha
+            }
+            else {
+                const _personagem = user.personagens.find(item=>item.personagemId == personagemId)
+                personagemInstanciado = instanciarPersonagem(_personagem)
+            }
             setPersonagem(personagemInstanciado)
             const porcentagemExp = calcularPorcentagem(
                 personagemInstanciado.experiencia.atual,
@@ -65,16 +71,16 @@ export function PersonagemDetalhadoScreen() {
         return ( 
             <li
             onMouseEnter={()=>playHover(1)}
-            onClick={()=>handleNavigate(url)}>
+            onClick={setTela?()=>{setTela(url.toUpperCase())}: ()=>handleNavigate(url)}>
                 {renderLosangulo()} {texto}
             </li>
         )
     }
 
     function renderCardEquipamento(itemId, iconDefault, tipo) {
-        const itemData = ITENS_DATA.find(item=>item.id===itemId)
+        const itemData = EQUIPAMENTOS_DATA.find(item=>item.id===itemId)
         return (
-            <div onClick={()=>handleNavigate(`equipamentos/${tipo}`)}>
+            <div onClick={setTela?()=>{setTela("EQUIPAMENTOS")}:()=>handleNavigate(`equipamentos/${tipo}`)}>
                 {itemId?
                     <img
                     className="item-equipado"
@@ -83,7 +89,7 @@ export function PersonagemDetalhadoScreen() {
                 :
                 <>
                 <img src={iconDefault} alt="Ícone do item" />
-                <h1>+</h1>
+                {!personagemBatalha?<h1>+</h1>:null}
                 </>}
             </div>
         )
@@ -91,18 +97,19 @@ export function PersonagemDetalhadoScreen() {
 
     return (
         <ContainerScreen>
-            <BackButton />
+            <BackButton onClick={onBack? ()=>{onBack()} : null}/>
             <div className="personagem-detalhado">
                 {personagem?
                 <>
 
                 <section className="personagem-menu">
                     <ul>
-                        {renderOpcoes("Evoluir", "evoluir")}
-                        {renderOpcoes("Equipamento", "equipamentos/")}
+                        {!personagemBatalha?renderOpcoes("Evoluir", "evoluir"):null}
+                        {renderOpcoes("Equipamento", "equipamentos")}
                         {renderOpcoes("Inventário", "inventario")}
-                        {/* {renderOpcoes("Ações", "acoes")} */}
-                        {renderOpcoes("Visuais", "visuais")}
+                        {renderOpcoes("Ações", "acoes")}
+                        {renderOpcoes("Talentos", "talentos")}
+                        {!personagemBatalha?renderOpcoes("Visuais", "visuais"):null}
                     </ul>
                 </section>
                 <img src={personagem.sprite} alt="Sprite do personagem" />

@@ -4,7 +4,7 @@ import OPHELIA_2_SPRITE from "./assets/OPHELIA_2_SPRITE.png"
 import OPHELIA_2_PERFIL from "./assets/OPHELIA_2_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 import { TALENTOS } from "../../talentos"
 import { HABILIDADES } from "../../habilidades"
 import { ATAQUES } from "../../ataques"
@@ -18,6 +18,7 @@ export const OPHELIA = {
     elemento: ELEMENTOS.GELO,
     corTema: COR_TEMA.AZUL,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.SUPORTE_MEDICO,
     visuais:[
         {
@@ -120,7 +121,7 @@ export const OPHELIA = {
                 {ataqueId: ATAQUES.BOLA_DE_FOGO.id, variantes:["NIVEL_1","NIVEL_2"]}
             ],
             habilidades: [
-                {habilidadeId: HABILIDADES.CURAR.id, variantes: ["NIVEL_1","NIVEL_2"]}
+                {habilidadeId: HABILIDADES.CURAR_FERIMENTOS.id, variantes: ["NIVEL_1","NIVEL_2"]}
             ]
         },
     ]

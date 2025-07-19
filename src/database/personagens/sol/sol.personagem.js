@@ -8,7 +8,7 @@ import SOL_4_SPRITE from "./assets/SOL_4_SPRITE.png"
 import SOL_4_PERFIL from "./assets/SOL_4_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const SOL = {
     ..._BASE_ORIGINAL,
@@ -18,6 +18,7 @@ export const SOL = {
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.VERMELHO,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

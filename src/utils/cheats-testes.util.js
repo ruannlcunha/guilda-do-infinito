@@ -1,4 +1,4 @@
-import { ITENS_CATEGORIA } from "../constants/itens/itens.constant"
+import { ITEM_TIPO } from "../constants/itens/itens.constant"
 import { ITENS_DATA, PERSONAGENS_DATA } from "../database"
 import basePersonagem from "../database/personagens/_base/_base-pessoal.personagem.json"
 
@@ -31,7 +31,8 @@ export function cheatTodosItens(userAntigo) {
     for(let i=0;i<ITENS_DATA.length;i++) {
         const _item = {
             itemId: ITENS_DATA[i].id,
-            quantidade: ITENS_DATA[i].categoria !== ITENS_CATEGORIA.EQUIPAMENTO ? 99 : 1,
+            itemTipo: ITENS_DATA[i].itemTipo,
+            quantidade: ITENS_DATA[i].itemData !== ITEM_TIPO.EQUIPAMENTO ? 99 : 1,
         }
         novosItens.push(_item)
     }

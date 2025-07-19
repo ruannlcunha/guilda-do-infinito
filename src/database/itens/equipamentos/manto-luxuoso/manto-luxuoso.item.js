@@ -1,7 +1,7 @@
 import MANTO_LUXUOSO_SPRITE from "./MANTO_LUXUOSO_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ARMADURA_TIPO, ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
-import { ICONS } from "../../../../constants/images"
+import { ARMADURA_TIPO, ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { createBonusItem } from "../../../../utils/create-bonus-item.util"
 
 export const MANTO_LUXUOSO = {
     id: 52,
@@ -11,26 +11,16 @@ export const MANTO_LUXUOSO = {
     raridade: 5,
     tipo: ARMADURA_TIPO.LEVE,
     santuario: BASE_SANTUARIO,
-    categoria: ITENS_CATEGORIA.EQUIPAMENTO,
+    itemTipo: ITEM_TIPO.EQUIPAMENTO,
     equipamentoTipo: "ARMADURA",
+    acoes: {
+        ataques: [],
+        habilidades: [],
+        talentos: [],
+    },
     bonus: [
-        {
-            nome: "Defesa",
-            icon: ICONS.DEFESA,
-            atributo: "defesa",
-            valor: 3,
-        },
-        {
-            nome: "Magia",
-            icon: ICONS.MAGIA,
-            atributo: "magia",
-            valor: 1,
-        },
-        {
-            nome: "Vigor",
-            icon: ICONS.VIGOR,
-            atributo: "vigor",
-            valor: 1,
-        },
+        createBonusItem("Defesa", "defesa", 3),
+        createBonusItem("Magia", "magia", 1),
+        createBonusItem("Vigor", "vigor", 1),
     ]
 }

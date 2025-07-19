@@ -8,6 +8,7 @@
     background:
     url(../../../assets/img/textures/CLOUDS.png),
     linear-gradient(var(--fundo-tema) 25%, var(--white) 100%);
+    background-size: 110%;
     animation: leftToRight 60s alternate-reverse infinite ease-in-out;
     color: var(--white);
     text-shadow: var(--borda-texto-sombra);
@@ -95,15 +96,11 @@
     background-color: var(--cyan-transparent);
 }
 
-.personagem-equipamentos .equipamento-section section .card-equipamento .card h1 {
+.batalha-screen .batalha-hud .personagem-equipamentos .equipamento-section section .card-equipamento .card:hover {
     transition: all 0.1s;
-    position: absolute;
-    opacity: 75%;
-    font-size: 4.5rem;
-}
-
-.personagem-equipamentos .equipamento-section section .card-equipamento .card:hover h1 {
-    opacity: 100%;
+    cursor: var(--cursor-auto);
+    border-color: var(--light-grey);
+    background-color: var(--background-text);
 }
 
 .personagem-equipamentos .equipamento-section section .card-equipamento .card img {
@@ -120,6 +117,17 @@
 .personagem-equipamentos .equipamento-section section .card-equipamento .card:hover .item-equipado {
     transition: all 0.1s;
     height: 90%;
+}
+
+.batalha-screen .batalha-hud .personagem-equipamentos .equipamento-section section .card-equipamento .card:hover .item-equipado {
+    height: 85%;
+}
+
+.personagem-equipamentos .equipamento-section section .card-equipamento .card h1 {
+    position: absolute;
+    opacity: 0.75;
+    font-size: 4.5rem;
+    transition: 0.1s;
 }
 
 .personagem-equipamentos .equipamento-section section .card-equipamento section {

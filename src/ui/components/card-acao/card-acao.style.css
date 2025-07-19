@@ -1,0 +1,167 @@
+
+.card-acao {
+    width: 100%;
+    min-height: 15%;
+    height: auto;
+    background-color: var(--blue-metal);
+    display: flex;
+    flex-direction: row;
+    border-bottom: solid 2px var(--dark-blue);
+    transition: all 0.1s;
+}
+.acao-variantes .card-acao {
+    border: solid 2px var(--black);
+    border-top: none;
+    width: auto;
+}
+
+.card-acao .acao-elemento {
+    height: auto;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: solid 2px var(--dark-blue);
+    background-color: var(--blue);
+}
+
+.hud-sub-acoes .card-acao .acao-elemento {
+    width: 10%;
+}
+
+.card-acao .acao-elemento img {
+    margin: 1rem;
+    height: 4vw;
+    border: solid 2px var(--dark-blue);
+    border-radius: 5px;
+}
+
+.acao-variantes .card-acao .acao-elemento img {
+    height: 3vw;
+}
+
+.hud-sub-acoes .card-acao .acao-elemento img {
+    height: 2.5vw;
+}
+
+.card-acao .card-detalhes {
+    width: 85%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--white);
+}
+
+.hud-sub-acoes .card-acao .card-detalhes {
+    width: 90%;
+}
+
+.card-acao .card-detalhes .card-header {
+    height: auto;
+    max-height: 40%;
+    width: 100%;
+    background-color: var(--blue-metal);
+    border-bottom: solid 2px var(--dark-blue);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.card-acao .card-detalhes .card-header h1 {
+    margin: 0;
+    margin-left: 1rem;
+    font-size: 2rem;
+    border: none;
+    text-align: left;
+    color: var(--white);
+    text-shadow: var(--borda-texto);
+}
+
+.hud-sub-acoes .card-acao .card-detalhes .card-header h1 {
+    font-size: 1.5rem;
+    margin-left: 5px;
+}
+
+.acao-variantes .card-acao .card-detalhes .card-header h1 {
+    font-size: 1.5rem;
+}
+
+div section div ul .acoes .card-acao:hover section header h1 {
+    color: var(--light-blue);
+}
+
+.card-acao .card-detalhes .card-header .acao-custo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+.card-acao .card-detalhes .card-header .acao-custo h2 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--white);
+    text-shadow: var(--borda-texto);
+}
+
+.acao-variantes .card-acao .card-detalhes .card-header .acao-custo h2 {
+    font-size: 1.25rem;
+}
+
+.hud-sub-acoes .card-acao .card-detalhes .card-header .acao-custo h2 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.card-acao .card-detalhes .card-header .acao-custo h3 {
+    border: solid 2px var(--dark-blue);
+    background-color: var(--white);
+    font-weight: 500;
+    padding: 5px 10px;
+    margin: 0 5px;
+    font-size: 1.5rem;
+    text-shadow: var(--borda-texto);
+    color: var(--white);
+    text-align: center;
+    width: 3vw;
+}
+
+.acao-variantes .card-acao .card-detalhes .card-header .acao-custo h3 {
+    font-size: 1rem;
+}
+
+.hud-sub-acoes .card-acao .card-detalhes .card-header .acao-custo h3 {
+    font-size: 1rem;
+    width: 2vw;
+}
+
+.card-acao .card-detalhes .acao-descricao {
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    border: none;
+}
+
+.card-acao .card-detalhes .acao-descricao p {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+    padding: 5px;
+    background-color: var(--white);
+    text-shadow: none;
+    color: var(--black);
+    font-size: 1.25rem;
+}
+
+.hud-sub-acoes .card-acao .card-detalhes .acao-descricao p {
+    font-size: 1rem;
+}
+
+.acao-variantes .card-acao .card-detalhes .acao-descricao p {
+    font-size: 1rem;
+}

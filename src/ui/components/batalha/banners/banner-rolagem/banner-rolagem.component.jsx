@@ -1,4 +1,5 @@
 import { ICONS, TEXTURES } from "../../../../../constants/images"
+import { ELEMENTOS } from "../../../../../constants/personagens/personagem.constant"
 import "./banner-rolagem.style.css"
 
 export function BannerRolagem({banners, renderPularBanner}) { 
@@ -32,9 +33,11 @@ export function BannerRolagem({banners, renderPularBanner}) {
               <h2 key={i}>+</h2>
               :null}
               <div className="dado" key={i}>
+                {dado.elemento !== ELEMENTOS.FISICO ?
                 <div className="elemento-dado" key={i} style={{backgroundImage: `url(${ICONS[`ELEMENTO_${dado.elemento}`]})`}}>
                   {renderVantagem(dado.multiplicador)}
                 </div>
+                :null}
                 <div className={dado.tipo}>{dado.resultado}</div>
                 <h2>{dado.tipo}</h2>
               </div>

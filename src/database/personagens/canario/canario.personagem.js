@@ -6,7 +6,7 @@ import CANARIO_3_SPRITE from "./assets/CANARIO_3_SPRITE.png"
 import CANARIO_3_PERFIL from "./assets/CANARIO_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const CANARIO = {
     ..._BASE_ORIGINAL,
@@ -16,6 +16,7 @@ export const CANARIO = {
     elemento: ELEMENTOS.TREVAS,
     corTema: COR_TEMA.PRETO,
     raridade: 4,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

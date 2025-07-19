@@ -30,9 +30,8 @@ function quebrarGeloEvento(personagem, alvo, acao, functions) {
     try {
       const modificadorForca = {valor: personagem.atributos.forca, atributo: "Força"}
       const {dados, total} = rolarDado(1, 20, [modificadorForca]);
-      const teste = {resultadoDado: dados[0].resultado, resultadoTotal: total, ...modificadorForca}
+      const teste = {resultadoDado: dados[0].resultado, resultadoTotal: total, modificadores: [modificadorForca]}
       const dificuldade = personagem.condicoes.find(condicao=>condicao.nome===CONDICOES.CONGELADO.nome).dificuldade
-
       functions.ativarBannerAtaque(teste, dificuldade, personagem.corTema);
 
       function etapas() {

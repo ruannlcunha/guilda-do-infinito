@@ -16,7 +16,7 @@ export const SOPRO_CONGELANTE = {
     nome: "Sopro Congelante",
     dadoDeDano: "1d8",
     tipo: ATAQUES_TIPO.ATAQUE_PURO,
-    descricao: "Uma rajada de ar frio que causa 1d8 de dano de Gelo e pode tornar o inimigo Congelado.",
+    descricao: "Uma rajada de ar frio que causa 1d8 de dano de Gelo e pode deixar o inimigo Congelado.",
     elemento: ELEMENTOS.GELO,
     categoria: CATEGORIAS_DE_DANO.MAGICO,
     custo: 1,

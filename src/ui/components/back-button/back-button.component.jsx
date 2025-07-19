@@ -2,7 +2,7 @@ import "./back-button.style.css"
 import { useSound } from "../../../hook";
 import { useNavigate } from "react-router-dom";
 
-export function BackButton({navigateTo}) {
+export function BackButton({navigateTo, onClick}) {
     const navigate = useNavigate();
     const { playHover, playClick } = useSound();
 
@@ -14,7 +14,7 @@ export function BackButton({navigateTo}) {
     return (
         <button
         className={"back-button"}
-        onClick={handleClick}
+        onClick={onClick?onClick:handleClick}
         onMouseEnter={()=>playHover(1)}
         >
         Voltar

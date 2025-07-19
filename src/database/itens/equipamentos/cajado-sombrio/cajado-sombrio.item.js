@@ -1,8 +1,8 @@
 import CAJADO_SOMBRIO_SPRITE from "./CAJADO_SOMBRIO_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ARMAS_TIPO } from "../../../../constants"
-import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
-import { ICONS } from "../../../../constants/images"
+import { ITEM_PROFICIENCIA } from "../../../../constants"
+import { ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { createBonusItem } from "../../../../utils/create-bonus-item.util"
 
 export const CAJADO_SOMBRIO = {
     id: 48,
@@ -10,22 +10,17 @@ export const CAJADO_SOMBRIO = {
     descricao: "Um poderoso cajado com um núcleo de energia sombria.",
     sprite: CAJADO_SOMBRIO_SPRITE,
     raridade: 5,
-    tipo: ARMAS_TIPO.LEVE,
+    tipo: ITEM_PROFICIENCIA.LEVE,
     santuario: BASE_SANTUARIO,
-    categoria: ITENS_CATEGORIA.EQUIPAMENTO,
+    itemTipo: ITEM_TIPO.EQUIPAMENTO,
     equipamentoTipo: "ARMA",
+    acoes: {
+        ataques: [],
+        habilidades: [],
+        talentos: [],
+    },
     bonus: [
-        {
-            nome: "Magia",
-            icon: ICONS.MAGIA,
-            atributo: "magia",
-            valor: 3,
-        },
-        {
-            nome: "Vigor",
-            icon: ICONS.VIGOR,
-            atributo: "vigor",
-            valor: 1,
-        },
+        createBonusItem("Magia", "magia", 3),
+        createBonusItem("Vigor", "vigor", 1),
     ]
 }

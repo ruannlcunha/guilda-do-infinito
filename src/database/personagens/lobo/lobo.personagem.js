@@ -4,7 +4,7 @@ import LOBO_2_SPRITE from "./assets/LOBO_2_SPRITE.png"
 import LOBO_2_PERFIL from "./assets/LOBO_2_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const LOBO = {
     ..._BASE_ORIGINAL,
@@ -14,6 +14,7 @@ export const LOBO = {
     elemento: ELEMENTOS.NULO,
     corTema: COR_TEMA.CINZA,
     raridade: 3,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

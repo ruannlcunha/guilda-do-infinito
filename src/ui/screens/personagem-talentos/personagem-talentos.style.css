@@ -8,6 +8,7 @@
     background:
     url(../../../assets/img/textures/CLOUDS.png),
     linear-gradient(var(--fundo-tema) 25%, var(--white) 100%);
+    background-size: 110%;
     animation: leftToRight 60s alternate-reverse infinite ease-in-out;
     color: var(--white);
     text-shadow: var(--borda-texto-sombra);
@@ -32,4 +33,49 @@
     top: 5%;
     font-size: 3rem;
     font-weight: 100;
+}
+
+.personagem-talentos .talentos-section {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--white-transparent);
+    box-shadow: var(--box-interior);
+}
+
+.personagem-talentos .talentos-section .titulo {
+    margin: 0;
+    margin-top: 1rem;
+    font-weight: 100;
+    font-size: 2.7rem;
+    text-align: center;
+    width: 75%;
+    border-bottom: solid 2px var(--background-text);
+}
+
+.personagem-talentos .talentos-section .lista-talentos {
+    width: 75%;
+    height: 80%;
+    background-color: var(--background-text);
+    border: solid 2px var(--dark-blue);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.personagem-talentos .talentos-section .lista-talentos ul h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.personagem-talentos .talentos-section .lista-talentos ul {
+    height: 95%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }

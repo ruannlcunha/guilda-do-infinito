@@ -8,7 +8,7 @@ import WILBUR_4_SPRITE from "./assets/WILBUR_4_SPRITE.png"
 import WILBUR_4_PERFIL from "./assets/WILBUR_4_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const WILBUR = {
     ..._BASE_ORIGINAL,
@@ -18,6 +18,7 @@ export const WILBUR = {
     elemento: ELEMENTOS.TERRA,
     corTema: COR_TEMA.ROXO,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

@@ -1,25 +1,25 @@
 import MARRETA_MADEIRA_SPRITE from "./MARRETA_MADEIRA_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ARMAS_TIPO } from "../../../../constants"
-import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
-import { ICONS } from "../../../../constants/images"
+import { ITEM_PROFICIENCIA } from "../../../../constants"
+import { ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { createBonusItem } from "../../../../utils/create-bonus-item.util"
 
 export const MARRETA_MADEIRA = {
-    id: 28,
+    id: 13,
     nome: "Marreta de Madeira",
     descricao: "Uma simples marreta de madeira.",
     sprite: MARRETA_MADEIRA_SPRITE,
     raridade: 3,
-    tipo: ARMAS_TIPO.PESADA,
+    tipo: ITEM_PROFICIENCIA.PESADA,
     santuario: BASE_SANTUARIO,
-    categoria: ITENS_CATEGORIA.EQUIPAMENTO,
+    itemTipo: ITEM_TIPO.EQUIPAMENTO,
     equipamentoTipo: "ARMA",
+    acoes: {
+        ataques: [],
+        habilidades: [],
+        talentos: [],
+    },
     bonus: [
-        {
-            nome: "Força",
-            icon: ICONS.FORCA,
-            atributo: "forca",
-            valor: 1,
-        },
+        createBonusItem("Força", "forca", 1),
     ]
 }

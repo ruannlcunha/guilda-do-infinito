@@ -6,7 +6,7 @@ import AKINN_3_SPRITE from "./assets/AKINN_3_SPRITE.png"
 import AKINN_3_PERFIL from "./assets/AKINN_3_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const AKINN = {
     ..._BASE_ORIGINAL,
@@ -16,6 +16,7 @@ export const AKINN = {
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.AMARELO,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

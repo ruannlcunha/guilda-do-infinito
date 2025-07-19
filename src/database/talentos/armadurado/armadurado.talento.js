@@ -1,6 +1,6 @@
 import { ARMADURA_TIPO } from "../../../constants/itens/itens.constant"
 import { ELEMENTOS } from "../../../constants/personagens/personagem.constant"
-import { ITENS_DATA } from "../../itens"
+import { getArmadura } from "../../../utils"
 
 export const ARMADURADO = {
     id: 13,
@@ -11,7 +11,7 @@ export const ARMADURADO = {
 }
 
 function armaduradoEvento(personagem) {
-    const armaduraAtual = ITENS_DATA.find(item=>item.id===personagem.equipamentos.armadura)
+    const armaduraAtual = getArmadura(personagem)
     if(armaduraAtual) {
         if(armaduraAtual.tipo === ARMADURA_TIPO.PESADA) {    
             const novoPersonagem = {

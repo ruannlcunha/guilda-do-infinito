@@ -1,9 +1,10 @@
-import { ITENS_DATA } from "../database/itens"
+
 import { instanciarPersonagem } from "./"
 import personagemBase from "../database/personagens/_base/_base-pessoal.personagem.json"
+import { EQUIPAMENTOS_DATA } from "../database"
 
 export function findGachaItem(itemId) {
-    return ITENS_DATA.find(item=> item.id === itemId)
+    return EQUIPAMENTOS_DATA.find(item=> item.id === itemId)
 }
 
 export function findGachaPersonagem(personagemId, visualId) {

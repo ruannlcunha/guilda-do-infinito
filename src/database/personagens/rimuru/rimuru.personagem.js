@@ -2,7 +2,7 @@ import RIMURU_1_SPRITE from "./assets/RIMURU_1_SPRITE.png"
 import RIMURU_1_PERFIL from "./assets/RIMURU_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const RIMURU = {
     ..._BASE_ORIGINAL,
@@ -12,6 +12,7 @@ export const RIMURU = {
     elemento: ELEMENTOS.AR,
     corTema: COR_TEMA.TURQUESA,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

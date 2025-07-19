@@ -94,6 +94,7 @@ import CONDICAO_ABENCOADO from "../../assets/img/icons/CONDICAO_ABENCOADO.png";
 import CONDICAO_AMALDICOADO from "../../assets/img/icons/CONDICAO_AMALDICOADO.png";
 import CONDICAO_ATAQUE_ESPECIAL from "../../assets/img/icons/CONDICAO_ATAQUE_ESPECIAL.png";
 import EM_AREA from "../../assets/img/icons/EM_AREA.png";
+import BONUS_DADO from "../../assets/img/icons/BONUS_DADO.png";
 
 export const ICONS = {
   TITULO,
@@ -147,6 +148,7 @@ export const ICONS = {
   ELEMENTO_LUZ,
   ELEMENTO_TREVAS,
   ELEMENTO_NULO,
+  ELEMENTO_FISICO: ELEMENTO_NULO,
   ELEMENTO_ESSENCIA,
   ELEMENTO_MENTAL,
   INVENTARIO,
@@ -192,5 +194,6 @@ export const ICONS = {
   CONDICAO_AMALDICOADO,
   CONDICAO_ATAQUE_ESPECIAL,
   EM_AREA,
+  BONUS_DADO,
 };
   

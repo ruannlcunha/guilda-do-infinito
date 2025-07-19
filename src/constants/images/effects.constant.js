@@ -1,6 +1,7 @@
 import SOCO from "../../assets/img/effects/SOCO.gif";
 import CURA_1 from "../../assets/img/effects/CURA_1.gif";
 import CURA_2 from "../../assets/img/effects/CURA_2.gif";
+import CURA_3 from "../../assets/img/effects/CURA_3.gif";
 import TIRO from "../../assets/img/effects/TIRO.gif";
 import BOLA_DE_FOGO from "../../assets/img/effects/BOLA_DE_FOGO.gif";
 import EXPLOSAO_FOGO from "../../assets/img/effects/EXPLOSAO_FOGO.gif";
@@ -77,6 +78,7 @@ export const EFFECTS = {
   SOCO,
   CURA_1,
   CURA_2,
+  CURA_3,
   TIRO,
   BOLA_DE_FOGO,
   EXPLOSAO_FOGO,

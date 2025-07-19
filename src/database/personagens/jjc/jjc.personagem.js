@@ -4,8 +4,9 @@ import JJC_2_SPRITE from "./assets/JJC_2_SPRITE.png"
 import JJC_2_PERFIL from "./assets/JJC_2_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 import { TALENTOS } from "../../talentos"
+import { ATAQUES } from "../../ataques"
 
 export const JJC = {
     ..._BASE_ORIGINAL,
@@ -15,6 +16,7 @@ export const JJC = {
     elemento: ELEMENTOS.FOGO,
     corTema: COR_TEMA.LARANJA,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
@@ -52,7 +54,9 @@ export const JJC = {
                 TALENTOS.ARMADURADO
             ],
             ataques: [
-                {ataqueId: 15, variantes: []}
+                {ataqueId: 15, variantes: []},
+                {ataqueId: ATAQUES.BOLA_DE_FOGO.id, variantes: []},
+                {ataqueId: ATAQUES.BOLA_DE_FOGO.id, variantes: []},
             ],
             habilidades: []
         },

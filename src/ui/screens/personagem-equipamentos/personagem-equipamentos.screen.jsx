@@ -1,16 +1,16 @@
 import "./personagem-equipamentos.style.css"
-import { BackButton, BotaoPrimario, ContainerScreen, Modal, ModalItemLista } from "../../components"
+import { BackButton, BotaoPrimario, ContainerScreen, ModalItemLista } from "../../components"
 import { useParams } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { useEffect, useState } from "react"
 import { instanciarPersonagem } from "../../../utils"
 import { ICONS } from "../../../constants/images"
-import { EQUIPAMENTO_TIPO, ITENS_CATEGORIA } from "../../../constants/itens/itens.constant"
-import { ITENS_DATA } from "../../../database"
+import { EQUIPAMENTO_TIPO, ITEM_TIPO } from "../../../constants/itens/itens.constant"
+import { EQUIPAMENTOS_DATA } from "../../../database"
 import { useSound } from "../../../hook"
 import { cheatTodosItens, cheatTodosPersonagens } from "../../../utils/cheats-testes.util"
 
-export function PersonagemEquipamentosScreen() {
+export function PersonagemEquipamentosScreen({personagemBatalha, onBack}) {
     const { personagemId, equipamentoTipo } = useParams()
     const [user, setUser] = useGlobalUser()
     const { playClick, playHover } = useSound()
@@ -37,22 +37,22 @@ export function PersonagemEquipamentosScreen() {
         const equipamentosUsados = []
         _user.personagens.map(person=> {
             person.equipamentos.arma?equipamentosUsados.push({
-                ...ITENS_DATA.find(item=>item.id===person.equipamentos.arma),
+                ...EQUIPAMENTOS_DATA.find(item=>item.id===person.equipamentos.arma),
                 personagemEquipadoId: person.personagemId,
             }
             ):null
             person.equipamentos.armadura?equipamentosUsados.push({
-                ...ITENS_DATA.find(item=>item.id===person.equipamentos.armadura),
+                ...EQUIPAMENTOS_DATA.find(item=>item.id===person.equipamentos.armadura),
                 personagemEquipadoId: person.personagemId,
             }
             ):null
             person.equipamentos.acessorio1?equipamentosUsados.push({
-                ...ITENS_DATA.find(item=>item.id===person.equipamentos.acessorio1),
+                ...EQUIPAMENTOS_DATA.find(item=>item.id===person.equipamentos.acessorio1),
                 personagemEquipadoId: person.personagemId,
             }
             ):null
             person.equipamentos.acessorio2?equipamentosUsados.push({
-                ...ITENS_DATA.find(item=>item.id===person.equipamentos.acessorio2),
+                ...EQUIPAMENTOS_DATA.find(item=>item.id===person.equipamentos.acessorio2),
                 personagemEquipadoId: person.personagemId,
             }
             ):null
@@ -60,7 +60,7 @@ export function PersonagemEquipamentosScreen() {
         const _equipamentos = [
             ..._user.inventario.map(item=> {
                 return {
-                ...ITENS_DATA.find(data=> data.id===item.itemId),
+                ...EQUIPAMENTOS_DATA.find(data=> data.id===item.itemId),
                 personagemEquipadoId: item.personagemEquipadoId,
                 quantidade: item.quantidade,
                 }
@@ -68,7 +68,7 @@ export function PersonagemEquipamentosScreen() {
             ...equipamentosUsados,
         ]
         .map((item,i)=>{return{...item, index: i}})
-        .filter(item=>item.categoria===ITENS_CATEGORIA.EQUIPAMENTO)
+        .filter(item=>item.itemTipo===ITEM_TIPO.EQUIPAMENTO)
         .sort(function (a, b) {
             if(a.personagemEquipadoId && !b.personagemEquipadoId){return -1;}
             else if(!a.personagemEquipadoId && b.personagemEquipadoId){return 1;}
@@ -76,15 +76,21 @@ export function PersonagemEquipamentosScreen() {
         });
         setEquipamentos(_equipamentos)
 
-        const _personagem = _user.personagens.find(item=>item.personagemId == personagemId)
-        const personagemInstanciado = instanciarPersonagem(_personagem)
+        let personagemInstanciado = null
+        if(personagemBatalha) {
+            personagemInstanciado = personagemBatalha
+        }
+        else {
+            const _personagem = novoUser.personagens.find(item=>item.personagemId == personagemId)
+            personagemInstanciado = instanciarPersonagem(_personagem)
+        }
         setPersonagem(personagemInstanciado)
         document.documentElement.style.setProperty('--fundo-tema',
             `var(--${personagemInstanciado.corTema})`
         );
 
         if(_equipamentos.length>0) {
-            const itemPossuido = _personagem.equipamentos[filtroItem.atributo]
+            const itemPossuido = personagemInstanciado.equipamentos[filtroItem.atributo]
             if(itemPossuido) {
                 setItemEscolhido(_equipamentos.find(item=>item.id == itemPossuido))
             } else {
@@ -190,13 +196,10 @@ export function PersonagemEquipamentosScreen() {
         setFiltroItem(filtro)
     }
 
-    function handleFecharModal() {
-        playClick(1)
-        setModalIsOpen(false)
-    }
-
     function renderCardEquipamento(filtro) {
-        const itemData = ITENS_DATA.find(item=>item.id==personagem.equipamentos[filtro.atributo])
+        const itemData = EQUIPAMENTOS_DATA.find(item=>item.id==personagem.equipamentos[filtro.atributo])
+        console.log(itemData)
+        console.log(personagem)
 
         return (
             <div className="card-equipamento">
@@ -204,7 +207,8 @@ export function PersonagemEquipamentosScreen() {
                 <div
                 onMouseEnter={()=>playHover(1)}
                 className="card"
-                onClick={()=>handleAbrirModal(filtro)}>
+                onClick={!personagemBatalha?()=>handleAbrirModal(filtro):null}
+                >
                     {itemData ?
                         <img
                         className="item-equipado"
@@ -214,15 +218,15 @@ export function PersonagemEquipamentosScreen() {
                     :
                     <>
                     <img src={filtro.icon} alt="Ícone de acessório" />
-                    <h1>+</h1>
+                    {!personagemBatalha?<h1>+</h1>:null}
                     </>}
                 </div>
                 {itemData ?
                     <section>
                     <h1>{itemData.nome}</h1>
                     {itemData.bonus.length>0 ?
-                        itemData.bonus.map(bonus=>{
-                            return <div className="bonus">
+                        itemData.bonus.map((bonus,i)=>{
+                            return <div className="bonus" key={i}>
                                     <div>
                                     <img src={bonus.icon} alt="Ícone do atributo" />
                                     {bonus.nome}
@@ -277,7 +281,7 @@ export function PersonagemEquipamentosScreen() {
 
     return (
         <ContainerScreen>
-            <BackButton />
+            <BackButton onClick={onBack? ()=>{onBack()} : null}/>
             <div className="personagem-equipamentos">
                 <section className="personagem">
                 {personagem?
@@ -297,17 +301,19 @@ export function PersonagemEquipamentosScreen() {
                     {renderCardEquipamento(EQUIPAMENTO_TIPO.ACESSORIO_1)}
                     {renderCardEquipamento(EQUIPAMENTO_TIPO.ACESSORIO_2)}
                     </section>
-                    <BotaoPrimario
-                    ativo={user!=novoUser}
-                    onClick={handleSalvarEquipamento}>
-                        Salvar
-                    </BotaoPrimario>
+                    {!personagemBatalha?
+                        <BotaoPrimario
+                        ativo={user!=novoUser}
+                        onClick={handleSalvarEquipamento}>
+                            Salvar
+                        </BotaoPrimario>
+                    :null}
                 </section>
                 
                 <ModalItemLista
                 modalIsOpen={modalIsOpen}
                 setModalIsOpen={setModalIsOpen}
-                categoria={ITENS_CATEGORIA.EQUIPAMENTO}
+                categoria={ITEM_TIPO.EQUIPAMENTO}
                 itens={equipamentos}
                 filtroItem={filtroItem}
                 itemEscolhido={itemEscolhido}

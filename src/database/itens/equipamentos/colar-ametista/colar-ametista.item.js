@@ -1,7 +1,7 @@
 import COLAR_AMETISTA_SPRITE from "./COLAR_AMETISTA_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ITENS_CATEGORIA } from "../../../../constants/itens/itens.constant"
-import { ICONS } from "../../../../constants/images"
+import { ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { createBonusItem } from "../../../../utils/create-bonus-item.util"
 
 export const COLAR_AMETISTA = {
     id: 53,
@@ -10,15 +10,15 @@ export const COLAR_AMETISTA = {
     sprite: COLAR_AMETISTA_SPRITE,
     raridade: 4,
     santuario: BASE_SANTUARIO,
-    categoria: ITENS_CATEGORIA.EQUIPAMENTO,
+    itemTipo: ITEM_TIPO.EQUIPAMENTO,
     tipo: "Acessório",
     equipamentoTipo: "ACESSORIO",
+    acoes: {
+        ataques: [],
+        habilidades: [],
+        talentos: [],
+    },
     bonus: [
-        {
-            nome: "Magia",
-            icon: ICONS.MAGIA,
-            atributo: "magia",
-            valor: 1,
-        },
+        createBonusItem("Magia", "magia", 1),
     ]
 }

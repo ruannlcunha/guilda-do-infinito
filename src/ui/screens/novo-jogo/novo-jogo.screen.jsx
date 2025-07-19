@@ -6,7 +6,7 @@ import { useForm, useSound, useToast } from "../../../hook";
 import VISUAL_1_SPRITE from "./assets/VISUAL_1_SPRITE.png"
 import VISUAL_2_SPRITE from "./assets/VISUAL_2_SPRITE.png"
 import VISUAL_3_SPRITE from "./assets/VISUAL_3_SPRITE.png"
-import { PRONOMES } from "../../../constants";
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants";
 import personagemBase from "../../../database/personagens/_base/_base-pessoal.personagem.json"
 import useGlobalUser from "../../../context/global-user.context"
 

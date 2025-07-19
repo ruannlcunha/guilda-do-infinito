@@ -6,7 +6,7 @@ import { RAIO_LUZ } from "./raio-luz/raio-luz.ataque";
 import { RAIZES_CORTANTES } from "./raizes-cortantes/raizes-cortantes.ataque";
 import { RAJADA_PEDRA } from "./rajada-pedra/rajada-pedra.ataque";
 import { RELAMPAGO } from "./relampago/relampago.ataque";
-import { SOCO } from "./soco/soco.ataque.data";
+import { GOLPE_DESARMADO } from "./golpe-desarmado/golpe-desarmado.ataque.data";
 import { JATOS_ACIDO } from "./jatos-acido/jatos-acido.ataque";
 import { TIRO_PRECISO_BALA } from "./tiro-preciso-bala/tiro-preciso-bala.ataque";
 import { TIRO_PRECISO_FLECHA } from "./tiro-preciso-flecha/tiro-preciso-flecha.ataque";
@@ -66,7 +66,7 @@ import { SOPRO_CONGELANTE } from "./sopro-congelante/sopro-congelante.ataque";
 import { EXPLOSAO_FOGO } from "./explosao-fogo/explosao-fogo.ataque";
 
 export const ATAQUES = {
-    SOCO,
+    GOLPE_DESARMADO,
     BOLA_DE_FOGO,
     TOQUE_SOMBRIO,
     RAIZES_CORTANTES,

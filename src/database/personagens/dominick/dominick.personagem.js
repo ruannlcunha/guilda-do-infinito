@@ -10,7 +10,7 @@ import DOMINICK_5_PERFIL from "./assets/DOMINICK_5_PERFIL.png"
 import DOMINICK_5_SPRITE from "./assets/DOMINICK_5_SPRITE.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 
 export const DOMINICK = {
     ..._BASE_ORIGINAL,
@@ -21,6 +21,7 @@ export const DOMINICK = {
     elemento: ELEMENTOS.ELETRICO,
     corTema: COR_TEMA.ROXO,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {

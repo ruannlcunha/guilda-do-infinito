@@ -4,7 +4,7 @@ import NAILAH_2_SPRITE from "./assets/NAILAH_2_SPRITE.png"
 import NAILAH_2_PERFIL from "./assets/NAILAH_2_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
 import { HABILIDADES } from "../../habilidades"
 
 export const NAILAH = {
@@ -16,6 +16,7 @@ export const NAILAH = {
     elemento: ELEMENTOS.ELETRICO,
     corTema: COR_TEMA.ROXO,
     raridade: 5,
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
     comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
     visuais:[
         {
