@@ -93,6 +93,9 @@ import CONDICAO_DUPLICATAS from "../../assets/img/icons/CONDICAO_DUPLICATAS.png"
 import CONDICAO_ABENCOADO from "../../assets/img/icons/CONDICAO_ABENCOADO.png";
 import CONDICAO_AMALDICOADO from "../../assets/img/icons/CONDICAO_AMALDICOADO.png";
 import CONDICAO_ATAQUE_ESPECIAL from "../../assets/img/icons/CONDICAO_ATAQUE_ESPECIAL.png";
+import CONDICAO_SORTUDO from "../../assets/img/icons/CONDICAO_SORTUDO.png";
+import CONDICAO_PROTEGENDO from "../../assets/img/icons/CONDICAO_PROTEGENDO.png";
+import CONDICAO_PROTEGIDO from "../../assets/img/icons/CONDICAO_PROTEGIDO.png";
 import EM_AREA from "../../assets/img/icons/EM_AREA.png";
 import BONUS_DADO from "../../assets/img/icons/BONUS_DADO.png";
 
@@ -193,6 +196,9 @@ export const ICONS = {
   CONDICAO_ABENCOADO,
   CONDICAO_AMALDICOADO,
   CONDICAO_ATAQUE_ESPECIAL,
+  CONDICAO_SORTUDO,
+  CONDICAO_PROTEGENDO,
+  CONDICAO_PROTEGIDO,
   EM_AREA,
   BONUS_DADO,
 };

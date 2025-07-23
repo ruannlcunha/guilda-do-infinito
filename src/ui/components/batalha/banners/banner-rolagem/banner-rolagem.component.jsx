@@ -17,7 +17,7 @@ export function BannerRolagem({banners, renderPularBanner}) {
     if(multiplicador!==1) {
       return (
         <>
-        <img src={multiplicador===1.5 ? ICONS.SETA_VANTAGEM : ICONS.SETA_DESVANTAGEM} alt="Seta de Vantagem" />
+        <img key={`Vantagem-${multiplicador}`} src={multiplicador===1.5 ? ICONS.SETA_VANTAGEM : ICONS.SETA_DESVANTAGEM} alt="Seta de Vantagem" />
         x0.5
         </>
       )
@@ -32,9 +32,9 @@ export function BannerRolagem({banners, renderPularBanner}) {
               {i!==0 && banners.dados.length > 1 ?
               <h2 key={i}>+</h2>
               :null}
-              <div className="dado" key={i}>
+              <div className="dado" key={`${i}-${dado.resultado}`}>
                 {dado.elemento !== ELEMENTOS.FISICO ?
-                <div className="elemento-dado" key={i} style={{backgroundImage: `url(${ICONS[`ELEMENTO_${dado.elemento}`]})`}}>
+                <div className="elemento-dado" style={{backgroundImage: `url(${ICONS[`ELEMENTO_${dado.elemento}`]})`}}>
                   {renderVantagem(dado.multiplicador)}
                 </div>
                 :null}
@@ -50,8 +50,10 @@ export function BannerRolagem({banners, renderPularBanner}) {
             if(modificador.valor!==0) {
               return (
                 <>
-              <h2 key={i}>{modificador.valor<0 ? "-" : "+"}</h2>
-              <div key={i}>
+              <h2 key={i}>
+                {modificador.valor<0 ? "-" : "+"}
+              </h2>
+              <div key={`${i}-${modificador.valor}`}>
                 <div className={modificador.atributo}>
                   {modificador.valor<0 ? Math.abs(modificador.valor) : modificador.valor}
                 </div>

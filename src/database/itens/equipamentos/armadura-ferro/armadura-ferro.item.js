@@ -1,24 +1,25 @@
 import ARMADURA_FERRO_SPRITE from "./ARMADURA_FERRO_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ARMADURA_TIPO, ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { EQUIPAMENTO_TIPO, ITEM_TIPO } from "../../../../constants/itens/itens.constant"
 import { createBonusItem } from "../../../../utils/create-bonus-item.util"
+import { ITEM_PROFICIENCIA } from "../../../../constants"
 
 export const ARMADURA_FERRO = {
     id: 7,
     nome: "Armadura de Ferro",
-    descricao: "Uma simples armadura de ferro.",
+    descricao: "Uma armadura comum feita de ferro, muito usada por guardas e aventureiros iniciantes.",
     sprite: ARMADURA_FERRO_SPRITE,
     raridade: 3,
-    tipo: ARMADURA_TIPO.PESADA,
     santuario: BASE_SANTUARIO,
     itemTipo: ITEM_TIPO.EQUIPAMENTO,
-    equipamentoTipo: "ARMADURA",
+    proficiencia: ITEM_PROFICIENCIA.PESADA,
+    equipamentoTipo: EQUIPAMENTO_TIPO.ARMADURA,
     acoes: {
         ataques: [],
         habilidades: [],
         talentos: [],
     },
     bonus: [
-        createBonusItem("Defesa", "defesa", 3),
+        createBonusItem("Defesa", "defesa", 2),
     ]
 }

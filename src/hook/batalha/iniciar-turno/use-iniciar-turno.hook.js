@@ -10,7 +10,7 @@ export function useIniciarTurno() {
     function iniciarTurno(personagemAtivo, personagens, jogadores, jogadaAutomatica, functions) {
         let novoPersonagem = personagemAtivo
         realizarCondicoes.map(eventoCondicao=> {
-            novoPersonagem = eventoCondicao(novoPersonagem, functions)
+            novoPersonagem = eventoCondicao(novoPersonagem, functions, personagens)
         })
         
         alterarPersonagem(functions, novoPersonagem)

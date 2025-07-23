@@ -80,10 +80,7 @@ export const NAILAH = {
                 {ataqueId: 22, variantes: []},
                 {ataqueId: 12, variantes: []},
             ],
-            habilidades: [
-                1,
-                HABILIDADES.DISSIPAR_BENCAO.id,
-            ]
+            habilidades: [{habilidadeId: 1, variantes: []}]
         },
         {
             level: 4,

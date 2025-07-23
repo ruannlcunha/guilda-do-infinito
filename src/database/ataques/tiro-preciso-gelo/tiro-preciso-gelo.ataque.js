@@ -30,7 +30,7 @@ function tiroPrecisoGelo(personagem, alvo, acao, functions) {
     });
 
     const modificadorAgilidade = {valor: personagem.atributos.agilidade, atributo: "Agilidade"}
-    const resultadoAtaque = atacar(personagem, alvo, modificadorAgilidade, functions)
+    const resultadoAtaque = atacar(personagem, alvo, modificadorAgilidade, acao, functions)
     const modificadores = getModificadoresDano([modificadorAgilidade], personagem)
     const dado1d8 = rolarDado(1, 8, modificadores, ELEMENTOS.FISICO, alvo.elemento)
     const dado1d6Elemental = rolarDado(1, 6, [], TIRO_PRECISO_GELO.elemento, alvo.elemento)

@@ -3,7 +3,7 @@ import { Modal } from "../"
 import { useState } from "react"
 import { PersonagemDetalhadoScreen } from "../../screens/personagem-detalhado/personagem-detalhado.screen"
 import { PersonagemEquipamentosScreen } from "../../screens/personagem-equipamentos/personagem-equipamentos.screen"
-import { PersonagemInventarioScreen } from "../../screens/personagem-inventario/personagem-inventario.screen"
+import { PersonagemConsumiveisScreen } from "../../screens/personagem-consumiveis/personagem-consumiveis.screen"
 import { PersonagemAcoesScreen } from "../../screens/personagem-acoes/personagem-acoes.screen"
 import { PersonagemTalentosScreen } from "../../screens/personagem-talentos/personagem-talentos.screen"
 
@@ -26,7 +26,7 @@ export function ModalPersonagemDetalhes({ personagem, isOpen, setIsOpen }) {
                 <PersonagemEquipamentosScreen personagemBatalha={personagem} onBack={()=>{setTelaAtual(TELAS.DETALHES)}}/>
             : null}
             {telaAtual===TELAS.INVENTARIO ?
-                <PersonagemInventarioScreen personagemBatalha={personagem} onBack={()=>{setTelaAtual(TELAS.DETALHES)}}/>
+                <PersonagemConsumiveisScreen personagemBatalha={personagem} onBack={()=>{setTelaAtual(TELAS.DETALHES)}}/>
             : null}
             {telaAtual===TELAS.ACOES ?
                 <PersonagemAcoesScreen personagemBatalha={personagem} onBack={()=>{setTelaAtual(TELAS.DETALHES)}}/>

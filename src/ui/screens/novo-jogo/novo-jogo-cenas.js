@@ -110,7 +110,7 @@ export function novoJogoCenas(visualId, pronomes, nome,
             fundo: GUILDA_BACKGROUND,
             perfil: SELINA_PERFIL,
             nome: "Recepcionista",
-            texto: `Obrigada, senhor${PRONOMES[pronomes.tipo].minusculo_3}, próxima pergunta!`,
+            texto: `Obrigada, senhor${PRONOMES[pronomes.tipo].minusculo_2}, próxima pergunta!`,
         },
         {
             tipo: CENAS_TIPO.IMAGEM,

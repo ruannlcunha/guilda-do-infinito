@@ -33,7 +33,7 @@ function raizesCortantesEvento(personagem, alvo, acao, functions) {
     const personagemNovo = gastarMana(personagem, acao.custo, functions);
     const modificadorPadrao = {valor: 2, atributo: "Modificador"}
     const modificadorMagia = {valor: personagem.atributos.magia, atributo: "Magia"}
-    const resultadoAtaque = atacar(personagemNovo, alvo, modificadorMagia, functions)
+    const resultadoAtaque = atacar(personagemNovo, alvo, modificadorMagia, acao, functions)
     const modificadores = getModificadoresDano([modificadorPadrao, modificadorMagia], personagem)
     const dadoDano = rolarDado(3, 4, modificadores, RAIZES_CORTANTES.elemento, alvo.elemento)
     

@@ -73,6 +73,8 @@ import QUEBRAR_GELO from "../../assets/img/effects/QUEBRAR_GELO.gif";
 import SONO from "../../assets/img/effects/SONO.gif";
 import ARMADURA_MAGICA from "../../assets/img/effects/ARMADURA_MAGICA.gif";
 import DUPLICATA_ILUSORIA from "../../assets/img/effects/DUPLICATA_ILUSORIA.gif";
+import ATAQUE_ESPECIAL from "../../assets/img/effects/ATAQUE_ESPECIAL.gif";
+import DEFENDER from "../../assets/img/effects/DEFENDER.gif";
 
 export const EFFECTS = {
   SOCO,
@@ -150,4 +152,6 @@ export const EFFECTS = {
   SONO,
   ARMADURA_MAGICA,
   DUPLICATA_ILUSORIA,
+  ATAQUE_ESPECIAL,
+  DEFENDER,
 };

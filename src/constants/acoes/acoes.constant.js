@@ -20,12 +20,12 @@ export const CATEGORIAS_DE_DANO = {
 };
 
 export const ALVOS = {
-    ALIADOS: "ALIADOS",
-    INIMIGOS: "INIMIGOS",
-    PESSOAL: "PESSOAL",
-    ALIADOS_MORTOS: "ALIADOS_MORTOS",
-    ALIADOS_AREA: "ALIADOS_AREA",
-    INIMIGOS_AREA: "INIMIGOS_AREA",
+    ALIADOS: "Aliados",
+    INIMIGOS: "Inimigos",
+    PESSOAL: "Pessoal",
+    ALIADOS_MORTOS: "Aliados Derrotados",
+    ALIADOS_AREA: "Aliados em Área",
+    INIMIGOS_AREA: "Inimigos em Área",
 }
 
 export const ACAO_EXECUCAO = {

@@ -122,7 +122,7 @@ export function StatusHUD({ personagem, jogadores, jogadaAutomatica }) {
             PV: {personagem.pv.atual}/{personagem.pv.maximo}
           </h2>
           {personagem.condicoes.map((condicao,i)=>{
-            if(condicao.categoria===CATEGORIA_CONDICAO.FISICA) {
+            if(condicao.categoria!==CATEGORIA_CONDICAO.MENTAL) {
               return <img
               key={i}
               src={condicao.icon}

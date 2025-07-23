@@ -31,7 +31,7 @@ function socoEvento(personagem, alvo, acao, functions) {
     });
 
     const modificadorForca = {valor: personagem.atributos.forca, atributo: "Força"}
-    const resultadoAtaque = atacar(personagem, alvo, modificadorForca, functions)
+    const resultadoAtaque = atacar(personagem, alvo, modificadorForca, acao, functions)
     const modificadores = getModificadoresDano([modificadorForca], personagem)
     const dadoDano = rolarDado(1, 4, modificadores, GOLPE_DESARMADO.elemento, alvo.elemento)
     
@@ -41,7 +41,7 @@ function socoEvento(personagem, alvo, acao, functions) {
       },
       ()=>{
         const novoAlvo = causarDano(resultadoAtaque.alvo, [dadoDano], resultadoAtaque, GOLPE_DESARMADO, functions);
-        const duracao = iniciarEfeito(novoAlvo, functions, EFFECTS.GOLPE_DESARMADO, ACOES_AUDIO.GOLPE_DESARMADO);
+        const duracao = iniciarEfeito(novoAlvo, functions, EFFECTS.SOCO, ACOES_AUDIO.SOCO);
         finalizarAcao(functions, novoAlvo, duracao);
       },
       ()=>{

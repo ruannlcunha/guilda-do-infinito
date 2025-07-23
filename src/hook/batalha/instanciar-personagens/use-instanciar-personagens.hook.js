@@ -39,7 +39,6 @@ export function useInstanciarPersonagens() {
         effect: { asset: null, isAtivo: true },
         defesaEffect: null,
         testeResistencia: null,
-        condicoes: [],
         acoesExtras: [],
       };
     });

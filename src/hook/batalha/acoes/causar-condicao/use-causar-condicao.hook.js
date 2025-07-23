@@ -1,5 +1,5 @@
-import { ARMADURA_TIPO } from "../../../../constants/itens/itens.constant";
-import { BONUS_DADO, CONDICOES } from "../../../../constants/personagens/personagem.constant"
+import { ITEM_PROFICIENCIA } from "../../../../constants";
+import { BONUS_DADO, CONDICOES, IMUNIDADE_TIPO } from "../../../../constants/personagens/personagem.constant"
 import { ACOES_EXTRAS_DATA } from "../../../../database/acoes-extras";
 import { diminuirTurno, getArmadura } from "../../../../utils";
 import { aumentarTurno } from "../../../../utils/alterar-turnos.util";
@@ -11,9 +11,20 @@ export function useCausarCondicao() {
     const { testarResistencia } = useAcoesBase()
     const { rolarDado } = useRolarDado();
     const { encerrarAbençoado, encerrarAmaldiçoado } = useEncerrarCondicao()
+    const { alterarPersonagem } = useAcoesBase()
+
+    function _validarImunidade(condicao, alvo, functions) {
+        if(alvo.imunidades.some(imunidade=> imunidade.nome === condicao.nome && imunidade.tipo === IMUNIDADE_TIPO.CONDICAO)) {
+            functions.adicionarLog(`${alvo.nome} é imune à condição ${condicao.nome}.`)
+            return false
+        }
+        return true
+    }
 
     function causarEnvenenado(alvo, dificuldade, acao, functions, testeAcerto) {
         if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.ENVENENADO.nome)) {
+            if(!_validarImunidade(CONDICOES.ENVENENADO, alvo, functions)) return alvo;
+
             const modificadorVigor = {valor: alvo.atributos.vigor, atributo: "Vigor"}
             const alvoResistencia = testarResistencia(alvo, dificuldade, modificadorVigor, functions)
             const {dados} = rolarDado(1, 4, []);
@@ -21,7 +32,7 @@ export function useCausarCondicao() {
             
             if(testeAcerto) {
                 if(testeAcerto.acerto) {
-                    functions.adicionarLog(`${alvo.nome} está Envenenado por ${turnos} turnos.`)
+                    functions.adicionarLog(`${alvo.nome} está ${CONDICOES.ENVENENADO.nome} por ${turnos} turnos.`)
                     const novaCondicao = {...CONDICOES.ENVENENADO, duracao: turnos, acaoOrigem: acao.nome}
                     
                     return {
@@ -32,30 +43,32 @@ export function useCausarCondicao() {
                 return alvo
             }
             else if(!alvoResistencia.acerto) {
-                functions.adicionarLog(`${alvo.nome} fez um teste de resistência para evitar ficar Envenenado mas falhou com ${alvoResistencia.total}.`)
-                functions.adicionarLog(`${alvo.nome} está Envenenado por ${turnos} turnos.`)
+                functions.adicionarLog(`${alvo.nome} fez um teste de resistência para evitar ficar ${CONDICOES.ENVENENADO.nome} mas falhou com ${alvoResistencia.total}.`)
+                functions.adicionarLog(`${alvo.nome} está ${CONDICOES.ENVENENADO.nome} por ${turnos} turnos.`)
                 const novaCondicao = {...CONDICOES.ENVENENADO, duracao: turnos, acaoOrigem: acao.nome}
                 return {...alvoResistencia.personagem, condicoes: [...alvoResistencia.personagem.condicoes, novaCondicao]}
             }
             else {
-                functions.adicionarLog(`${alvo.nome} fez um teste de resistência para evitar ficar Envenenado e teve um sucesso com ${alvoResistencia.total}.`)
+                functions.adicionarLog(`${alvo.nome} fez um teste de resistência para evitar ficar ${CONDICOES.ENVENENADO.nome} e teve um sucesso com ${alvoResistencia.total}.`)
                 return alvoResistencia.personagem
             }
         }
         else {
-            functions.adicionarLog(`${alvo.nome} já está Envenenado.`)
+            functions.adicionarLog(`${alvo.nome} já está ${CONDICOES.ENVENENADO.nome}.`)
             return alvo
         }
     }
 
     function causarQueimando(alvo, dificuldade, acao, functions, testeAcerto) {
         if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.QUEIMANDO.nome)) {
+            if(!_validarImunidade(CONDICOES.QUEIMANDO, alvo, functions)) return alvo;
+
             const modificadorAgilidade = {valor: alvo.atributos.agilidade, atributo: "Agilidade"}
             const alvoResistencia = testarResistencia(alvo, dificuldade, modificadorAgilidade, functions)
             
             if(testeAcerto) {
                 if(testeAcerto.acerto) {
-                    functions.adicionarLog(`${alvo.nome} está Queimando`)
+                    functions.adicionarLog(`${alvo.nome} está ${CONDICOES.QUEIMANDO.nome}`)
                     const novaCondicao = {...CONDICOES.QUEIMANDO, dificuldade, acaoOrigem: acao.nome}
                     const APAGAR_CHAMAS_ID = 2;
                     const novaAcaoExtra = ACOES_EXTRAS_DATA.find(acao=>acao.id === APAGAR_CHAMAS_ID)
@@ -94,6 +107,8 @@ export function useCausarCondicao() {
 
     function causarCongelado(alvo, dificuldade, acao, functions, testeAcerto) {
         if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.CONGELADO.nome)) {
+            if(!_validarImunidade(CONDICOES.CONGELADO, alvo, functions)) return alvo;
+
             const modificadorVigor = {valor: alvo.atributos.vigor, atributo: "Vigor"}
             const alvoResistencia = testarResistencia(alvo, dificuldade, modificadorVigor, functions)
 
@@ -139,6 +154,8 @@ export function useCausarCondicao() {
     
     function causarParalisado(alvo, dificuldade, acao, functions, testeAcerto) {
         if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.PARALISADO.nome)) {
+            if(!_validarImunidade(CONDICOES.PARALISADO, alvo, functions)) return alvo;
+
             const modificadorVigor = {valor: alvo.atributos.vigor, atributo: "Vigor"}
             const alvoResistencia = testarResistencia(alvo, dificuldade, modificadorVigor, functions)
             const turnos = 1
@@ -182,6 +199,8 @@ export function useCausarCondicao() {
     
     function causarDormindo(alvo, dificuldade, acao, functions, testeAcerto) {
         if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.DORMINDO.nome)) {
+            if(!_validarImunidade(CONDICOES.DORMINDO, alvo, functions)) return alvo;
+
             const modificadorVigor = {valor: alvo.atributos.vigor, atributo: "Vigor"}
             const alvoResistencia = testarResistencia(alvo, dificuldade, modificadorVigor, functions)
             const {dados} = rolarDado(1, 4, []);
@@ -226,6 +245,8 @@ export function useCausarCondicao() {
     
     function causarAtordoado(alvo, dificuldade, acao, functions, testeAcerto) {
         if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.ATORDOADO.nome)) {
+            if(!_validarImunidade(CONDICOES.ATORDOADO, alvo, functions)) return alvo;
+
             const modificadorVigor = {valor: alvo.atributos.vigor, atributo: "Vigor"}
             const alvoResistencia = testarResistencia(alvo, dificuldade, modificadorVigor, functions)
             const {dados} = rolarDado(1, 6, []);
@@ -270,6 +291,8 @@ export function useCausarCondicao() {
     
     function causarLento(alvo, dificuldade, acao, functions, testeAcerto) {
         if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.LENTO.nome)) {
+            if(!_validarImunidade(CONDICOES.LENTO, alvo, functions)) return alvo;
+
             const modificadorAgilidade = {valor: alvo.atributos.agilidade, atributo: "Agilidade"}
             const alvoResistencia = testarResistencia(alvo, dificuldade, modificadorAgilidade, functions)
             const {dados} = rolarDado(1, 4, []);
@@ -335,14 +358,14 @@ export function useCausarCondicao() {
         if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.ARMADURA_MAGICA.nome)) {
             if(alvo.equipamentos.armadura) {
                 const armadura = getArmadura(alvo)
-                if(armadura.tipo===ARMADURA_TIPO.PESADA) {
+                if(armadura.proficiencia===ITEM_PROFICIENCIA.PESADA) {
                     functions.adicionarLog(`AVISO: ${alvo.nome} está usando Armadura Pesada e não pode receber os efeitos de ${CONDICOES.ARMADURA_MAGICA.nome}.`)
                     throw { message: `${alvo.nome} está usando Armadura Pesada e não pode receber os efeitos de ${CONDICOES.ARMADURA_MAGICA.nome}.`}
                 }
             }
-            functions.adicionarLog(`${alvo.nome} recebeu os efeitos de ${CONDICOES.ARMADURA_MAGICA.nome} e ganhou +5 de Defesa.`)
+            functions.adicionarLog(`${alvo.nome} recebeu os efeitos de ${CONDICOES.ARMADURA_MAGICA.nome} e ganhou +2 de Defesa.`)
             const novaCondicao = {...CONDICOES.ARMADURA_MAGICA, acaoOrigem: acao.nome}
-            const novaDefesa = (alvo.defesa)+5
+            const novaDefesa = (alvo.defesa)+2
             return {
                 ...alvo,
                 defesa: novaDefesa,
@@ -374,21 +397,25 @@ export function useCausarCondicao() {
 
     function causarAbencoado(alvo, acao, functions) {
         if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.ABENCOADO.nome)) {
-            functions.adicionarLog(`${alvo.nome} foi abençoad${alvo.pronomes.minusculo_2} e recebeu +1 de bônus em ataques e dano.`)
+            functions.adicionarLog(`${alvo.nome} foi abençoad${alvo.pronomes.minusculo_2} e recebeu +1 de bônus em Ataque, Conjuração e Dano.`)
             const novaCondicao = {...CONDICOES.ABENCOADO, acaoOrigem: acao.nome}
-            const novoBonus = {modificador: 1, tipo: BONUS_DADO.ATAQUE_DANO, condicao: CONDICOES.ABENCOADO.nome}
+            const novosBonus = [
+                {modificador: 1, tipo: BONUS_DADO.ATAQUE, condicao: CONDICOES.ABENCOADO.nome},
+                {modificador: 1, tipo: BONUS_DADO.DANO, condicao: CONDICOES.ABENCOADO.nome},
+                {modificador: 1, tipo: BONUS_DADO.CONJURACAO, condicao: CONDICOES.ABENCOADO.nome},
+            ]
             if(alvo.condicoes.some(condicao=>condicao.nome===CONDICOES.AMALDICOADO.nome)) {
                 functions.adicionarLog(`A condição ${CONDICOES.AMALDICOADO.nome} de ${alvo.nome} foi anulada pela condição ${CONDICOES.ABENCOADO.nome}.`)
                 const novoAlvo = encerrarAmaldiçoado(alvo, functions)
                 return {
                     ...novoAlvo,
-                    bonusDado: [...novoAlvo.bonusDado, novoBonus],
+                    bonusDado: [...novoAlvo.bonusDado, ...novosBonus],
                     condicoes: [...novoAlvo.condicoes, novaCondicao],
                 }
             }
             return {
                 ...alvo,
-                bonusDado: [...alvo.bonusDado, novoBonus],
+                bonusDado: [...alvo.bonusDado, ...novosBonus],
                 condicoes: [...alvo.condicoes, novaCondicao],
             }
         }
@@ -401,26 +428,32 @@ export function useCausarCondicao() {
     
     function causarAmaldicoado(alvo, dificuldade, acao, functions, testeAcerto) {
         if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.AMALDICOADO.nome)) {
+            if(!_validarImunidade(CONDICOES.AMALDICOADO, alvo, functions)) return alvo;
+
             const modificadorMagia = {valor: alvo.atributos.magia, atributo: "Magia"}
             const alvoResistencia = testarResistencia(alvo, dificuldade, modificadorMagia, functions)
             
             if(testeAcerto) {
                 if(testeAcerto.acerto) {
-                    functions.adicionarLog(`${alvo.nome} foi amaldiçoad${alvo.pronomes.minusculo_2} e recebeu -1 de bônus em ataques e dano.`)
+                    functions.adicionarLog(`${alvo.nome} foi amaldiçoad${alvo.pronomes.minusculo_2} e recebeu -1 de bônus em Ataque, Conjuração e Dano.`)
                     const novaCondicao = {...CONDICOES.AMALDICOADO, acaoOrigem: acao.nome}
-                    const novoBonus = {modificador: -1, tipo: BONUS_DADO.ATAQUE_DANO, condicao: CONDICOES.AMALDICOADO.nome}
+                    const novosBonus = [
+                        {modificador: -1, tipo: BONUS_DADO.ATAQUE, condicao: CONDICOES.AMALDICOADO.nome},
+                        {modificador: -1, tipo: BONUS_DADO.DANO, condicao: CONDICOES.AMALDICOADO.nome},
+                        {modificador: -1, tipo: BONUS_DADO.CONJURACAO, condicao: CONDICOES.AMALDICOADO.nome},
+                    ]
                     if(alvo.condicoes.some(condicao=>condicao.nome===CONDICOES.ABENCOADO.nome)) {
                         functions.adicionarLog(`A condição ${CONDICOES.ABENCOADO.nome} de ${alvo.nome} foi anulada pela condição ${CONDICOES.AMALDICOADO.nome}.`)
                         const novoAlvo = encerrarAbençoado(alvo, functions)
                         return {
                             ...novoAlvo,
-                            bonusDado: [...novoAlvo.bonusDado, novoBonus],
+                            bonusDado: [...novoAlvo.bonusDado, ...novosBonus],
                             condicoes: [...novoAlvo.condicoes, novaCondicao],
                         }
                     }
                     return {
                         ...alvo,
-                        bonusDado: [...alvo.bonusDado, novoBonus],
+                        bonusDado: [...alvo.bonusDado, ...novosBonus],
                         condicoes: [...alvo.condicoes, novaCondicao],
                     }
                 }
@@ -428,21 +461,25 @@ export function useCausarCondicao() {
             }
             else if(!alvoResistencia.acerto) {
                 functions.adicionarLog(`${alvo.nome} fez um teste de resistência para evitar ficar ${CONDICOES.AMALDICOADO.nome} mas falhou com ${alvoResistencia.total}.`)
-                functions.adicionarLog(`${alvo.nome} foi amaldiçoad${alvo.pronomes.minusculo_2} e recebeu -1 de bônus em ataques e dano.`)
+                functions.adicionarLog(`${alvo.nome} foi amaldiçoad${alvo.pronomes.minusculo_2} e recebeu -1 de bônus em Ataque, Conjuração e Dano.`)
                 const novaCondicao = {...CONDICOES.AMALDICOADO, acaoOrigem: acao.nome}
-                const novoBonus = {modificador: -1, tipo: BONUS_DADO.ATAQUE_DANO, condicao: CONDICOES.AMALDICOADO.nome}
+                const novosBonus = [
+                    {modificador: -1, tipo: BONUS_DADO.ATAQUE, condicao: CONDICOES.AMALDICOADO.nome},
+                    {modificador: -1, tipo: BONUS_DADO.DANO, condicao: CONDICOES.AMALDICOADO.nome},
+                    {modificador: -1, tipo: BONUS_DADO.CONJURACAO, condicao: CONDICOES.AMALDICOADO.nome},
+                ]
                 if(alvo.condicoes.some(condicao=>condicao.nome===CONDICOES.ABENCOADO.nome)) {
                     functions.adicionarLog(`A condição ${CONDICOES.ABENCOADO.nome} de ${alvo.nome} foi anulada pela condição ${CONDICOES.AMALDICOADO.nome}.`)
                     const novoAlvo = encerrarAbençoado(alvo, functions)
                     return {
                         ...novoAlvo,
-                        bonusDado: [...novoAlvo.bonusDado, novoBonus],
+                        bonusDado: [...novoAlvo.bonusDado, ...novosBonus],
                         condicoes: [...novoAlvo.condicoes, novaCondicao],
                     }
                 }
                 return {
                     ...alvo,
-                    bonusDado: [...alvo.bonusDado, novoBonus],
+                    bonusDado: [...alvo.bonusDado, ...novosBonus],
                     condicoes: [...alvo.condicoes, novaCondicao],
                 }
             }
@@ -474,6 +511,69 @@ export function useCausarCondicao() {
         }
     }
 
+    function causarSortudo(alvo, duracao, acao, functions) {
+        if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.SORTUDO.nome)) {
+            functions.adicionarLog(`A sorte está à favor de ${alvo.nome}, que está ${CONDICOES.SORTUDO.nome} por ${duracao} rodadas.`)
+            const novaCondicao = {...CONDICOES.SORTUDO, duracao: duracao, acaoOrigem: acao.nome}
+            const novaDefesa = (alvo.defesa)+1
+            const novosBonus = [
+                {modificador: 1, tipo: BONUS_DADO.ATAQUE, condicao: CONDICOES.SORTUDO.nome},
+                {modificador: 1, tipo: BONUS_DADO.CONJURACAO, condicao: CONDICOES.SORTUDO.nome},
+                {modificador: 1, tipo: BONUS_DADO.RESISTENCIA_FORCA, condicao: CONDICOES.SORTUDO.nome},
+                {modificador: 1, tipo: BONUS_DADO.RESISTENCIA_AGILIDADE, condicao: CONDICOES.SORTUDO.nome},
+                {modificador: 1, tipo: BONUS_DADO.RESISTENCIA_MAGIA, condicao: CONDICOES.SORTUDO.nome},
+                {modificador: 1, tipo: BONUS_DADO.RESISTENCIA_VIGOR, condicao: CONDICOES.SORTUDO.nome},
+            ]
+            return {
+                ...alvo,
+                defesa: novaDefesa,
+                bonusDado: [...alvo.bonusDado, ...novosBonus],
+                condicoes: [...alvo.condicoes, novaCondicao],
+            }
+        }
+        else {
+            functions.adicionarLog(`AVISO: ${alvo.nome} já está sob efeito de ${CONDICOES.SORTUDO.nome}.`)
+            throw { message: `${alvo.nome} já está sob efeito de ${CONDICOES.SORTUDO.nome}.` }
+        }
+    }
+
+    function causarProtegido(alvo, protetor, acao, functions) {
+        if(!alvo.condicoes.find(condicao=>condicao.nome===CONDICOES.PROTEGIDO.nome)) {
+            const condicaoProtegido = {...CONDICOES.PROTEGIDO, protetorId: protetor.idCombate, acaoOrigem: acao.nome}
+
+            if(alvo.idCombate === protetor.idCombate) {
+                functions.adicionarLog(`${protetor.nome} decidiu se defender, el${protetor.pronomes.minusculo_1} agora está com a condição ${CONDICOES.PROTEGIDO.nome}.`)
+                const novoProtegido = {
+                    ...protetor,
+                    defesa: (protetor.defesa)+2,
+                    condicoes: [...protetor.condicoes, condicaoProtegido],
+                }
+                return novoProtegido
+            }
+            else {
+                functions.adicionarLog(`${protetor.nome} está protegendo ${alvo.nome}, que agora está com a condição ${CONDICOES.PROTEGIDO.nome}.`)
+                const condicaoProtetor = {...CONDICOES.PROTEGENDO, protegidoId: alvo.idCombate, acaoOrigem: acao.nome}
+                const novoProtetor = {
+                    ...protetor,
+                    defesa: (protetor.defesa)-2,
+                    condicoes: [...protetor.condicoes, condicaoProtetor],
+                }
+                alterarPersonagem(functions, novoProtetor)
+
+                const novoProtegido = {
+                    ...alvo,
+                    defesa: (alvo.defesa)+2,
+                    condicoes: [...alvo.condicoes, condicaoProtegido],
+                }
+                return novoProtegido
+            }
+        }
+        else {
+            functions.adicionarLog(`AVISO: ${alvo.nome} já está sob efeito de ${CONDICOES.PROTEGIDO.nome}.`)
+            throw { message: `${alvo.nome} já está sob efeito de ${CONDICOES.PROTEGIDO.nome}.` }
+        }
+    }
+
     return {
         causarEnvenenado,
         causarQueimando,
@@ -488,6 +588,8 @@ export function useCausarCondicao() {
         causarAbencoado,
         causarAmaldicoado,
         causarAtaqueEspecial,
+        causarSortudo,
+        causarProtegido,
     }
 
 }

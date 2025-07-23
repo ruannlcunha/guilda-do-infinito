@@ -20,7 +20,7 @@ export { PerfilPersonagensScreen } from "./perfil-personagens/perfil-personagens
 export { PersonagemDetalhadoScreen } from "./personagem-detalhado/personagem-detalhado.screen"
 export { PersonagemEvoluirScreen } from "./personagem-evoluir/personagem-evoluir.screen"
 export { PersonagemTalentosScreen } from "./personagem-talentos/personagem-talentos.screen"
-export { PersonagemInventarioScreen } from "./personagem-inventario/personagem-inventario.screen"
+export { PersonagemConsumiveisScreen } from "./personagem-consumiveis/personagem-consumiveis.screen"
 export { PersonagemEquipamentosScreen } from "./personagem-equipamentos/personagem-equipamentos.screen"
 export { PersonagemAcoesScreen } from "./personagem-acoes/personagem-acoes.screen"
 export { PersonagemVisuaisScreen } from "./personagem-visuais/personagem-visuais.screen"

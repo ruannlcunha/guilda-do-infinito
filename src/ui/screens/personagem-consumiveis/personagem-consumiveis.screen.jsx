@@ -1,5 +1,5 @@
-import "./personagem-inventario.style.css"
-import { BackButton, BotaoPrimario, ContainerScreen, Modal, ModalItem, ModalItemLista } from "../../components"
+import "./personagem-consumiveis.style.css"
+import { BackButton, BotaoFecharModal, BotaoPrimario, CardAcao, ContainerScreen, Modal, ModalItem, ModalItemLista, RaridadeEstrelas } from "../../components"
 import { useParams } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { useEffect, useState } from "react"
@@ -10,7 +10,7 @@ import { ICONS } from "../../../constants/images"
 import { useSound } from "../../../hook"
 import { cheatTodosItens, cheatTodosPersonagens } from "../../../utils/cheats-testes.util"
 
-export function PersonagemInventarioScreen({personagemBatalha, onBack}) {
+export function PersonagemConsumiveisScreen({personagemBatalha, onBack}) {
     const EVENTO = {ADICIONAR:"ADICIONAR", REMOVER: "REMOVER"}
     const { personagemId } = useParams()
     const [user, setUser] = useGlobalUser()
@@ -24,6 +24,7 @@ export function PersonagemInventarioScreen({personagemBatalha, onBack}) {
     const [quantidadeModal, setQuantidadeModal] = useState(false)
     const [quantidadeEvento, setQuantidadeEvento] = useState({evento: null})
     const [listaModal, setListaModal] = useState(false)
+    const [podeAdicionarQuantidade, setPodeAdicionarQuantidade] = useState(null)
 
     console.log(novoUser)
     console.log(personagem)
@@ -38,6 +39,15 @@ export function PersonagemInventarioScreen({personagemBatalha, onBack}) {
     useEffect(()=>{
         setQuantidadeItem(1)
     },[quantidadeModal])
+
+    useEffect(()=>{
+        if(quantidadeEvento.evento){
+            const quantidadeEspaco = (quantidadeItem<personagem.inventario.espaco.maximo - personagem.inventario.espaco.atual) && quantidadeEvento.evento === EVENTO.ADICIONAR
+            const quantidadeRemover = (quantidadeItem<itemEscolhido.quantidade) && quantidadeEvento.evento === EVENTO.REMOVER
+            setPodeAdicionarQuantidade(quantidadeEspaco||quantidadeRemover)
+        }
+    },[quantidadeEvento.evento, quantidadeItem])
+
 
     useEffect(()=>{
         !detalhesModal||listaModal ? setItemEscolhido({index: null}) : null
@@ -56,6 +66,7 @@ export function PersonagemInventarioScreen({personagemBatalha, onBack}) {
         ]
         .map((item,i)=>{return{...item, index: i}})
         .filter(item=>item.itemTipo===ITEM_TIPO.CONSUMIVEL)
+        .sort(function (a, b) {return a.id-b.id;})
         .sort(function (a, b) {return b.raridade-a.raridade;});
         setInventario(_inventario)
 
@@ -77,7 +88,7 @@ export function PersonagemInventarioScreen({personagemBatalha, onBack}) {
 
     function handleAumentarQuantidade() {
         playClick(1)
-        if(itemEscolhido.index !== null && quantidadeItem<itemEscolhido.quantidade) {
+        if(itemEscolhido.index !== null && quantidadeItem<itemEscolhido.quantidade && podeAdicionarQuantidade) {
             const _quantidadeItem = quantidadeItem+1
             setQuantidadeItem(_quantidadeItem)
         }
@@ -86,7 +97,7 @@ export function PersonagemInventarioScreen({personagemBatalha, onBack}) {
     function handleDiminuirQuantidade() {
         playClick(1)
         if(itemEscolhido.index !== null) {
-            if(quantidadeItem>0) {
+            if(quantidadeItem>1) {
                 const _quantidadeItem = quantidadeItem-1
                 setQuantidadeItem(_quantidadeItem)
             }
@@ -138,6 +149,7 @@ export function PersonagemInventarioScreen({personagemBatalha, onBack}) {
                     ..._personagem.inventario.filter(item=> item.itemId!=itemEscolhido.id),
                     {
                         itemId: itemEscolhido.id,
+                        itemTipo: itemEscolhido.itemTipo, 
                         quantidade: quantidadeItem + itemAtual.quantidade
                     }
                 ]
@@ -147,7 +159,7 @@ export function PersonagemInventarioScreen({personagemBatalha, onBack}) {
                 ..._personagem,
                 inventario: [
                     ..._personagem.inventario,
-                    {itemId: itemEscolhido.id, quantidade: quantidadeItem}
+                    {itemId: itemEscolhido.id, itemTipo: itemEscolhido.itemTipo, quantidade: quantidadeItem}
                 ]
             }
         }
@@ -249,22 +261,6 @@ export function PersonagemInventarioScreen({personagemBatalha, onBack}) {
         }
     }
 
-    function renderCardItem(item) {
-        return (
-            <li
-            onMouseEnter={()=>playHover(1)}
-            onClick={()=>handleVisualizarItem(item)}
-            style={{background: `var(--card-${item.raridade}-estrelas)`}}
-            >
-                <h1 className="quantidade">x{item.quantidade}</h1>
-                <img src={item.sprite} alt="" />
-                <footer>
-                {renderEstrelas(item.raridade)}
-                </footer>
-            </li>
-        )
-    }
-
     function renderCardInventario(item) {
         return (
             <li
@@ -275,89 +271,53 @@ export function PersonagemInventarioScreen({personagemBatalha, onBack}) {
                 <h1 className="quantidade">x{item.quantidade}</h1>
                 <img src={item.sprite} alt="" />
                 <footer>
-                {renderEstrelas(item.raridade)}
+                    <RaridadeEstrelas quantidade={item.raridade} />
                 </footer>
             </li>
         )
     }
 
-    function renderEstrelas(quantidade) {
-        const estrelasArray = []
-        for(let i=0;i<quantidade;i++) {
-            estrelasArray.push(i)
-         }
-
-        return (
-            <ul className="estrelas">
-            {estrelasArray.map(item=>{
-                return  <img src={ICONS.ESTRELA} key={item} alt="Estrela" />
-            })}
-            </ul>
-        )
-    }
-
-    function renderItemDetalhes(texto, evento) {
-        return (
-            <>
-            {itemEscolhido.index || itemEscolhido.id?
-            <section className="item-detalhes">
-            <>
-                <div className="detalhes">
-                    <div>
-                        <h1 style={
-                            {textShadow: `var(--borda-texto-${itemEscolhido.raridade}-estrelas)`}
-                        }
-                        >{itemEscolhido.nome}</h1>
-                        <h2>Descrição: <span>{itemEscolhido.descricao}</span></h2>
-                        {itemEscolhido.tipo?<h2>Tipo: <span>{itemEscolhido.tipo}</span></h2>:null}
-                        <div>
-                            <h2>Raridade:</h2>
-                            {renderEstrelas(itemEscolhido.raridade)}
-                        </div>
-                        <h2>Quantidade: <span>{itemEscolhido.quantidade}</span></h2>
-                    </div>
-                    <BotaoPrimario onClick={evento}>{texto}</BotaoPrimario>
-                </div>
-                <img src={itemEscolhido.sprite} alt="Sprite do item"/>      
-            </>
-            </section>
-            :
-            <section className="selecionar-item">
-                <h1>Selecione um item no inventário.</h1>
-            </section>
-            }
-            </>
-        )
-    }
-
+    console.log(personagem)
     return (
         <ContainerScreen>
             <BackButton onClick={onBack? ()=>{onBack()} : null}/>
-            <div className="personagem-inventario">
+            <div className="personagem-consumiveis">
             {personagem?
             <>
                 <section className="personagem">
                     <h1>{personagem.nome}</h1>
                     <img src={personagem.sprite} alt="Sprite do personagem" />
                 </section>
-                <section className="inventario-section">
+                <section className="itens-section">
                     <h1 className="titulo">Inventário</h1>
-                    <section className="lista-itens">
-                                <ul>
-                                    {personagem.inventario.itens.length>0?
-                                    <>
-                                    {
-                                        personagem.inventario.itens.map(item=>{
-                                            return renderCardItem(item)
-                                        })
-                                    }
-                                    </>
-                                    :
-                                    <h1>Este personagem não possui itens em seu inventário.</h1>
-                                    }
-                                </ul>
-                            </section>
-                    {!personagemBatalha?<BotaoPrimario onClick={handleAbrirInventario}>Adicionar item</BotaoPrimario>:null}
+                    <div className="lista-itens">
+                        <header className="itens-header">
+                            <h1>Espaço:</h1>
+                            <h2>{personagem.inventario.espaco.atual}/{personagem.inventario.espaco.maximo}</h2>
+                        </header>
+                        <ul className="lista">
+                        {personagem.inventario.itens.length>0?
+                        <>
+                            {personagem.inventario.itens.map(item=> {
+                                return (
+                                    <li key={item.id} onMouseEnter={()=>playHover(2)} className="itens">
+                                        <CardAcao acao={item} onClick={()=>{handleVisualizarItem(item)}}/>
+                                    </li>
+                                )
+                            })
+
+                            }
+                        </>
+                        :
+                        <h1>O personagem não possui consumíveis no seu inventário.</h1>
+                        }
+                        </ul>
+                    </div>
+                    {!personagemBatalha?
+                    <BotaoPrimario onClick={handleAbrirInventario} ativo={personagem.inventario.espaco.atual<personagem.inventario.espaco.maximo}>
+                        Adicionar item
+                    </BotaoPrimario>
+                    :null}
                 </section>
 
                 <ModalItem
@@ -374,19 +334,26 @@ export function PersonagemInventarioScreen({personagemBatalha, onBack}) {
                 itens={inventario}
                 itemEscolhido={itemEscolhido}
                 titulo={"Inventário Geral"}
-                botao={<BotaoPrimario onClick={handleAdicionarQuantidadeModal}>Adicionar</BotaoPrimario>}
+                botao={personagem.inventario.espaco.atual<personagem.inventario.espaco.maximo?
+                <BotaoPrimario onClick={handleAdicionarQuantidadeModal}>Adicionar</BotaoPrimario>
+                :null}
                 functions={{renderCardInventario}}
                 />
                 
                 <Modal isOpen={quantidadeModal} setIsOpen={setQuantidadeModal}>
                     <div className="quantidade-modal">
+                    <BotaoFecharModal setIsOpen={setQuantidadeModal} />
                         <h1>Quantos você gostaria de {quantidadeEvento.texto}?</h1>
                         <div className="quantidade-opcao">
                             Quantidade:
                             <div>
-                                <button onClick={handleDiminuirQuantidade}>-</button>
+                                <BotaoPrimario onClick={handleDiminuirQuantidade} ativo={quantidadeItem>1}>
+                                    -
+                                </BotaoPrimario>
                                 <h1>{quantidadeItem}</h1>
-                                <button onClick={handleAumentarQuantidade}>+</button>
+                                <BotaoPrimario onClick={handleAumentarQuantidade} ativo={podeAdicionarQuantidade}>
+                                    +
+                                </BotaoPrimario>
                             </div>
                         </div>
                         <BotaoPrimario onClick={handleQuantidadeEvento}>Confirmar</BotaoPrimario>

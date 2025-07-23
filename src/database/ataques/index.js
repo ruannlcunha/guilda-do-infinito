@@ -9,9 +9,9 @@ import { RELAMPAGO } from "./relampago/relampago.ataque";
 import { GOLPE_DESARMADO } from "./golpe-desarmado/golpe-desarmado.ataque.data";
 import { JATOS_ACIDO } from "./jatos-acido/jatos-acido.ataque";
 import { TIRO_PRECISO_BALA } from "./tiro-preciso-bala/tiro-preciso-bala.ataque";
-import { TIRO_PRECISO_FLECHA } from "./tiro-preciso-flecha/tiro-preciso-flecha.ataque";
+import { TIRO_PRECISO } from "./tiro-preciso/tiro-preciso.ataque";
 import { TIRO_RAPIDO_BALA } from "./tiro-rapido-bala/tiro-rapido-bala.ataque";
-import { TIRO_RAPIDO_FLECHA } from "./tiro-rapido-flecha/tiro-rapido-flecha.ataque";
+import { TIRO_RAPIDO } from "./tiro-rapido/tiro-rapido.ataque";
 import { TOQUE_SOMBRIO } from "./toque-sombrio/toque-sombrio.ataque";
 import { GOLPE_PESADO } from "./golpe-pesado/golpe-pesado.ataque";
 import { GOLPE_RAPIDO } from "./golpe-rapido/golpe-rapido.ataque";
@@ -78,8 +78,8 @@ export const ATAQUES = {
     ESTACAS_GELO,
     ONDA_AGUA,
     JATOS_ACIDO,
-    TIRO_RAPIDO_FLECHA,
-    TIRO_PRECISO_FLECHA,
+    TIRO_RAPIDO,
+    TIRO_PRECISO,
     TIRO_RAPIDO_BALA,
     TIRO_PRECISO_BALA,
     GOLPE_PRECISO,

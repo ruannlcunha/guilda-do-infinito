@@ -1,25 +1,27 @@
 import ESPADA_CRISTAL_SPRITE from "./ESPADA_CRISTAL_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ITEM_PROFICIENCIA } from "../../../../constants"
-import { ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { EQUIPAMENTO_TIPO, ITEM_TIPO } from "../../../../constants/itens/itens.constant"
 import { createBonusItem } from "../../../../utils/create-bonus-item.util"
+import { ITEM_PROFICIENCIA } from "../../../../constants"
+import { ATAQUES } from "../../../ataques"
+import { BONUS_DADO } from "../../../../constants/personagens/personagem.constant"
 
 export const ESPADA_CRISTAL = {
     id: 15,
     nome: "Espada de Cristal",
-    descricao: "Uma espada com lâmina feita de um cristal resistente.",
+    descricao: "Uma espada de lâmina feita de um aço cristalino muito afiado. Sua lâmina se assemelha a uma jóia, e é muito vista em posse de colecionadores de armas.",
     sprite: ESPADA_CRISTAL_SPRITE,
     raridade: 4,
-    tipo: ITEM_PROFICIENCIA.PESADA,
     santuario: BASE_SANTUARIO,
     itemTipo: ITEM_TIPO.EQUIPAMENTO,
-    equipamentoTipo: "ARMA",
+    proficiencia: ITEM_PROFICIENCIA.PESADA,
+    equipamentoTipo: EQUIPAMENTO_TIPO.ARMA,
     acoes: {
-        ataques: [],
+        ataques: [{ataqueId: ATAQUES.GOLPE_PRECISO.id, variantes: []}],
         habilidades: [],
         talentos: [],
     },
     bonus: [
-        createBonusItem("Força", "forca", 2),
+            createBonusItem("Ataque", BONUS_DADO.ATAQUE, 2),
     ]
 }

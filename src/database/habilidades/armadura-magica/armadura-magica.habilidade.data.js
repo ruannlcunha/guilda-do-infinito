@@ -14,7 +14,7 @@ export const ARMADURA_MAGICA = {
     elemento: ELEMENTOS.ESSENCIA,
     custo: 2,
     tipo: HABILIDADE_TIPO.BUFF,
-    descricao: "Se o alvo não usar Armadura Pesada, ganha +5 de armadura.",
+    descricao: "Se o alvo não usar Armadura Pesada, ganha +2 de armadura.",
     evento: armaduraMagicaEvento,
     alvos: ALVOS.ALIADOS,
     execucao: ACAO_EXECUCAO.PADRAO,

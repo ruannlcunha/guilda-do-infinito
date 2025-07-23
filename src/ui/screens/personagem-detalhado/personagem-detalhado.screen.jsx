@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { BackButton, ContainerScreen } from "../../components"
+import { BackButton, ContainerScreen, RaridadeEstrelas } from "../../components"
 import "./personagem-detalhado.style.css"
 import { useNavigate, useParams } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
@@ -42,21 +42,6 @@ export function PersonagemDetalhadoScreen({personagemBatalha, onBack, setTela}) 
             );
         }
     },[user])
-
-    function renderEstrelas(item) {
-        const estrelasArray = []
-        for(let i=0;i<item.estrelas;i++) {
-            estrelasArray.push(i)
-         }
-
-        return (
-            <>
-            {estrelasArray.map(item=>{
-                return  <img src={ICONS.ESTRELA} key={item} alt="Estrela" />
-            })}
-            </>
-        )
-    }
 
     function renderLosangulo() {
         return <div className="losangulo"></div>
@@ -106,7 +91,7 @@ export function PersonagemDetalhadoScreen({personagemBatalha, onBack, setTela}) 
                     <ul>
                         {!personagemBatalha?renderOpcoes("Evoluir", "evoluir"):null}
                         {renderOpcoes("Equipamento", "equipamentos")}
-                        {renderOpcoes("Inventário", "inventario")}
+                        {renderOpcoes("Consumíveis", "consumiveis")}
                         {renderOpcoes("Ações", "acoes")}
                         {renderOpcoes("Talentos", "talentos")}
                         {!personagemBatalha?renderOpcoes("Visuais", "visuais"):null}
@@ -120,7 +105,7 @@ export function PersonagemDetalhadoScreen({personagemBatalha, onBack, setTela}) 
                     
                     <h1>{personagem.nome}</h1>
                     <h2>{personagem.titulo}</h2>
-                    <div>{renderEstrelas(personagem)}</div>
+                    <div><RaridadeEstrelas quantidade={personagem.raridade}/></div>
                     <h3>Level {personagem.level}<span>/20</span></h3>
                     <div className="barra-experiencia">
                         <h1>Exp.</h1>

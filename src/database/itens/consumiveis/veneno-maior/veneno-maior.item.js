@@ -31,7 +31,7 @@ function venenoMaiorEvento(personagem, alvo, acao, functions) {
 
     const personagemNovo = consumirItem(personagem, acao.id, functions)
     const modificadorAgilidade = {valor: personagem.atributos.agilidade, atributo: "Agilidade"}
-    const resultadoAtaque = atacar(personagemNovo, alvo, modificadorAgilidade, functions)
+    const resultadoAtaque = atacar(personagemNovo, alvo, modificadorAgilidade, acao, functions)
     const modificadores = [{valor: 4, atributo: "Modificador"}]
     const dadoDano = rolarDado(2, 8, modificadores, ELEMENTOS.ACIDO, alvo.elemento)
     

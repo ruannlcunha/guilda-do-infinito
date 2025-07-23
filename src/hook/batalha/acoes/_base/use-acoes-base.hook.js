@@ -6,7 +6,8 @@ import { useToast } from "../../../";
 import { SOUNDS } from "../../../../constants/audios/sounds.constant";
 import { BONUS_DADO, ELEMENTOS } from "../../../../constants/personagens/personagem.constant";
 import { realizarEspecialDuplicata } from "../../../../utils/realizar-condicoes-especiais.util";
-import { getModificadoresAtaque, getModificadoresResistencia } from "../../../../utils/get-modificadores.util";
+import { getModificadoresAtaque, getModificadoresConjuracao, getModificadoresResistencia } from "../../../../utils/get-modificadores.util";
+import { CATEGORIAS_DE_DANO } from "../../../../constants/acoes/acoes.constant";
 
 export function useAcoesBase() {
   const { pularTurno } = usePularTurno();
@@ -178,10 +179,16 @@ export function useAcoesBase() {
     return novoAlvo;
   }
 
-  function atacar(personagem, alvo, modificador, functions, ataquePadrao) {
+  function atacar(personagem, alvo, modificador, acao, functions, ataquePadrao) {
     const novoAlvo = realizarEspecialDuplicata(alvo, functions)
 
-    const modificadores = getModificadoresAtaque([modificador], personagem)
+    let modificadores = []
+    if(acao.categoria===CATEGORIAS_DE_DANO.MAGICO) {
+      modificadores = getModificadoresConjuracao([modificador], personagem)
+    }
+    else {
+      modificadores = getModificadoresAtaque([modificador], personagem)
+    } 
     const dadoRolado = rolarDado(1, 20, modificadores);
 
     const ataque = ataquePadrao ? ataquePadrao : {resultadoDado: dadoRolado.dados[0].resultado, resultadoTotal: dadoRolado.total, modificadores}

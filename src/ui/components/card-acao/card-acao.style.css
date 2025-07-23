@@ -19,10 +19,24 @@
     height: auto;
     width: 15%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border-right: solid 2px var(--dark-blue);
     background-color: var(--blue);
+}
+
+.card-acao .acao-elemento .estrelas {
+    display: flex;
+    width: auto;
+    margin-left: 5px;
+}
+
+.card-acao .acao-elemento .estrelas img{
+    margin: 0;
+    border: none;
+    margin-top: -1.5rem;
+    height: 1.25rem;
 }
 
 .hud-sub-acoes .card-acao .acao-elemento {
@@ -105,6 +119,7 @@ div section div ul .acoes .card-acao:hover section header h1 {
     font-size: 1.5rem;
     color: var(--white);
     text-shadow: var(--borda-texto);
+    margin: 5px 0;
 }
 
 .acao-variantes .card-acao .card-detalhes .card-header .acao-custo h2 {
@@ -113,6 +128,23 @@ div section div ul .acoes .card-acao:hover section header h1 {
 
 .hud-sub-acoes .card-acao .card-detalhes .card-header .acao-custo h2 {
     font-size: 1.25rem;
+    margin: 0;
+}
+
+.card-acao .card-detalhes .card-header .acao-custo h4 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--white);
+    text-shadow: var(--borda-texto);
+    margin: 5px 0;
+}
+
+.acao-variantes .card-acao .card-detalhes .card-header .acao-custo h4 {
+    font-size: 1.25rem;
+}
+
+.hud-sub-acoes .card-acao .card-detalhes .card-header .acao-custo h4 {
+    font-size: 1rem;
     margin: 0;
 }
 

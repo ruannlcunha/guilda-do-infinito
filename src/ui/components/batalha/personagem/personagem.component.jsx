@@ -9,7 +9,7 @@ import DADO_AZUL from "../../../../assets/img/icons/D20.png"
 import DADO_VERMELHO from "../../../../assets/img/icons/D20_VERMELHO.png"
 
 export function Personagem({personagem, idAtivo, animacoes, acaoAtiva, functions, }) {
-
+  console.log(personagem)
   const porcentagemVida = calcularPorcentagem(
     personagem.pv.atual,
     personagem.pv.maximo

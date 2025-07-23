@@ -99,10 +99,8 @@ export const KARMA = {
                 {ataqueId: 31, variantes: []},
             ],
             habilidades: [
-                1,6,
-                HABILIDADES.LANCAR_MALDICAO.id,
-                HABILIDADES.DISSIPAR_BENCAO.id,
-                ,24,25,28,
+                {habilidadeId: HABILIDADES.BENCAO_DIVINA.id, variantes: []},
+                {habilidadeId: HABILIDADES.LANCAR_MALDICAO.id, variantes: []},
             ]
         },
     ],

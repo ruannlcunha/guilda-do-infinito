@@ -30,7 +30,7 @@ function golpeRapidoAcido(personagem, alvo, acao, functions) {
     });
 
     const modificadorForca = {valor: personagem.atributos.forca, atributo: "Força"}
-    const resultadoAtaque = atacar(personagem, alvo, modificadorForca, functions)
+    const resultadoAtaque = atacar(personagem, alvo, modificadorForca, acao, functions)
     const modificadores = getModificadoresDano([modificadorForca], personagem)
     const dado1d6 = rolarDado(1, 6, modificadores, ELEMENTOS.FISICO, alvo.elemento)
     const dado1d6Elemental = rolarDado(1, 6, [], GOLPE_RAPIDO_ACIDO.elemento, alvo.elemento)

@@ -22,6 +22,6 @@
 
 .modal div .botao-fechar-modal:hover {
     transition: all 0.1s;
-    color: var(--light-blue);
-    background-color: var(--light-grey);
+    color: var(--light-grey);
+    background-color: var(--light-blue);
 }

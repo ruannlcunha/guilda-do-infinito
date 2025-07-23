@@ -4,7 +4,7 @@ import { useAcoesBase } from "../../../hook/batalha/acoes/_base/use-acoes-base.h
 import { useRolarDado } from "../../../hook/batalha/rolar-dado/use-rolar-dado.hook";
 import { ACAO_EXECUCAO, ALVOS, ATAQUES_TIPO, CATEGORIAS_DE_DANO } from "../../../constants/acoes/acoes.constant";
 import { ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { getModificadoresAtaque, getModificadoresDano } from "../../../utils/get-modificadores.util";
+import { getModificadoresDano, getModificadoresConjuracao } from "../../../utils/get-modificadores.util";
 import { useCausarCondicao } from "../../../hook/batalha";
 
 const { rolarDado } = useRolarDado();
@@ -35,14 +35,14 @@ function explosaoFogoEvento(personagem, alvos, acao, functions) {
     const personagemNovo = gastarMana(personagem, acao.custo, functions);
     const modificadorMagia = {valor: personagem.atributos.magia, atributo: "Magia"}
     //2. É feito um ataque basico com banner pra demonstrar o valor padrão do ataque
-    const modificadoresAtaque = getModificadoresAtaque([modificadorMagia], personagem)
+    const modificadoresAtaque = getModificadoresConjuracao([modificadorMagia], personagem)
     const dadoPadrao = rolarDado(1, 20, modificadoresAtaque);
     const ataquePadrao = {resultadoDado: dadoPadrao.dados[0].resultado, resultadoTotal: dadoPadrao.total, modificadores: modificadoresAtaque}
     functions.ativarBannerAtaque(ataquePadrao, null, personagem.corTema)
     //3.Usando o valor padrão de ataque, ataca cada um dos alvos, retornando se ele acertou ou não neles
     const ataques = []
     alvos.map(alvo=> {
-      const resultadoAtaque = atacar(personagemNovo, alvo, modificadorMagia, functions, ataquePadrao)
+      const resultadoAtaque = atacar(personagemNovo, alvo, modificadorMagia, acao, functions, ataquePadrao)
       ataques.push(resultadoAtaque)
     })
     const resultadoAtaques = {ataquePadrao, ataques}

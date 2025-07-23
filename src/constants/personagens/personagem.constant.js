@@ -30,6 +30,7 @@ export const ELEMENTOS = {
     NULO: "NULO",
     ESSENCIA: "ESSENCIA",
     FISICO: "FISICO",
+    MENTAL: "MENTAL",
 }
 export const ELEMENTOS_NOMES = {
     FOGO: "Fogo",
@@ -44,6 +45,7 @@ export const ELEMENTOS_NOMES = {
     NULO: "Nulo",
     ESSENCIA: "Essência",
     FISICO: "Físico",
+    MENTAL: "Mental",
 }
 
 export const ELEMENTOS_REACOES = {
@@ -68,11 +70,27 @@ export const TIPO_CONDICAO = {
 export const CATEGORIA_CONDICAO = {
     FISICA: "FISICA",
     MENTAL: "MENTAL",
+    ACAO: "ACAO",
+}
+
+export const RESISTENCIA_DANO = {
+    FOGO: "RESISTENCIA_FOGO",
+    AGUA: "RESISTENCIA_AGUA",
+    ACIDO: "RESISTENCIA_ACIDO",
+    ELETRICO: "RESISTENCIA_ELETRICO",
+    AR: "RESISTENCIA_AR",
+    TERRA: "RESISTENCIA_TERRA",
+    GELO: "RESISTENCIA_GELO",
+    LUZ: "RESISTENCIA_LUZ",
+    TREVAS: "RESISTENCIA_TREVAS",
+    ESSENCIA: "RESISTENCIA_ESSENCIA",
+    FISICO: "RESISTENCIA_FISICO",
+    MENTAL: "RESISTENCIA_MENTAL",
 }
 
 export const BONUS_DADO = {
-    ATAQUE_DANO: "ATAQUE_DANO",
     ATAQUE: "ATAQUE",
+    CONJURACAO: "CONJURACAO",
     DANO: "DANO",
     CURA: "CURA",
     RESISTENCIA_FORCA: "RESISTENCIA_FORCA",
@@ -86,6 +104,11 @@ export const COMPORTAMENTOS = {
     ATACANTE_ESPERTO: "ATACANTE_ESPERTO",
     SUPORTE_ESPERTO: "SUPORTE_ESPERTO",
     SUPORTE_MEDICO: "SUPORTE_MEDICO",
+}
+
+export const IMUNIDADE_TIPO = {
+    DANO: "DANO",
+    CONDICAO: "CONDICAO",
 }
 
 export const CONDICOES = {
@@ -163,7 +186,7 @@ export const CONDICOES = {
         nome: "Armadura Mágica",
         tipo: TIPO_CONDICAO.BUFF,
         categoria: CATEGORIA_CONDICAO.FISICA,
-        descricao: "",
+        descricao: "Personagem recebe +2 em Defesa até o fim do combate.",
         icon: ICONS.CONDICAO_ARMADURA_MAGICA,
     },
     DUPLICATAS: {
@@ -179,23 +202,48 @@ export const CONDICOES = {
         nome: "Abençoado",
         tipo: TIPO_CONDICAO.BUFF,
         categoria: CATEGORIA_CONDICAO.FISICA,
-        descricao: "Sob efeito da habilidade Benção Divina. Recebe +1 em testes de ataque e rolagens de dano.",
+        descricao: "Sob efeito da habilidade Benção Divina. Recebe +1 em Ataque, Conjuração e Dano.",
         icon: ICONS.CONDICAO_ABENCOADO,
     },
     AMALDICOADO: {
         nome: "Amaldiçoado",
         tipo: TIPO_CONDICAO.DEBUFF,
         categoria: CATEGORIA_CONDICAO.FISICA,
-        descricao: "Sob efeito da habilidade Lançar Maldição. Recebe -1 em testes de ataque e rolagens de dano.",
+        descricao: "Sob efeito da habilidade Lançar Maldição. Recebe -1 em Ataque, Conjuração e Dano.",
         icon: ICONS.CONDICAO_AMALDICOADO,
     },
     ATAQUE_ESPECIAL: {
         nome: "Ataque Especial",
         tipo: TIPO_CONDICAO.BUFF,
         categoria: CATEGORIA_CONDICAO.FISICA,
-        descricao: "Sob efeito da habilidade Ataque Especial. Recebe +4 em testes de ataque.",
+        descricao: "Sob efeito da habilidade Ataque Especial. Recebe +4 em Ataque.",
         icon: ICONS.CONDICAO_ATAQUE_ESPECIAL,
         duracao: 1,
         duracaoTitulo: "Turnos",
+    },
+    SORTUDO: {
+        nome: "Sortudo",
+        tipo: TIPO_CONDICAO.BUFF,
+        categoria: CATEGORIA_CONDICAO.FISICA,
+        descricao: "A sorte está ao seu favor. Personagem recebe +1 em Defesa, Ataque, Conjuração e testes de resistência.",
+        icon: ICONS.CONDICAO_SORTUDO,
+        duracao: 4,
+        duracaoTitulo: "Turnos",
+    },
+    PROTEGIDO: {
+        nome: "Protegido",
+        tipo: TIPO_CONDICAO.BUFF,
+        categoria: CATEGORIA_CONDICAO.ACAO,
+        descricao: ".",
+        icon: ICONS.CONDICAO_PROTEGIDO,
+        protetorId: null,
+    },
+    PROTEGENDO: {
+        nome: "Protegendo",
+        tipo: TIPO_CONDICAO.DEBUFF,
+        categoria: CATEGORIA_CONDICAO.ACAO,
+        descricao: ".",
+        icon: ICONS.CONDICAO_PROTEGENDO,
+        protegidoId: null,
     },
 }

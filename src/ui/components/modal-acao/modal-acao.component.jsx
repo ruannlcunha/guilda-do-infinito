@@ -39,6 +39,7 @@ export function ModalAcao({ isOpen, setIsOpen, acao }) {
                                     />
                                 </div>
                             </li>
+                            <li><span>Alvos:</span>{acao.alvos}</li>
                             {acao.categoria?
                             <li><span>Categoria:</span>
                                 {acao.categoria}

@@ -30,7 +30,7 @@ function golpePrecisoEvento(personagem, alvo, acao, functions) {
     });
 
     const modificadorForca = {valor: personagem.atributos.forca, atributo: "Força"}
-    const resultadoAtaque = atacar(personagem, alvo, modificadorForca, functions)
+    const resultadoAtaque = atacar(personagem, alvo, modificadorForca, acao, functions)
     const modificadores = getModificadoresDano([modificadorForca], personagem)
     const dadoDano = rolarDado(1, 8, modificadores, GOLPE_PRECISO.elemento, alvo.elemento)
     

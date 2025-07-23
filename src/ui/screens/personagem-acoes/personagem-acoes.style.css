@@ -103,11 +103,11 @@
 }
 
 .personagem-acoes .acoes-section .lista-acoes ul {
-    height: 95%;
     width: 100%;
     padding: 0;
     margin: 0;
     list-style: none;
+    overflow-y: auto;
 }
 
 .personagem-acoes .acoes-section .lista-acoes ul .acoes:hover {

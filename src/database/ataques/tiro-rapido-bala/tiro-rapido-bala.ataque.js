@@ -30,7 +30,7 @@ function tiroRapidoBalaEvento(personagem, alvo, acao, functions) {
     });
 
     const modificadorAgilidade = {valor: personagem.atributos.agilidade, atributo: "Agilidade"}
-    const resultadoAtaque = atacar(personagem, alvo, modificadorAgilidade, functions)
+    const resultadoAtaque = atacar(personagem, alvo, modificadorAgilidade, acao, functions)
     const modificadores = getModificadoresDano([modificadorAgilidade], personagem)
     const dadoDano = rolarDado(2, 6, modificadores, TIRO_RAPIDO_BALA.elemento, alvo.elemento)
     

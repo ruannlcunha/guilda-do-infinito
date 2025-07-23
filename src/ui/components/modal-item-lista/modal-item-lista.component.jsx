@@ -5,6 +5,7 @@ import { useSound } from "../../../hook"
 import { BotaoPrimario } from "../botao-primario/botao-primario.component"
 import { Modal } from "../modal/modal.component"
 import "./modal-item-lista.style.css"
+import { RaridadeEstrelas } from "../"
 
 export function ModalItemLista({modalIsOpen, setModalIsOpen, categoria, itens, filtroItem, itemEscolhido, titulo, botao, functions}) {
     const { playClick } = useSound()
@@ -13,21 +14,6 @@ export function ModalItemLista({modalIsOpen, setModalIsOpen, categoria, itens, f
     function handleFecharModal() {
         playClick(1)
         setModalIsOpen(false)
-    }
-
-    function renderEstrelas(quantidade) {
-        const estrelasArray = []
-        for(let i=0;i<quantidade;i++) {
-            estrelasArray.push(i)
-         }
-
-        return (
-            <ul className="estrelas">
-            {estrelasArray.map(item=>{
-                return  <img src={ICONS.ESTRELA} key={item} alt="Estrela" />
-            })}
-            </ul>
-        )
     }
 
     function renderDetalhes() {
@@ -47,7 +33,7 @@ export function ModalItemLista({modalIsOpen, setModalIsOpen, categoria, itens, f
                         {itemEscolhido.tipo?<h2>Tipo: <span>{itemEscolhido.tipo}</span></h2>:null}
                         <div>
                             <h2>Raridade:</h2>
-                            {renderEstrelas(itemEscolhido.raridade)}
+                            <RaridadeEstrelas quantidade={itemEscolhido.raridade}/>
                         </div>
                         {itemEscolhido.quantidade&&itemEscolhido.itemTipo!==ITEM_TIPO.EQUIPAMENTO?
                             <h2>Quantidade: <span>{itemEscolhido.quantidade}</span></h2>
@@ -91,7 +77,7 @@ export function ModalItemLista({modalIsOpen, setModalIsOpen, categoria, itens, f
         </>
         )
     }
-
+    console.log(itens)
     function renderLista() {
         return (
             <>

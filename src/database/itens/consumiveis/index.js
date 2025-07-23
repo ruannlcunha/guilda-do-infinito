@@ -24,6 +24,7 @@ export const CONSUMIVEIS = {
     ELIXIR_SUPREMO,
     VENENO,
     VENENO_MAIOR,
+    TREVO_SORTE,
 }
 
 export const CONSUMIVEIS_DATA = Object.values(CONSUMIVEIS)

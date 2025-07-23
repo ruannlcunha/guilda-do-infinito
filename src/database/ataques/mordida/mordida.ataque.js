@@ -30,7 +30,7 @@ function mordida(personagem, alvo, acao, functions) {
     });
 
     const modificadorForca = {valor: personagem.atributos.forca, atributo: "Força"}
-    const resultadoAtaque = atacar(personagem, alvo, modificadorForca, functions)
+    const resultadoAtaque = atacar(personagem, alvo, modificadorForca, acao, functions)
     const modificadores = getModificadoresDano([modificadorForca], personagem)
     const dadoDano = rolarDado(1, 6, modificadores, MORDIDA.elemento, alvo.elemento)
     

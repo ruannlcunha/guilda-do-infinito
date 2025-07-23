@@ -1,0 +1,11 @@
+
+.container-screen div .estrelas {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    margin-left: 5px;
+}
+
+.container-screen div .estrelas img {
+    height: 1rem;
+}

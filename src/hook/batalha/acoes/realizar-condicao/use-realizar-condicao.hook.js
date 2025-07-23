@@ -2,9 +2,11 @@ import { CONDICOES } from "../../../../constants/personagens/personagem.constant
 import { getRandomInt } from "../../../../utils";
 import { aumentarTurno, diminuirTurno } from "../../../../utils/alterar-turnos.util";
 import { useRolarDado } from "../../rolar-dado/use-rolar-dado.hook"
+import { useAcoesBase } from "../_base/use-acoes-base.hook";
 
 export function useRealizarCondicao() {
-    const {rolarDado} = useRolarDado()
+    const { rolarDado } = useRolarDado()
+    const { alterarPersonagem } = useAcoesBase()
 
     function realizarEnvenenado(personagem, functions) {
         if(personagem.condicoes.some(condicao=>condicao.nome===CONDICOES.ENVENENADO.nome)) {
@@ -204,6 +206,81 @@ export function useRealizarCondicao() {
         return personagem
     }
 
+    function realizarSortudo(personagem, functions) {
+        if(personagem.condicoes.some(condicao=>condicao.nome===CONDICOES.SORTUDO.nome)) {
+
+            const condicaoSortudo = personagem.condicoes.find(condicao=>condicao.nome === CONDICOES.SORTUDO.nome)
+            const novasCondicoes = [...personagem.condicoes.filter(condicao=>condicao.nome !== CONDICOES.SORTUDO.nome)]
+            if((condicaoSortudo.duracao)>0) {
+                novasCondicoes.push({...condicaoSortudo, duracao: (condicaoSortudo.duracao)-1})
+                const novoPersonagem = {
+                    ...personagem,
+                    condicoes: novasCondicoes,
+                }
+                return novoPersonagem
+            }
+            else {
+                functions.adicionarLog(`A sorte de ${personagem.nome} passou. 
+                    El${personagem.pronomes.minusculo_1} já não está mais se sentindo sortud${personagem.pronomes.minusculo_2}.`)
+                const novaDefesa = (personagem.defesa)-1
+                const novoBonusDado = [...personagem.bonusDado.filter(bonus=>bonus.condicao !== CONDICOES.SORTUDO.nome)]
+                const novoPersonagem = {
+                    ...personagem,
+                    defesa: novaDefesa,
+                    bonusDado: novoBonusDado,
+                    condicoes: novasCondicoes,
+                }
+                return novoPersonagem
+            }
+        }
+        return personagem
+    }
+
+    function realizarProtegido(personagem, functions) {
+        const condicao = personagem.condicoes.find(condicao=>condicao.nome === CONDICOES.PROTEGIDO.nome)
+        if(condicao) {
+            const novasCondicoes = [...personagem.condicoes.filter(condicao=>condicao.nome !== CONDICOES.PROTEGIDO.nome)]
+            if(condicao.protetorId === personagem.idCombate) {
+                functions.adicionarLog(`${personagem.nome} deixou de se defender.`)
+                const novaDefesa = (personagem.defesa)-2
+                const novoPersonagem = {
+                    ...personagem,
+                    defesa: novaDefesa,
+                    condicoes: novasCondicoes,
+                }
+                return novoPersonagem
+            }
+        }
+        return personagem
+    }
+
+    function realizarProtegendo(personagem, functions, personagens) {
+        const condicao = personagem.condicoes.find(condicao=>condicao.nome === CONDICOES.PROTEGENDO.nome)
+        if(condicao) {
+            const novasCondicoes = [...personagem.condicoes.filter(condicao=>condicao.nome !== CONDICOES.PROTEGENDO.nome)]
+            const protegido = personagens.find(_personagem => _personagem.idCombate === condicao.protegidoId)
+            if(protegido) {
+                functions.adicionarLog(`${personagem.nome} não está mais defendendo ${protegido.nome}.`)
+                const novasCondicoesProtegido = [...protegido.condicoes
+                    .filter(condicao=>(condicao.nome !== CONDICOES.PROTEGIDO.nome) && condicao.protetorId === personagem.idCombate)]
+                const novoProtegido = {
+                    ...protegido,
+                    defesa: (protegido.defesa)-2,
+                    condicoes: novasCondicoesProtegido,
+                }
+                alterarPersonagem(functions, novoProtegido)
+            }
+            const novaDefesa = (personagem.defesa)+2
+            const novoPersonagem = {
+                ...personagem,
+                defesa: novaDefesa,
+                condicoes: novasCondicoes,
+            }
+            return novoPersonagem
+        }
+        return personagem
+    }
+
     return [
         realizarEnvenenado,
         realizarQueimando,
@@ -213,6 +290,9 @@ export function useRealizarCondicao() {
         realizarLento,
         realizarVeloz,
         realizarAtaqueEspecial,
+        realizarSortudo,
+        realizarProtegido,
+        realizarProtegendo,
     ]
 
 }

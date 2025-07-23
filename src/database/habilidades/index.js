@@ -3,10 +3,12 @@ import { AREIA_MOVEDICA } from "./areia-modevica/areia-modevica.habilidade.data"
 import { ARMADURA_MAGICA } from "./armadura-magica/armadura-magica.habilidade.data";
 import { ATAQUE_ESPECIAL } from "./ataque-especial/ataque-especial.habilidade.data";
 import { BENCAO_DIVINA } from "./bencao-divina/bencao-divina.habilidade.data";
+import { CHAMAR_SORTE } from "./chamar-sorte/chamar-sorte.habilidade.data";
 import { CHOQUE_PARALISANTE } from "./choque-paralisante/choque-paralisante.habilidade.data";
 import { CONGELAR } from "./congelar/congelar.habilidade.data";
 import { CURA_MAOS } from "./cura-maos/cura-maos.habilidade.data";
 import { CURAR_FERIMENTOS } from "./curar-ferimentos/curar-ferimentos.habilidade.data";
+import { DEFENDER } from "./defender/defender.habilidade.data";
 import { DISSIPAR_BENCAO } from "./dissipar-bencao/dissipar-bencao.habilidade.data";
 import { DUPLICATA_ILUSORIA } from "./duplicata-ilusoria/duplicata-ilusoria.habilidade.data";
 import { ESFERA_ATORDOANTE } from "./esfera-atordoante/esfera-atordoante.habilidade.data";
@@ -34,6 +36,8 @@ export const HABILIDADES = {
     DISSIPAR_BENCAO,
     REANIMAR,
     ATAQUE_ESPECIAL,
+    CHAMAR_SORTE,
+    DEFENDER,
 }
 
 export const HABILIDADES_DATA = Object.values(HABILIDADES)

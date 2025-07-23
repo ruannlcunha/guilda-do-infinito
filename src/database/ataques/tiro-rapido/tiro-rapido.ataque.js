@@ -9,9 +9,9 @@ import { getModificadoresDano } from "../../../utils/get-modificadores.util";
 const { rolarDado } = useRolarDado();
 const { iniciarEfeito, causarDano, finalizarAcao, atacar, realizarEtapasAtaque } = useAcoesBase();
 
-export const TIRO_RAPIDO_FLECHA = {
+export const TIRO_RAPIDO = {
     id: 17,
-    nome: "Tiro Rápido (Flecha)",
+    nome: "Tiro Rápido",
     dadoDeDano: "1d6+AGI",
     tipo: ATAQUES_TIPO.ATAQUE_PURO,
     descricao: "Um tiro rápido de flecha vindo à distância.",
@@ -30,21 +30,21 @@ function tiroRapidoFlechaEvento(personagem, alvo, acao, functions) {
     });
 
     const modificadorAgilidade = {valor: personagem.atributos.agilidade, atributo: "Agilidade"}
-    const resultadoAtaque = atacar(personagem, alvo, modificadorAgilidade, functions)
+    const resultadoAtaque = atacar(personagem, alvo, modificadorAgilidade, acao, functions)
     const modificadores = getModificadoresDano([modificadorAgilidade], personagem)
-    const dadoDano = rolarDado(1, 6, modificadores, TIRO_RAPIDO_FLECHA.elemento, alvo.elemento)
+    const dadoDano = rolarDado(1, 6, modificadores, TIRO_RAPIDO.elemento, alvo.elemento)
     
     realizarEtapasAtaque(
       ()=>{
         functions.ativarBannerRolagem([...dadoDano.dados], modificadores, dadoDano.total, personagem, resultadoAtaque, alvo)
       },
       ()=>{
-        const novoAlvo = causarDano(resultadoAtaque.alvo, [dadoDano], resultadoAtaque, TIRO_RAPIDO_FLECHA, functions);
+        const novoAlvo = causarDano(resultadoAtaque.alvo, [dadoDano], resultadoAtaque, TIRO_RAPIDO, functions);
         const duracao = iniciarEfeito(novoAlvo, functions, EFFECTS.TIRO, ACOES_AUDIO.FLECHA);
         finalizarAcao(functions, novoAlvo, duracao);
       },
       ()=>{
         finalizarAcao(functions, resultadoAtaque.alvo, 0);
-      }, resultadoAtaque, functions, personagem, alvo, TIRO_RAPIDO_FLECHA,
+      }, resultadoAtaque, functions, personagem, alvo, TIRO_RAPIDO,
     )
   }

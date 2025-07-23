@@ -33,7 +33,7 @@ function bolhaVenenoEvento(personagem, alvo, acao, functions) {
 
     const personagemNovo = gastarMana(personagem, acao.custo, functions);
     const modificadorMagia = {valor: personagem.atributos.magia, atributo: "Magia"}
-    const resultadoAtaque = atacar(personagemNovo, alvo, modificadorMagia, functions)
+    const resultadoAtaque = atacar(personagemNovo, alvo, modificadorMagia, acao, functions)
     const modificadores = getModificadoresDano([modificadorMagia], personagem)
     const dadoDano = rolarDado(1, 8, modificadores, BOLHA_VENENO.elemento, alvo.elemento)
     

@@ -28,7 +28,7 @@ function dissiparBencao(personagem, alvo, acao, functions) {
       if(alvo.condicoes.some(condicao=>condicao.tipo===TIPO_CONDICAO.BUFF && condicao.categoria === CATEGORIA_CONDICAO.FISICA)) {
         const personagemNovo = gastarMana(personagem, acao.custo, functions);
         const modificadorMagia = {valor: personagem.atributos.magia, atributo: "Magia"}
-        const resultadoAtaque = atacar(personagemNovo, alvo, modificadorMagia, functions)
+        const resultadoAtaque = atacar(personagemNovo, alvo, modificadorMagia, acao, functions)
         realizarEtapasAtaqueSemDano(
           ()=>{
             functions.adicionarLog(`${alvo.nome} teve suas condições positivas removidas pela habilidade ${DISSIPAR_BENCAO.nome}.`)

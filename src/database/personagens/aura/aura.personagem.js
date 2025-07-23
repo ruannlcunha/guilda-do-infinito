@@ -3,6 +3,8 @@ import AURA_1_PERFIL from "./assets/AURA_1_PERFIL.png"
 import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
 import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
+import { BOLA_DE_FOGO } from "../../ataques/bola-de-fogo/bola-de-fogo.ataque";
+import { ATAQUES } from "../../ataques";
 
 export const AURA = {
     ..._BASE_ORIGINAL,
@@ -98,6 +100,7 @@ export const AURA = {
                 {ataqueId: 14, variantes: []},
                 {ataqueId: 15, variantes: []},
                 {ataqueId: 30, variantes: []},
+                {ataqueId: ATAQUES.BOLA_DE_FOGO.id, variantes: []},
             ],
             habilidades: [
                 {habilidadeId: 13, variantes: []},

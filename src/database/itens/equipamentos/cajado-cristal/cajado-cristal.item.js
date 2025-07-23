@@ -1,25 +1,27 @@
 import CAJADO_CRISTAL_SPRITE from "./CAJADO_CRISTAL_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ITEM_PROFICIENCIA } from "../../../../constants"
-import { ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { EQUIPAMENTO_TIPO, ITEM_TIPO } from "../../../../constants/itens/itens.constant"
 import { createBonusItem } from "../../../../utils/create-bonus-item.util"
+import { ITEM_PROFICIENCIA } from "../../../../constants"
+import { ATAQUES } from "../../../ataques"
+import { BONUS_DADO } from "../../../../constants/personagens/personagem.constant"
 
 export const CAJADO_CRISTAL = {
     id: 47,
     nome: "Cajado de Cristal",
-    descricao: "Um cajado cristalino que facilita a concentração de mana.",
+    descricao: "Um cajado dourado com um núcleo arcano em forma de um lindo cristal carregado de mana. É muito visto na posse de magos de alto escalão do reino.",
     sprite: CAJADO_CRISTAL_SPRITE,
     raridade: 4,
-    tipo: ITEM_PROFICIENCIA.LEVE,
     santuario: BASE_SANTUARIO,
     itemTipo: ITEM_TIPO.EQUIPAMENTO,
-    equipamentoTipo: "ARMA",
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
+    equipamentoTipo: EQUIPAMENTO_TIPO.ARMA,
     acoes: {
-        ataques: [],
+        ataques: [{ataqueId: ATAQUES.GOLPE_RAPIDO.id, variantes: []}],
         habilidades: [],
         talentos: [],
     },
     bonus: [
-        createBonusItem("Magia", "magia", 2),
+            createBonusItem("Conjuração", BONUS_DADO.CONJURACAO, 2),
     ]
 }

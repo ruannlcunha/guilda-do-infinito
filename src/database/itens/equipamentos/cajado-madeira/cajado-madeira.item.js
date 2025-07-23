@@ -1,25 +1,27 @@
 import CAJADO_MADEIRA_SPRITE from "./CAJADO_MADEIRA_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ITEM_PROFICIENCIA } from "../../../../constants"
-import { ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { EQUIPAMENTO_TIPO, ITEM_TIPO } from "../../../../constants/itens/itens.constant"
 import { createBonusItem } from "../../../../utils/create-bonus-item.util"
+import { ITEM_PROFICIENCIA } from "../../../../constants"
+import { BONUS_DADO } from "../../../../constants/personagens/personagem.constant"
+import { ATAQUES } from "../../../ataques"
 
 export const CAJADO_MADEIRA = {
     id: 3,
     nome: "Cajado de Madeira",
-    descricao: "Um simples cajado de madeira.",
+    descricao: "Um simples cajado de madeira. Muito usado por druídas, que obtém sua mana pela magia da Natureza.",
     sprite: CAJADO_MADEIRA_SPRITE,
     raridade: 3,
-    tipo: ITEM_PROFICIENCIA.LEVE,
     santuario: BASE_SANTUARIO,
     itemTipo: ITEM_TIPO.EQUIPAMENTO,
-    equipamentoTipo: "ARMA",
+    proficiencia: ITEM_PROFICIENCIA.LEVE,
+    equipamentoTipo: EQUIPAMENTO_TIPO.ARMA,
     acoes: {
-        ataques: [],
+        ataques: [{ataqueId: ATAQUES.GOLPE_RAPIDO.id, variantes: []}],
         habilidades: [],
         talentos: [],
     },
     bonus: [
-        createBonusItem("Magia", "magia", 1),
+        createBonusItem("Conjuração", BONUS_DADO.CONJURACAO, 1),
     ]
 }

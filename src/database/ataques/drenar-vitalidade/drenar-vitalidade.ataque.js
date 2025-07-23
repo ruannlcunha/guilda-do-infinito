@@ -34,7 +34,7 @@ function drenarVitalidade(personagem, alvo, acao, functions) {
     const modificadores = getModificadoresDano([modificadorMagia], personagem)
     const dadoDano = rolarDado(3, 6, modificadores, DRENAR_VITALIDADE.elemento, alvo.elemento)
     const personagemNovo = gastarMana(personagem, acao.custo, functions);
-    const resultadoAtaque = atacar(personagemNovo, alvo, modificadorMagia, functions)
+    const resultadoAtaque = atacar(personagemNovo, alvo, modificadorMagia, acao, functions)
     
     realizarEtapasAtaque(
       ()=>{

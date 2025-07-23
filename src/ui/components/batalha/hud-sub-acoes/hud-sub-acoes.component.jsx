@@ -167,7 +167,9 @@ export function HUDSubAcoes({subAcoes, personagem, personagens, functions}) {
               <header className="sub-acoes-header">{subAcoes.titulo}</header>
               <section className="sub-acoes-section">
                 {subAcoes.acoesAtuais
-                  ? subAcoes.acoesAtuais.map((subAcao, index) => {
+                  ? subAcoes.acoesAtuais
+                  .sort((a, b) => a.nome.localeCompare(b.nome))
+                  .map((subAcao, index) => {
                       const estaBloqueado = subAcao.custo ? (personagem.pm.atual < subAcao.custo) : false;
                       return (
                           <li

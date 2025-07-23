@@ -2,7 +2,18 @@ import { BONUS_DADO } from "../constants/personagens/personagem.constant";
 
 export function getModificadoresAtaque(modificadores, personagem) {
     const totalBonusDado = personagem.bonusDado
-    .filter(bonus=>bonus.tipo===BONUS_DADO.ATAQUE||bonus.tipo===BONUS_DADO.ATAQUE_DANO)
+    .filter(bonus=>bonus.tipo===BONUS_DADO.ATAQUE)
+    .reduce((acc, obj) => acc + obj.modificador, 0);
+
+    if(totalBonusDado>0) {
+        return [...modificadores, {valor: totalBonusDado, atributo: "Modificador"}]
+    }
+    return [...modificadores]
+}
+
+export function getModificadoresConjuracao(modificadores, personagem) {
+    const totalBonusDado = personagem.bonusDado
+    .filter(bonus=>bonus.tipo===BONUS_DADO.CONJURACAO)
     .reduce((acc, obj) => acc + obj.modificador, 0);
 
     if(totalBonusDado>0) {
@@ -13,7 +24,7 @@ export function getModificadoresAtaque(modificadores, personagem) {
 
 export function getModificadoresDano(modificadores, personagem) {
     const totalBonusDado = personagem.bonusDado
-    .filter(bonus=>bonus.tipo===BONUS_DADO.DANO||bonus.tipo===BONUS_DADO.ATAQUE_DANO)
+    .filter(bonus=>bonus.tipo===BONUS_DADO.DANO)
     .reduce((acc, obj) => acc + obj.modificador, 0);
 
     if(totalBonusDado>0) {

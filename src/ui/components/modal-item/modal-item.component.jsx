@@ -2,6 +2,7 @@ import { ICONS } from "../../../constants/images"
 import { useSound } from "../../../hook"
 import { BotaoPrimario } from "../botao-primario/botao-primario.component"
 import { Modal } from "../modal/modal.component"
+import { RaridadeEstrelas } from "../raridade-estrelas/raridade-estrelas.component"
 import "./modal-item.style.css"
 
 export function ModalItem({detalhesModal, setDetalhesModal, itemEscolhido, botao}) {
@@ -10,21 +11,6 @@ export function ModalItem({detalhesModal, setDetalhesModal, itemEscolhido, botao
     function handleFecharModal() {
         playClick(1)
         setDetalhesModal(false)
-    }
-
-    function renderEstrelas(quantidade) {
-        const estrelasArray = []
-        for(let i=0;i<quantidade;i++) {
-            estrelasArray.push(i)
-         }
-
-        return (
-            <ul className="estrelas">
-            {estrelasArray.map(item=>{
-                return  <img src={ICONS.ESTRELA} key={item} alt="Estrela" />
-            })}
-            </ul>
-        )
     }
 
     function renderItemDetalhes() {
@@ -42,8 +28,11 @@ export function ModalItem({detalhesModal, setDetalhesModal, itemEscolhido, botao
                         {itemEscolhido.tipo?<h2>Tipo: <span>{itemEscolhido.tipo}</span></h2>:null}
                         <div>
                             <h2>Raridade:</h2>
-                            {renderEstrelas(itemEscolhido.raridade)}
+                            <RaridadeEstrelas quantidade={itemEscolhido.raridade}/>
                         </div>
+                        {itemEscolhido.alvos?
+                            <h2>Alvos: <span>{itemEscolhido.alvos}</span></h2>
+                        :null}
                         {itemEscolhido.quantidade?
                             <h2>Quantidade: <span>{itemEscolhido.quantidade}</span></h2>
                         :null}
@@ -53,7 +42,7 @@ export function ModalItem({detalhesModal, setDetalhesModal, itemEscolhido, botao
                             <ul>
                                 {
                                 itemEscolhido.bonus.map(bonus=>{
-                                    return <li>
+                                    return <li key={bonus}>
                                         <img src={bonus.icon} alt="Ícone do atributo bônus" />
                                         +{bonus.valor} de {bonus.nome}
                                         </li>

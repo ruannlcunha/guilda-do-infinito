@@ -127,6 +127,16 @@
     color: var(--light-grey);
 }
 
+.personagem-detalhado .personagem-info .estrelas {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+}
+
+.personagem-detalhado .personagem-info .estrelas img {
+    height: 1.5rem;
+}
+
 .personagem-detalhado .personagem-info ul {
     list-style: none;
     padding: 0;

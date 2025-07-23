@@ -135,7 +135,7 @@ export const NERO = {
             talentos: [],
             ataques: [
                 {ataqueId: 19, variantes: []},
-                {ataqueId: 20, variantes: []},
+                {ataqueId: 19, variantes: []},
                 {ataqueId: 2, variantes: []},
             ],
             habilidades: []
@@ -147,7 +147,7 @@ export const NERO = {
             talentos: [],
             ataques: [
                 {ataqueId: 19, variantes: []},
-                {ataqueId: 20, variantes: []},
+                {ataqueId: 19, variantes: []},
                 {ataqueId: 2, variantes: []},
             ],
             habilidades: []
@@ -159,7 +159,7 @@ export const NERO = {
             talentos: [],
             ataques: [
                 {ataqueId: 19, variantes: []},
-                {ataqueId: 20, variantes: []},
+                {ataqueId: 19, variantes: []},
                 {ataqueId: 2, variantes: []},
                 {ataqueId: 55, variantes: []},
             ],

@@ -19,10 +19,9 @@ import { MACHADO_FERRO } from "./machado-ferro/machado-ferro.item";
 import { MACHADO_MADEIRA } from "./machado-madeira/machado-madeira.item";
 import { MANOPLA_RUBI } from "./manopla-rubi/manopla-rubi.item";
 import { MANOPLA_TERRA } from "./manopla-terra/manopla-terra.item";
-import { MARRETA_MADEIRA } from "./marreta-madeira/marreta-madeira.item";
 import { ARMADURA_FLORESTA } from "./armadura-floresta/armadura-floresta.item";
 import { ARMADURA_ADAMANTE } from "./armadura-adamante/armadura-adamante.item";
-import { ANEL_COBRA_OURO } from "./anel-cobra-ouro/anel-cobra-ouro.item";
+import { ANEL_SERPENTE } from "./anel-serpente/anel-serpente.item";
 import { ANEL_DRAGAO } from "./anel-dragao/anel-dragao.item";
 import { ANEL_GELO } from "./anel-gelo/anel-gelo.item";
 import { ESCUDO_MADEIRA } from "./escudo-madeira/escudo-madeira.item";
@@ -39,7 +38,7 @@ import { MANTO_LUXUOSO } from "./manto-luxuoso/manto-luxuoso.item";
 import { COLAR_AMETISTA } from "./colar-ametista/colar-ametista.item";
 import { COLAR_CELESTIAL } from "./colar-celestial/colar-celestial.item";
 import { COLAR_DEMONIACO } from "./colar-demoniaco/colar-demoniaco.item";
-import { BOTAS_ELFICAS } from "./botas-elficas/botas-elficas.item";
+import { BOTAS_MENSAGEIRO } from "./botas-mensageiro/botas-mensageiro.item";
 import { ANJO_CAIDO } from "./anjo-caido/anjo-caido.item";
 
 export const EQUIPAMENTOS = {
@@ -63,10 +62,9 @@ export const EQUIPAMENTOS = {
     MACHADO_MADEIRA,
     MANOPLA_RUBI,
     MANOPLA_TERRA,
-    MARRETA_MADEIRA,
     ARMADURA_FLORESTA,
     ARMADURA_ADAMANTE,
-    ANEL_COBRA_OURO,
+    ANEL_SERPENTE,
     ANEL_DRAGAO,
     ANEL_GELO,
     ESCUDO_MADEIRA,
@@ -83,7 +81,7 @@ export const EQUIPAMENTOS = {
     COLAR_AMETISTA,
     COLAR_CELESTIAL,
     COLAR_DEMONIACO,
-    BOTAS_ELFICAS,
+    BOTAS_MENSAGEIRO,
     ANJO_CAIDO,
     LANCA_MAGMA,
 }

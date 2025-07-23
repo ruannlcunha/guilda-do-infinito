@@ -1,27 +1,27 @@
 import ESPADA_FERRO_SPRITE from "./ESPADA_FERRO_SPRITE.png"
 import BASE_SANTUARIO from "../_assets/BASE_SANTUARIO.png"
-import { ITEM_PROFICIENCIA } from "../../../../constants"
-import { ITEM_TIPO } from "../../../../constants/itens/itens.constant"
+import { EQUIPAMENTO_TIPO, ITEM_TIPO } from "../../../../constants/itens/itens.constant"
 import { createBonusItem } from "../../../../utils/create-bonus-item.util"
+import { ITEM_PROFICIENCIA } from "../../../../constants"
 import { BONUS_DADO } from "../../../../constants/personagens/personagem.constant"
+import { ATAQUES } from "../../../ataques"
 
 export const ESPADA_FERRO = {
     id: 4,
     nome: "Espada de Ferro",
-    descricao: "Uma simples espada de ferro.",
+    descricao: "Uma espada com a lâmina feita de ferro. Feita em massa pelos reinos para armar seus guardas, mas também é bem vista utilizada por aventureiros.",
     sprite: ESPADA_FERRO_SPRITE,
     raridade: 3,
-    tipo: ITEM_PROFICIENCIA.PESADA,
     santuario: BASE_SANTUARIO,
     itemTipo: ITEM_TIPO.EQUIPAMENTO,
-    equipamentoTipo: "ARMA",
+    proficiencia: ITEM_PROFICIENCIA.PESADA,
+    equipamentoTipo: EQUIPAMENTO_TIPO.ARMA,
     acoes: {
-        ataques: [],
+        ataques: [{ataqueId: ATAQUES.GOLPE_PRECISO.id, variantes: []}],
         habilidades: [],
         talentos: [],
     },
     bonus: [
-        createBonusItem("Força", "forca", 1),
-        createBonusItem("Teste de ataque", BONUS_DADO.ATAQUE, 1),
+        createBonusItem("Dano", BONUS_DADO.DANO, 1),
     ]
 }

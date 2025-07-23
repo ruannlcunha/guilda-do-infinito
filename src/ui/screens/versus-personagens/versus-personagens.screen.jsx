@@ -281,6 +281,7 @@ export function VersusPersonagensScreen() {
     function renderCardPersonagem(personagem) {
         return (
             <li
+            key={personagem.id}
             onMouseEnter={()=>playHover(1)}
             className={personagem.id===personagemEscolhido.id?"card-escolhido":null}
             onClick={()=>handleEscolherCard(personagem)}
@@ -324,7 +325,9 @@ export function VersusPersonagensScreen() {
 
     function renderPersonagemEscolhido(isAliado, personagem) {
         return (
-            <div style={{
+            <div
+            key={personagem}
+            style={{
             background: `radial-gradient(circle, var(--black) 10%, var(--${
                 personagem?personagem.corTema:"tema-cinza"
             }) 100%)`,
@@ -341,7 +344,7 @@ export function VersusPersonagensScreen() {
 
     function renderAtributo(texto, valor, icon) {
         return (
-            <li>
+            <li key={texto}>
                 <div>
                     <img src={icon} alt="" />
                     {texto}:

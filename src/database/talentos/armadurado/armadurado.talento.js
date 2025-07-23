@@ -1,4 +1,5 @@
-import { ARMADURA_TIPO } from "../../../constants/itens/itens.constant"
+
+import { ITEM_PROFICIENCIA } from "../../../constants"
 import { ELEMENTOS } from "../../../constants/personagens/personagem.constant"
 import { getArmadura } from "../../../utils"
 
@@ -13,7 +14,7 @@ export const ARMADURADO = {
 function armaduradoEvento(personagem) {
     const armaduraAtual = getArmadura(personagem)
     if(armaduraAtual) {
-        if(armaduraAtual.tipo === ARMADURA_TIPO.PESADA) {    
+        if(armaduraAtual.proficiencia === ITEM_PROFICIENCIA.PESADA) {    
             const novoPersonagem = {
                 ...personagem,
                 defesa: personagem.defesa+2,

@@ -30,7 +30,7 @@ async function ataqueEspecialEvento(personagem, alvo, acao, functions) {
       const alvoCorreto = personagem.idCombate===alvo.idCombate ? personagemNovo : alvo
       functions.adicionarLog(`${personagem.nome} usou ${ATAQUE_ESPECIAL.nome} em si mesmo.`)
       const novoAlvo =  causarAtaqueEspecial(alvoCorreto, ATAQUE_ESPECIAL, functions)
-      const duracao = iniciarEfeito(novoAlvo, functions, EFFECTS.FUMACA_1, ACOES_AUDIO.FOLEGO);
+      const duracao = iniciarEfeito(novoAlvo, functions, EFFECTS.ATAQUE_ESPECIAL, ACOES_AUDIO.CURA);
       finalizarAcaoLivre(functions, novoAlvo, duracao);
       return duracao
 

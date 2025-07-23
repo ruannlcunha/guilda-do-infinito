@@ -48,9 +48,9 @@ export const equipamentosProntosData = [
             id: 4,
             nome: "Kit de Combatente 5*",
             arma: null,
-            armadura: null,
-            acessorio1: null,
-            acessorio2: null,
+            armadura: EQUIPAMENTOS.ARMADURA_DIVINA.id,
+            acessorio1: EQUIPAMENTOS.ESCUDO_FERRO.id,
+            acessorio2: EQUIPAMENTOS.ANEL_SERPENTE.id,
             consumiveis: [
                 {itemId: 1, quantidade: 1},
                 {itemId: 2, quantidade: 1},
@@ -63,6 +63,7 @@ export const equipamentosProntosData = [
                 {itemId: CONSUMIVEIS.ELIXIR_SUPREMO.id, quantidade: 1},
                 {itemId: CONSUMIVEIS.VENENO.id, quantidade: 1},
                 {itemId: CONSUMIVEIS.VENENO_MAIOR.id, quantidade: 1},
+                {itemId: CONSUMIVEIS.TREVO_SORTE.id, quantidade: 1},
             ],
         },
         {

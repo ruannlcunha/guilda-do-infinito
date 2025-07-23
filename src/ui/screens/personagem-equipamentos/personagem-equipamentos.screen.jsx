@@ -1,17 +1,17 @@
 import "./personagem-equipamentos.style.css"
-import { BackButton, BotaoPrimario, ContainerScreen, ModalItemLista } from "../../components"
+import { BackButton, BotaoPrimario, ContainerScreen, ModalItemLista, RaridadeEstrelas } from "../../components"
 import { useParams } from "react-router-dom"
 import useGlobalUser from "../../../context/global-user.context"
 import { useEffect, useState } from "react"
 import { instanciarPersonagem } from "../../../utils"
 import { ICONS } from "../../../constants/images"
-import { EQUIPAMENTO_TIPO, ITEM_TIPO } from "../../../constants/itens/itens.constant"
+import { ITEM_TIPO } from "../../../constants/itens/itens.constant"
 import { EQUIPAMENTOS_DATA } from "../../../database"
 import { useSound } from "../../../hook"
 import { cheatTodosItens, cheatTodosPersonagens } from "../../../utils/cheats-testes.util"
 
 export function PersonagemEquipamentosScreen({personagemBatalha, onBack}) {
-    const { personagemId, equipamentoTipo } = useParams()
+    const { personagemId, equipamentoCategoria } = useParams()
     const [user, setUser] = useGlobalUser()
     const { playClick, playHover } = useSound()
     const [novoUser, setNovoUser] = useState(null)
@@ -20,14 +20,20 @@ export function PersonagemEquipamentosScreen({personagemBatalha, onBack}) {
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [filtroItem, setFiltroItem] = useState({atributo: null, tipo: null})
     const [itemEscolhido, setItemEscolhido] = useState({index: null})
+    const EQUIPAMENTO_CATEGORIA = {
+        ARMA: {titulo: "Arma",atributo: "arma",tipo: "ARMA",icon: ICONS.ARMA},
+        ARMADURA: {titulo: "Armadura",atributo: "armadura",tipo: "ARMADURA",icon: ICONS.ARMADURA},
+        ACESSORIO_1: {titulo: "Acessório",atributo: "acessorio1",tipo: "ACESSORIO",icon: ICONS.ANEL},
+        ACESSORIO_2: {titulo: "Acessório",atributo: "acessorio2",tipo: "ACESSORIO",icon: ICONS.ANEL},
+    }
 
     useEffect(()=>{
         const userTodosPersonagens = cheatTodosPersonagens(user)
         const userTodosItens = cheatTodosItens(userTodosPersonagens)
         const _user = userTodosItens
         setNovoUser(_user)
-        if(equipamentoTipo) {
-            handleAbrirModal(EQUIPAMENTO_TIPO[equipamentoTipo])
+        if(equipamentoCategoria) {
+            handleAbrirModal(EQUIPAMENTO_CATEGORIA[equipamentoCategoria])
         }
     },[])
 
@@ -60,7 +66,7 @@ export function PersonagemEquipamentosScreen({personagemBatalha, onBack}) {
         const _equipamentos = [
             ..._user.inventario.map(item=> {
                 return {
-                ...EQUIPAMENTOS_DATA.find(data=> data.id===item.itemId),
+                ...EQUIPAMENTOS_DATA.find(itemData=> (itemData.id===item.itemId) && (itemData.itemTipo===item.itemTipo)),
                 personagemEquipadoId: item.personagemEquipadoId,
                 quantidade: item.quantidade,
                 }
@@ -240,20 +246,6 @@ export function PersonagemEquipamentosScreen({personagemBatalha, onBack}) {
             </div>
         )
     }
-    function renderEstrelas(quantidade) {
-        const estrelasArray = []
-        for(let i=0;i<quantidade;i++) {
-            estrelasArray.push(i)
-         }
-
-        return (
-            <ul className="estrelas">
-            {estrelasArray.map(item=>{
-                return  <img src={ICONS.ESTRELA} key={item} alt="Estrela" />
-            })}
-            </ul>
-        )
-    }
 
     function renderCardItem(item) {
         const _personagem = novoUser.personagens.find(person=>person.personagemId===item.personagemEquipadoId)
@@ -273,7 +265,7 @@ export function PersonagemEquipamentosScreen({personagemBatalha, onBack}) {
 
                 <img src={item.sprite} alt="" />
                 <footer>
-                {renderEstrelas(item.raridade)}
+                <RaridadeEstrelas quantidade={item.raridade}/>
                 </footer>
             </li>
         )
@@ -296,10 +288,10 @@ export function PersonagemEquipamentosScreen({personagemBatalha, onBack}) {
                 <section className="equipamento-section">
                     <h1 className="titulo">Equipamentos</h1>
                     <section>
-                    {renderCardEquipamento(EQUIPAMENTO_TIPO.ARMA)}
-                    {renderCardEquipamento(EQUIPAMENTO_TIPO.ARMADURA)}
-                    {renderCardEquipamento(EQUIPAMENTO_TIPO.ACESSORIO_1)}
-                    {renderCardEquipamento(EQUIPAMENTO_TIPO.ACESSORIO_2)}
+                    {renderCardEquipamento(EQUIPAMENTO_CATEGORIA.ARMA)}
+                    {renderCardEquipamento(EQUIPAMENTO_CATEGORIA.ARMADURA)}
+                    {renderCardEquipamento(EQUIPAMENTO_CATEGORIA.ACESSORIO_1)}
+                    {renderCardEquipamento(EQUIPAMENTO_CATEGORIA.ACESSORIO_2)}
                     </section>
                     {!personagemBatalha?
                         <BotaoPrimario
