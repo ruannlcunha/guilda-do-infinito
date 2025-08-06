@@ -1,0 +1,7 @@
+import LOBISOMEM_SPRITE from "./FORMA_LOBISOMEM_SPRITE.png"
+import LOBISOMEM_PERFIL from "./FORMA_LOBISOMEM_PERFIL.png"
+
+export const PADRAO_FORMA_LUPINA = {
+    personagemId: null,
+    LOBISOMEM: {sprite: LOBISOMEM_SPRITE, perfil: LOBISOMEM_PERFIL},
+}

@@ -1,117 +1,114 @@
-
 .personagem-acoes {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    background:
-    url(../../../assets/img/textures/CLOUDS.png),
-    linear-gradient(var(--fundo-tema) 25%, var(--white) 100%);
-    background-size: 110%;
-    animation: leftToRight 60s alternate-reverse infinite ease-in-out;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background: url(../../../assets/img/textures/CLOUDS.png), linear-gradient(var(--fundo-tema) 25%, var(--white) 100%);
+  background-size: 110%;
+  animation: leftToRight 60s alternate-reverse infinite ease-in-out;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
 }
 
 .personagem-acoes .personagem {
-    width: 40%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-right: solid 1.5rem var(--background-text);
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: solid 1.5rem var(--background-text);
 }
 
 .personagem-acoes .personagem img {
-    width: 95%;
+  width: 95%;
 }
 
 .personagem-acoes .personagem h1 {
-    position: absolute;
-    top: 5%;
-    font-size: 3rem;
-    font-weight: 100;
+  position: absolute;
+  top: 5%;
+  font-size: 3rem;
+  font-weight: 100;
 }
 
 .personagem-acoes .acoes-section {
-    width: 60%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: var(--white-transparent);
-    box-shadow: var(--box-interior);
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--white-transparent);
+  box-shadow: var(--box-interior);
 }
 
 .personagem-acoes .acoes-section .titulo {
-    margin: 0;
-    margin-top: 1rem;
-    font-weight: 100;
-    font-size: 2.7rem;
-    text-align: center;
-    width: 75%;
-    border-bottom: solid 2px var(--background-text);
+  margin: 0;
+  margin-top: 1rem;
+  font-weight: 100;
+  font-size: 2.7rem;
+  text-align: center;
+  width: 75%;
+  border-bottom: solid 2px var(--background-text);
 }
 
 .personagem-acoes .acoes-section .lista-acoes {
-    width: 75%;
-    height: 80%;
-    background-color: var(--background-text);
-    border: solid 2px var(--dark-blue);
-    border-radius: 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 75%;
+  height: 80%;
+  background-color: var(--background-text);
+  border: solid 2px var(--dark-blue);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .personagem-acoes .acoes-section .lista-acoes ul h1 {
-    text-align: center;
-    font-size: 2rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
 .personagem-acoes .acoes-section .lista-acoes .acoes-header {
-    height: 5%;
-    width: 100%;
-    background-color: var(--dark-blue);
-    display: flex;
-    align-items: center;
+  height: 5%;
+  width: 100%;
+  background-color: var(--dark-blue);
+  display: flex;
+  align-items: center;
 }
 
 .personagem-acoes .acoes-section .lista-acoes .acoes-header button {
-    width: 50%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: none;
-    border: none;
-    color: var(--white);
-    text-shadow: var(--borda-texto);
-    font-size: 1.75rem;
-    border-bottom: solid 2px var(--dark-blue);
-    opacity: 50%;
-    transition: all 0.1s;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--white);
+  text-shadow: var(--borda-texto);
+  font-size: 1.75rem;
+  border-bottom: solid 2px var(--dark-blue);
+  opacity: 50%;
+  transition: all 0.1s;
 }
 
 .personagem-acoes .acoes-section .lista-acoes .acoes-header button:hover {
-    transition: all 0.1s;
-    color: var(--light-blue);
-    border-bottom: solid 2px var(--light-blue);
-    opacity: 100%;
+  transition: all 0.1s;
+  color: var(--light-blue);
+  border-bottom: solid 2px var(--light-blue);
+  opacity: 100%;
 }
 
 .personagem-acoes .acoes-section .lista-acoes ul {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    overflow-y: auto;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow-y: auto;
 }
 
 .personagem-acoes .acoes-section .lista-acoes ul .acoes:hover {
-    transition: all 0.1s;
-    filter: brightness(75%) saturate(115%) contrast(125%);
-    cursor: var(--cursor-pointer);
+  transition: all 0.1s;
+  filter: brightness(75%) saturate(115%) contrast(125%);
+  cursor: var(--cursor-pointer);
 }

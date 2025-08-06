@@ -1,0 +1,16 @@
+import URSO_CORA_SPRITE from "./URSO_CORA_SPRITE.png"
+import URSO_CORA_PERFIL from "./URSO_CORA_PERFIL.png"
+import LOBO_CORA_SPRITE from "./LOBO_CORA_SPRITE.png"
+import LOBO_CORA_PERFIL from "./LOBO_CORA_PERFIL.png"
+import AGUIA_CORA_SPRITE from "./AGUIA_CORA_SPRITE.png"
+import AGUIA_CORA_PERFIL from "./AGUIA_CORA_PERFIL.png"
+import ARANHA_CORA_SPRITE from "./ARANHA_CORA_SPRITE.png"
+import ARANHA_CORA_PERFIL from "./ARANHA_CORA_PERFIL.png"
+
+export const CORA_FORMA_ANIMAL = {
+    personagemId: 41,
+    URSO: {sprite: URSO_CORA_SPRITE, perfil: URSO_CORA_PERFIL},
+    LOBO: {sprite: LOBO_CORA_SPRITE, perfil: LOBO_CORA_PERFIL},
+    AGUIA: {sprite: AGUIA_CORA_SPRITE, perfil: AGUIA_CORA_PERFIL},
+    ARANHA: {sprite: ARANHA_CORA_SPRITE, perfil: ARANHA_CORA_PERFIL},
+}

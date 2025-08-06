@@ -1,201 +1,196 @@
-
-
 div .modal .modal-personagem-lista {
-    width: 90%;
-    height: 90%;
-    background-color: var(--fundo-janela);
-    box-shadow: var(--box-interior);
-    border: double 5px var(--blue);
+  width: 90%;
+  height: 90%;
+  background-color: var(--fundo-janela);
+  box-shadow: var(--box-interior);
+  border: double 5px var(--blue);
 }
 
 div .modal .modal-personagem-lista header {
-    height: 10%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 div .modal .modal-personagem-lista header h1 {
-    margin: 0 2rem;
-    font-size: 3rem;
-    font-weight: 100;
-    display: flex;
-    align-items: self-end;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
+  margin: 0 2rem;
+  font-size: 3rem;
+  font-weight: 100;
+  display: flex;
+  align-items: self-end;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
 }
 
 div .modal .modal-personagem-lista header button {
-    background-color: var(--white);
-    border: none;
-    border-bottom: double 5px var(--blue);
-    border-left: double 5px var(--blue);
-    font-size: 2rem;
-    font-family: textFont, sans-serif;
-    height: 2.5rem;
-    width: 2.5rem;
-    padding: 0;
-    color: var(--blue);
-    transition: all 0.1s;
+  background-color: var(--white);
+  border: none;
+  border-bottom: double 5px var(--blue);
+  border-left: double 5px var(--blue);
+  font-size: 2rem;
+  font-family: textFont, sans-serif;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0;
+  color: var(--blue);
+  transition: all 0.1s;
 }
 
 div .modal .modal-personagem-lista header button:hover {
-    background-color: var(--light-blue);
-    transition: all 0.1s;
+  background-color: var(--light-blue);
+  transition: all 0.1s;
 }
 
 div .modal .modal-personagem-lista section {
-    width: 100%;
-    height: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 div .modal .modal-personagem-lista section .lista-personagens {
-    width: 40%;
-    height: 90%;
-    display: flex;
-    align-items: self-start;
-    justify-content: flex-start;
-    background-color: var(--blue-grey);
-    box-shadow: var(--light-grey) 0px 0px 5px 2px;
-    border-radius: 5px;
-    overflow-y: auto;
+  width: 40%;
+  height: 90%;
+  display: flex;
+  align-items: self-start;
+  justify-content: flex-start;
+  background-color: var(--blue-grey);
+  box-shadow: var(--light-grey) 0px 0px 5px 2px;
+  border-radius: 5px;
+  overflow-y: auto;
 }
 
 div .modal .modal-personagem-lista section .lista-personagens ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 div .modal .modal-personagem-lista section .lista-personagens ul li {
-    height: 7rem;
-    width: 6rem;
-    background: var(--card-4-estrelas);
-    margin: 0.5rem;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-    border: solid 2px var(--black);
-    transition: all 0.1s;
+  height: 7rem;
+  width: 6rem;
+  background: var(--card-4-estrelas);
+  margin: 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  border: solid 2px var(--black);
+  transition: all 0.1s;
 }
 
 div .modal .modal-personagem-lista section .lista-personagens ul .card-escolhido {
-    box-shadow: var(--box-brilho)
+  box-shadow: var(--box-brilho);
 }
 
 div .modal .modal-personagem-lista section .lista-personagens ul .card-escolhido header img {
-    height: 110%;
-    right: 17%;
+  height: 110%;
+  right: 17%;
 }
 
 div .modal .modal-personagem-lista section .lista-personagens ul li:hover {
-    transition: all 0.1s;
-    box-shadow: var(--box-brilho);
-    cursor: var(--cursor-pointer);
+  transition: all 0.1s;
+  box-shadow: var(--box-brilho);
+  cursor: var(--cursor-pointer);
 }
 
 div .modal .modal-personagem-lista section .lista-personagens ul li header {
-    height: 35%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: -35%;
+  height: 35%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: -35%;
 }
 
 div .modal .modal-personagem-lista section .lista-personagens ul li header img {
-    margin: 5px;
-    position: relative;
-    transition: all 0.1s;
-    width: auto;
+  margin: 5px;
+  position: relative;
+  transition: all 0.1s;
+  width: auto;
 }
 
 div .modal .modal-personagem-lista section .lista-personagens ul li header .elemento-icon {
-    height: 100%;
-    right: 15%;
+  height: 100%;
+  right: 15%;
 }
 
 div .modal .modal-personagem-lista section .lista-personagens ul li header .aliado-icon {
-    height: 75%;
-    left: 10%;
+  height: 75%;
+  left: 10%;
 }
 
 div .modal .modal-personagem-lista section .lista-personagens ul li:hover header .elemento-icon {
-    transition: all 0.1s;
-    height: 110%;
-    right: 17%;
+  transition: all 0.1s;
+  height: 110%;
+  right: 17%;
 }
 
 div .modal .modal-personagem-lista section .lista-personagens ul li img {
-    height: 6vw;
-    width: 6vw;
+  height: 6vw;
+  width: 6vw;
 }
 
 div .modal .modal-personagem-lista section .lista-personagens ul li footer {
-    height: 20%;
-    width: 100%;
-    background-color: var(--white);
-    border-radius: 0 0 5px 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px -25px 36px -20px inset;
-    margin-top: -20%;
+  height: 20%;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 0 0 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -25px 36px -20px inset;
+  margin-top: -20%;
 }
 
 div .modal .modal-personagem-lista section .personagem-selecionado {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 div .modal .modal-personagem-lista section .personagem-selecionado img {
-    height: 80%;
-    width: auto;
+  height: 80%;
+  width: auto;
 }
 
 div .modal .modal-personagem-lista section .personagem-selecionado h1 {
-    position: absolute;
-    top: 1rem;
-    font-weight: 100;
-    font-size: 3rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
+  position: absolute;
+  top: 1rem;
+  font-weight: 100;
+  font-size: 3rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
 }
 
 div .modal .modal-personagem-lista section .personagem-selecionado button {
-    margin: 0.5rem 0;
+  margin: 0.5rem 0;
 }
 
-
 @media screen and (max-height: 479px) {
+  div .modal .modal-personagem-lista section .personagem-selecionado img {
+    height: 70%;
+  }
 
-    div .modal .modal-personagem-lista section .personagem-selecionado img {
-        height: 70%;
-    }
-    
-    div .modal .modal-personagem-lista section .personagem-selecionado h1 {
-        font-size: 2.5rem;
-    }
+  div .modal .modal-personagem-lista section .personagem-selecionado h1 {
+    font-size: 2.5rem;
+  }
 
-    div .modal .modal-personagem-lista section .lista-personagens section ul li {
-        height: 6rem;
-        width: 5rem;
-    }
+  div .modal .modal-personagem-lista section .lista-personagens section ul li {
+    height: 6rem;
+    width: 5rem;
+  }
 
-    div .modal .modal-personagem-lista section .lista-personagens section ul li footer {
-        font-size: 1rem;
-    }
-  
+  div .modal .modal-personagem-lista section .lista-personagens section ul li footer {
+    font-size: 1rem;
+  }
 }

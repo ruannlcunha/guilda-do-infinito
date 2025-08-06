@@ -1,0 +1,7 @@
+import LOBISOMEM_CORA_SPRITE from "./LOBISOMEM_CORA_SPRITE.png"
+import LOBISOMEM_CORA_PERFIL from "./LOBISOMEM_CORA_PERFIL.png"
+
+export const CORA_FORMA_LUPINA = {
+    personagemId: 41,
+    LOBISOMEM: {sprite: LOBISOMEM_CORA_SPRITE, perfil: LOBISOMEM_CORA_PERFIL},
+}

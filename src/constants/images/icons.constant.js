@@ -80,6 +80,8 @@ import LOGS_ATIVO from "../../assets/img/icons/LOGS_ATIVO.png";
 import LOGS_INATIVO from "../../assets/img/icons/LOGS_INATIVO.png";
 import SETA_VANTAGEM from "../../assets/img/icons/SETA_VANTAGEM.png";
 import SETA_DESVANTAGEM from "../../assets/img/icons/SETA_DESVANTAGEM.png";
+import EM_AREA from "../../assets/img/icons/EM_AREA.png";
+import BONUS_DADO from "../../assets/img/icons/BONUS_DADO.png";
 import CONDICAO_ENVENENADO from "../../assets/img/icons/CONDICAO_ENVENENADO.png";
 import CONDICAO_QUEIMANDO from "../../assets/img/icons/CONDICAO_QUEIMANDO.png";
 import CONDICAO_CONGELADO from "../../assets/img/icons/CONDICAO_CONGELADO.png";
@@ -93,11 +95,28 @@ import CONDICAO_DUPLICATAS from "../../assets/img/icons/CONDICAO_DUPLICATAS.png"
 import CONDICAO_ABENCOADO from "../../assets/img/icons/CONDICAO_ABENCOADO.png";
 import CONDICAO_AMALDICOADO from "../../assets/img/icons/CONDICAO_AMALDICOADO.png";
 import CONDICAO_ATAQUE_ESPECIAL from "../../assets/img/icons/CONDICAO_ATAQUE_ESPECIAL.png";
+import CONDICAO_ATAQUE_PODEROSO from "../../assets/img/icons/CONDICAO_ATAQUE_PODEROSO.png";
 import CONDICAO_SORTUDO from "../../assets/img/icons/CONDICAO_SORTUDO.png";
 import CONDICAO_PROTEGENDO from "../../assets/img/icons/CONDICAO_PROTEGENDO.png";
 import CONDICAO_PROTEGIDO from "../../assets/img/icons/CONDICAO_PROTEGIDO.png";
-import EM_AREA from "../../assets/img/icons/EM_AREA.png";
-import BONUS_DADO from "../../assets/img/icons/BONUS_DADO.png";
+import CONDICAO_FRACO from "../../assets/img/icons/CONDICAO_FRACO.png";
+import CONDICAO_ABALADO from "../../assets/img/icons/CONDICAO_ABALADO.png";
+import CONDICAO_FATIGADO from "../../assets/img/icons/CONDICAO_FATIGADO.png";
+import CONDICAO_ESCONDIDO from "../../assets/img/icons/CONDICAO_ESCONDIDO.png";
+import CONDICAO_ATAQUE_DIVINO_LUZ from "../../assets/img/icons/CONDICAO_ATAQUE_DIVINO_LUZ.png";
+import CONDICAO_ATAQUE_DIVINO_TREVAS from "../../assets/img/icons/CONDICAO_ATAQUE_DIVINO_TREVAS.png";
+import CONDICAO_ENCANTAR_ARMA from "../../assets/img/icons/CONDICAO_ENCANTAR_ARMA.png";
+import CONDICAO_ABENCOAR_ARMA from "../../assets/img/icons/CONDICAO_ABENCOAR_ARMA.png";
+import CONDICAO_PROTECAO_ARCANA from "../../assets/img/icons/CONDICAO_PROTECAO_ARCANA.png";
+import CONDICAO_PROTECAO_DIVINA from "../../assets/img/icons/CONDICAO_PROTECAO_DIVINA.png";
+import CONDICAO_INSPIRADO from "../../assets/img/icons/CONDICAO_INSPIRADO.png";
+import CONDICAO_MARCA_CACADOR from "../../assets/img/icons/CONDICAO_MARCA_CACADOR.png";
+import CONDICAO_FURIA from "../../assets/img/icons/CONDICAO_FURIA.png";
+import CONDICAO_ATAQUE_AGIL from "../../assets/img/icons/CONDICAO_ATAQUE_AGIL.png";
+import CONDICAO_VOANDO from "../../assets/img/icons/CONDICAO_VOANDO.png";
+import CONDICAO_FORMA_ANIMAL from "../../assets/img/icons/CONDICAO_FORMA_ANIMAL.png";
+import CONDICAO_FORMA_LUPINA from "../../assets/img/icons/CONDICAO_FORMA_LUPINA.png";
+import CONDICAO_REGENERACAO from "../../assets/img/icons/CONDICAO_REGENERACAO.png";
 
 export const ICONS = {
   TITULO,
@@ -183,6 +202,8 @@ export const ICONS = {
   LOGS_INATIVO,
   SETA_VANTAGEM,
   SETA_DESVANTAGEM,
+  EM_AREA,
+  BONUS_DADO,
   CONDICAO_ENVENENADO,
   CONDICAO_QUEIMANDO,
   CONDICAO_CONGELADO,
@@ -196,10 +217,26 @@ export const ICONS = {
   CONDICAO_ABENCOADO,
   CONDICAO_AMALDICOADO,
   CONDICAO_ATAQUE_ESPECIAL,
+  CONDICAO_ATAQUE_PODEROSO,
   CONDICAO_SORTUDO,
   CONDICAO_PROTEGENDO,
   CONDICAO_PROTEGIDO,
-  EM_AREA,
-  BONUS_DADO,
+  CONDICAO_FRACO,
+  CONDICAO_ABALADO,
+  CONDICAO_FATIGADO,
+  CONDICAO_ESCONDIDO,
+  CONDICAO_ATAQUE_DIVINO_LUZ,
+  CONDICAO_ATAQUE_DIVINO_TREVAS,
+  CONDICAO_ENCANTAR_ARMA,
+  CONDICAO_ABENCOAR_ARMA,
+  CONDICAO_PROTECAO_ARCANA,
+  CONDICAO_PROTECAO_DIVINA,
+  CONDICAO_INSPIRADO,
+  CONDICAO_MARCA_CACADOR,
+  CONDICAO_FURIA,
+  CONDICAO_ATAQUE_AGIL,
+  CONDICAO_VOANDO,
+  CONDICAO_FORMA_ANIMAL,
+  CONDICAO_FORMA_LUPINA,
+  CONDICAO_REGENERACAO,
 };
-  

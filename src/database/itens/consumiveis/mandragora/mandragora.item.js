@@ -10,12 +10,12 @@ const { rolarDado } = useRolarDado();
 const { iniciarEfeito, restaurarVida, finalizarAcao, consumirItem, informarErro } = useAcoesBase();
 
 export const MANDRAGORA = {
-    id: 13,
-    nome: "Madrágora",
-    descricao: `Uma pequena planta mágica que ao ser acordada seus gritos podem causar a condição "Atordoado" no inimigo por 1d6 rodadas.`,
-    evento: ()=>{},
-    alvos: "INIMIGOS",
-    sprite: "/guilda-do-infinito/src/database/itens/consumiveis/mandragora/MANDRAGORA.png",
-    raridade: 4,
-    itemTipo: ITEM_TIPO.CONSUMIVEL,
-}
+  id: 13,
+  nome: "Madrágora",
+  descricao: `Uma pequena planta mágica que ao ser acordada seus gritos podem causar a condição "Atordoado" no inimigo por 1d6 rodadas.`,
+  evento: () => {},
+  alvos: "INIMIGOS",
+  sprite: "/guilda-do-infinito/src/database/itens/consumiveis/mandragora/MANDRAGORA.png",
+  raridade: 4,
+  itemTipo: ITEM_TIPO.CONSUMIVEL
+};

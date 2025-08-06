@@ -1,23 +1,23 @@
 {
-    "nome": "",
-    "pronomes": null,
-    "visualId": null,
-    "moedas": 0,
-    "bencaos": 0,
-    "modos": {
-        "capituloEscolhido": null,
-        "historia": [],
-        "cosmos": null,
-        "versus": {
-            "aliados": [],
-            "inimigos": [],
-            "mapa": null
-        }
-    },
-    "personagens": [],
-    "inventario": [],
-    "configuracoes": {
-        "somEfeitos": 10,
-        "somMusica": 10
+  "nome": "",
+  "pronomes": null,
+  "visualId": null,
+  "moedas": 0,
+  "bencaos": 0,
+  "modos": {
+    "capituloEscolhido": null,
+    "historia": [],
+    "cosmos": null,
+    "versus": {
+      "aliados": [],
+      "inimigos": [],
+      "mapa": null
     }
+  },
+  "personagens": [],
+  "inventario": [],
+  "configuracoes": {
+    "somEfeitos": 10,
+    "somMusica": 10
+  }
 }

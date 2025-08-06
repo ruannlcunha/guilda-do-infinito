@@ -28,7 +28,7 @@
   height: 25%;
 }
 
-@media screen and (orientation:portrait) {
+@media screen and (orientation: portrait) {
   .container-screen {
     width: 0;
     height: 0;

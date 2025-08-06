@@ -2,32 +2,30 @@ import useGlobalUser from "../../../context/global-user.context";
 import { instanciarPersonagem } from "../../../utils";
 
 export function useInstanciarPersonagens() {
-  const [user] = useGlobalUser()
+  const [user] = useGlobalUser();
 
   function instanciarPersonagens(aliadosData, inimigosData) {
     const aliados = aliadosData.map((personagem, index) => {
-      const personagemAtual = personagem.personagemId !== 1 ? personagem :
-      user.personagens.find(item => item.personagemId === 1)
-      const novoPersonagem = instanciarPersonagem(personagemAtual)
+      const personagemAtual = personagem.personagemId !== 1 ? personagem : user.personagens.find((item) => item.personagemId === 1);
+      const novoPersonagem = instanciarPersonagem(personagemAtual);
       return {
         ...novoPersonagem,
         posicaoEmCampo: index + 1,
         idCombate: index + 1,
         ordemInicial: index + 1,
         isInimigo: false,
-        isMorto: false,
+        isMorto: false
       };
     });
 
     const inimigos = inimigosData.map((personagem, index) => {
-      const personagemAtual = personagem.personagemId !== 1 ? personagem :
-      user.personagens.find(item => item.personagemId === 1)
-      const novoPersonagem = instanciarPersonagem(personagemAtual)
+      const personagemAtual = personagem.personagemId !== 1 ? personagem : user.personagens.find((item) => item.personagemId === 1);
+      const novoPersonagem = instanciarPersonagem(personagemAtual);
       return {
         ...novoPersonagem,
         posicaoEmCampo: index + 1,
         isInimigo: true,
-        isMorto: false,
+        isMorto: false
       };
     });
 
@@ -40,6 +38,7 @@ export function useInstanciarPersonagens() {
         defesaEffect: null,
         testeResistencia: null,
         acoesExtras: [],
+        usouAcaoExtra: false
       };
     });
 

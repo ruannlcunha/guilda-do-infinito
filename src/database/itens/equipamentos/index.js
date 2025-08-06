@@ -1,14 +1,14 @@
 import { ESPADA_FERRO } from "./espada-ferro/espada-ferro.item";
 import { ESPADA_ADAMANTE } from "./espada-adamante/espada-adamante.item";
 import { DEVORADORA_ALMAS } from "./devoradora-almas/devoradora-almas.item";
-import { ARMADURA_FERRO } from "./armadura-ferro/armadura-ferro.item"
-import { ARMADURA_DIVINA } from "./armadura-divina/armadura-divina.item"
-import { ANEL_VIGOR } from "./anel-vigor/anel-vigor.item"
-import { ANEL_VIGOR_PRATA } from "./anel-vigor-prata/anel-vigor-prata.item"
-import { ANEL_VIGOR_DOURADO } from "./anel-vigor-dourado/anel-vigor-dourado.item"
-import { ADAGA_CRISTAL } from "./adaga-cristal/adaga-cristal.item"
-import { ARCO_CRISTAL } from "./arco-cristal/arco-cristal.item"
-import { ARCO_MADEIRA } from "./arco-madeira/arco-madeira.item"
+import { ARMADURA_FERRO } from "./armadura-ferro/armadura-ferro.item";
+import { ARMADURA_DIVINA } from "./armadura-divina/armadura-divina.item";
+import { ANEL_VIGOR } from "./anel-vigor/anel-vigor.item";
+import { ANEL_VIGOR_PRATA } from "./anel-vigor-prata/anel-vigor-prata.item";
+import { ANEL_VIGOR_DOURADO } from "./anel-vigor-dourado/anel-vigor-dourado.item";
+import { ADAGA_CRISTAL } from "./adaga-cristal/adaga-cristal.item";
+import { ARCO_CRISTAL } from "./arco-cristal/arco-cristal.item";
+import { ARCO_MADEIRA } from "./arco-madeira/arco-madeira.item";
 import { ARCO_MAGMA } from "./arco-magma/arco-magma.item";
 import { CAJADO_MADEIRA } from "./cajado-madeira/cajado-madeira.item";
 import { ESPADA_CRISTAL } from "./espada-cristal/espada-cristal.item";
@@ -42,48 +42,48 @@ import { BOTAS_MENSAGEIRO } from "./botas-mensageiro/botas-mensageiro.item";
 import { ANJO_CAIDO } from "./anjo-caido/anjo-caido.item";
 
 export const EQUIPAMENTOS = {
-    ESPADA_FERRO,
-    ESPADA_ADAMANTE,
-    DEVORADORA_ALMAS,
-    ARMADURA_FERRO,
-    ARMADURA_DIVINA,
-    ANEL_VIGOR,
-    ANEL_VIGOR_PRATA,
-    ANEL_VIGOR_DOURADO,
-    ADAGA_CRISTAL,
-    ARCO_CRISTAL,
-    ARCO_MADEIRA,
-    ARCO_MAGMA,
-    CAJADO_MADEIRA,
-    ESPADA_CRISTAL,
-    ESPADA_MADEIRA,
-    ESPADA_MAGMA,
-    MACHADO_FERRO,
-    MACHADO_MADEIRA,
-    MANOPLA_RUBI,
-    MANOPLA_TERRA,
-    ARMADURA_FLORESTA,
-    ARMADURA_ADAMANTE,
-    ANEL_SERPENTE,
-    ANEL_DRAGAO,
-    ANEL_GELO,
-    ESCUDO_MADEIRA,
-    ESCUDO_MAGMA,
-    ESCUDO_SOLAR,
-    PATA_COELHO,
-    ESCUDO_FERRO,
-    CAJADO_CRISTAL,
-    CAJADO_SOMBRIO,
-    CAJADO_ANCIAO,
-    MANTO_VELHO,
-    MANTO_ELFICO,
-    MANTO_LUXUOSO,
-    COLAR_AMETISTA,
-    COLAR_CELESTIAL,
-    COLAR_DEMONIACO,
-    BOTAS_MENSAGEIRO,
-    ANJO_CAIDO,
-    LANCA_MAGMA,
-}
+  ESPADA_FERRO,
+  ESPADA_ADAMANTE,
+  DEVORADORA_ALMAS,
+  ARMADURA_FERRO,
+  ARMADURA_DIVINA,
+  ANEL_VIGOR,
+  ANEL_VIGOR_PRATA,
+  ANEL_VIGOR_DOURADO,
+  ADAGA_CRISTAL,
+  ARCO_CRISTAL,
+  ARCO_MADEIRA,
+  ARCO_MAGMA,
+  CAJADO_MADEIRA,
+  ESPADA_CRISTAL,
+  ESPADA_MADEIRA,
+  ESPADA_MAGMA,
+  MACHADO_FERRO,
+  MACHADO_MADEIRA,
+  MANOPLA_RUBI,
+  MANOPLA_TERRA,
+  ARMADURA_FLORESTA,
+  ARMADURA_ADAMANTE,
+  ANEL_SERPENTE,
+  ANEL_DRAGAO,
+  ANEL_GELO,
+  ESCUDO_MADEIRA,
+  ESCUDO_MAGMA,
+  ESCUDO_SOLAR,
+  PATA_COELHO,
+  ESCUDO_FERRO,
+  CAJADO_CRISTAL,
+  CAJADO_SOMBRIO,
+  CAJADO_ANCIAO,
+  MANTO_VELHO,
+  MANTO_ELFICO,
+  MANTO_LUXUOSO,
+  COLAR_AMETISTA,
+  COLAR_CELESTIAL,
+  COLAR_DEMONIACO,
+  BOTAS_MENSAGEIRO,
+  ANJO_CAIDO,
+  LANCA_MAGMA
+};
 
-export const EQUIPAMENTOS_DATA = Object.values(EQUIPAMENTOS)
+export const EQUIPAMENTOS_DATA = Object.values(EQUIPAMENTOS);

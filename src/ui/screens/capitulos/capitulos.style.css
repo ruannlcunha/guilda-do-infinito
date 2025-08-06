@@ -1,215 +1,206 @@
-
 .capitulos-screen {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background:
-    url(../../../assets/img/textures/CAPITULOS.png),
-    linear-gradient(90deg, var(--blue-grey) 0%, var(--light-grey) 15%, var(--white) 40%, var(--white) 50%, transparent 70%, transparent 100%),
-    var(--episodio-background),
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url(../../../assets/img/textures/CAPITULOS.png), linear-gradient(90deg, var(--blue-grey) 0%, var(--light-grey) 15%, var(--white) 40%, var(--white) 50%, transparent 70%, transparent 100%), var(--episodio-background),
     var(--capitulo-background);
-    background-size: 105%;
-    animation: leftToRight 30s alternate-reverse ease-in-out infinite;
+  background-size: 105%;
+  animation: leftToRight 30s alternate-reverse ease-in-out infinite;
 }
 
 .capitulos-list-screen {
-    width: 100%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 5px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 5px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .capitulos-list-screen .capitulos-titulo {
-    width: 40%;
-    height: 10%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background: linear-gradient(0deg, var(--blue) 44%, rgba(0,0,0,0) 45%);
-    filter: drop-shadow(-2px 2px 10px var(--black));
-    border-radius: 0 0 10px 0;
+  width: 40%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: linear-gradient(0deg, var(--blue) 44%, rgba(0, 0, 0, 0) 45%);
+  filter: drop-shadow(-2px 2px 10px var(--black));
+  border-radius: 0 0 10px 0;
 }
 
-.capitulos-list-screen .capitulos-titulo h1{
-    margin: 0;
-    color: var(--white);
-    text-shadow: var(--borda-texto);
-    font-weight: 300;
-    font-size: 2rem;
-    display: flex;
-    flex-direction: row;
-    margin: 10px;
-    align-items: flex-start;
-    white-space: nowrap;
+.capitulos-list-screen .capitulos-titulo h1 {
+  margin: 0;
+  color: var(--white);
+  text-shadow: var(--borda-texto);
+  font-weight: 300;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  align-items: flex-start;
+  white-space: nowrap;
 }
 
 .capitulos-list-screen section {
-    width: 100%;
-    height: 80%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .capitulos-list-screen section .capitulos-list-left {
-    width: 45%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin: 0;
-    box-shadow: none;
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0;
+  box-shadow: none;
 }
 
 .capitulos-list-screen section .capitulos-list-left section {
-    height: 95%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    overflow-y: auto;
-    box-shadow: none;
-    margin: 0;
+  height: 95%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  overflow-y: auto;
+  box-shadow: none;
+  margin: 0;
 }
 
 .capitulos-list-screen section .capitulos-list-left section ul {
-    height: 100%;
-    width: 90%;
-    margin: 0;
-    padding: 5px 10px;
-    list-style: none;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    border-radius: 5px;
-    border: solid 2px var(--grey);
-    background-color: var(--blue-grey);
-    overflow-y: auto;
-    overflow-x: hidden;
+  height: 100%;
+  width: 90%;
+  margin: 0;
+  padding: 5px 10px;
+  list-style: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 5px;
+  border: solid 2px var(--grey);
+  background-color: var(--blue-grey);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .capitulos-list-screen section .capitulos-list-left section ul .sair-capitulo {
-    height: auto;
-    background-color: var(--background-text);
-    padding: 10px 0;
+  height: auto;
+  background-color: var(--background-text);
+  padding: 10px 0;
 }
 
 .capitulos-list-screen section .capitulos-list-left section ul .sair-capitulo:hover {
-    background-color: var(--black-transparent);
-    cursor: var(--cursor-pointer);
+  background-color: var(--black-transparent);
+  cursor: var(--cursor-pointer);
 }
 
 .capitulos-list-screen section .capitulos-list-left section ul .sair-capitulo h1 {
-    margin: 0;
-    margin-left: 1rem;
-    color: var(--white);
-    font-weight: 100;
-    text-shadow: var(--borda-texto);
+  margin: 0;
+  margin-left: 1rem;
+  color: var(--white);
+  font-weight: 100;
+  text-shadow: var(--borda-texto);
 }
 
 .capitulos-list-screen section .capitulos-list-left section ul .capitulos-list-empty {
-    color: var(--white);
-    font-size: 1.5rem;
-    font-weight: 100;
-    text-shadow: var(--borda-texto);
-    text-align: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 100;
+  text-shadow: var(--borda-texto);
+  text-align: center;
 }
 
-
 .capitulos-list-screen section .capitulos-list-right {
-    width: 50%;
-    height: 95%;
-    background-color: var(--cyan-background);
-    box-shadow: var(--blue-grey) 0px 3px 8px;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
+  width: 50%;
+  height: 95%;
+  background-color: var(--cyan-background);
+  box-shadow: var(--blue-grey) 0px 3px 8px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
 }
 
 .capitulos-list-screen section .capitulos-list-right div {
-    width: 90%;
-    height: 90%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 110%;
-    border: solid 2px var(--blue-grey);
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    display: flex;
-    flex-direction: column-reverse;
-    animation: leftToRight 15s alternate-reverse ease-in-out infinite;
+  width: 90%;
+  height: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 110%;
+  border: solid 2px var(--blue-grey);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  display: flex;
+  flex-direction: column-reverse;
+  animation: leftToRight 15s alternate-reverse ease-in-out infinite;
 }
 
 .capitulos-list-screen section .capitulos-list-right div section {
-    width: 100%;
-    height: 50%;
-    background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.76) 70%, rgba(30,67,148,0) 97%);
-    display: flex;
-    flex-direction: column;
-    align-items: self-start;
-    justify-content: space-evenly;
-    box-shadow: none;
-    border-radius: 10px;
+  width: 100%;
+  height: 50%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.76) 70%, rgba(30, 67, 148, 0) 97%);
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  justify-content: space-evenly;
+  box-shadow: none;
+  border-radius: 10px;
 }
 
 .capitulos-list-screen section .capitulos-list-right div section h1 {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    color: var(--white);
-    text-shadow: 3px 3px 5px var(--black);
-    background: rgb(30,67,148);
-    background: linear-gradient(0deg, rgba(30,67,148,1) 25%, rgba(0,0,0,0) 26%);
-    border-radius: 0 0 10px 0;
-    filter: drop-shadow(-2px 2px 10px var(--black));
-    font-weight: 300;
-    font-size: 1.5rem;
-    width: 75%;
-    padding-left: 1rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  text-shadow: 3px 3px 5px var(--black);
+  background: rgb(30, 67, 148);
+  background: linear-gradient(0deg, rgba(30, 67, 148, 1) 25%, rgba(0, 0, 0, 0) 26%);
+  border-radius: 0 0 10px 0;
+  filter: drop-shadow(-2px 2px 10px var(--black));
+  font-weight: 300;
+  font-size: 1.5rem;
+  width: 75%;
+  padding-left: 1rem;
 }
 
 .capitulos-list-screen section .capitulos-list-right div section p {
-    width: 95%;
-    height: 70%;
-    color: var(--light-grey);
-    font-weight: 200;
-    margin: 0;
-    margin-left: 10px;
-    overflow-y: auto;
-    font-size: 1.25rem;
+  width: 95%;
+  height: 70%;
+  color: var(--light-grey);
+  font-weight: 200;
+  margin: 0;
+  margin-left: 10px;
+  overflow-y: auto;
+  font-size: 1.25rem;
 }
 
 @media screen and (max-height: 479px) {
-
-
-    .capitulos-list-screen .capitulos-titulo h1 {
-        font-size: 1.5rem;
-    }
-    .capitulos-list-screen section .capitulos-list-left section ul .capitulo-card section h1 {
-        display: flex;
-        align-items: center;
-        font-size: 1rem;
-    }
-    .capitulos-list-screen section .capitulos-list-left section ul .capitulo-card section section {
-        font-size: 1rem;
-    }
-    .capitulos-list-screen section .capitulos-list-left section ul .capitulo-card {
-        height: 3.5rem;
-    }
-    .capitulos-list-screen section .capitulos-list-right div section h1 {
-        font-size: 1.25rem;
-    }
-    .capitulos-list-screen section .capitulos-list-right div section p {
-        font-size: 0.8rem;
-    }
-    
+  .capitulos-list-screen .capitulos-titulo h1 {
+    font-size: 1.5rem;
+  }
+  .capitulos-list-screen section .capitulos-list-left section ul .capitulo-card section h1 {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+  }
+  .capitulos-list-screen section .capitulos-list-left section ul .capitulo-card section section {
+    font-size: 1rem;
+  }
+  .capitulos-list-screen section .capitulos-list-left section ul .capitulo-card {
+    height: 3.5rem;
+  }
+  .capitulos-list-screen section .capitulos-list-right div section h1 {
+    font-size: 1.25rem;
+  }
+  .capitulos-list-screen section .capitulos-list-right div section p {
+    font-size: 0.8rem;
+  }
 }
-

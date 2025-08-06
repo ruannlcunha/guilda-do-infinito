@@ -1,0 +1,39 @@
+import { EFFECTS } from "../../../constants/images";
+import { ACOES_AUDIO } from "../../../constants/audios/acoes.constant";
+import { useAcoesBase } from "../../../hook/batalha/acoes/_base/use-acoes-base.hook";
+import { ACAO_EXECUCAO, ALVOS } from "../../../constants/acoes/acoes.constant";
+import { useEncerrarCondicao } from "../../../hook/batalha";
+import { ELEMENTOS } from "../../../constants/personagens/personagem.constant";
+
+const { iniciarEfeito, finalizarAcao, informarErro } = useAcoesBase();
+const { encerrarQueimando } = useEncerrarCondicao();
+
+export const APAGAR_CHAMAS = {
+  id: 1,
+  nome: "Apagar Chamas",
+  elemento: ELEMENTOS.FISICO,
+  descricao: "Apaga as chamas de si próprio para encerrar a condição Queimando.",
+  evento: apagarChamasEvento,
+  alvos: ALVOS.PESSOAL,
+  execucao: ACAO_EXECUCAO.PADRAO,
+  variantes: []
+};
+
+function apagarChamasEvento(personagem, alvo, acao, functions) {
+  functions.setAnimacoes((old) => {
+    return { ...old, escolhendoAlvo: false };
+  });
+
+  try {
+    let personagemNovo = { ...personagem };
+    const novoAlvo = personagem.idCombate === alvo.idCombate ? personagemNovo : alvo;
+    const alvoCurado = encerrarQueimando(novoAlvo, functions);
+
+    const duracao = iniciarEfeito(alvoCurado, functions, EFFECTS.FUMACA_2, ACOES_AUDIO.APAGAR_CHAMAS);
+    functions.adicionarLog(`${personagem.nome} usou ${APAGAR_CHAMAS.nome} e encerrou a condição Queimando.`);
+    finalizarAcao(personagemNovo, functions, alvoCurado, duracao);
+  } catch (error) {
+    informarErro(error, functions);
+    throw error;
+  }
+}

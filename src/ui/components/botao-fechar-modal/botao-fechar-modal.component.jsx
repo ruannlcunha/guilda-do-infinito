@@ -1,16 +1,17 @@
-import { useSound } from "../../../hook"
-import "./botao-fechar-modal.style.css"
+import { useSound } from "../../../hook";
+import "./botao-fechar-modal.style.css";
 
-export function BotaoFecharModal({ setIsOpen }) {
-    const { playClick, playHover } = useSound()
+export function BotaoFecharModal({ setIsOpen, style, children }) {
+  const { playClick, playHover } = useSound();
 
-    function handleFechar() {
-        playClick(1)
-        setIsOpen(false)
-    }
+  function handleFechar() {
+    playClick(1);
+    setIsOpen(false);
+  }
 
-    return (
-        <button className="botao-fechar-modal" onMouseEnter={()=>playHover(1)} onClick={handleFechar}>X</button>
-    )
-
+  return (
+    <button className="botao-fechar-modal" style={style} onMouseEnter={() => playHover(1)} onClick={handleFechar}>
+      {children ? children : "X"}
+    </button>
+  );
 }

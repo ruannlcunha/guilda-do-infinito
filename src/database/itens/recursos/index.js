@@ -10,16 +10,16 @@ import { RUNA_GELO } from "./runa-gelo/runa-gelo.item";
 import { RUNA_TERRA } from "./runa-terra/runa-terra.item";
 
 export const RECURSOS = {
-    EXP_PEQUENO,
-    EXP_MEDIO,
-    EXP_GRANDE,
-    RUNA_AGUA,
-    RUNA_FOGO,
-    RUNA_ACIDO,
-    RUNA_AR,
-    RUNA_ELETRICA,
-    RUNA_GELO,
-    RUNA_TERRA,
-}
+  EXP_PEQUENO,
+  EXP_MEDIO,
+  EXP_GRANDE,
+  RUNA_AGUA,
+  RUNA_FOGO,
+  RUNA_ACIDO,
+  RUNA_AR,
+  RUNA_ELETRICA,
+  RUNA_GELO,
+  RUNA_TERRA
+};
 
-export const RECURSOS_DATA = Object.values(RECURSOS)
+export const RECURSOS_DATA = Object.values(RECURSOS);

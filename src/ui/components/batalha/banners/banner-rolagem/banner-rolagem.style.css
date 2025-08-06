@@ -1,77 +1,76 @@
-
 .batalha-screen .banner-rolagem {
-    width: 100%;
-    height: 0%;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    z-index: 1000;
-    transition: all 1s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0rem;
-    color: transparent;
-    opacity: 0%;
-    animation: banner-rolagem-entrada 5s ease-in-out;
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1000;
+  transition: all 1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0rem;
+  color: transparent;
+  opacity: 0%;
+  animation: banner-rolagem-entrada 5s ease-in-out;
 }
-  
+
 .batalha-screen .banner-rolagem div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-  
+
 .batalha-screen .banner-rolagem h2 {
   margin: 0;
   font-size: 2.7rem;
   text-shadow: var(--borda-texto);
 }
-  
+
 .batalha-screen .banner-rolagem h1 {
-    font-weight: 100;
-    text-shadow: var(--borda-texto);
-    animation: fade-in 1s ease-in;
-    font-size: 8rem;
+  font-weight: 100;
+  text-shadow: var(--borda-texto);
+  animation: fade-in 1s ease-in;
+  font-size: 8rem;
 }
-  
+
 .batalha-screen .banner-rolagem div h2 {
-    font-size: 2rem;
-    font-weight: 100;
-    text-shadow: var(--borda-texto);
-    margin: 0;
+  font-size: 2rem;
+  font-weight: 100;
+  text-shadow: var(--borda-texto);
+  margin: 0;
 }
-  
+
 .batalha-screen .banner-rolagem div .d4 {
-    background-image: url(../../../../../assets/img/icons/D4.png);
+  background-image: url(../../../../../assets/img/icons/D4.png);
 }
-  
+
 .batalha-screen .banner-rolagem div .d6 {
-    background-image: url(../../../../../assets/img/icons/D6.png);
+  background-image: url(../../../../../assets/img/icons/D6.png);
 }
-  
+
 .batalha-screen .banner-rolagem div .d8 {
-    background-image: url(../../../../../assets/img/icons/D8.png);
+  background-image: url(../../../../../assets/img/icons/D8.png);
 }
-  
+
 .batalha-screen .banner-rolagem div .d10 {
-    background-image: url(../../../../../assets/img/icons/D10.png);
+  background-image: url(../../../../../assets/img/icons/D10.png);
 }
-  
+
 .batalha-screen .banner-rolagem div .d12 {
-    background-image: url(../../../../../assets/img/icons/D12.png);
+  background-image: url(../../../../../assets/img/icons/D12.png);
 }
-  
+
 .batalha-screen .banner-rolagem div .d20 {
-    background-image: url(../../../../../assets/img/icons/D20.png);
+  background-image: url(../../../../../assets/img/icons/D20.png);
 }
-  
+
 .batalha-screen .banner-rolagem div .valor-total {
   flex-direction: column;
   background-image: url(../../../../../assets/img/icons/VALOR_TOTAL.png);
   animation: valor-total 5s ease-in-out;
 }
-  
+
 .batalha-screen .banner-rolagem div .valor-total h3 {
   margin: 0;
   height: 3vw;
@@ -81,27 +80,26 @@
   bottom: 45%;
   font-size: 4rem;
   left: 30%;
-  text-shadow: 4px 0px var(--black), 0px 4px var(--black),
-  -4px 0px var(--black),  0px -4px var(--black);
+  text-shadow: 4px 0px var(--black), 0px 4px var(--black), -4px 0px var(--black), 0px -4px var(--black);
   animation: valor-total-2x 5s ease-in-out;
 }
-  
+
 .batalha-screen .banner-rolagem div .Força {
   background-image: url(../../../../../assets/img/icons/VALOR_FORCA.png);
 }
-  
+
 .batalha-screen .banner-rolagem div .Agilidade {
   background-image: url(../../../../../assets/img/icons/VALOR_AGILIDADE.png);
 }
-  
+
 .batalha-screen .banner-rolagem div .Magia {
   background-image: url(../../../../../assets/img/icons/VALOR_MAGIA.png);
 }
-  
+
 .batalha-screen .banner-rolagem div .Vigor {
   background-image: url(../../../../../assets/img/icons/VALOR_VIGOR.png);
 }
-  
+
 .batalha-screen .banner-rolagem div .Modificador {
   background-image: url(../../../../../assets/img/icons/VALOR_MODIFICADOR.png);
 }
@@ -140,22 +138,22 @@
 }
 
 .batalha-screen .banner-rolagem div div {
-    width: 10rem;
-    height: 10rem;
-    background: none;
-    background-position: center;
-    background-size: cover;
-    border: none;
-    margin: 0 1rem;
-    transform: rotate(1080deg);
-    color: var(--white);
-    text-shadow: var(--borda-texto);
-    font-size: 3rem;
-    transition: all 0.3s;
-    opacity: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 10rem;
+  height: 10rem;
+  background: none;
+  background-position: center;
+  background-size: cover;
+  border: none;
+  margin: 0 1rem;
+  transform: rotate(1080deg);
+  color: var(--white);
+  text-shadow: var(--borda-texto);
+  font-size: 3rem;
+  transition: all 0.3s;
+  opacity: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes banner-rolagem-entrada {
@@ -246,11 +244,9 @@
   }
   50% {
     color: var(--white);
-    text-shadow: 4px 0px var(--black), 0px 4px var(--black),
-    -4px 0px var(--black),  0px -4px var(--black);;
+    text-shadow: 4px 0px var(--black), 0px 4px var(--black), -4px 0px var(--black), 0px -4px var(--black);
   }
 }
-
 
 @media screen and (max-height: 479px) {
   .batalha-screen .banner-rolagem div div {
@@ -258,5 +254,4 @@
     height: 5rem;
     font-size: 1.75rem;
   }
-  
 }

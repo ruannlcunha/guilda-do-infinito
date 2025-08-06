@@ -7,11 +7,12 @@ import BOLA_DE_FOGO from "../../assets/img/effects/BOLA_DE_FOGO.gif";
 import EXPLOSAO_FOGO from "../../assets/img/effects/EXPLOSAO_FOGO.gif";
 import TREVAS_1 from "../../assets/img/effects/TREVAS_1.gif";
 import TREVAS_2 from "../../assets/img/effects/TREVAS_2.gif";
-import TREVAS_3 from "../../assets/img/effects/TREVAS_3.gif";
 import AGUA_1 from "../../assets/img/effects/AGUA_1.gif";
+import AGUA_2 from "../../assets/img/effects/AGUA_2.gif";
 import ACIDO_1 from "../../assets/img/effects/ACIDO_1.gif";
 import TERRA_1 from "../../assets/img/effects/TERRA_1.gif";
 import TERRA_2 from "../../assets/img/effects/TERRA_2.gif";
+import FOGO_1 from "../../assets/img/effects/FOGO_1.gif";
 import AR_1 from "../../assets/img/effects/AR_1.gif";
 import GELO_1 from "../../assets/img/effects/GELO_1.gif";
 import GELO_2 from "../../assets/img/effects/GELO_2.gif";
@@ -24,6 +25,7 @@ import LUZ_2 from "../../assets/img/effects/LUZ_2.gif";
 import LUZ_3 from "../../assets/img/effects/LUZ_3.gif";
 import FUMACA_1 from "../../assets/img/effects/FUMACA_1.gif";
 import FUMACA_2 from "../../assets/img/effects/FUMACA_2.gif";
+import FUMACA_3 from "../../assets/img/effects/FUMACA_3.gif";
 import GOLPE_PESADO from "../../assets/img/effects/GOLPE_PESADO.gif";
 import GOLPE_PESADO_MAGICO from "../../assets/img/effects/GOLPE_PESADO_MAGICO.gif";
 import GOLPE_PESADO_ELETRICO from "../../assets/img/effects/GOLPE_PESADO_ELETRICO.gif";
@@ -75,6 +77,37 @@ import ARMADURA_MAGICA from "../../assets/img/effects/ARMADURA_MAGICA.gif";
 import DUPLICATA_ILUSORIA from "../../assets/img/effects/DUPLICATA_ILUSORIA.gif";
 import ATAQUE_ESPECIAL from "../../assets/img/effects/ATAQUE_ESPECIAL.gif";
 import DEFENDER from "../../assets/img/effects/DEFENDER.gif";
+import ATAQUE_DIVINO from "../../assets/img/effects/ATAQUE_DIVINO.gif";
+import ATAQUE_DIVINO_TREVAS from "../../assets/img/effects/ATAQUE_DIVINO_TREVAS.gif";
+import ABSORVER_ACIDO from "../../assets/img/effects/ABSORVER_ACIDO.gif";
+import ABSORVER_AGUA from "../../assets/img/effects/ABSORVER_AGUA.gif";
+import ABSORVER_AR from "../../assets/img/effects/ABSORVER_AR.gif";
+import ABSORVER_ELETRICO from "../../assets/img/effects/ABSORVER_ELETRICO.gif";
+import ABSORVER_ESSENCIA from "../../assets/img/effects/ABSORVER_ESSENCIA.gif";
+import ABSORVER_FOGO from "../../assets/img/effects/ABSORVER_FOGO.gif";
+import ABSORVER_GELO from "../../assets/img/effects/ABSORVER_GELO.gif";
+import ABSORVER_LUZ from "../../assets/img/effects/ABSORVER_LUZ.gif";
+import ABSORVER_TERRA from "../../assets/img/effects/ABSORVER_TERRA.gif";
+import ABSORVER_TREVAS from "../../assets/img/effects/ABSORVER_TREVAS.gif";
+import PULSO_SONORO from "../../assets/img/effects/PULSO_SONORO.gif";
+import FLECHA_MENTAL from "../../assets/img/effects/FLECHA_MENTAL.gif";
+import FLECHAS_ARCANAS from "../../assets/img/effects/FLECHAS_ARCANAS.gif";
+import MUSICAL_1 from "../../assets/img/effects/MUSICAL_1.gif";
+import RAIO_ARCANO_ACIDO from "../../assets/img/effects/RAIO_ARCANO_ACIDO.gif";
+import RAIO_ARCANO_AGUA from "../../assets/img/effects/RAIO_ARCANO_AGUA.gif";
+import RAIO_ARCANO_AR from "../../assets/img/effects/RAIO_ARCANO_AR.gif";
+import RAIO_ARCANO_ELETRICO from "../../assets/img/effects/RAIO_ARCANO_ELETRICO.gif";
+import RAIO_ARCANO_ESSENCIA from "../../assets/img/effects/RAIO_ARCANO_ESSENCIA.gif";
+import RAIO_ARCANO_FOGO from "../../assets/img/effects/RAIO_ARCANO_FOGO.gif";
+import RAIO_ARCANO_GELO from "../../assets/img/effects/RAIO_ARCANO_GELO.gif";
+import RAIO_ARCANO_TERRA from "../../assets/img/effects/RAIO_ARCANO_TERRA.gif";
+import MARCA_CACADOR from "../../assets/img/effects/MARCA_CACADOR.gif";
+import ATAQUE_AGIL from "../../assets/img/effects/ATAQUE_AGIL.gif";
+import VOAR from "../../assets/img/effects/VOAR.gif";
+import FORMA_ANIMAL from "../../assets/img/effects/FORMA_ANIMAL.gif";
+import LUAR from "../../assets/img/effects/LUAR.gif";
+import INSULTOS_AFIADOS from "../../assets/img/effects/INSULTOS_AFIADOS.gif";
+import CIRCULO_LUZ from "../../assets/img/effects/CIRCULO_LUZ.gif";
 
 export const EFFECTS = {
   SOCO,
@@ -86,11 +119,12 @@ export const EFFECTS = {
   EXPLOSAO_FOGO,
   TREVAS_1,
   TREVAS_2,
-  TREVAS_3,
   AGUA_1,
+  AGUA_2,
   ACIDO_1,
   TERRA_1,
   TERRA_2,
+  FOGO_1,
   AR_1,
   GELO_1,
   GELO_2,
@@ -103,6 +137,7 @@ export const EFFECTS = {
   LUZ_3,
   FUMACA_1,
   FUMACA_2,
+  FUMACA_3,
   GOLPE_PESADO,
   GOLPE_PESADO_MAGICO,
   GOLPE_PESADO_ELETRICO,
@@ -154,4 +189,35 @@ export const EFFECTS = {
   DUPLICATA_ILUSORIA,
   ATAQUE_ESPECIAL,
   DEFENDER,
+  ATAQUE_DIVINO,
+  ATAQUE_DIVINO_TREVAS,
+  ABSORVER_ACIDO,
+  ABSORVER_AGUA,
+  ABSORVER_AR,
+  ABSORVER_ELETRICO,
+  ABSORVER_ESSENCIA,
+  ABSORVER_FOGO,
+  ABSORVER_GELO,
+  ABSORVER_LUZ,
+  ABSORVER_TERRA,
+  ABSORVER_TREVAS,
+  PULSO_SONORO,
+  FLECHA_MENTAL,
+  FLECHAS_ARCANAS,
+  MUSICAL_1,
+  RAIO_ARCANO_ACIDO,
+  RAIO_ARCANO_AGUA,
+  RAIO_ARCANO_AR,
+  RAIO_ARCANO_ELETRICO,
+  RAIO_ARCANO_ESSENCIA,
+  RAIO_ARCANO_FOGO,
+  RAIO_ARCANO_GELO,
+  RAIO_ARCANO_TERRA,
+  MARCA_CACADOR,
+  ATAQUE_AGIL,
+  VOAR,
+  FORMA_ANIMAL,
+  LUAR,
+  INSULTOS_AFIADOS,
+  CIRCULO_LUZ,
 };

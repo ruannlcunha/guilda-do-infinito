@@ -7,20 +7,27 @@ export function BatalhaHUD({ personagens, personagemAtivo, animacoes, batalha, j
   const { iniciarTurno } = useIniciarTurno();
 
   useEffect(() => {
-    personagemAtivo && animacoes.iniciativaTerminou && !animacoes.batalhaTerminou && !acaoEmAndamento
-    ? iniciarTurno(personagemAtivo, personagens, batalha.jogadores, jogadaAutomatica, functions) : null;
+    personagemAtivo && animacoes.iniciativaTerminou && !animacoes.batalhaTerminou && !acaoEmAndamento ? iniciarTurno(personagemAtivo, personagens, batalha.jogadores, jogadaAutomatica, functions) : null;
 
-    if(animacoes.hudAtivo) {
-      functions.setAnimacoes((old) => {return { ...old, hudAtivo: false };});
-      setTimeout(()=>{
-        functions.setAnimacoes((old) => {return { ...old, hudAtivo: true };});
-      },100)
+    if (animacoes.hudAtivo) {
+      functions.setAnimacoes((old) => {
+        return { ...old, hudAtivo: false };
+      });
+      setTimeout(() => {
+        functions.setAnimacoes((old) => {
+          return { ...old, hudAtivo: true };
+        });
+      }, 100);
     }
-    
   }, [personagemAtivo.idCombate, animacoes.iniciativaTerminou, jogadaAutomatica]);
 
   function handleCancelarAcao() {
-    functions.setAcaoAtiva({ personagem: null, acao: null, alvos: [], tipoAcao: null });
+    functions.setAcaoAtiva({
+      personagem: null,
+      acao: null,
+      alvos: [],
+      tipoAcao: null
+    });
     functions.setAnimacoes((old) => {
       return { ...old, escolhendoAlvo: false, hudAtivo: true };
     });
@@ -32,27 +39,15 @@ export function BatalhaHUD({ personagens, personagemAtivo, animacoes, batalha, j
         <div
           className="batalha-hud"
           style={
-            personagemAtivo.isInimigo && batalha.jogadores<2
-            || !personagemAtivo.isInimigo && batalha.jogadores<2 && jogadaAutomatica
-            || batalha.jogadores<1
+            (personagemAtivo.isInimigo && batalha.jogadores < 2) || (!personagemAtivo.isInimigo && batalha.jogadores < 2 && jogadaAutomatica) || batalha.jogadores < 1
               ? {
-                  flexDirection: "row-reverse",
+                  flexDirection: "row-reverse"
                 }
               : null
           }
         >
-          <StatusHUD
-          personagem={personagemAtivo} 
-          jogadores={batalha.jogadores}
-          jogadaAutomatica={jogadaAutomatica}
-          />
-          <HUDAcoes
-          personagem={personagemAtivo}
-          personagens={personagens}
-          jogadores={batalha.jogadores}
-          jogadaAutomatica={jogadaAutomatica}
-          functions={functions}
-          />
+          <StatusHUD personagem={personagemAtivo} personagens={personagens} jogadores={batalha.jogadores} jogadaAutomatica={jogadaAutomatica} />
+          <HUDAcoes personagem={personagemAtivo} personagens={personagens} jogadores={batalha.jogadores} jogadaAutomatica={jogadaAutomatica} functions={functions} />
         </div>
       );
     }

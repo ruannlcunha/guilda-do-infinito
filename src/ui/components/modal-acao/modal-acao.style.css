@@ -1,137 +1,139 @@
-
 .modal-acao {
-    width: 60%;
-    height: 85%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: double 5px var(--blue);
-    background-color: aqua;
-    background-color: var(--dark-blue);
-    box-shadow: var(--box-interior);
-    position: relative;
+  width: 60%;
+  height: 85%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: double 5px var(--blue);
+  background-color: var(--fundo-modal);
+  box-shadow: var(--box-interior);
+  position: relative;
 }
 
 .modal-acao section h1 {
-    font-size: 2.5rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
-    margin: 0;
-    margin-top: 1.5rem;
-    margin-bottom: 5px;
-    border-bottom: solid 2px var(--grey);
-    padding: 0 3rem 0.5rem 3rem;
+  font-size: 2.5rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
+  margin: 0;
+  margin-top: 1.5rem;
+  margin-bottom: 5px;
+  border-bottom: solid 2px var(--grey);
+  padding: 0 3rem 0.5rem 3rem;
 }
 
 .modal-acao .acao-detalhes {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .modal-acao .acao-detalhes div {
-    width: 90%;
-    height: 85%;
-    background-color: var(--fundo-janela);
-    border: solid 2px var(--blue);
-    border-radius: 5px;
+  width: 90%;
+  height: 85%;
+  background-color: var(--fundo-janela);
+  border: solid 2px var(--blue);
+  border-radius: 5px;
 }
 
 .modal-acao .acao-detalhes div h2 {
-    font-size: 2.5rem;
-    color: var(--white);
-    font-weight: 500;
-    text-shadow: var(--borda-texto-sombra);
-    margin: 10px;
-    margin-left: 1rem;
-    width: 95%;
+  font-size: 2.5rem;
+  color: var(--white);
+  font-weight: 500;
+  text-shadow: var(--borda-texto-sombra);
+  margin: 10px;
+  margin-left: 1rem;
+  width: 95%;
 }
 
 .modal-acao .acao-detalhes div ul {
-    list-style: none;
-    width: 95%;
-    margin: 0;
-    margin-left: 1rem;
-    padding: 0;
+  list-style: none;
+  width: 95%;
+  margin: 0;
+  margin-left: 1rem;
+  padding: 0;
 }
 
 .modal-acao .acao-detalhes div ul p {
-    font-size: 1.5rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto);
-    margin: 0;
+  font-size: 1.5rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto);
+  margin: 0;
+  background-color: var(--fundo-destaque);
 }
 
 .modal-acao .acao-detalhes div ul li {
-    font-size: 1.5rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto);
-    display: flex;
-    align-items: center;
+  font-size: 1.5rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--fundo-destaque);
+  margin-bottom: 5px;
 }
 
 .modal-acao .acao-detalhes div ul li span {
-    color: var(--light-blue);
-    margin-right: 5px;
+  color: var(--texto-destaque);
+  margin: 0 5px;
 }
 
 .modal-acao .acao-detalhes div ul li .nome-elemento {
-    width: fit-content;
-    padding: 0 10px;
-    border: solid 2px var(--black);
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    border-radius: 0;
-    background: var(--fundo-FOGO);
+  width: fit-content;
+  padding: 0 10px;
+  border: solid 2px var(--black);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 0;
+  background: var(--fundo-FOGO);
 }
 
 .modal-acao .acao-detalhes div ul li img {
-    height: 1.5vw;
-    margin-left: 5px;
-    filter: drop-shadow(-1px 1px 4px var(--black));
+  height: 1.5vw;
+  margin-left: 5px;
+  filter: drop-shadow(-1px 1px 4px var(--black));
 }
 
 .modal-acao .acao-variantes {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .modal-acao .acao-variantes ul {
-    margin: 0;
-    padding: 0;
-    width: 90%;
-    height: 85%;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 90%;
+  height: 85%;
+  list-style: none;
 }
 
 .modal-acao .acao-variantes ul h2 {
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
-    font-weight: 500;
-    text-align: center;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
+  font-weight: 500;
+  text-align: center;
 }
 
 .modal-acao .acao-variantes ul li header {
-    width: 100%;
-    background-color: var(--blue);
+  width: 100%;
+  background-color: var(--blue);
 }
 
 .modal-acao .acao-variantes ul li header h1 {
-    margin: 0;
-    margin-bottom: 0;
-    border: solid 2px var(--black);
-    color: var(--white);
-    padding: 0;
-    text-align: center;
-    font-size: 2rem;
+  margin: 0;
+  margin-bottom: 0;
+  border: solid 2px var(--black);
+  color: var(--white);
+  padding: 0;
+  text-align: center;
+  font-size: 2rem;
 }
 
 .modal-acao .acao-variantes ul li section {
-    width: 100%;
+  width: 100%;
 }

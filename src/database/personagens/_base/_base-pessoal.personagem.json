@@ -1,20 +1,20 @@
 {
-    "personagemId": 0,
-    "visualAtivo": 1,
-    "visuais": [1],
-    "level": 1,
-    "experienciaAtual": 0,
-    "equipamentos": {
-        "arma": null,
-        "armadura": null,
-        "acessorio1": null,
-        "acessorio2": null
-    },
-    "equipamentoProntoId": null,
-    "inventario": [],
-    "multiplicadores": {
-        "pv": 1,
-        "pm": 1,
-        "turnos": 1
-    }
+  "personagemId": 0,
+  "visualAtivo": 1,
+  "visuais": [1],
+  "level": 1,
+  "experienciaAtual": 0,
+  "equipamentos": {
+    "arma": null,
+    "armadura": null,
+    "acessorio1": null,
+    "acessorio2": null
+  },
+  "equipamentoProntoId": null,
+  "inventario": [],
+  "multiplicadores": {
+    "pv": 1,
+    "pm": 1,
+    "turnos": 1
+  }
 }

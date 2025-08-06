@@ -1,138 +1,136 @@
-import DOMINICK_1_SPRITE from "./assets/DOMINICK_1_SPRITE.png"
-import DOMINICK_1_PERFIL from "./assets/DOMINICK_1_PERFIL.png"
-import DOMINICK_2_PERFIL from "./assets/DOMINICK_2_PERFIL.png"
-import DOMINICK_2_SPRITE from "./assets/DOMINICK_2_SPRITE.png"
-import DOMINICK_3_PERFIL from "./assets/DOMINICK_3_PERFIL.png"
-import DOMINICK_3_SPRITE from "./assets/DOMINICK_3_SPRITE.png"
-import DOMINICK_4_PERFIL from "./assets/DOMINICK_4_PERFIL.png"
-import DOMINICK_4_SPRITE from "./assets/DOMINICK_4_SPRITE.png"
-import DOMINICK_5_PERFIL from "./assets/DOMINICK_5_PERFIL.png"
-import DOMINICK_5_SPRITE from "./assets/DOMINICK_5_SPRITE.png"
-import { _BASE_ORIGINAL } from "../_base/_base-original.personagem"
+import DOMINICK_1_SPRITE from "./assets/DOMINICK_1_SPRITE.png";
+import DOMINICK_1_PERFIL from "./assets/DOMINICK_1_PERFIL.png";
+import DOMINICK_2_PERFIL from "./assets/DOMINICK_2_PERFIL.png";
+import DOMINICK_2_SPRITE from "./assets/DOMINICK_2_SPRITE.png";
+import DOMINICK_3_PERFIL from "./assets/DOMINICK_3_PERFIL.png";
+import DOMINICK_3_SPRITE from "./assets/DOMINICK_3_SPRITE.png";
+import DOMINICK_4_PERFIL from "./assets/DOMINICK_4_PERFIL.png";
+import DOMINICK_4_SPRITE from "./assets/DOMINICK_4_SPRITE.png";
+import DOMINICK_5_PERFIL from "./assets/DOMINICK_5_PERFIL.png";
+import DOMINICK_5_SPRITE from "./assets/DOMINICK_5_SPRITE.png";
+import { _BASE_ORIGINAL } from "../_base/_base-original.personagem";
 import { COMPORTAMENTOS, COR_TEMA, ELEMENTOS } from "../../../constants/personagens/personagem.constant";
-import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants"
+import { ITEM_PROFICIENCIA, PRONOMES } from "../../../constants";
 
 export const DOMINICK = {
-    ..._BASE_ORIGINAL,
-    id: 3,
-    nome: "Dominick",
-    titulo: "Rainha dos Piratas",
-    pronomes: PRONOMES.FEMININO,
-    elemento: ELEMENTOS.ELETRICO,
-    corTema: COR_TEMA.ROXO,
-    raridade: 5,
-    proficiencia: ITEM_PROFICIENCIA.LEVE,
-    comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
-    visuais:[
-        {
-            visualId: 1,
-            nome: "Original",
-            sprite: DOMINICK_1_SPRITE,
-            perfil: DOMINICK_1_PERFIL,
-            santuario: null,
-        },
-        {
-            visualId: 2,
-            nome: "Original Sem Chapéu",
-            sprite: DOMINICK_2_SPRITE,
-            perfil: DOMINICK_2_PERFIL,
-            santuario: null,
-        },
-        {
-            visualId: 3,
-            nome: "Guilda de Orion",
-            sprite: DOMINICK_3_SPRITE,
-            perfil: DOMINICK_3_PERFIL,
-            santuario: null,
-        },
-        {
-            visualId: 4,
-            nome: "Traje de Rainha",
-            sprite: DOMINICK_4_SPRITE,
-            perfil: DOMINICK_4_PERFIL,
-            santuario: null,
-        },
-        {
-            visualId: 5,
-            nome: "Versão Alpha",
-            sprite: DOMINICK_5_SPRITE,
-            perfil: DOMINICK_5_PERFIL,
-            santuario: null,
-        },
-    ],
-    status: {
-        pvBase: 16,
-        pmBase: 3,
-        pvBonus: 4,
+  ..._BASE_ORIGINAL,
+  id: 3,
+  nome: "Dominick",
+  titulo: "Rainha dos Piratas",
+  pronomes: PRONOMES.FEMININO,
+  elemento: ELEMENTOS.ELETRICO,
+  corTema: COR_TEMA.ROXO,
+  raridade: 5,
+  proficiencia: ITEM_PROFICIENCIA.LEVE,
+  comportamento: COMPORTAMENTOS.ATACANTE_FEROZ,
+  visuais: [
+    {
+      visualId: 1,
+      nome: "Original",
+      sprite: DOMINICK_1_SPRITE,
+      perfil: DOMINICK_1_PERFIL,
+      santuario: null
     },
-    atributosBase: {
-        forca: 4,
-        agilidade: 5,
-        magia: 2,
-        vigor: 3
+    {
+      visualId: 2,
+      nome: "Original Sem Chapéu",
+      sprite: DOMINICK_2_SPRITE,
+      perfil: DOMINICK_2_PERFIL,
+      santuario: null
     },
-    evolucoes: [
-        {
-            level: 1,
-            experienciaNecessaria: 1250,
-            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
-            talentos: [],
-            ataques: [
-                {ataqueId: 14, variantes: []},
-                {ataqueId: 17, variantes: []}
-            ],
-            habilidades: []
-        },
-        {
-            level: 2,
-            experienciaNecessaria: 3750,
-            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
-            talentos: [],
-            ataques: [
-                {ataqueId: 14, variantes: []},
-                {ataqueId: 17, variantes: []}
-            ],
-            habilidades: []
-        },
-        {
-            level: 3,
-            experienciaNecessaria: 7500,
-            bonusAtributos: {forca: 0, agilidade: 0, magia: 0, vigor: 0},
-            talentos: [],
-            ataques: [
-                {ataqueId: 14, variantes: []},
-                {ataqueId: 17, variantes: []},
-                {ataqueId: 19, variantes: []},
-            ],
-            habilidades: []
-        },
-        {
-            level: 4,
-            experienciaNecessaria: 12500,
-            bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
-            talentos: [],
-            ataques: [
-                {ataqueId: 14, variantes: []},
-                {ataqueId: 17, variantes: []},
-                {ataqueId: 19, variantes: []},
-            ],
-            habilidades: []
-        },
-        {
-            level: 5,
-            experienciaNecessaria: 18750,
-            bonusAtributos: {forca: 1, agilidade: 0, magia: 0, vigor: 0},
-            talentos: [],
-            ataques: [
-                {ataqueId: 14, variantes: []},
-                {ataqueId: 17, variantes: []},
-                {ataqueId: 19, variantes: []},
-                {ataqueId: 26, variantes: []},
-                {ataqueId: 58, variantes: []},
-            ],
-            habilidades: [
-                {habilidadeId: 16, variantes: []},
-            ]
-        },
-    ]
-}
+    {
+      visualId: 3,
+      nome: "Guilda de Orion",
+      sprite: DOMINICK_3_SPRITE,
+      perfil: DOMINICK_3_PERFIL,
+      santuario: null
+    },
+    {
+      visualId: 4,
+      nome: "Traje de Rainha",
+      sprite: DOMINICK_4_SPRITE,
+      perfil: DOMINICK_4_PERFIL,
+      santuario: null
+    },
+    {
+      visualId: 5,
+      nome: "Versão Alpha",
+      sprite: DOMINICK_5_SPRITE,
+      perfil: DOMINICK_5_PERFIL,
+      santuario: null
+    }
+  ],
+  status: {
+    pvBase: 16,
+    pmBase: 3,
+    pvBonus: 4
+  },
+  atributosBase: {
+    forca: 4,
+    agilidade: 5,
+    magia: 2,
+    vigor: 3
+  },
+  evolucoes: [
+    {
+      level: 1,
+      experienciaNecessaria: 1250,
+      bonusAtributos: { forca: 0, agilidade: 0, magia: 0, vigor: 0 },
+      talentos: [],
+      ataques: [
+        { ataqueId: 14, variantes: [] },
+        { ataqueId: 17, variantes: [] }
+      ],
+      habilidades: []
+    },
+    {
+      level: 2,
+      experienciaNecessaria: 3750,
+      bonusAtributos: { forca: 0, agilidade: 0, magia: 0, vigor: 0 },
+      talentos: [],
+      ataques: [
+        { ataqueId: 14, variantes: [] },
+        { ataqueId: 17, variantes: [] }
+      ],
+      habilidades: []
+    },
+    {
+      level: 3,
+      experienciaNecessaria: 7500,
+      bonusAtributos: { forca: 0, agilidade: 0, magia: 0, vigor: 0 },
+      talentos: [],
+      ataques: [
+        { ataqueId: 14, variantes: [] },
+        { ataqueId: 17, variantes: [] },
+        { ataqueId: 19, variantes: [] }
+      ],
+      habilidades: []
+    },
+    {
+      level: 4,
+      experienciaNecessaria: 12500,
+      bonusAtributos: { forca: 1, agilidade: 0, magia: 0, vigor: 0 },
+      talentos: [],
+      ataques: [
+        { ataqueId: 14, variantes: [] },
+        { ataqueId: 17, variantes: [] },
+        { ataqueId: 19, variantes: [] }
+      ],
+      habilidades: []
+    },
+    {
+      level: 5,
+      experienciaNecessaria: 18750,
+      bonusAtributos: { forca: 1, agilidade: 0, magia: 0, vigor: 0 },
+      talentos: [],
+      ataques: [
+        { ataqueId: 14, variantes: [] },
+        { ataqueId: 17, variantes: [] },
+        { ataqueId: 19, variantes: [] },
+        { ataqueId: 26, variantes: [] },
+        { ataqueId: 58, variantes: [] }
+      ],
+      habilidades: [{ habilidadeId: 16, variantes: [] }]
+    }
+  ]
+};

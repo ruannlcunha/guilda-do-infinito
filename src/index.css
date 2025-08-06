@@ -14,41 +14,27 @@
   --cursor-auto: url(./assets/img/cursors/AUTO.png), auto;
   --cursor-pointer: url(./assets/img/cursors/POINTER.png), pointer;
   --cursor-not-allowed: url(./assets/img/cursors/NOT_ALLOWED.png), not-allowed;
-  
-  --box-interior: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-  rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset,
-  rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+
+  --box-interior: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset, rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
   --box-brilho: var(--white) 0px 0px 5px 2px, var(--white) 0px 0px 0px 2px;
 
-  --borda-texto: 2px 0px var(--black), 0px 2px var(--black),
-  -2px 0px var(--black),  0px -2px var(--black);
-  --borda-texto-grossa: 3px 0px var(--black), 0px 3px var(--black),
-  -3px 0px var(--black),  0px -3px var(--black);
-  --borda-texto-branco: 2px 0px var(--white), 0px 2px var(--white),
-  -2px 0px var(--white),  0px -2px var(--white);
-  --borda-texto-verde: 
-  2px 0px var(--black), 0px 2px var(--black),
-  -2px 0px var(--black),  0px -2px var(--black),
-  4px 0px 2px var(--green), 0px 4px 2px var(--green),
-  -4px 0px 2px var(--green),  0px -4px 2px var(--green);
-  --borda-texto-vermelho: 
-  2px 0px var(--black), 0px 2px var(--black),
-  -2px 0px var(--black),  0px -2px var(--black),
-  4px 0px 2px var(--red), 0px 4px 2px var(--red),
-  -4px 0px 2px var(--red),  0px -4px 2px var(--red);
-  --borda-texto-sombra: 2px 0px var(--black), 0px 2px var(--black),
-  -2px 0px var(--black),  0px -2px var(--black), 2px 2px 10px var(--black);
-  --borda-texto-3-estrelas: 2px 0px var(--black), 0px 2px var(--black),
-  -2px 0px var(--black),  0px -2px var(--black), 2px 2px 15px var(--blue);
-  --borda-texto-4-estrelas: 2px 0px var(--black), 0px 2px var(--black),
-  -2px 0px var(--black),  0px -2px var(--black), 2px 2px 15px var(--purple);
-  --borda-texto-5-estrelas: 2px 0px var(--black), 0px 2px var(--black),
-  -2px 0px var(--black),  0px -2px var(--black), 2px 2px 15px var(--tema-amarelo);
+  --borda-texto: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black), 0px -2px var(--black);
+  --borda-texto-grossa: 3px 0px var(--black), 0px 3px var(--black), -3px 0px var(--black), 0px -3px var(--black);
+  --borda-texto-branco: 2px 0px var(--white), 0px 2px var(--white), -2px 0px var(--white), 0px -2px var(--white);
+  --borda-texto-verde: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black), 0px -2px var(--black), 4px 0px 2px var(--green), 0px 4px 2px var(--green), -4px 0px 2px var(--green), 0px -4px 2px var(--green);
+  --borda-texto-vermelho: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black), 0px -2px var(--black), 4px 0px 2px var(--red), 0px 4px 2px var(--red), -4px 0px 2px var(--red), 0px -4px 2px var(--red);
+  --borda-texto-vermelho-fina: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black), 0px -2px var(--black), 2px 0px 2px var(--red), 0px 2px 2px var(--red), -2px 0px 2px var(--red), 0px -2px 2px var(--red);
+  --borda-texto-sombra: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black), 0px -2px var(--black), 2px 2px 10px var(--black);
+  --borda-texto-3-estrelas: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black), 0px -2px var(--black), 2px 2px 15px var(--blue);
+  --borda-texto-4-estrelas: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black), 0px -2px var(--black), 2px 2px 15px var(--purple);
+  --borda-texto-5-estrelas: 2px 0px var(--black), 0px 2px var(--black), -2px 0px var(--black), 0px -2px var(--black), 2px 2px 15px var(--tema-amarelo);
 
+  --fundo-modal: #7ba1b8;
   --fundo-janela: #ebebeb;
   --fundo-destaque: #c5d0dd;
   --texto-destaque: #a7c5e9;
   --fundo-destaque: #c5d0dd;
+
   --black: #000000;
   --light-black: #181818;
   --grey: #494949;
@@ -67,9 +53,9 @@
   --blue-transparent: #1e43949c;
   --light-blue: #82dcfd;
   --pacific-blue: #2596be;
-  --blue-grey: #7BA1B8;
+  --blue-grey: #7ba1b8;
   --blue-metal: #6487a8;
-  --blue-green: #00FF96;
+  --blue-green: #00ff96;
   --blue: #1e4394;
   --mid-blue: #0d2f7a;
   --dark-blue: #0f2249;
@@ -81,27 +67,27 @@
   --dark-purple: #2b0535;
   --cyan: #44dbfa;
   --background: #f0f0f0;
-  --cyan-background: #E0ECF8;
+  --cyan-background: #e0ecf8;
   --background-text: #00000065;
 
   --card-3-estrelas: linear-gradient(0deg, rgb(92, 154, 196) 10%, rgb(8, 103, 141) 70%);
-  --card-4-estrelas: linear-gradient(0deg, rgb(137, 3, 199) 10%, rgba(67,0,103,1) 70%);
+  --card-4-estrelas: linear-gradient(0deg, rgb(137, 3, 199) 10%, rgba(67, 0, 103, 1) 70%);
   --card-5-estrelas: linear-gradient(0deg, rgb(255, 207, 49) 10%, rgb(207, 159, 0) 70%);
   --card-aliado: linear-gradient(0deg, rgb(11, 114, 11) 10%, rgb(6, 71, 6) 70%);
 
-  --fundo-FOGO: linear-gradient(0deg,rgb(107, 4, 4) 0%, rgb(180, 17, 17) 100%);
-  --fundo-AGUA: linear-gradient(0deg,rgb(11, 4, 107) 0%, rgb(17, 74, 180) 100%);
-  --fundo-ACIDO: linear-gradient(0deg,rgb(7, 107, 4) 0%, rgb(22, 180, 17) 100%);
-  --fundo-ELETRICO: linear-gradient(0deg,rgb(107, 92, 4) 0%, rgb(207, 178, 13) 100%);
-  --fundo-TERRA: linear-gradient(0deg,rgb(107, 54, 4) 0%, rgb(180, 109, 17) 100%);
-  --fundo-GELO: linear-gradient(0deg,rgb(19, 114, 138) 0%, rgb(26, 205, 218) 100%);
-  --fundo-AR: linear-gradient(0deg,rgb(4, 107, 76) 0%, rgb(17, 180, 118) 100%);
-  --fundo-LUZ: linear-gradient(0deg,rgb(221, 221, 221) 0%, rgb(155, 155, 155) 100%);
-  --fundo-TREVAS: linear-gradient(0deg,rgb(39, 10, 51) 0%, rgb(68, 13, 104) 100%);
-  --fundo-FISICO: linear-gradient(0deg,rgb(43, 43, 43) 0%, rgb(92, 92, 92) 100%);
-  --fundo-ESSENCIA: linear-gradient(0deg,rgb(3, 40, 133) 0%, rgb(136, 111, 1) 100%);
-  --fundo-MENTAL: linear-gradient(0deg,rgb(82, 20, 90) 0%, rgb(161, 34, 155) 100%);
-  
+  --fundo-FOGO: linear-gradient(0deg, rgb(107, 4, 4) 0%, rgb(180, 17, 17) 100%);
+  --fundo-AGUA: linear-gradient(0deg, rgb(11, 4, 107) 0%, rgb(17, 74, 180) 100%);
+  --fundo-ACIDO: linear-gradient(0deg, rgb(7, 107, 4) 0%, rgb(22, 180, 17) 100%);
+  --fundo-ELETRICO: linear-gradient(0deg, rgb(107, 92, 4) 0%, rgb(207, 178, 13) 100%);
+  --fundo-TERRA: linear-gradient(0deg, rgb(107, 54, 4) 0%, rgb(180, 109, 17) 100%);
+  --fundo-GELO: linear-gradient(0deg, rgb(19, 114, 138) 0%, rgb(26, 205, 218) 100%);
+  --fundo-AR: linear-gradient(0deg, rgb(4, 107, 76) 0%, rgb(17, 180, 118) 100%);
+  --fundo-LUZ: linear-gradient(0deg, rgb(221, 221, 221) 0%, rgb(155, 155, 155) 100%);
+  --fundo-TREVAS: linear-gradient(0deg, rgb(39, 10, 51) 0%, rgb(68, 13, 104) 100%);
+  --fundo-FISICO: linear-gradient(0deg, rgb(43, 43, 43) 0%, rgb(92, 92, 92) 100%);
+  --fundo-ESSENCIA: linear-gradient(0deg, rgb(3, 40, 133) 0%, rgb(136, 111, 1) 100%);
+  --fundo-MENTAL: linear-gradient(0deg, rgb(82, 20, 90) 0%, rgb(161, 34, 155) 100%);
+
   --tema-amarelo: #ffd900;
   --tema-azul: #292477;
   --tema-ciano: #70d6da;
@@ -121,9 +107,7 @@
 body {
   box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: textFont, sans-serif;
@@ -154,8 +138,8 @@ h1 {
   border-radius: 5px;
 }
 
-.toaster div{
-  font-family: textFont, sans-serif ;
+.toaster div {
+  font-family: textFont, sans-serif;
   color: var(--black);
 }
 
@@ -191,8 +175,12 @@ h1 {
 }
 
 @keyframes topToBottom {
-  from {background-position: top;}
-  to {background-position: bottom;}
+  from {
+    background-position: top;
+  }
+  to {
+    background-position: bottom;
+  }
 }
 
 @keyframes leftToRight {
@@ -240,12 +228,8 @@ h1 {
   }
 }
 
-
 @media screen and (max-height: 479px) {
-  
 }
 
-
 @media screen and (min-height: 480px) and (max-height: 1023px) {
-    
 }

@@ -93,7 +93,7 @@
   position: absolute;
   bottom: 22%;
   left: 25%;
-  height: 25%;
+  height: auto;
   width: 20%;
   border: double 5px var(--white);
   display: flex;
@@ -109,45 +109,29 @@
   background-color: var(--black-transparent);
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .batalha-screen .batalha-hud .hud-status .status-section div .condicao-modal header div {
   width: 80%;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-}
-
-.batalha-screen .batalha-hud .hud-status .status-section div .condicao-modal header button {
-  background: none;
-  border: none;
-  border-left: solid 3px var(--white);
-  height: 100%;
-  width: 10%;
-  color: var(--white);
-  text-shadow: var(--borda-texto);
-  padding: 5px;
-  font-size: 1.75rem;
-  font-family: textFont, sans-serif;
-  transition: all 0.1s;
-}
-
-.batalha-screen .batalha-hud .hud-status .status-section div .condicao-modal header button:hover {
-  transition: all 0.1s;
-  background-color: var(--light-blue);
+  align-items: center;
 }
 
 .batalha-screen .batalha-hud .hud-status .status-section div .condicao-modal header div h1 {
   color: var(--white);
   margin: 5px 10px;
   font-size: 1.5rem;
+  width: auto;
+  max-width: 60%;
 }
 
 .batalha-screen .batalha-hud .hud-status .status-section div .condicao-modal header div img {
-  height: 65%;
+  height: 1.5vw;
   border: solid 2px var(--white);
   margin: 5px 0;
+  cursor: var(--cursor-auto);
 }
 
 .batalha-screen .batalha-hud .hud-status .status-section div .condicao-modal section {
@@ -162,17 +146,16 @@
 }
 
 .batalha-screen .batalha-hud .hud-status .status-section div .condicao-modal section p {
-  text-shadow: none;
+  text-shadow: var(--borda-texto);
   margin: 0 2%;
   width: 95%;
   font-size: 1.25rem;
 }
 
 .batalha-screen .batalha-hud .hud-status .status-section div .condicao-modal section p span {
-  color: var(--light-grey);
+  color: var(--texto-destaque);
   text-shadow: var(--borda-texto);
 }
-
 
 .batalha-screen .batalha-hud .hud-status .status-section .batalha-hud-barra {
   width: 90%;
@@ -228,8 +211,6 @@
     transform: translate(0px, 0);
   }
 }
-
-
 
 @media screen and (max-height: 479px) {
   .batalha-screen .batalha-hud .hud-status .status-header h1 {

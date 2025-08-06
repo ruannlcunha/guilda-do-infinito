@@ -19,5 +19,5 @@ export const SPRITES = {
   MAYA,
   MINUS,
   OTAVIA,
-  SOMBRIO,
+  SOMBRIO
 };

@@ -1,327 +1,325 @@
-
 .novo-jogo-screen {
-    width: 100%;
-    height: 100%;
-    background-color: var(--black);
+  width: 100%;
+  height: 100%;
+  background-color: var(--black);
 }
 
 .novo-jogo-screen .modal .visual-modal {
-    width: 50%;
-    height: 75%;
-    background-color: var(--fundo-janela);
-    border: double 5px var(--blue);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    box-shadow: var(--box-interior);
+  width: 50%;
+  height: 75%;
+  background-color: var(--fundo-janela);
+  border: double 5px var(--blue);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: var(--box-interior);
 }
 
 .novo-jogo-screen .modal .visual-modal h1 {
-    font-size: 2rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
-    font-weight: 100;
-    margin: 0;
-    border: double 5px var(--black);
-    border-radius: 5px;
-    background-color: var(--blue-grey);
-    padding: 0.5rem 0;
-    width: 90%;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;;
+  font-size: 2rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
+  font-weight: 100;
+  margin: 0;
+  border: double 5px var(--black);
+  border-radius: 5px;
+  background-color: var(--blue-grey);
+  padding: 0.5rem 0;
+  width: 90%;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
 .novo-jogo-screen .modal .visual-modal ul {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
 }
 
 .novo-jogo-screen .modal .visual-modal ul li {
-    height: 100%;
-    width: 30%;
-    list-style: none;
-    background-color: var(--white);
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.1s;
+  height: 100%;
+  width: 30%;
+  list-style: none;
+  background-color: var(--white);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s;
 }
 
 .novo-jogo-screen .modal .visual-modal ul li:hover {
-    transition: all 0.1s;
-    cursor: var(--cursor-pointer);
-    background-color: var(--light-grey);
-    border: solid 2px var(--blue-grey);
+  transition: all 0.1s;
+  cursor: var(--cursor-pointer);
+  background-color: var(--light-grey);
+  border: solid 2px var(--blue-grey);
 }
 
 .novo-jogo-screen .modal .visual-modal ul li h2 {
-    margin: 0.5rem 0;
-    width: 100%;
-    text-align: center;
-    font-size: 1.5rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
-    font-weight: 100;
+  margin: 0.5rem 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
+  font-weight: 100;
 }
 
 .novo-jogo-screen .modal .visual-modal ul li img {
-    width: 90%;
-    transition: all 0.1s;
+  width: 90%;
+  transition: all 0.1s;
 }
 
 .novo-jogo-screen .modal .visual-modal ul li:hover img {
-    width: 100%;
-    transition: all 0.1s;
+  width: 100%;
+  transition: all 0.1s;
 }
 
 .novo-jogo-screen .modal .pronomes-modal {
-    width: 50%;
-    height: 50%;
-    background-color: var(--fundo-janela);
-    border: double 5px var(--blue);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    box-shadow: var(--box-interior);
+  width: 50%;
+  height: 50%;
+  background-color: var(--fundo-janela);
+  border: double 5px var(--blue);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: var(--box-interior);
 }
 
 .novo-jogo-screen .modal .pronomes-modal h1 {
-    font-size: 2rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
-    font-weight: 100;
-    margin: 0;
-    border: double 5px var(--black);
-    border-radius: 5px;
-    background-color: var(--blue-grey);
-    padding: 0.5rem 0;
-    width: 90%;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;;
+  font-size: 2rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
+  font-weight: 100;
+  margin: 0;
+  border: double 5px var(--black);
+  border-radius: 5px;
+  background-color: var(--blue-grey);
+  padding: 0.5rem 0;
+  width: 90%;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
 .novo-jogo-screen .modal .pronomes-modal ul {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
 }
 
 .novo-jogo-screen .modal .pronomes-modal ul li {
-    width: 30%;
-    list-style: none;
-    background-color: var(--white);
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.1s;
+  width: 30%;
+  list-style: none;
+  background-color: var(--white);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s;
 }
 
 .novo-jogo-screen .modal .pronomes-modal ul li:hover {
-    transition: all 0.1s;
-    cursor: var(--cursor-pointer);
-    background-color: var(--light-grey);
-    border: solid 2px var(--blue-grey);
+  transition: all 0.1s;
+  cursor: var(--cursor-pointer);
+  background-color: var(--light-grey);
+  border: solid 2px var(--blue-grey);
 }
 
 .novo-jogo-screen .modal .pronomes-modal ul li h2 {
-    margin: 0.5rem 0;
-    width: 100%;
-    text-align: center;
-    font-size: 2rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
-    font-weight: 100;
-    padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
+  font-weight: 100;
+  padding: 0.5rem 1rem;
 }
 
 .novo-jogo-screen .modal .nome-modal {
-    width: 50%;
-    height: 50%;
-    background-color: var(--fundo-janela);
-    border: double 5px var(--blue);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    box-shadow: var(--box-interior);
+  width: 50%;
+  height: 50%;
+  background-color: var(--fundo-janela);
+  border: double 5px var(--blue);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: var(--box-interior);
 }
 
 .novo-jogo-screen .modal .nome-modal h1 {
-    font-size: 2rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
-    font-weight: 100;
-    margin: 0;
-    border: double 5px var(--black);
-    border-radius: 5px;
-    background-color: var(--blue-grey);
-    padding: 0.5rem 0;
-    width: 90%;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;;
+  font-size: 2rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
+  font-weight: 100;
+  margin: 0;
+  border: double 5px var(--black);
+  border-radius: 5px;
+  background-color: var(--blue-grey);
+  padding: 0.5rem 0;
+  width: 90%;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
 .novo-jogo-screen .modal .nome-modal form {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
 }
 
 .novo-jogo-screen .modal .nome-modal form input {
-    width: 80%;
-    font-family: textFont, sans-serif;
-    font-size: 2rem;
-    text-shadow: var(--borda-texto);
-    color: var(--white);
-    font-weight: 100;
-    padding: 5px;
-    border: solid 3px var(--blue);
-    border-radius: 5px;
-    caret-color: var(--black);
-    text-align: center;
-    margin-bottom: 2rem;
+  width: 80%;
+  font-family: textFont, sans-serif;
+  font-size: 2rem;
+  text-shadow: var(--borda-texto);
+  color: var(--white);
+  font-weight: 100;
+  padding: 5px;
+  border: solid 3px var(--blue);
+  border-radius: 5px;
+  caret-color: var(--black);
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .novo-jogo-screen .modal .nome-modal form input::placeholder {
-    text-shadow: none;
-    color: var(--grey);
-    font-weight: 100;
+  text-shadow: none;
+  color: var(--grey);
+  font-weight: 100;
 }
 
 .novo-jogo-screen .modal .confirmar-modal {
-    width: 50%;
-    height: 75%;
-    background-color: var(--fundo-janela);
-    border: double 5px var(--blue);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    box-shadow: var(--box-interior);
+  width: 50%;
+  height: 75%;
+  background-color: var(--fundo-janela);
+  border: double 5px var(--blue);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: var(--box-interior);
 }
 
 .novo-jogo-screen .modal .confirmar-modal h1 {
-    font-size: 2rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
-    font-weight: 100;
-    margin: 0;
-    border: double 5px var(--black);
-    border-radius: 5px;
-    background-color: var(--blue-grey);
-    padding: 0.5rem 0;
-    width: 90%;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;;
+  font-size: 2rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
+  font-weight: 100;
+  margin: 0;
+  border: double 5px var(--black);
+  border-radius: 5px;
+  background-color: var(--blue-grey);
+  padding: 0.5rem 0;
+  width: 90%;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
 .novo-jogo-screen .modal .confirmar-modal ul {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
 }
 
 .novo-jogo-screen .modal .confirmar-modal ul div {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .novo-jogo-screen .modal .confirmar-modal ul div li {
-    list-style: none;
-    background-color: var(--white);
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 90%;
-    margin: 10px;
-    transition: all 0.1s;
-    padding-left: 1rem;
+  list-style: none;
+  background-color: var(--white);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  margin: 10px;
+  transition: all 0.1s;
+  padding-left: 1rem;
 }
 
 .novo-jogo-screen .modal .confirmar-modal ul div li h2 {
-    margin: 0.5rem 0;
-    width: 100%;
-    text-align: left;
-    font-size: 1.5rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
-    font-weight: 100;
+  margin: 0.5rem 0;
+  width: 100%;
+  text-align: left;
+  font-size: 1.5rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
+  font-weight: 100;
 }
 
 .novo-jogo-screen .modal .confirmar-modal ul div li h2 span {
-    color: var(--light-blue);
+  color: var(--light-blue);
 }
 
 .novo-jogo-screen .modal .confirmar-modal ul div img {
-    height: 90%;
-    width: auto;
+  height: 90%;
+  width: auto;
 }
 
 .novo-jogo-screen .modal .confirmar-modal button {
-    margin: 0 1rem;
+  margin: 0 1rem;
 }
 
 @media screen and (max-height: 479px) {
+  .novo-jogo-screen .modal .visual-modal {
+    width: 55%;
+    height: 90%;
+  }
+  .novo-jogo-screen .modal .pronomes-modal {
+    width: 65%;
+    height: 65%;
+  }
 
-    .novo-jogo-screen .modal .visual-modal {
-        width: 55%;
-        height: 90%;
-    }
-    .novo-jogo-screen .modal .pronomes-modal {
-        width: 65%;
-        height: 65%;
-    }
+  .novo-jogo-screen .modal .nome-modal {
+    width: 60%;
+    height: 70%;
+  }
 
-    .novo-jogo-screen .modal .nome-modal {
-        width: 60%;
-        height: 70%;
-    }
+  .novo-jogo-screen .modal .confirmar-modal {
+    width: 70%;
+    height: 85%;
+  }
 
-    .novo-jogo-screen .modal .confirmar-modal {
-        width: 70%;
-        height: 85%;
-    }
-
-    .novo-jogo-screen .modal .confirmar-modal button {
-        margin: 1rem;
-    }
+  .novo-jogo-screen .modal .confirmar-modal button {
+    margin: 1rem;
+  }
 }

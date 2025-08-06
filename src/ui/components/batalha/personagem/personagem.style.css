@@ -28,15 +28,10 @@
   height: 100%;
 }
 
-.batalha-screen
-  .campo-de-batalha
-  section
-  .inimigos
-  section
-  div
-  .sprite-personagem {
+.batalha-screen .campo-de-batalha section .inimigos section div .sprite-personagem {
   transform: scaleX(-1);
   animation: battle-inimigo 1s alternate infinite ease-in-out;
+  transition: all 1s;
 }
 
 .batalha-screen .campo-de-batalha section div section div .icones-container {
@@ -112,7 +107,6 @@
   justify-content: center;
 }
 
-
 .batalha-screen .campo-de-batalha section div section div section div {
   height: 25%;
   width: 100%;
@@ -144,14 +138,7 @@
   text-shadow: var(--borda-texto);
 }
 
-.batalha-screen
-  .campo-de-batalha
-  section
-  div
-  section
-  div
-  section
-  .batalha-sprite-vida {
+.batalha-screen .campo-de-batalha section div section div section .batalha-sprite-vida {
   width: 70%;
   min-height: 4px;
   height: 4px;
@@ -160,54 +147,27 @@
   margin: 3px 0;
 }
 
-.batalha-screen
-  .campo-de-batalha
-  section
-  div
-  section
-  div
-  section
-  .condicoes {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 70%;
-
+.batalha-screen .campo-de-batalha section div section div section .condicoes {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 70%;
 }
-.batalha-screen
-  .campo-de-batalha
-  section
-  div
-  section
-  div
-  section
-  .condicoes
-  img {
-    height: 1vw;
-    border: solid 2px var(--white);
-    background-color: var(--light-grey);
-    filter: none;
+.batalha-screen .campo-de-batalha section div section div section .condicoes img {
+  height: 1vw;
+  border: solid 2px var(--white);
+  background-color: var(--light-grey);
+  filter: none;
+  margin: 0 1px;
 }
 
-.batalha-screen
-  .campo-de-batalha
-  section
-  div
-  section
-  .personagem-escolhido:hover {
+.batalha-screen .campo-de-batalha section div section .personagem-escolhido:hover {
   cursor: url(../../../../assets/img/cursors/POINTER.png), pointer;
 }
 
-.batalha-screen
-  .campo-de-batalha
-  section
-  div
-  section
-  .personagem-escolhido:hover
-  .sprite-personagem {
-  filter: drop-shadow(-2px 2px 2px var(--white))
-    drop-shadow(2px 2px 2px var(--white));
+.batalha-screen .campo-de-batalha section div section .personagem-escolhido:hover .sprite-personagem {
+  filter: drop-shadow(-2px 2px 2px var(--white)) drop-shadow(2px 2px 2px var(--white));
 }
 
 @keyframes battle-personagem {
@@ -230,79 +190,55 @@
 
 @keyframes bright-personagem {
   from {
-    filter: drop-shadow(-2px 2px 3px var(--white))
-      drop-shadow(2px 2px 3px var(--white)) brightness(100%);
+    filter: drop-shadow(-2px 2px 3px var(--white)) drop-shadow(2px 2px 3px var(--white)) brightness(100%);
   }
   to {
-    filter: drop-shadow(-2px 2px 5px var(--white))
-      drop-shadow(2px 2px 5px var(--white)) brightness(110%);
+    filter: drop-shadow(-2px 2px 5px var(--white)) drop-shadow(2px 2px 5px var(--white)) brightness(110%);
   }
 }
 
 @keyframes bright-inimigo {
   from {
-    filter: drop-shadow(-2px 2px 3px var(--red))
-      drop-shadow(2px 2px 3px var(--red)) brightness(100%);
+    filter: drop-shadow(-2px 2px 3px var(--red)) drop-shadow(2px 2px 3px var(--red)) brightness(100%);
   }
   to {
-    filter: drop-shadow(-2px 2px 5px var(--red))
-      drop-shadow(2px 2px 5px var(--red)) brightness(110%);
+    filter: drop-shadow(-2px 2px 5px var(--red)) drop-shadow(2px 2px 5px var(--red)) brightness(110%);
   }
 }
 
 @keyframes bright-aliado {
   from {
-    filter: drop-shadow(-2px 2px 3px var(--light-blue))
-      drop-shadow(2px 2px 3px var(--light-blue)) brightness(100%);
+    filter: drop-shadow(-2px 2px 3px var(--light-blue)) drop-shadow(2px 2px 3px var(--light-blue)) brightness(100%);
   }
   to {
-    filter: drop-shadow(-2px 2px 5px var(--light-blue))
-      drop-shadow(2px 2px 5px var(--light-blue)) brightness(110%);
+    filter: drop-shadow(-2px 2px 5px var(--light-blue)) drop-shadow(2px 2px 5px var(--light-blue)) brightness(110%);
   }
 }
 
 @keyframes derrotado-personagem {
   from {
-    filter: drop-shadow(-2px 2px 3px var(--white))
-      drop-shadow(2px 2px 3px var(--white))
-      grayscale(100%)
-      brightness(100%);
+    filter: drop-shadow(-2px 2px 3px var(--white)) drop-shadow(2px 2px 3px var(--white)) grayscale(100%) brightness(100%);
   }
   to {
-    filter: drop-shadow(-2px 2px 5px var(--white))
-      drop-shadow(2px 2px 5px var(--white))
-      grayscale(100%)
-      brightness(110%);
+    filter: drop-shadow(-2px 2px 5px var(--white)) drop-shadow(2px 2px 5px var(--white)) grayscale(100%) brightness(110%);
   }
 }
 
 @keyframes derrotado-inimigo {
   from {
-    filter: drop-shadow(-2px 2px 3px var(--red))
-      drop-shadow(2px 2px 3px var(--red))
-      grayscale(100%)
-      brightness(100%);
+    filter: drop-shadow(-2px 2px 3px var(--red)) drop-shadow(2px 2px 3px var(--red)) grayscale(100%) brightness(100%);
   }
   to {
-    filter: drop-shadow(-2px 2px 5px var(--red))
-      drop-shadow(2px 2px 5px var(--red))
-      grayscale(100%)
-      brightness(110%);
+    filter: drop-shadow(-2px 2px 5px var(--red)) drop-shadow(2px 2px 5px var(--red)) grayscale(100%) brightness(110%);
   }
 }
 
 @keyframes derrotado-aliado {
   from {
-    filter: drop-shadow(-2px 2px 3px var(--light-blue))
-      drop-shadow(2px 2px 3px var(--light-blue))
-      grayscale(100%)
-      brightness(100%);
+    filter: drop-shadow(-2px 2px 3px var(--light-blue)) drop-shadow(2px 2px 3px var(--light-blue)) grayscale(100%) brightness(100%);
   }
   to {
-    filter: drop-shadow(-2px 2px 5px var(--light-blue))
-      drop-shadow(2px 2px 5px var(--light-blue))
-      grayscale(100%)
-      brightness(110%);
+    filter: drop-shadow(-2px 2px 5px var(--light-blue)) drop-shadow(2px 2px 5px var(--light-blue)) grayscale(100%) brightness(110%);
   }
 }
 

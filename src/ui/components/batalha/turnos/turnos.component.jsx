@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import DADO_AZUL from "../../../../assets/img/icons/D20.png"
-import DADO_VERMELHO from "../../../../assets/img/icons/D20_VERMELHO.png"
+import DADO_AZUL from "../../../../assets/img/icons/D20.png";
+import DADO_VERMELHO from "../../../../assets/img/icons/D20_VERMELHO.png";
 import "./turnos.style.css";
 
 export function Turnos({ personagens, turnos, ordemIniciativa, idAtivo, animacoes }) {
@@ -19,34 +19,29 @@ export function Turnos({ personagens, turnos, ordemIniciativa, idAtivo, animacoe
 
   function renderDado(iniciativa, isInimigo) {
     return animacoes.isDadosAtivos ? (
-      <div className="d20-turnos" style={{backgroundImage: `url(${isInimigo? DADO_VERMELHO : DADO_AZUL})`}}>{iniciativa}</div>
+      <div
+        className="d20-turnos"
+        style={{
+          backgroundImage: `url(${isInimigo ? DADO_VERMELHO : DADO_AZUL})`
+        }}
+      >
+        {iniciativa}
+      </div>
     ) : null;
   }
 
   function renderPerfilTurno(personagem, ordem, index) {
-    const ativo =
-      animacoes.iniciativaTerminou &&
-      personagem.idCombate === idAtivo &&
-      ordem.ordemIniciativa === turnos.atual &&
-      idAtivo;
-    const novoPersonagem = personagens.find(
-      (item) => item.idCombate === personagem.idCombate
-    );
+    const ativo = animacoes.iniciativaTerminou && personagem.idCombate === idAtivo && ordem.ordemIniciativa === turnos.atual && idAtivo;
+    const novoPersonagem = personagens.find((item) => item.idCombate === personagem.idCombate);
     const perfilStyle = {
-      backgroundColor: novoPersonagem.isInimigo?"var(--dark-red)":"var(--blue)",
+      backgroundColor: novoPersonagem.isInimigo ? "var(--dark-red)" : "var(--blue)",
       backgroundImage: `url(${novoPersonagem.perfil})`,
-      filter: `${novoPersonagem.isMorto ? "grayscale(100%)" : null}`,
+      filter: `${novoPersonagem.isMorto ? "grayscale(100%)" : null}`
     };
-    const resultadoDado = ordemIniciativa
-    .find(ord=>ord.index===ordem.index).resultadoIniciativa
+    const resultadoDado = ordemIniciativa.find((ord) => ord.index === ordem.index).resultadoIniciativa;
 
     return (
-      <div
-        key={index}
-        style={perfilStyle}
-        className={ativo&&novoPersonagem.isInimigo ? "turnos-ativo-inimigo"
-          : ativo ? "turnos-ativo-aliado":null}
-      >
+      <div key={index} style={perfilStyle} className={ativo && novoPersonagem.isInimigo ? "turnos-ativo-inimigo" : ativo ? "turnos-ativo-aliado" : null}>
         {renderDado(resultadoDado, novoPersonagem.isInimigo)}
       </div>
     );
@@ -61,8 +56,7 @@ export function Turnos({ personagens, turnos, ordemIniciativa, idAtivo, animacoe
             <div className="turnos-ponta"></div>
             {personagens && ordemAtual
               ? ordemAtual.map((ordem, index) => {
-                  const _personagem = personagens
-                  .find(personagem=>personagem.idCombate===ordem.idCombate)
+                  const _personagem = personagens.find((personagem) => personagem.idCombate === ordem.idCombate);
 
                   return renderPerfilTurno(_personagem, ordem, index);
                 })

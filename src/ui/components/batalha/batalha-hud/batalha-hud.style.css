@@ -36,8 +36,6 @@
   transition: all 0.1s;
 }
 
-
-
 @media screen and (max-height: 479px) {
   .batalha-screen .batalha-hud {
     height: 35%;

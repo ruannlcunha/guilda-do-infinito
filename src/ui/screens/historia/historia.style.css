@@ -1,139 +1,135 @@
-
 .historia-screen {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--white);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .historia-list-screen {
-    width: 100%;
-    height: 87%;
-    display: flex;
-    flex-direction: column;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-image: url(../../../assets/img/backgrounds/BIBLIOTECA.png);
-    background-size: cover;
-    animation: topToBottom 30s alternate-reverse ease-in-out infinite;
+  width: 100%;
+  height: 87%;
+  display: flex;
+  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../../../assets/img/backgrounds/BIBLIOTECA.png);
+  background-size: cover;
+  animation: topToBottom 30s alternate-reverse ease-in-out infinite;
 }
 
 .historia-list-screen .setas {
-    background: none;
-    border: none;
-    width: 5vw;
-    padding: 0;
+  background: none;
+  border: none;
+  width: 5vw;
+  padding: 0;
 }
 
 .historia-list-screen .setas img {
-    width: 100%;
+  width: 100%;
 }
 
 .historia-list-screen .livro-historia {
-    background-image: url(../../../assets/img/others/LIVRO_HISTORIA_PARADO.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 80%;
-    height: 100%;
-    animation: livro 2.5s ease-in;
+  background-image: url(../../../assets/img/others/LIVRO_HISTORIA_PARADO.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 80%;
+  height: 100%;
+  animation: livro 2.5s ease-in;
 }
 
 .historia-list-screen .livro-historia div {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: livro-interior 2.5s ease-in;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: livro-interior 2.5s ease-in;
 }
 
 .historia-list-screen .livro-historia div section {
-    margin-left: 1%;
-    width: 36%;
-    height: 77%;
-    margin-bottom: 2%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+  margin-left: 1%;
+  width: 36%;
+  height: 77%;
+  margin-bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .historia-list-screen .livro-historia div section h1 {
-    font-size: 2.25rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
+  font-size: 2.25rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
 }
 
 .historia-list-screen .livro-historia div section p {
-    font-size: 1.5rem;
-    margin: 0;
-    width: 90%;
-    height: 80%;
-    overflow-y: auto;
+  font-size: 1.5rem;
+  margin: 0;
+  width: 90%;
+  height: 80%;
+  overflow-y: auto;
 }
 
 .historia-list-screen .livro-historia div section img {
-    width: 90%;
-    border: solid 3px var(--black);
+  width: 90%;
+  border: solid 3px var(--black);
 }
 
 .historia-list-screen .livro-historia div section button {
-    background: none;
-    font-size: 2.5rem;
-    border-color: var(--black);
-    transition: all 0.1s;
+  background: none;
+  font-size: 2.5rem;
+  border-color: var(--black);
+  transition: all 0.1s;
 }
 
 .historia-list-screen .livro-historia div section button:hover {
-    transition: all 0.1s;
-    background-color: var(--background-text);
+  transition: all 0.1s;
+  background-color: var(--background-text);
 }
 
 @keyframes livro {
-    0% {
-        background-image: url(../../../assets/img/others/LIVRO_HISTORIA.gif);
-    }
-    49% {
-        background-image: url(../../../assets/img/others/LIVRO_HISTORIA.gif);
-    }
-    50% {
-        background-image: url(../../../assets/img/others/LIVRO_HISTORIA_PARADO.png);
-    }
-    100% {
-        background-image: url(../../../assets/img/others/LIVRO_HISTORIA_PARADO.png);
-    }
+  0% {
+    background-image: url(../../../assets/img/others/LIVRO_HISTORIA.gif);
+  }
+  49% {
+    background-image: url(../../../assets/img/others/LIVRO_HISTORIA.gif);
+  }
+  50% {
+    background-image: url(../../../assets/img/others/LIVRO_HISTORIA_PARADO.png);
+  }
+  100% {
+    background-image: url(../../../assets/img/others/LIVRO_HISTORIA_PARADO.png);
+  }
 }
 
 @keyframes livro-interior {
-    0% {
-        opacity: 0%;
-    }
-    50% {
-        opacity: 0%;
-    }
-    100% {
-        opacity: 100%;
-    }
+  0% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
-
 @media screen and (max-height: 479px) {
+  .historia-list-screen .livro-historia div section h1 {
+    font-size: 1.5rem;
+  }
 
-    .historia-list-screen .livro-historia div section h1 {
-        font-size: 1.5rem;
-    }
+  .historia-list-screen .livro-historia div section p {
+    font-size: 1rem;
+  }
 
-    .historia-list-screen .livro-historia div section p {
-        font-size: 1rem;
-    }
-    
-    .historia-list-screen .livro-historia div section button {
-        font-size: 1.75rem;
-    }
-
+  .historia-list-screen .livro-historia div section button {
+    font-size: 1.75rem;
+  }
 }

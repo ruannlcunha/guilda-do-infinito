@@ -1,5 +1,6 @@
 import { createHashRouter } from "react-router-dom";
-import { AventuraScreen,
+import {
+  AventuraScreen,
   HistoriaBatalhaScreen,
   CapitulosScreen,
   CenaScreen,
@@ -30,112 +31,112 @@ import { AventuraScreen,
 export const router = createHashRouter([
   {
     path: "*",
-    element: <NotFoundScreen />,
+    element: <NotFoundScreen />
   },
-  { 
+  {
     path: `/`,
     element: <RootScreen />,
     children: [
       {
         path: `/`,
-        element: <StartScreen />,
+        element: <StartScreen />
       },
       {
         path: `/novo-jogo`,
-        element: <NovoJogoScreen />,
+        element: <NovoJogoScreen />
       },
       {
         path: `/home`,
-        element: <HomeScreen />,
+        element: <HomeScreen />
       },
       {
         path: `/historia`,
-        element: <HistoriaScreen />,
+        element: <HistoriaScreen />
       },
       {
         path: `/historia/:historia`,
-        element: <CapitulosScreen />,
+        element: <CapitulosScreen />
       },
       {
         path: `/historia/:historia/:idCapitulo/:idEpisodio/batalha`,
-        element: <HistoriaBatalhaScreen />,
+        element: <HistoriaBatalhaScreen />
       },
       {
         path: `/historia/:historia/:idCapitulo/:idEpisodio/cena`,
-        element: <CenaScreen />,
+        element: <CenaScreen />
       },
       {
         path: `/aventura`,
-        element: <AventuraScreen />,
+        element: <AventuraScreen />
       },
       {
         path: `/versus`,
-        element: <VersusScreen />,
+        element: <VersusScreen />
       },
       {
         path: `/versus/:jogadores/personagens`,
-        element: <VersusPersonagensScreen />,
+        element: <VersusPersonagensScreen />
       },
       {
         path: `/versus/:jogadores/mapas`,
-        element: <VersusMapaScreen />,
+        element: <VersusMapaScreen />
       },
       {
         path: `/versus/:jogadores/batalha`,
-        element: <VersusBatalhaScreen />,
+        element: <VersusBatalhaScreen />
       },
       {
         path: `/cosmos`,
-        element: <CosmosScreen />,
+        element: <CosmosScreen />
       },
       {
         path: `/cosmos/:idBanner/:quantidade`,
-        element: <JogarGachaScreen />,
+        element: <JogarGachaScreen />
       },
       {
         path: `/loja`,
-        element: <LojaScreen />,
+        element: <LojaScreen />
       },
       {
         path: `/perfil`,
-        element: <PerfilScreen />,
+        element: <PerfilScreen />
       },
       {
         path: `/perfil/personagens`,
-        element: <PerfilPersonagensScreen />,
+        element: <PerfilPersonagensScreen />
       },
       {
         path: `/perfil/personagens/:personagemId`,
-        element: <PersonagemDetalhadoScreen />,
+        element: <PersonagemDetalhadoScreen />
       },
       {
         path: `/perfil/personagens/:personagemId/evoluir`,
-        element: <PersonagemEvoluirScreen />,
+        element: <PersonagemEvoluirScreen />
       },
       {
         path: `/perfil/personagens/:personagemId/consumiveis`,
-        element: <PersonagemConsumiveisScreen />,
+        element: <PersonagemConsumiveisScreen />
       },
       {
         path: `/perfil/personagens/:personagemId/acoes`,
-        element: <PersonagemAcoesScreen />,
+        element: <PersonagemAcoesScreen />
       },
       {
         path: `/perfil/personagens/:personagemId/talentos`,
-        element: <PersonagemTalentosScreen />,
+        element: <PersonagemTalentosScreen />
       },
       {
         path: `/perfil/personagens/:personagemId/visuais`,
-        element: <PersonagemVisuaisScreen />,
+        element: <PersonagemVisuaisScreen />
       },
       {
         path: `/perfil/personagens/:personagemId/equipamentos/:equipamentoTipo?`,
-        element: <PersonagemEquipamentosScreen />,
+        element: <PersonagemEquipamentosScreen />
       },
       {
         path: `/cutscene`,
-        element: <CenaScreen />,
-      },
-    ],
-  },
+        element: <CenaScreen />
+      }
+    ]
+  }
 ]);

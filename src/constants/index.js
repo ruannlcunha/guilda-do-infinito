@@ -1,6 +1,6 @@
 export const THEME_TYPES = {
   DARK_THEME: "DARK",
-  LIGHT_THEME: "LIGHT",
+  LIGHT_THEME: "LIGHT"
 };
 
 export const BASE_URL = "/guilda-do-infinito";
@@ -8,13 +8,13 @@ export const BASE_URL = "/guilda-do-infinito";
 export const CONTEXT_CONFIG_DEFAULT = {
   somEfeitos: 10,
   somMusica: 10,
-  tema: THEME_TYPES.LIGHT_THEME,
+  tema: THEME_TYPES.LIGHT_THEME
 };
 
 export const CONTEXT_CONFIG_NAMES = {
   SOM_EFEITOS: "somEfeitos",
   SOM_MUSICA: "somMusica",
-  TEMA: "tema",
+  TEMA: "tema"
 };
 
 export const BANNER_DURACAO = {
@@ -22,21 +22,20 @@ export const BANNER_DURACAO = {
   ATAQUE: 8000,
   ROLAGEM: 5000,
   INIMIGO: 5000,
-  DEFESA_EFFECT: 3500,
-}
+  DEFESA_EFFECT: 3500
+};
 
 export const BANNER_TIPOS = {
   TEXTO: "Texto",
   ATAQUE: "Ataque",
   ROLAGEM: "Rolagem",
-  INIMIGO: "Ação Inimigo",
-
-}
+  INIMIGO: "Ação Inimigo"
+};
 
 export const CENAS_TIPO = {
   DIALOGO: "DIÁLOGO",
-  IMAGEM: "IMAGEM",
-}
+  IMAGEM: "IMAGEM"
+};
 
 export const PRONOMES = {
   NULO: {
@@ -45,7 +44,7 @@ export const PRONOMES = {
     minusculo_1: "NULO",
     minusculo_2: "NULO",
     maiusculo_1: "NULO",
-    maiusculo_2: "NULO",
+    maiusculo_2: "NULO"
   },
   MASCULINO: {
     tipo: "MASCULINO",
@@ -53,7 +52,7 @@ export const PRONOMES = {
     minusculo_1: "e",
     minusculo_2: "o",
     maiusculo_1: "E",
-    maiusculo_2: "O",
+    maiusculo_2: "O"
   },
   FEMININO: {
     tipo: "FEMININO",
@@ -61,7 +60,7 @@ export const PRONOMES = {
     minusculo_1: "a",
     minusculo_2: "a",
     maiusculo_1: "A",
-    maiusculo_2: "A",
+    maiusculo_2: "A"
   },
   NAO_BINARIO: {
     tipo: "NAO_BINARIO",
@@ -69,39 +68,39 @@ export const PRONOMES = {
     minusculo_1: "u",
     minusculo_2: "e",
     maiusculo_1: "U",
-    maiusculo_2: "E",
-  },
-}
+    maiusculo_2: "E"
+  }
+};
 
 export const RECOMPENSAS_TIPO = {
   ARMA: "ARMA",
-  PERSONAGEM: "PERSONAGEM",
-}
+  PERSONAGEM: "PERSONAGEM"
+};
 
 export const ITEM_PROFICIENCIA = {
   PESADA: "Pesada",
-  LEVE: "Leve",
-}
+  LEVE: "Leve"
+};
 
 export const EPISODIO_TIPO = {
   DIALOGO: {
     nome: "Diálogo",
     cor: "mid-green",
-    gradient: "dark-green",
+    gradient: "dark-green"
   },
   BATALHA: {
     nome: "Batalha",
     cor: "mid-red",
-    gradient: "dark-red",
+    gradient: "dark-red"
   },
   CHEFE: {
     nome: "Batalha contra Chefe",
     cor: "purple",
-    gradient: "dark-purple",
-  },
-}
+    gradient: "dark-purple"
+  }
+};
 
 export const MODOS_JOGO = {
   VERSUS: "VERSUS",
-  HISTORIA: "HISTORIA",
-}
+  HISTORIA: "HISTORIA"
+};

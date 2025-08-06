@@ -5,7 +5,7 @@ export { useInstanciarPersonagens } from "./instanciar-personagens/use-instancia
 export { usePularTurno } from "./pular-turno/use-pular-turno.hook";
 export { useFinalizarTurno } from "./finalizar-turno/use-finalizar-turno.hook";
 export { useZoomCampo } from "./zoom-campo/use-zoom-campo.hook";
-export { useAutomatizarPersonagem } from "./automatizar-personagem/use-automatizar-personagem.hook"
-export { useCausarCondicao } from "./acoes/causar-condicao/use-causar-condicao.hook"
-export { useRealizarCondicao } from "./acoes/realizar-condicao/use-realizar-condicao.hook"
-export { useEncerrarCondicao } from "./acoes/encerrar-condicao/use-encerrar-condicao.hook"
+export { useAutomatizarPersonagem } from "./automatizar-personagem/use-automatizar-personagem.hook";
+export { useCausarCondicao } from "./acoes/causar-condicao/use-causar-condicao.hook";
+export { useRealizarCondicao } from "./acoes/realizar-condicao/use-realizar-condicao.hook";
+export { useEncerrarCondicao } from "./acoes/encerrar-condicao/use-encerrar-condicao.hook";

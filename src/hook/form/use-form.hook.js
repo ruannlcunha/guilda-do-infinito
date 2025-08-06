@@ -9,7 +9,7 @@ export function useForm(initialFormData) {
     const fieldName = target.name;
     setFormData((pastInfo) => ({
       ...pastInfo,
-      [fieldName]: fieldValue,
+      [fieldName]: fieldValue
     }));
   }
 

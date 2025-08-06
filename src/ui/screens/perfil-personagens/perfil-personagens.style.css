@@ -1,174 +1,167 @@
-
 .perfil-personagens {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    background:
-    url(../../../assets/img/textures/CLOUDS.png),
-    linear-gradient(var(--fundo-tema) 25%, var(--white) 100%);
-    background-size: 110%;
-    animation: leftToRight 35s alternate-reverse infinite ease-in-out;
-    overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background: url(../../../assets/img/textures/CLOUDS.png), linear-gradient(var(--fundo-tema) 25%, var(--white) 100%);
+  background-size: 110%;
+  animation: leftToRight 35s alternate-reverse infinite ease-in-out;
+  overflow: hidden;
 }
 
 .perfil-personagens .lista-personagens {
-    height: 80%;
-    width: 50%;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+  height: 80%;
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .perfil-personagens .lista-personagens header {
-    width: 100%;
-    height: 10%;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
 }
 
 .perfil-personagens .lista-personagens header img {
-    height: 75%;
-    margin-left: 1rem;
-    filter: drop-shadow(-2px 2px 10px var(--black));
+  height: 75%;
+  margin-left: 1rem;
+  filter: drop-shadow(-2px 2px 10px var(--black));
 }
 
 .perfil-personagens .lista-personagens header h1 {
-    margin: 0 0.8rem;
-    font-size: 2rem;
-    text-shadow: var(--borda-texto-sombra);
-    color: var(--white);
-    font-weight: 100;
+  margin: 0 0.8rem;
+  font-size: 2rem;
+  text-shadow: var(--borda-texto-sombra);
+  color: var(--white);
+  font-weight: 100;
 }
 
 .perfil-personagens .lista-personagens section {
-    height: 90%;
-    width: 30vw;
-    overflow-y: auto;
-    background-color: var(--background-text);
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 0.3rem 0;
-    margin-left: 5%;
+  height: 90%;
+  width: 30vw;
+  overflow-y: auto;
+  background-color: var(--background-text);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 0.3rem 0;
+  margin-left: 5%;
 }
 
 .perfil-personagens .lista-personagens section ul {
-    display: flex;
-    align-items: self-start;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    padding-left: 1rem;
+  display: flex;
+  align-items: self-start;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  padding-left: 1rem;
 }
 
 .perfil-personagens .lista-personagens section ul li {
-    height: 8rem;
-    width: 7rem;
-    background: var(--card-4-estrelas);
-    margin: 0.5rem;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: solid 2px var(--black);
-    transition: all 0.1s;
+  height: 8rem;
+  width: 7rem;
+  background: var(--card-4-estrelas);
+  margin: 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: solid 2px var(--black);
+  transition: all 0.1s;
 }
 
 .perfil-personagens .lista-personagens section ul .card-escolhido {
-    box-shadow: var(--box-brilho)
+  box-shadow: var(--box-brilho);
 }
 
 .perfil-personagens .lista-personagens section ul .card-escolhido img {
-    height: 110%;
-    right: 17%;
+  height: 110%;
+  right: 17%;
 }
 
 .perfil-personagens .lista-personagens section ul li:hover {
-    transition: all 0.1s;
-    box-shadow: var(--box-brilho);
-    cursor: var(--cursor-pointer);
+  transition: all 0.1s;
+  box-shadow: var(--box-brilho);
+  cursor: var(--cursor-pointer);
 }
 
 .perfil-personagens .lista-personagens section ul li header {
-    height: 35%;
-    width: 100%;
-    display: flex;
+  height: 35%;
+  width: 100%;
+  display: flex;
 }
 
 .perfil-personagens .lista-personagens section ul li header img {
-    margin: 5px;
-    height: 100%;
-    position: relative;
-    right: 15%;
-    transition: all 0.1s;
+  margin: 5px;
+  height: 100%;
+  position: relative;
+  right: 15%;
+  transition: all 0.1s;
 }
 
 .perfil-personagens .lista-personagens section ul li:hover header img {
-    transition: all 0.1s;
-    height: 110%;
-    right: 17%;
+  transition: all 0.1s;
+  height: 110%;
+  right: 17%;
 }
 
 .perfil-personagens .lista-personagens section ul li footer {
-    height: 20%;
-    width: 100%;
-    background-color: var(--white);
-    border-radius: 0 0 5px 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px -25px 36px -20px inset;
-    text-shadow: var(--borda-texto-branco);
-    text-align: center;
+  height: 20%;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 0 0 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -25px 36px -20px inset;
+  text-shadow: var(--borda-texto-branco);
+  text-align: center;
 }
 
 .perfil-personagens .personagem-selecionado {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .perfil-personagens .personagem-selecionado img {
-    height: 80%;
-    width: auto;
+  height: 80%;
+  width: auto;
 }
 
 .perfil-personagens .personagem-selecionado h1 {
-    position: absolute;
-    top: 1rem;
-    font-weight: 100;
-    font-size: 3rem;
-    color: var(--white);
-    text-shadow: var(--borda-texto-sombra);
+  position: absolute;
+  top: 1rem;
+  font-weight: 100;
+  font-size: 3rem;
+  color: var(--white);
+  text-shadow: var(--borda-texto-sombra);
 }
 
 .perfil-personagens .personagem-selecionado button {
-    margin: 0.5rem 0;
+  margin: 0.5rem 0;
 }
 
-
-
 @media screen and (max-height: 479px) {
+  .perfil-personagens .personagem-selecionado img {
+    height: 70%;
+  }
 
-    .perfil-personagens .personagem-selecionado img {
-        height: 70%;
-    }
-    
-    .perfil-personagens .personagem-selecionado h1 {
-        font-size: 2.5rem;
-    }
+  .perfil-personagens .personagem-selecionado h1 {
+    font-size: 2.5rem;
+  }
 
-    .perfil-personagens .lista-personagens section ul li {
-        height: 6rem;
-        width: 5rem;
-    }
+  .perfil-personagens .lista-personagens section ul li {
+    height: 6rem;
+    width: 5rem;
+  }
 
-    .perfil-personagens .lista-personagens section ul li footer {
-        font-size: 1rem;
-    }
-  
+  .perfil-personagens .lista-personagens section ul li footer {
+    font-size: 1rem;
+  }
 }

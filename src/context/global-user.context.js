@@ -2,9 +2,7 @@ import createGlobalState from "react-create-global-state";
 import userInicial from "./user_inicial.json";
 
 const stateInStorage = localStorage.getItem("user");
-const initialState = stateInStorage
-  ? JSON.parse(stateInStorage)
-  : userInicial;
+const initialState = stateInStorage ? JSON.parse(stateInStorage) : userInicial;
 
 const [_useGlobalUser, Provider] = createGlobalState(initialState);
 

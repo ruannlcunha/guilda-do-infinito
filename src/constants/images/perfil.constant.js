@@ -19,5 +19,5 @@ export const PERFIL = {
   MAYA,
   MINUS,
   OTAVIA,
-  SOMBRIO,
+  SOMBRIO
 };

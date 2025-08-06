@@ -1,321 +1,365 @@
-import "./personagem-equipamentos.style.css"
-import { BackButton, BotaoPrimario, ContainerScreen, ModalItemLista, RaridadeEstrelas } from "../../components"
-import { useParams } from "react-router-dom"
-import useGlobalUser from "../../../context/global-user.context"
-import { useEffect, useState } from "react"
-import { instanciarPersonagem } from "../../../utils"
-import { ICONS } from "../../../constants/images"
-import { ITEM_TIPO } from "../../../constants/itens/itens.constant"
-import { EQUIPAMENTOS_DATA } from "../../../database"
-import { useSound } from "../../../hook"
-import { cheatTodosItens, cheatTodosPersonagens } from "../../../utils/cheats-testes.util"
+import "./personagem-equipamentos.style.css";
+import { BackButton, BotaoPrimario, ContainerScreen, ModalItemLista, RaridadeEstrelas } from "../../components";
+import { useParams } from "react-router-dom";
+import useGlobalUser from "../../../context/global-user.context";
+import { useEffect, useState } from "react";
+import { instanciarPersonagem } from "../../../utils";
+import { ICONS } from "../../../constants/images";
+import { ITEM_TIPO } from "../../../constants/itens/itens.constant";
+import { ATAQUES_DATA, EQUIPAMENTOS_DATA, HABILIDADES_DATA } from "../../../database";
+import { useSound } from "../../../hook";
+import { cheatTodosItens, cheatTodosPersonagens } from "../../../utils/cheats-testes.util";
+import { validarProficiencia } from "../../../utils/validacoes.util";
 
-export function PersonagemEquipamentosScreen({personagemBatalha, onBack}) {
-    const { personagemId, equipamentoCategoria } = useParams()
-    const [user, setUser] = useGlobalUser()
-    const { playClick, playHover } = useSound()
-    const [novoUser, setNovoUser] = useState(null)
-    const [personagem, setPersonagem] = useState(null)
-    const [equipamentos, setEquipamentos] = useState([])
-    const [modalIsOpen, setModalIsOpen] = useState(false)
-    const [filtroItem, setFiltroItem] = useState({atributo: null, tipo: null})
-    const [itemEscolhido, setItemEscolhido] = useState({index: null})
-    const EQUIPAMENTO_CATEGORIA = {
-        ARMA: {titulo: "Arma",atributo: "arma",tipo: "ARMA",icon: ICONS.ARMA},
-        ARMADURA: {titulo: "Armadura",atributo: "armadura",tipo: "ARMADURA",icon: ICONS.ARMADURA},
-        ACESSORIO_1: {titulo: "Acessório",atributo: "acessorio1",tipo: "ACESSORIO",icon: ICONS.ANEL},
-        ACESSORIO_2: {titulo: "Acessório",atributo: "acessorio2",tipo: "ACESSORIO",icon: ICONS.ANEL},
+export function PersonagemEquipamentosScreen({ personagemBatalha, onBack }) {
+  const { personagemId, equipamentoCategoria } = useParams();
+  const [user, setUser] = useGlobalUser();
+  const { playClick, playHover } = useSound();
+  const [novoUser, setNovoUser] = useState(null);
+  const [personagem, setPersonagem] = useState(null);
+  const [equipamentos, setEquipamentos] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [filtroItem, setFiltroItem] = useState({ atributo: null, tipo: null });
+  const [itemEscolhido, setItemEscolhido] = useState({ index: null });
+  const EQUIPAMENTO_CATEGORIA = {
+    ARMA: { titulo: "Arma", atributo: "arma", tipo: "ARMA", icon: ICONS.ARMA },
+    ARMADURA: {
+      titulo: "Armadura",
+      atributo: "armadura",
+      tipo: "ARMADURA",
+      icon: ICONS.ARMADURA
+    },
+    ACESSORIO_1: {
+      titulo: "Acessório",
+      atributo: "acessorio1",
+      tipo: "ACESSORIO",
+      icon: ICONS.ANEL
+    },
+    ACESSORIO_2: {
+      titulo: "Acessório",
+      atributo: "acessorio2",
+      tipo: "ACESSORIO",
+      icon: ICONS.ANEL
     }
+  };
 
-    useEffect(()=>{
-        const userTodosPersonagens = cheatTodosPersonagens(user)
-        const userTodosItens = cheatTodosItens(userTodosPersonagens)
-        const _user = userTodosItens
-        setNovoUser(_user)
-        if(equipamentoCategoria) {
-            handleAbrirModal(EQUIPAMENTO_CATEGORIA[equipamentoCategoria])
-        }
-    },[])
+  useEffect(() => {
+    const userTodosPersonagens = cheatTodosPersonagens(user);
+    const userTodosItens = cheatTodosItens(userTodosPersonagens);
+    const _user = userTodosItens;
+    setNovoUser(_user);
+    if (equipamentoCategoria) {
+      handleAbrirModal(EQUIPAMENTO_CATEGORIA[equipamentoCategoria]);
+    }
+  }, []);
 
-    useEffect(()=>{
-        const _user = novoUser
-        if(_user) {
-        const equipamentosUsados = []
-        _user.personagens.map(person=> {
-            person.equipamentos.arma?equipamentosUsados.push({
-                ...EQUIPAMENTOS_DATA.find(item=>item.id===person.equipamentos.arma),
-                personagemEquipadoId: person.personagemId,
-            }
-            ):null
-            person.equipamentos.armadura?equipamentosUsados.push({
-                ...EQUIPAMENTOS_DATA.find(item=>item.id===person.equipamentos.armadura),
-                personagemEquipadoId: person.personagemId,
-            }
-            ):null
-            person.equipamentos.acessorio1?equipamentosUsados.push({
-                ...EQUIPAMENTOS_DATA.find(item=>item.id===person.equipamentos.acessorio1),
-                personagemEquipadoId: person.personagemId,
-            }
-            ):null
-            person.equipamentos.acessorio2?equipamentosUsados.push({
-                ...EQUIPAMENTOS_DATA.find(item=>item.id===person.equipamentos.acessorio2),
-                personagemEquipadoId: person.personagemId,
-            }
-            ):null
+  useEffect(() => {
+    const _user = novoUser;
+    if (_user) {
+      const equipamentosUsados = [];
+      _user.personagens.map((person) => {
+        person.equipamentos.arma
+          ? equipamentosUsados.push({
+              ...EQUIPAMENTOS_DATA.find((item) => item.id === person.equipamentos.arma),
+              personagemEquipadoId: person.personagemId
+            })
+          : null;
+        person.equipamentos.armadura
+          ? equipamentosUsados.push({
+              ...EQUIPAMENTOS_DATA.find((item) => item.id === person.equipamentos.armadura),
+              personagemEquipadoId: person.personagemId
+            })
+          : null;
+        person.equipamentos.acessorio1
+          ? equipamentosUsados.push({
+              ...EQUIPAMENTOS_DATA.find((item) => item.id === person.equipamentos.acessorio1),
+              personagemEquipadoId: person.personagemId
+            })
+          : null;
+        person.equipamentos.acessorio2
+          ? equipamentosUsados.push({
+              ...EQUIPAMENTOS_DATA.find((item) => item.id === person.equipamentos.acessorio2),
+              personagemEquipadoId: person.personagemId
+            })
+          : null;
+      });
+      const _equipamentos = [
+        ..._user.inventario.map((item) => {
+          return {
+            ...EQUIPAMENTOS_DATA.find((itemData) => itemData.id === item.itemId && itemData.itemTipo === item.itemTipo),
+            personagemEquipadoId: item.personagemEquipadoId,
+            quantidade: item.quantidade
+          };
+        }),
+        ...equipamentosUsados
+      ]
+        .map((item, i) => {
+          return { ...item, index: i };
         })
-        const _equipamentos = [
-            ..._user.inventario.map(item=> {
-                return {
-                ...EQUIPAMENTOS_DATA.find(itemData=> (itemData.id===item.itemId) && (itemData.itemTipo===item.itemTipo)),
-                personagemEquipadoId: item.personagemEquipadoId,
-                quantidade: item.quantidade,
-                }
-            }),
-            ...equipamentosUsados,
-        ]
-        .map((item,i)=>{return{...item, index: i}})
-        .filter(item=>item.itemTipo===ITEM_TIPO.EQUIPAMENTO)
+        .filter((item) => item.itemTipo === ITEM_TIPO.EQUIPAMENTO)
         .sort(function (a, b) {
-            if(a.personagemEquipadoId && !b.personagemEquipadoId){return -1;}
-            else if(!a.personagemEquipadoId && b.personagemEquipadoId){return 1;}
-            else{return b.raridade-a.raridade;}
+          return a.id - b.id;
+        })
+        .sort(function (a, b) {
+          if (a.personagemEquipadoId && !b.personagemEquipadoId) {
+            return -1;
+          } else if (!a.personagemEquipadoId && b.personagemEquipadoId) {
+            return 1;
+          } else {
+            return b.raridade - a.raridade;
+          }
         });
-        setEquipamentos(_equipamentos)
+      setEquipamentos(_equipamentos);
 
-        let personagemInstanciado = null
-        if(personagemBatalha) {
-            personagemInstanciado = personagemBatalha
-        }
-        else {
-            const _personagem = novoUser.personagens.find(item=>item.personagemId == personagemId)
-            personagemInstanciado = instanciarPersonagem(_personagem)
-        }
-        setPersonagem(personagemInstanciado)
-        document.documentElement.style.setProperty('--fundo-tema',
-            `var(--${personagemInstanciado.corTema})`
-        );
+      let personagemInstanciado = null;
+      if (personagemBatalha) {
+        personagemInstanciado = personagemBatalha;
+      } else {
+        const _personagem = novoUser.personagens.find((item) => item.personagemId == personagemId);
+        personagemInstanciado = instanciarPersonagem(_personagem);
+      }
+      setPersonagem(personagemInstanciado);
+      document.documentElement.style.setProperty("--fundo-tema", `var(--${personagemInstanciado.corTema})`);
 
-        if(_equipamentos.length>0) {
-            const itemPossuido = personagemInstanciado.equipamentos[filtroItem.atributo]
-            if(itemPossuido) {
-                setItemEscolhido(_equipamentos.find(item=>item.id == itemPossuido))
-            } else {
-                setItemEscolhido({index: null})
-            }
+      if (_equipamentos.length > 0) {
+        const itemPossuido = personagemInstanciado.equipamentos[filtroItem.atributo];
+        if (itemPossuido) {
+          setItemEscolhido(_equipamentos.find((item) => item.id == itemPossuido));
+        } else {
+          setItemEscolhido({ index: null });
         }
+      }
     }
-    },[user, novoUser, modalIsOpen])
-    
-    function handleEscolherItem(item) {
-        playClick(1)
-        if(item.index===itemEscolhido.index) {
-            setItemEscolhido({index: null})
-        }
-        else {
-            setItemEscolhido(item)
-        }
+  }, [user, novoUser, modalIsOpen]);
+
+  function handleEscolherItem(item) {
+    playClick(1);
+    if (item.index === itemEscolhido.index) {
+      setItemEscolhido({ index: null });
+    } else {
+      setItemEscolhido(item);
     }
+  }
 
-    function handleEquipar() {
-        playClick(2)
-        const _personagem = novoUser.personagens.find(item=>item.personagemId==personagemId)
-        const itemAtualEquipado = _personagem.equipamentos[filtroItem.atributo]
+  function handleEquipar() {
+    playClick(2);
+    if (validarProficiencia(itemEscolhido, personagem)) {
+      const _personagem = novoUser.personagens.find((item) => item.personagemId == personagemId);
+      const itemAtualEquipado = _personagem.equipamentos[filtroItem.atributo];
 
-        const novoPersonagem = {
-            ..._personagem,
-            equipamentos: {
-                ...personagem.equipamentos,
-                [filtroItem.atributo]: itemEscolhido.id
-            }
+      const novoPersonagem = {
+        ..._personagem,
+        equipamentos: {
+          ...personagem.equipamentos,
+          [filtroItem.atributo]: itemEscolhido.id
         }
-        let novosPersonagens = [
-            ...novoUser.personagens.filter((personagem)=> personagem.personagemId!=personagemId),
-            novoPersonagem,
-        ]
-        
-        if(itemEscolhido.personagemEquipadoId &&
-            itemEscolhido.personagemEquipadoId!==Number(personagemId)) {
-            const _personagemEquipado = novoUser.personagens
-            .find(item=>item.personagemId==itemEscolhido.personagemEquipadoId)
-            const _novoPersonagemEquipado = {
-                ..._personagemEquipado,
-                equipamentos: {
-                    ...personagem.equipamentos,
-                    [filtroItem.atributo]: null
-                }
-            }
-            const _novosPersonagens = [
-                ...novosPersonagens
-                .filter((personagem)=> personagem.personagemId!=itemEscolhido.personagemEquipadoId),
-                _novoPersonagemEquipado,
-            ]
-            novosPersonagens = _novosPersonagens
-        }
+      };
+      let novosPersonagens = [...novoUser.personagens.filter((personagem) => personagem.personagemId != personagemId), novoPersonagem];
 
-        const novoInventario = novoUser.inventario.filter((item, i)=> i!=itemEscolhido.index)
-        itemAtualEquipado?novoInventario.push({itemId:itemAtualEquipado, quantidade: 1}):null
+      if (itemEscolhido.personagemEquipadoId && itemEscolhido.personagemEquipadoId !== Number(personagemId)) {
+        const _personagemEquipado = novoUser.personagens.find((item) => item.personagemId == itemEscolhido.personagemEquipadoId);
+        const _novoPersonagemEquipado = {
+          ..._personagemEquipado,
+          equipamentos: {
+            ...personagem.equipamentos,
+            [filtroItem.atributo]: null
+          }
+        };
+        const _novosPersonagens = [...novosPersonagens.filter((personagem) => personagem.personagemId != itemEscolhido.personagemEquipadoId), _novoPersonagemEquipado];
+        novosPersonagens = _novosPersonagens;
+      }
 
-        const _novoUser = {
-            ...user,
-            inventario: novoInventario,
-            personagens: novosPersonagens,
-        }
-        setNovoUser(_novoUser)
+      const novoInventario = novoUser.inventario.filter((item, i) => i != itemEscolhido.index);
+      itemAtualEquipado
+        ? novoInventario.push({
+            itemId: itemAtualEquipado,
+            itemTipo: ITEM_TIPO.EQUIPAMENTO,
+            quantidade: 1
+          })
+        : null;
+
+      const _novoUser = {
+        ...user,
+        inventario: novoInventario,
+        personagens: novosPersonagens
+      };
+      setNovoUser(_novoUser);
     }
+  }
 
-    function handleDesequipar() {
-        playClick(2)
-        const _personagem = novoUser.personagens.find(item=>item.personagemId==personagemId)
-        const itemAtualEquipado = _personagem.equipamentos[filtroItem.atributo]
+  function handleDesequipar() {
+    playClick(2);
 
-        const novoPersonagem = {
-            ..._personagem,
-            equipamentos: {
-                ...personagem.equipamentos,
-                [filtroItem.atributo]: null
-            }
-        }
-        const novosPersonagens = [
-            ...novoUser.personagens.filter((personagem)=> personagem.personagemId!=personagemId),
-            novoPersonagem,
-        ]
-        const novoInventario = novoUser.inventario.filter((item, i)=> i!=itemEscolhido.index)
-        novoInventario.push({itemId:itemAtualEquipado, quantidade: 1})
+    const _personagem = novoUser.personagens.find((item) => item.personagemId == personagemId);
+    const itemAtualEquipado = _personagem.equipamentos[filtroItem.atributo];
 
-        const _novoUser = {
-            ...user,
-            inventario: novoInventario,
-            personagens: novosPersonagens,
-        }
-        setNovoUser(_novoUser)
-        setItemEscolhido({index: null})
-    }
+    const novoPersonagem = {
+      ..._personagem,
+      equipamentos: {
+        ...personagem.equipamentos,
+        [filtroItem.atributo]: null
+      }
+    };
+    const novosPersonagens = [...novoUser.personagens.filter((personagem) => personagem.personagemId != personagemId), novoPersonagem];
+    const novoInventario = novoUser.inventario.filter((item, i) => i != itemEscolhido.index);
+    novoInventario.push({
+      itemId: itemAtualEquipado,
+      itemTipo: ITEM_TIPO.EQUIPAMENTO,
+      quantidade: 1
+    });
 
-    function handleSalvarEquipamento() {
-        setUser(novoUser)
-        playClick(2)
-    }
+    const _novoUser = {
+      ...user,
+      inventario: novoInventario,
+      personagens: novosPersonagens
+    };
+    setNovoUser(_novoUser);
+    setItemEscolhido({ index: null });
+  }
 
-    function handleAbrirModal(filtro) {
-        playClick(1)
-        setModalIsOpen(true)
-        setFiltroItem(filtro)
-    }
+  function handleSalvarEquipamento() {
+    setUser(novoUser);
+    playClick(2);
+  }
 
-    function renderCardEquipamento(filtro) {
-        const itemData = EQUIPAMENTOS_DATA.find(item=>item.id==personagem.equipamentos[filtro.atributo])
-        console.log(itemData)
-        console.log(personagem)
+  function handleAbrirModal(filtro) {
+    playClick(1);
+    setModalIsOpen(true);
+    setFiltroItem(filtro);
+  }
 
-        return (
-            <div className="card-equipamento">
-                <h1>{filtro.titulo}</h1>
-                <div
-                onMouseEnter={()=>playHover(1)}
-                className="card"
-                onClick={!personagemBatalha?()=>handleAbrirModal(filtro):null}
-                >
-                    {itemData ?
-                        <img
-                        className="item-equipado"
-                        src={itemData.sprite}
-                        alt={`Ícone de `}
-                        />
-                    :
-                    <>
-                    <img src={filtro.icon} alt="Ícone de acessório" />
-                    {!personagemBatalha?<h1>+</h1>:null}
-                    </>}
-                </div>
-                {itemData ?
-                    <section>
-                    <h1>{itemData.nome}</h1>
-                    {itemData.bonus.length>0 ?
-                        itemData.bonus.map((bonus,i)=>{
-                            return <div className="bonus" key={i}>
-                                    <div>
-                                    <img src={bonus.icon} alt="Ícone do atributo" />
-                                    {bonus.nome}
-                                    </div>
-                                    +{bonus.valor}
-                                </div>
-                        })
-                    :null}
-                </section>
-                :null}
-            </div>
-        )
-    }
-
-    function renderCardItem(item) {
-        const _personagem = novoUser.personagens.find(person=>person.personagemId===item.personagemEquipadoId)
-        const personagemEquipado = _personagem? instanciarPersonagem(_personagem) : {perfil: null}
-
-        return (
-            <li
-            onMouseEnter={()=>playHover(1)}
-            onClick={()=>handleEscolherItem(item)}
-            style={{background: `var(--card-${item.raridade}-estrelas)`}}
-            className={itemEscolhido.index===item.index?"item-escolhido":null}>
-                {personagemEquipado.perfil?
-                <img src={personagemEquipado.perfil}
-                alt="Sprite do personagem"
-                className="personagem-equipado" />
-                :null}
-
-                <img src={item.sprite} alt="" />
-                <footer>
-                <RaridadeEstrelas quantidade={item.raridade}/>
-                </footer>
-            </li>
-        )
+  function renderCardEquipamento(filtro) {
+    const itemData = EQUIPAMENTOS_DATA.find((item) => item.id == personagem.equipamentos[filtro.atributo]);
+    const bonusAcoesList = [];
+    if (itemData) {
+      itemData.acoes.ataques.map((ataque) =>
+        bonusAcoesList.push({
+          texto: "Ataque:",
+          acao: ATAQUES_DATA.find((_ataque) => _ataque.id === ataque.ataqueId)
+        })
+      );
+      itemData.acoes.habilidades.map((habilidade) =>
+        bonusAcoesList.push({
+          texto: "Habilidade:",
+          acao: HABILIDADES_DATA.find((_habilidade) => _habilidade.id === habilidade.habilidadeId)
+        })
+      );
+      itemData.acoes.talentos.map((talento) => bonusAcoesList.push({ texto: "Talento:", acao: talento }));
     }
 
     return (
-        <ContainerScreen>
-            <BackButton onClick={onBack? ()=>{onBack()} : null}/>
-            <div className="personagem-equipamentos">
-                <section className="personagem">
-                {personagem?
-                <>
-                    <h1>{personagem.nome}</h1>
-                    <img src={personagem.sprite} alt="Sprite do personagem" />
-                </>
-                :null}
-                </section>
-                {personagem?
-                <>
-                <section className="equipamento-section">
-                    <h1 className="titulo">Equipamentos</h1>
-                    <section>
-                    {renderCardEquipamento(EQUIPAMENTO_CATEGORIA.ARMA)}
-                    {renderCardEquipamento(EQUIPAMENTO_CATEGORIA.ARMADURA)}
-                    {renderCardEquipamento(EQUIPAMENTO_CATEGORIA.ACESSORIO_1)}
-                    {renderCardEquipamento(EQUIPAMENTO_CATEGORIA.ACESSORIO_2)}
-                    </section>
-                    {!personagemBatalha?
-                        <BotaoPrimario
-                        ativo={user!=novoUser}
-                        onClick={handleSalvarEquipamento}>
-                            Salvar
-                        </BotaoPrimario>
-                    :null}
-                </section>
-                
-                <ModalItemLista
-                modalIsOpen={modalIsOpen}
-                setModalIsOpen={setModalIsOpen}
-                categoria={ITEM_TIPO.EQUIPAMENTO}
-                itens={equipamentos}
-                filtroItem={filtroItem}
-                itemEscolhido={itemEscolhido}
-                titulo={`${filtroItem.titulo}s`}
-                functions={{handleDesequipar, handleEquipar, renderCardItem}}
-                />
-                </>
-                :null}
-            </div>
-        </ContainerScreen>
-    )
+      <div className="card-equipamento">
+        <h1>{filtro.titulo}</h1>
+        <div onMouseEnter={personagemBatalha && !itemData ? null : () => playHover(1)}
+        className="card"
+        onClick={!personagemBatalha ? () => handleAbrirModal(filtro) : null}>
+          {itemData ? (
+            <img className="item-equipado" src={itemData.sprite} alt={`Ícone de `} />
+          ) : (
+            <>
+              <img src={filtro.icon} alt="Ícone de acessório" />
+              {!personagemBatalha ? <h1>+</h1> : null}
+            </>
+          )}
+        </div>
+        {itemData ? (
+          <section>
+            <h1>{itemData.nome}</h1>
+            {itemData.bonus.length > 0
+              ? itemData.bonus.map((bonus, i) => {
+                  return renderBonus(bonus.nome, bonus.valor, bonus.icon, i);
+                })
+              : null}
+            {bonusAcoesList.length > 0
+              ? bonusAcoesList.map((bonus, i) => {
+                  return renderBonus(`${bonus.texto} ${bonus.acao.nome}`, null, ICONS[`ELEMENTO_${bonus.acao.elemento}`], i);
+                })
+              : null}
+          </section>
+        ) : null}
+      </div>
+    );
+  }
 
+  function renderBonus(nome, valor, icon, key) {
+    return (
+      <div className="bonus" key={`${nome}-${key}`}>
+        <div>
+          <img src={icon} alt={`Ícone de ${nome}`} />
+          {nome}
+        </div>
+        {valor ? `+${valor}` : null}
+      </div>
+    );
+  }
+
+  function renderCardItem(item) {
+    const _personagem = novoUser.personagens.find((person) => person.personagemId === item.personagemEquipadoId);
+    const personagemEquipado = _personagem ? instanciarPersonagem(_personagem) : { perfil: null };
+
+    return (
+      <li onMouseEnter={() => playHover(1)} onClick={() => handleEscolherItem(item)} style={{ background: `var(--card-${item.raridade}-estrelas)` }} className={itemEscolhido.index === item.index ? "item-escolhido" : null}>
+        {personagemEquipado.perfil ? <img src={personagemEquipado.perfil} alt="Sprite do personagem" className="personagem-equipado" /> : null}
+
+        <img src={item.sprite} alt="" />
+        <footer>
+          <RaridadeEstrelas quantidade={item.raridade} />
+        </footer>
+      </li>
+    );
+  }
+
+  return (
+    <ContainerScreen>
+      <BackButton
+        onClick={
+          onBack
+            ? () => {
+                onBack();
+              }
+            : null
+        }
+      />
+      <div className="personagem-equipamentos">
+        <section className="personagem">
+          {personagem ? (
+            <>
+              <h1>{personagem.nome}</h1>
+              <img src={personagem.sprite} alt="Sprite do personagem" />
+            </>
+          ) : null}
+        </section>
+        {personagem ? (
+          <>
+            <section className="equipamento-section">
+              <h1 className="titulo">Equipamentos</h1>
+              <section>
+                {renderCardEquipamento(EQUIPAMENTO_CATEGORIA.ARMA)}
+                {renderCardEquipamento(EQUIPAMENTO_CATEGORIA.ARMADURA)}
+                {renderCardEquipamento(EQUIPAMENTO_CATEGORIA.ACESSORIO_1)}
+                {renderCardEquipamento(EQUIPAMENTO_CATEGORIA.ACESSORIO_2)}
+              </section>
+              {!personagemBatalha ? (
+                <BotaoPrimario ativo={user != novoUser} onClick={handleSalvarEquipamento}>
+                  Salvar
+                </BotaoPrimario>
+              ) : null}
+            </section>
+
+            <ModalItemLista
+              modalIsOpen={modalIsOpen}
+              setModalIsOpen={setModalIsOpen}
+              categoria={ITEM_TIPO.EQUIPAMENTO}
+              itens={equipamentos}
+              filtroItem={filtroItem}
+              itemEscolhido={itemEscolhido}
+              titulo={`${filtroItem.titulo}s`}
+              personagem={personagem}
+              functions={{ handleDesequipar, handleEquipar, renderCardItem }}
+            />
+          </>
+        ) : null}
+      </div>
+    </ContainerScreen>
+  );
 }

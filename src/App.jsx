@@ -8,14 +8,13 @@ import { patchLogs } from "./utils/patch-logs.util";
 
 function App() {
   let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
 
-  useEffect(()=>{
-  },[])
-  
+  useEffect(() => {}, []);
+
   return (
     <GlobalUserProvider>
-      <ToastContainer className={"toaster"}/>
+      <ToastContainer className={"toaster"} />
       <RouterProvider router={router} />
     </GlobalUserProvider>
   );

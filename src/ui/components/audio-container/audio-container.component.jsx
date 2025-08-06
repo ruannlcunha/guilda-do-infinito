@@ -1,6 +1,3 @@
-
-export function AudioContainer({audio}) {
-
-    return <audio src={audio}></audio>
-
+export function AudioContainer({ audio }) {
+  return <audio src={audio}></audio>;
 }

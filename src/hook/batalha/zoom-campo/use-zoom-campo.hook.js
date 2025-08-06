@@ -1,15 +1,13 @@
 import { useState } from "react";
 
 export function useZoomCampo() {
-  const [zoom, setZoom] = useState(100);
-
-  function aumentarZoom() {
+  function aumentarZoom(zoom, setZoom) {
     zoom !== 100 ? setZoom(zoom + 25) : null;
   }
 
-  function diminuirZoom() {
+  function diminuirZoom(zoom, setZoom) {
     zoom !== 50 ? setZoom(zoom - 25) : null;
   }
 
-  return { zoom, aumentarZoom, diminuirZoom };
+  return { aumentarZoom, diminuirZoom };
 }
